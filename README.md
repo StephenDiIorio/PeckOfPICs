@@ -1,5 +1,5 @@
-# SimplePIC
-A simple electrostatic particle-in-cell code made for NERS 574 at UMich.
+# Peck Of PICs
+A simple electrostatic particle-in-cell code made for NERS 590 at UMich.
 
 There should be very little the user has to do to actually use the code. The code itself uses normalized units, where time is normalized against the plasma frequency, momentum to m_e c, distance to plasma frequency / c, etc.
 main() is contained within pic.cpp. All the set up for the parameters in the simulation, species definitions, E and B field initializations, etc. are to be provided by the user in a .h file that is included in the pic.cpp file.
