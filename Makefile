@@ -13,7 +13,7 @@ SRCDIR=src
 BINDIR=bin
 OBJDIR=obj
 
-SRCFILES=pic.cpp Simulation.cpp Particle.cpp Species.cpp Field.cpp FFT.cpp ThreeVec.cpp
+SRCFILES=pic.cpp Simulation.cpp Particle.cpp Species.cpp Field.cpp FFT.cpp ThreeVec.cpp GridObject.cpp
 
 OBJFILES:=$(SRCFILES:.cpp=.o)
 
