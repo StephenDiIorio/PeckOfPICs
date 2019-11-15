@@ -1,14 +1,14 @@
-#include "2dField.h"
+#include "Field2d.h"
 
 
 /**********************************************************
 CONSTRUCTORS/DESTRUCTORS
 ***********************************************************/
-2dField::2dField() //TODO: See if this can be removed
+Field2d::Field2d() //TODO: See if this can be removed
 {
 }
 
-2dField::2dField(uint nx, uint ny, double dx, double dy,
+Field2d::Field2d(uint nx, uint ny, double dx, double dy,
     std::function<void(Field2d &, uint, uint)> init_fcn)
 {
     this->size = nx * ny;
@@ -22,12 +22,12 @@ CONSTRUCTORS/DESTRUCTORS
     init_field(init_fcn);
 }
 
-2dField::~2dField()
+Field2d::~Field2d()
 {
 }
 //-----------------------------------------
 
-int 2dField::solve_field(GridObject *charge_density)
+int Field2d::solve_field(GridObject *charge_density)
 {
     int err = 0;
 
@@ -39,7 +39,7 @@ int 2dField::solve_field(GridObject *charge_density)
     return err;
 }
 
-int 2dField::solve_field_spectral(std::vector<double> re, std::vector<double> im)
+int Field2d::solve_field_spectral(std::vector<double> re, std::vector<double> im)
 {
     // For total electrostatic energy diagnostic
     this->total_U = 0.0;
@@ -77,7 +77,7 @@ int 2dField::solve_field_spectral(std::vector<double> re, std::vector<double> im
     {
         return err;
     }
-    this->f1 = im;
+    this->f1 = GridObject(this->size, 0, im);
 
     // For total electrostatic energy diagnostic
     this->total_U *= 0.5;
@@ -85,19 +85,17 @@ int 2dField::solve_field_spectral(std::vector<double> re, std::vector<double> im
     return err;
 }
 
-void 2dField::print_field()
+void Field2d::print_field()
 {
-    for (auto &f : this->f1)
-    {
-        std::cout << f << '\t';
-    }
-    std::cout << std::endl;
+	f1.print_grid_data();
+	f2.print_grid_data();
+	f3.print_grid_data();
 }
 
 /**********************************************************
 PRIVATE FUNCTIONS
 ***********************************************************/
-void 2dField::init_field(std::function<void(2dField &, uint, uint)> init_fcn)
+void Field2d::init_field(std::function<void(Field2d &, uint, uint)> init_fcn)
 {
     init_fcn(*this, this->nx, this->ny);
 }
