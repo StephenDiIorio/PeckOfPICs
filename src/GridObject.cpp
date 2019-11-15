@@ -8,6 +8,14 @@ GridObject::GridObject()
 {
 }
 
+GridObject::GridObject(uint nx, uint ny)
+{
+    this->nx = nx;
+    this->ny = ny;
+
+    this->gridded_data = std::vector<double>(nx * ny, 0.0);
+}
+
 GridObject::GridObject(uint nx, uint ny, std::function<void(GridObject &, uint, uint)> init_fcn)
 {
     this->nx = nx;
@@ -29,10 +37,21 @@ GridObject::~GridObject()
 }
 //-----------------------------------------
 
-inline double GridObject::get_grid_data(uint index_x, uint index_y)
-{
-    return gridded_data.at(index_x * ny + index_y);
-}
+
+// inline void GridObject::add_to_grid_data(uint index_x, uint index_y, double val)
+// {
+//     gridded_data.at(index_x * ny + index_y) += val;
+// }
+
+// inline void GridObject::set_grid_data(uint index_x, uint index_y, double val)
+// {
+//     gridded_data.at(index_x * ny + index_y) = val;
+// }
+
+// inline double GridObject::get_grid_data(uint index_x, uint index_y) const
+// {
+//     return gridded_data.at(index_x * ny + index_y);
+// }
 
 void GridObject::print_grid_data()
 {

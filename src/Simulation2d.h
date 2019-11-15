@@ -2,16 +2,16 @@
     Another option, to make it more modular from different simulation settings, is to have init_sim take in just a simulation object and create a new function, new_sim. init_sim would work on parsing all of the parameters for the simulation, and new_sim would be called at the end of init_sim and would handle assigning the values of the simulation object for the specific problem. Then, in the main function, call init_sim. Can then modularize this by either including a separate file that handles all of the parameter read in and initialization.
 */
 
-#ifndef SIMULATION_H
-#define SIMULATION_H
+#ifndef SIMULATION2d_H
+#define SIMULATION2d_H
 
 #include <vector>
 #include <functional>
 
 #include "Species.h"
-#include "Field.h"
+#include "Field2d.h"
 
-class 2dSimulation
+class Simulation2d
 {
     private:
         int err;
@@ -19,7 +19,7 @@ class 2dSimulation
         /**********************************************************
         FUNCTIONS
         ***********************************************************/
-        void init_simulation();
+        void init_simulation2d();
 
         void deposit_charge();
         void solve_field();
@@ -49,23 +49,23 @@ class 2dSimulation
         std::vector<Species> spec;
 
         // Field information
-        Field e_field;
-        Field b_field;
+        Field2d e_field;
+        Field2d b_field;
 
         /**********************************************************
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
-        2dSimulation(uint ndump, uint nx, double L, double dt, double tmax);
-        ~2dSimulation();
+        Simulation2d(uint ndump, uint nx, uint ny, double L_x, double L_y, double dt, double tmax);
+        ~Simulation2d();
         //-----------------------------------------
 
-        void add_species(uint npar, double Qpar, double density, std::function<void(Species &, uint)> init_fcn);
-        void add_e_field(std::function<void(Field &, uint)> init_fcn);
-        void add_b_field(std::function<void(Field &, uint)> init_fcn);
+        void add_species(uint npar, double Qpar, double density, std::function<void(Species &, uint, uint)> init_fcn);
+        void add_e_field(std::function<void(Field2d &, uint, uint)> init_fcn);
+        void add_b_field(std::function<void(Field2d &, uint, uint)> init_fcn);
 
         bool dump_data();
         void iterate();
-        std::vector<double> get_total_density();
+        GridObject get_total_density();
 
         void print_spec_density(uint i);
 };

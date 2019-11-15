@@ -5,8 +5,9 @@
 #include <vector>
 #include <functional>
 
+// #include "GridObje"
 #include "Particle.h"
-#include "Field.h"
+#include "Field2d.h"
 #include "ThreeVec.h"
 
 class Species
@@ -14,15 +15,16 @@ class Species
     private:
         std::vector<Particle> parts;
 
-        void init_species(std::function<void(Species &, uint)> init_fcn);
-        void apply_bc(ThreeVec &pos, const double L_sys, const double dx);
+        void init_species(std::function<void(Species &, uint, uint)> init_fcn);
+        void apply_bc(ThreeVec &pos, const double L_x, const double L_y, 
+            const double dx, const double dy);
 
       public:
         // uint ppc;
         uint npar;
 
         double density;
-        std::vector<double> density_arr;
+        GridObject density_arr;
 
         double Qpar;
 
@@ -32,7 +34,11 @@ class Species
         /**********************************************************
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
-        Species(uint ppc, uint nx, double Qpar, double density, std::function<void(Species &, uint)> init_fcn);
+        Species();
+
+        Species(uint ppc, uint nx, uint ny, 
+			double Qpar, double density, 
+			std::function<void(Species &, uint, uint)> init_fcn);
 
         ~Species();
         //-----------------------------------------
@@ -41,10 +47,18 @@ class Species
         void add_particle(ThreeVec pos, ThreeVec mom, double Wpar);
         void add_particle(Particle p);
 
-        int deposit_charge(const double dx, const double L_sys, const uint Nx);
-        int map_field_to_part(const Field &f, const double dx, const double L_sys, const uint Nx);
-        int push_particles(const unsigned long n_iter, const double L_sys, const double dt, const double dx);
-        int boris_push(const unsigned long n_iter, const double L_sys, const double dt, const double dx);
+        int deposit_charge(const double dx, const double dy, 
+			const double L_x, const double L_y,
+			const uint Nx, const uint Ny);
+        int map_field_to_part(const Field2d &f, const double dx, const double dy,
+			const double L_x, const double L_y, 
+			const uint Nx, const uint Ny);
+        int push_particles(const unsigned long n_iter,
+			const double L_x, const double L_y, const double dt, 
+			const double dx, const double dy);
+        int boris_push(const unsigned long n_iter, 
+			const double L_x, const double L_y, 
+			const double dt, const double dx, const double dy);
 
         std::vector<double> get_x_phasespace();
         std::vector<double> get_px_phasespace();

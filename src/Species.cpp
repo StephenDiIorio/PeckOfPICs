@@ -241,11 +241,12 @@ std::vector<double> Species::get_py_phasespace()
 
 void Species::print_density()
 {
-    for (auto &d : this->density_arr)
-    {
-        std::cout << d << '\t';
-    }
-    std::cout << std::endl;
+    // for (auto &d : this->density_arr)
+    // {
+    //     std::cout << d << '\t';
+    // }
+    // std::cout << std::endl;
+    
 }
 
 /**********************************************************
