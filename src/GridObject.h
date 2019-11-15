@@ -12,14 +12,14 @@ class GridObject
         std::vector<double> gridded_data;
         int nx, ny;
 
-        void init_grid_obj(std::function<void(GridObject &, unsigned int, unsigned int)> init_fcn);
+        void init_grid_obj(std::function<void(GridObject &, uint, uint)> init_fcn);
 
     public:
         /**********************************************************
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
         GridObject(); //TODO: see if this can be removed
-        GridObject(uint nx, uint ny, std::function<void(GridObject &, unsigned int, unsigned int)> init_fcn);
+        GridObject(uint nx, uint ny, std::function<void(GridObject &, uint, uint)> init_fcn);
         ~GridObject();
         //-----------------------------------------
 

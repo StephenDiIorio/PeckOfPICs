@@ -1,4 +1,5 @@
-#include "Field.h"
+#include "2dField.h"
+
 
 /**********************************************************
 CONSTRUCTORS/DESTRUCTORS
@@ -7,8 +8,8 @@ CONSTRUCTORS/DESTRUCTORS
 {
 }
 
-2dField::2dField(uint nx, double dx, uint ny, double dy,
-    std::function<void(Field &, uint)> init_fcn)
+2dField::2dField(uint nx, uint ny, double dx, double dy,
+    std::function<void(Field &, uint, uint)> init_fcn)
 {
     this->size = nx * ny;
 
@@ -26,7 +27,19 @@ CONSTRUCTORS/DESTRUCTORS
 }
 //-----------------------------------------
 
-int 2dField::solve_field(std::vector<double> re, std::vector<double> im)
+int 2dField::solve_field(GridObject *charge_density)
+{
+    int err = 0;
+
+    // get field by:
+    GridObject phi;
+
+    // A phi = density
+
+    return err;
+}
+
+int 2dField::solve_field_spectral(std::vector<double> re, std::vector<double> im)
 {
     // For total electrostatic energy diagnostic
     this->total_U = 0.0;
@@ -84,7 +97,7 @@ void 2dField::print_field()
 /**********************************************************
 PRIVATE FUNCTIONS
 ***********************************************************/
-void 2dField::init_field(std::function<void(2dField &, uint)> init_fcn)
+void 2dField::init_field(std::function<void(2dField &, uint, uint)> init_fcn)
 {
-    init_fcn(*this, this->size);
+    init_fcn(*this, this->nx, this->ny);
 }
