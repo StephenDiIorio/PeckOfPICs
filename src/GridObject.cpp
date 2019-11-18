@@ -5,7 +5,7 @@ CONSTRUCTORS/DESTRUCTORS
 ***********************************************************/
 
 /**
- * @brief Constructor for Grid Object:: Grid Object object
+ * @brief Constructor for Grid Object object
  *
  */
 GridObject::GridObject()
@@ -13,7 +13,7 @@ GridObject::GridObject()
 }
 
 /**
- * @brief Constructor for Grid Object:: Grid Object object
+ * @brief Constructor for Grid Object object
  *
  * @param nx Number of x values
  * @param ny Number of y values
@@ -27,7 +27,7 @@ GridObject::GridObject(uint nx, uint ny)
 }
 
 /**
- * @brief Constructor for Grid Object:: Grid Object object
+ * @brief Constructor for Grid Object object
  *
  * @param nx Number of x values
  * @param ny Number of y values
@@ -43,7 +43,7 @@ GridObject::GridObject(uint nx, uint ny, std::function<void(GridObject &, uint, 
 }
 
 /**
- * @brief Constructor for Grid Object:: Grid Object object
+ * @brief Constructor for Grid Object object
  *
  * @param nx Number of x values
  * @param ny Number of y values
@@ -58,7 +58,7 @@ GridObject::GridObject(uint nx, uint ny, std::vector<double> data) // a 'copy' c
 }
 
 /**
- * @brief Destructor for Grid Object:: Grid Object object
+ * @brief Destructor for Grid Object object
  *
  */
 GridObject::~GridObject()
