@@ -8,6 +8,7 @@
 #include <vector>
 #include <functional>
 
+#include "GridObject.h"
 #include "Species.h"
 #include "Field.h"
 
@@ -16,8 +17,9 @@ class Simulation
     private:
         int err;
 
+
         /**********************************************************
-        FUNCTIONS
+        PRIVATE CLASS METHODS
         ***********************************************************/
         void init_simulation();
 
@@ -25,45 +27,58 @@ class Simulation
         void solve_field();
         void map_field_to_species();
         void push_species();
+        //-----------------------------------------
 
     public:
         unsigned long n_iter;
         uint ndump;
 
         // Grid information
-        uint Nx;      // number of grid points
-        double L_sys; // system length
-        double dx;    // grid spacing
-        std::vector<double> grid;
+        uint Nx;     // number of grid points in x
+        uint Ny;     // number of grid points in y
+        double L_x;  // system length in x
+        double L_y;  // system length in y
+        double dx;   // grid spacing in x
+        double dy;   // grid spacing in y
 
         // Temporal information
         double dt;    // timestep
         double tmax;  // max time
 
         // Species information
-        uint nspec;   // number of species
+        uint nspec;  // number of species
         std::vector<Species> spec;
 
         // Field information
         Field e_field;
         Field b_field;
 
+
         /**********************************************************
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
-        Simulation(uint ndump, uint nx, double L, double dt, double tmax);
+        Simulation(uint ndump,
+                   uint Nx, uint Ny,
+                   double L_x, double L_y,
+                   double dt, double tmax);
         ~Simulation();
         //-----------------------------------------
 
-        void add_species(uint npar, double Qpar, double density, std::function<void(Species &, uint)> init_fcn);
+
+        /**********************************************************
+        CLASS METHODS
+        ***********************************************************/
+        void add_species(uint npar, double Qpar, double density,
+                         std::function<void(Species &, uint)> init_fcn);
         void add_e_field(std::function<void(Field &, uint)> init_fcn);
         void add_b_field(std::function<void(Field &, uint)> init_fcn);
 
         bool dump_data();
         void iterate();
-        std::vector<double> get_total_density();
+        GridObject get_total_density();
 
         void print_spec_density(uint i);
+        //-----------------------------------------
 };
 
 #endif
