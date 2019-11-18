@@ -163,7 +163,7 @@ void Simulation::print_spec_density(uint i)
 
 
 /**********************************************************
-PRIVATE FUNCTIONS
+PRIVATE CLASS METHODS
 ***********************************************************/
 
 void Simulation::deposit_charge()

@@ -19,7 +19,7 @@ class Simulation
 
 
         /**********************************************************
-        CLASS METHODS
+        PRIVATE CLASS METHODS
         ***********************************************************/
         void init_simulation();
 
