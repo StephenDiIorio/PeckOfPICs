@@ -17,6 +17,7 @@ class Field2d
         std::vector<double> kappa;
 
         void init_field(std::function<void(Field2d &, uint, uint)> init_fcn);
+        GridObject density_bar;
 
     public:
         uint nx, ny;
@@ -36,9 +37,9 @@ class Field2d
         ~Field2d();
         //-----------------------------------------
 
-        int solve_field_spectral(std::vector<double> re, std::vector<double> im);
+        int solve_field_spectral(GridObject charge_density);
         // solve_field_spectral may not currently work
-        int solve_field(GridObject *charge_density);
+        int solve_field(GridObject charge_density);
         void print_field();
 };
 

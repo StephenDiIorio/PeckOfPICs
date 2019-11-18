@@ -27,7 +27,7 @@ Field2d::~Field2d()
 }
 //-----------------------------------------
 
-int Field2d::solve_field(GridObject *charge_density)
+int Field2d::solve_field(GridObject charge_density)
 {
     int err = 0;
 
@@ -50,7 +50,7 @@ int Field2d::solve_field(GridObject *charge_density)
     return err;
 }
 
-int Field2d::solve_field_spectral(std::vector<double> re, std::vector<double> im)
+int Field2d::solve_field_spectral(GridObject charge_density)
 {
     // For total electrostatic energy diagnostic
     this->total_U = 0.0;
@@ -58,6 +58,9 @@ int Field2d::solve_field_spectral(std::vector<double> re, std::vector<double> im
     int err = 0;
     const uint fft = 1;   // to perform fft
     const uint ifft = -1; // to perform ifft
+
+    std::vector<double> re(this->size, 0.0);
+    std::vector<double> im(this->size, 0.0);
 
     err = FFT(re, im, this->size, fft);
     if (err)
@@ -83,7 +86,7 @@ int Field2d::solve_field_spectral(std::vector<double> re, std::vector<double> im
     }
     // By the end of this, the real part has become the imaginary part,
     // and vice versa, so we switch the order in the inverse fft
-    
+
     err = FFT(im, re, this->size, ifft);
     if (err)
     {

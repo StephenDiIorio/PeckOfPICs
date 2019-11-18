@@ -22,7 +22,6 @@ class Simulation2d
         void init_simulation2d();
 
         void deposit_charge();
-        void solve_field();
         void map_field_to_species();
         void push_species();
 

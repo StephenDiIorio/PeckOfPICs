@@ -35,7 +35,8 @@ double dt, double tmax)
 
     // Initialize densities and fields after instantiation
     deposit_charge();
-    solve_field();
+    // solve_field();
+    this->e_field.solve_field(get_total_density());
 }
 
 Simulation2d::~Simulation2d()
@@ -79,7 +80,7 @@ void Simulation2d::iterate()
     map_field_to_species();
     push_species();
     deposit_charge();
-    solve_field();
+    this->e_field.solve_field(get_total_density());
 
     ++this->n_iter;
 }
@@ -123,13 +124,13 @@ void Simulation2d::deposit_charge()
     }
 }
 
-void Simulation2d::solve_field()
-{
-    // std::vector<double> total_dens_re = get_total_density();
-    // std::vector<double> total_dens_im = std::vector<double>(this->Nx, 0.0);
+// void Simulation2d::solve_field()
+// {
+//     // std::vector<double> total_dens_re = get_total_density();
+//     // std::vector<double> total_dens_im = std::vector<double>(this->Nx, 0.0);
 
-    // this->e_field.solve_field(total_dens_re, total_dens_im); //TODO: having this function return a value and change state seems bad, maybe pass err as a parameter to also be changed?
-}
+//     // this->e_field.solve_field(total_dens_re, total_dens_im); //TODO: having this function return a value and change state seems bad, maybe pass err as a parameter to also be changed?
+// }
 
 void Simulation2d::map_field_to_species()
 {
