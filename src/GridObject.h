@@ -44,6 +44,13 @@ class GridObject
             return gridded_data.at(index_x * ny + index_y);
         }
 
-        inline void print_grid_data();
+        inline void print_grid_data()
+        {
+        for (auto &f : this->gridded_data )
+            {
+                std::cout << f << '\t';
+            }
+            std::cout << std::endl;
+        }
 };
 #endif

@@ -53,14 +53,7 @@ GridObject::~GridObject()
 //     return gridded_data.at(index_x * ny + index_y);
 // }
 
-void GridObject::print_grid_data()
-{
-for (auto &f : this->gridded_data )
-    {
-        std::cout << f << '\t';
-    }
-    std::cout << std::endl;
-}
+
 
 
 /**********************************************************

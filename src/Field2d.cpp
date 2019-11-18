@@ -32,9 +32,20 @@ int Field2d::solve_field(GridObject *charge_density)
     int err = 0;
 
     // get field by:
-    GridObject phi;
-
     // A phi = density
+    // where A is the discretized Laplacian
+
+    // then E = -grad phi; take finite difference
+
+    // initialize phi to zero
+    GridObject phi = GridObject(this->nx, this->ny, std::vector<double>(this->size, 0.0));
+	
+
+
+	// relaxation
+	// dt = 1.
+	
+	// while 
 
     return err;
 }
@@ -72,6 +83,7 @@ int Field2d::solve_field_spectral(std::vector<double> re, std::vector<double> im
     }
     // By the end of this, the real part has become the imaginary part,
     // and vice versa, so we switch the order in the inverse fft
+    
     err = FFT(im, re, this->size, ifft);
     if (err)
     {
