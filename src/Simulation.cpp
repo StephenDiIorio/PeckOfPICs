@@ -8,15 +8,15 @@ CONSTRUCTORS/DESTRUCTORS
  * @brief Constructor for Simulation object
  *
  * @param ndump Number of data dumps
- * @param nx Number of grid spaces in x direction
- * @param ny Number of grid spaces in y direction
+ * @param Nx Number of grid spaces in x direction
+ * @param Ny Number of grid spaces in y direction
  * @param L_x Physical length of system in x direction
  * @param L_y Physical length of system in y direction
  * @param dt Timestep
  * @param tmax Max simulation runtime
  */
 Simulation::Simulation(uint ndump,
-                       uint nx, uint ny,
+                       uint Nx, uint Ny,
                        double L_x, double L_y,
                        double dt, double tmax)
 {
@@ -167,6 +167,10 @@ void Simulation::print_spec_density(uint i)
 PRIVATE CLASS METHODS
 ***********************************************************/
 
+/**
+ * @brief Deposits all species' particle charge onto grid
+ *
+ */
 void Simulation::deposit_charge()
 {
     for (auto &s : this->spec)
@@ -176,6 +180,10 @@ void Simulation::deposit_charge()
     }
 }
 
+/**
+ * @brief Updates the fields in the simulation based on current distribution
+ *
+ */
 void Simulation::solve_field()
 {
     // std::vector<double> total_dens_re = get_total_density();
@@ -184,6 +192,10 @@ void Simulation::solve_field()
     // this->e_field.solve_field(total_dens_re, total_dens_im); //TODO: having this function return a value and change state seems bad, maybe pass err as a parameter to also be changed?
 }
 
+/**
+ * @brief Weights the current fields to the particles for all species
+ *
+ */
 void Simulation::map_field_to_species()
 {
     for (auto &s : this->spec)
@@ -193,13 +205,16 @@ void Simulation::map_field_to_species()
     }
 }
 
+/**
+ * @brief Performs the particle push for all species
+ *
+ */
 void Simulation::push_species()
 {
     for (auto &s : this->spec)
     {
-        // s.push_particles(n_iter, this->L_sys, this->dt, this->dx);
-        s.boris_push(n_iter, this->L_x, this->L_y, this->dt, this->dx,
-                     this->dy);
+        s.push_particles(this->L_x, this->L_y, this->dt, this->dx,
+                         this->dy);
     }
 }
 //-----------------------------------------

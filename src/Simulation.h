@@ -58,7 +58,7 @@ class Simulation
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
         Simulation(uint ndump,
-                   uint nx, uint ny,
+                   uint Nx, uint Ny,
                    double L_x, double L_y,
                    double dt, double tmax);
         ~Simulation();
