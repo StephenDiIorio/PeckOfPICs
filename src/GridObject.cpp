@@ -8,9 +8,9 @@ CONSTRUCTORS/DESTRUCTORS
  * @brief Constructor for Grid Object object
  *
  */
-GridObject::GridObject()
-{
-}
+// GridObject::GridObject()
+// {
+// }
 
 /**
  * @brief Constructor for Grid Object object
