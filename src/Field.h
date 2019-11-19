@@ -1,39 +1,44 @@
-#ifndef FIELD_H
-#define FIELD_H
+#ifndef FIELD2d_H
+#define FIELD2d_H
 
 #include <iostream>
 #include <vector>
 #include <functional>
 
 #include "FFT.h"
+#include "GridObject.h"
 
 typedef unsigned int uint;
 
-class Field
+class Field2d
 {
     private:
         std::vector<double> K2;
         std::vector<double> kappa;
 
-        void init_field(std::function<void(Field &, uint)> init_fcn);
+        void init_field(std::function<void(Field2d &, uint, uint)> init_fcn);
 
     public:
+        uint nx, ny;
         uint size;
-        std::vector<double> f1;
-        std::vector<double> f2;
-        std::vector<double> f3;
+        GridObject f1;
+        GridObject f2;
+        GridObject f3;
 
         double total_U;
 
         /**********************************************************
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
-        Field(); //TODO: see if this can be removed
-        Field(uint nx, double dx, std::function<void(Field &, uint)> init_fcn);
-        ~Field();
+        Field2d(); //TODO: see if this can be removed
+        Field2d(uint nx, uint ny, double dx, double dy,
+            std::function<void(Field2d &, uint, uint)> init_fcn);
+        ~Field2d();
         //-----------------------------------------
 
-        int solve_field(std::vector<double> re, std::vector<double> im);
+        int solve_field_spectral(std::vector<double> re, std::vector<double> im);
+        // solve_field_spectral may not currently work
+        int solve_field(GridObject *charge_density);
         void print_field();
 };
 
