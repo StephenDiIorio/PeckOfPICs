@@ -1,15 +1,15 @@
-#include "Field2d.h"
+#include "Field.h"
 
 
 /**********************************************************
 CONSTRUCTORS/DESTRUCTORS
 ***********************************************************/
-Field2d::Field2d() //TODO: See if this can be removed
+Field::Field() //TODO: See if this can be removed
 {
 }
 
-Field2d::Field2d(uint nx, uint ny, double dx, double dy,
-    std::function<void(Field2d &, uint, uint)> init_fcn)
+Field::Field(uint nx, uint ny, double dx, double dy,
+    std::function<void(Field &, uint, uint)> init_fcn)
 {
     this->size = nx * ny;
 
@@ -22,12 +22,12 @@ Field2d::Field2d(uint nx, uint ny, double dx, double dy,
     init_field(init_fcn);
 }
 
-Field2d::~Field2d()
+Field::~Field()
 {
 }
 //-----------------------------------------
 
-int Field2d::solve_field(GridObject *charge_density)
+int Field::solve_field(GridObject *charge_density)
 {
     int err = 0;
 
@@ -39,7 +39,7 @@ int Field2d::solve_field(GridObject *charge_density)
     return err;
 }
 
-int Field2d::solve_field_spectral(std::vector<double> re, std::vector<double> im)
+int Field::solve_field_spectral(std::vector<double> re, std::vector<double> im)
 {
     // For total electrostatic energy diagnostic
     this->total_U = 0.0;
@@ -85,7 +85,7 @@ int Field2d::solve_field_spectral(std::vector<double> re, std::vector<double> im
     return err;
 }
 
-void Field2d::print_field()
+void Field::print_field()
 {
 	f1.print_grid_data();
 	f2.print_grid_data();
@@ -95,7 +95,7 @@ void Field2d::print_field()
 /**********************************************************
 PRIVATE FUNCTIONS
 ***********************************************************/
-void Field2d::init_field(std::function<void(Field2d &, uint, uint)> init_fcn)
+void Field::init_field(std::function<void(Field &, uint, uint)> init_fcn)
 {
     init_fcn(*this, this->nx, this->ny);
 }

@@ -1,5 +1,5 @@
-#ifndef FIELD2d_H
-#define FIELD2d_H
+#ifndef Field_H
+#define Field_H
 
 #include <iostream>
 #include <vector>
@@ -10,13 +10,13 @@
 
 typedef unsigned int uint;
 
-class Field2d
+class Field
 {
     private:
         std::vector<double> K2;
         std::vector<double> kappa;
 
-        void init_field(std::function<void(Field2d &, uint, uint)> init_fcn);
+        void init_field(std::function<void(Field &, uint, uint)> init_fcn);
 
     public:
         uint nx, ny;
@@ -30,10 +30,10 @@ class Field2d
         /**********************************************************
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
-        Field2d(); //TODO: see if this can be removed
-        Field2d(uint nx, uint ny, double dx, double dy,
-            std::function<void(Field2d &, uint, uint)> init_fcn);
-        ~Field2d();
+        Field(); //TODO: see if this can be removed
+        Field(uint nx, uint ny, double dx, double dy,
+            std::function<void(Field &, uint, uint)> init_fcn);
+        ~Field();
         //-----------------------------------------
 
         int solve_field_spectral(std::vector<double> re, std::vector<double> im);

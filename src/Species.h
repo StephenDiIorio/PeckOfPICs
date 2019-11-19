@@ -7,7 +7,7 @@
 
 // #include "GridObje"
 #include "Particle.h"
-#include "Field2d.h"
+#include "Field.h"
 #include "ThreeVec.h"
 
 class Species
@@ -38,7 +38,7 @@ class Species
 
         Species(uint ppc, uint nx, uint ny, 
 			double Qpar, double density, 
-			std::function<void(Species &, uint, uint)> init_fcn);
+			std::function<void(Species &, uint)> init_fcn);
 
         ~Species();
         //-----------------------------------------
@@ -50,7 +50,7 @@ class Species
         int deposit_charge(const double dx, const double dy, 
 			const double L_x, const double L_y,
 			const uint Nx, const uint Ny);
-        int map_field_to_part(const Field2d &f, const double dx, const double dy,
+        int map_field_to_part(const Field &f, const double dx, const double dy,
 			const double L_x, const double L_y, 
 			const uint Nx, const uint Ny);
         int push_particles(const unsigned long n_iter,
