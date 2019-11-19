@@ -67,24 +67,6 @@ GridObject::~GridObject()
 //-----------------------------------------
 
 
-<<<<<<< HEAD
-// inline void GridObject::add_to_grid_data(uint index_x, uint index_y, double val)
-// {
-//     gridded_data.at(index_x * ny + index_y) += val;
-// }
-
-// inline void GridObject::set_grid_data(uint index_x, uint index_y, double val)
-// {
-//     gridded_data.at(index_x * ny + index_y) = val;
-// }
-
-// inline double GridObject::get_grid_data(uint index_x, uint index_y) const
-// {
-//     return gridded_data.at(index_x * ny + index_y);
-// }
-
-
-=======
 /**********************************************************
 CLASS METHODS
 ***********************************************************/
@@ -101,7 +83,6 @@ void GridObject::print_grid_data()
     std::cout << std::endl;
 }
 //-----------------------------------------
->>>>>>> 42a9d84a041b0e5a7be43b0d5942c3bb163d341b
 
 
 /**********************************************************

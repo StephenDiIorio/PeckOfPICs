@@ -144,16 +144,6 @@ class GridObject
             return gridded_data.at(left_x * this->Ny + index_y);
         }
 
-<<<<<<< HEAD
-        inline void print_grid_data()
-        {
-        for (auto &f : this->gridded_data )
-            {
-                std::cout << f << '\t';
-            }
-            std::cout << std::endl;
-        }
-=======
         /**
          * @brief Get the right neighbor of current index
          *
@@ -199,7 +189,6 @@ class GridObject
 
         void print_grid_data();
         //-----------------------------------------
->>>>>>> 42a9d84a041b0e5a7be43b0d5942c3bb163d341b
 };
 
 #endif
