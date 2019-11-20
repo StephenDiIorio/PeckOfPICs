@@ -12,12 +12,12 @@ typedef unsigned int uint;
 class GridObject
 {
     private:
-        std::vector<double> gridded_data;
-        int Nx, Ny;
-
         void init_grid_obj(std::function<void(GridObject &, uint, uint)> init_fcn);
 
     public:
+        std::vector<double> gridded_data;
+        int Nx, Ny;
+
         /**********************************************************
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
@@ -111,6 +111,13 @@ class GridObject
             gridded_data.at(index_x * this->Ny + index_y) += val;
         }
 
+        inline void multiply_grid_data_by(uint index_x, uint index_y, double val)
+        {
+            index_x = MODULO(index_x, this->Nx);
+            index_y = MODULO(index_y, this->Ny);
+            gridded_data.at(index_x * this->Ny + index_y) *= val;
+        }
+
 
         /**
          * @brief Set the grid data object
@@ -139,22 +146,6 @@ class GridObject
             index_y = MODULO(index_y, this->Ny);
             return gridded_data.at(index_x * this->Ny + index_y);
         }
-
-        inline uint get_Nx() const
-        {
-            return this->Nx;
-        }
-
-        inline uint get_Ny() const
-        {
-            return this->Ny;
-        }
-
-        inline std::vector<double> get_grid_data_vector() const
-        {
-            return this->gridded_data;
-        }
-
 
         void print_grid_data();
         //-----------------------------------------

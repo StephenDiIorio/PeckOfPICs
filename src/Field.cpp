@@ -12,6 +12,10 @@ Field::Field(uint Nx, uint Ny, double dx, double dy,
     std::function<void(Field &, uint, uint)> init_fcn)
 {
     this->size = Nx * Ny;
+    this->Nx = Nx;
+    this->Ny = Ny;
+    this->dx = dx;
+    this->dy = dy;
 
     this->total_U = 0.0;
 
@@ -94,28 +98,71 @@ int Field::solve_field(GridObject &charge_density)
     const uint fft = 1;   // to perform fft
     const uint ifft = -1; // to perform ifft
 
-    GridObject dens_im(this->Nx, this->Ny);
+    phi_dens_re = GridObject(charge_density);
+    phi_dens_im = GridObject(this->Nx, this->Ny);
+    Ex_im = GridObject(this->Nx, this->Ny);
+    Ey_im = GridObject(this->Nx, this->Ny);
 
     // A phi = density
     // 1 fourier transform density
-    err = FFT_2d(charge_density, dens_im, fft);
+    err = FFT_2d(phi_dens_re, phi_dens_im, fft);
 
-    // then get phi: divide by appropriate value
-    GridObject phi_re(charge_density);
-    GridObject phi_im(dens_im);
+    for (int xi =0; xi < this->Nx; ++xi)
+    {
+        double kx = (2. * M_PI * xi) / this->Nx / this->dx;
+        double sinckx2 = sinc(kx* this->dx / 2);
+        double Klsq = kx*kx *sinckx2 * sinckx2;
+
+        for (int yj = 0; yj < this->Ny; ++yj)
+        {
+            double ky = (2. * M_PI * yj) / this->Ny / this->dy;
+            double sincky2 = sinc(ky* this->dy / 2);
+
+            double Klmsq_ij = Klsq + ky*ky * sincky2*sincky2;
+            phi_dens_re.multiply_grid_data_by(xi,yj, 1./Klmsq_ij);
+            phi_dens_im.multiply_grid_data_by(xi,yj, 1./Klmsq_ij);
+        }
+    }
     // set some values of phi to 0.  phi[0,0]?
+    phi_dens_re.set_grid_data(0,0,0);
+    phi_dens_im.set_grid_data(0,0,0);
 
     // then Ex, Ey are phi times appropriate value
+    // Ex(l,m) = -i kl sinc(kl dx) phi(l,m)
+    // Ey(l,m) = -i km sinc(km dy) phi(l,m)
+    // or:
+    // Ex_re(l,m) = kl sinc(kl dx) phi_im
+    // Ex_im(l,m) = - kl sinc(kl dx) phi_re
+    // Ey_re(l,m) = km sinc(km dy) phi_im
+    // Ey_im(l,m) = - km sinc(km dy) phi_re
 
+    f1 = GridObject(phi_dens_im);
+    GridObject Ex_im(phi_dens_re);
+    f2 = GridObject(phi_dens_im);
+    GridObject Ey_im(phi_dens_re);
 
-    // GridObject Ex_re(this->Nx, this->Ny);
-    GridObject Ex_im(this->Nx, this->Ny);
-    // GridObject Ey_re(this->Nx, this->Ny);
-    GridObject Ey_im(this->Nx, this->Ny);
+    for (int xi =0; xi < this->Nx; ++xi)
+    {
+        double kx = (2. * M_PI * xi) / this->Nx / this->dx;
+        double sinckx = sinc(kx* this->dx);
+        double Ki = kx *sinckx;
+
+        for (int yj = 0; yj < this->Ny; ++yj)
+        {
+            double ky = (2. * M_PI * yj) / this->Ny / this->dy;
+            double sincky = sinc(ky* this->dy);
+
+            double Kj = ky * sincky;
+            f1.multiply_grid_data_by(xi,yj, Ki);
+            Ex_im.multiply_grid_data_by(xi,yj, -Ki);
+            f2.multiply_grid_data_by(xi,yj, Kj);
+            Ey_im.multiply_grid_data_by(xi,yj, -Kj);
+        }
+    }
 
     // then Ex, Ey are inverse Fourier transformed.
     err = FFT_2d(f1, Ex_im, ifft);
-    FFT_2d(f2, Ey_im, ifft);
+    err = FFT_2d(f2, Ey_im, ifft);
     // then inverse Fourier transform back each of Ex, Ey
     // for each row: collect data, Fourier transform, return, and store
 
