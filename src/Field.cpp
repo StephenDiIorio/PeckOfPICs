@@ -1,5 +1,6 @@
 #include "Field.h"
 
+
 /**********************************************************
 CONSTRUCTORS/DESTRUCTORS
 ***********************************************************/
@@ -7,15 +8,16 @@ Field::Field() //TODO: See if this can be removed
 {
 }
 
-Field::Field(uint nx, double dx, std::function<void(Field &, uint)> init_fcn)
+Field::Field(uint nx, uint ny, double dx, double dy,
+    std::function<void(Field &, uint, uint)> init_fcn)
 {
-    this->size = nx;
+    this->size = nx * ny;
 
     this->total_U = 0.0;
 
-    std::vector<double> k = get_k_vec(this->size, dx);
-    this->K2 = get_K2_vec(k, this->size, dx);
-    this->kappa = get_kappa_vec(k, this->size, dx);
+    // std::vector<double> k = get_k_vec(this->size, dx);
+    // this->K2 = get_K2_vec(k, this->size, dx);
+    // this->kappa = get_kappa_vec(k, this->size, dx);
 
     init_field(init_fcn);
 }
@@ -25,7 +27,19 @@ Field::~Field()
 }
 //-----------------------------------------
 
-int Field::solve_field(std::vector<double> re, std::vector<double> im)
+int Field::solve_field(GridObject *charge_density)
+{
+    int err = 0;
+
+    // get field by:
+    GridObject phi;
+
+    // A phi = density
+
+    return err;
+}
+
+int Field::solve_field_spectral(std::vector<double> re, std::vector<double> im)
 {
     // For total electrostatic energy diagnostic
     this->total_U = 0.0;
@@ -63,7 +77,7 @@ int Field::solve_field(std::vector<double> re, std::vector<double> im)
     {
         return err;
     }
-    this->f1 = im;
+    this->f1 = GridObject(this->size, 0, im);
 
     // For total electrostatic energy diagnostic
     this->total_U *= 0.5;
@@ -73,17 +87,15 @@ int Field::solve_field(std::vector<double> re, std::vector<double> im)
 
 void Field::print_field()
 {
-    for (auto &f : this->f1)
-    {
-        std::cout << f << '\t';
-    }
-    std::cout << std::endl;
+	f1.print_grid_data();
+	f2.print_grid_data();
+	f3.print_grid_data();
 }
 
 /**********************************************************
 PRIVATE FUNCTIONS
 ***********************************************************/
-void Field::init_field(std::function<void(Field &, uint)> init_fcn)
+void Field::init_field(std::function<void(Field &, uint, uint)> init_fcn)
 {
-    init_fcn(*this, this->size);
+    init_fcn(*this, this->nx, this->ny);
 }

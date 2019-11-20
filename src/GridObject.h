@@ -21,7 +21,8 @@ class GridObject
         /**********************************************************
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
-        // GridObject(); //TODO: see if this can be removed
+        GridObject(); //TODO: see if this can be removed
+        // note: need an empty constructor to allow GridObject to be a member
         GridObject(uint Nx, uint Ny);
         GridObject(uint Nx, uint Ny,
                    std::function<void(GridObject &, uint, uint)> init_fcn);

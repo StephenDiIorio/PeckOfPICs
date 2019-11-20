@@ -8,9 +8,9 @@ CONSTRUCTORS/DESTRUCTORS
  * @brief Constructor for Grid Object object
  *
  */
-// GridObject::GridObject()
-// {
-// }
+GridObject::GridObject()
+{
+}
 
 /**
  * @brief Constructor for Grid Object object
@@ -56,13 +56,8 @@ GridObject::GridObject(uint Nx, uint Ny, std::vector<double> data) // a 'copy' c
 
     this->gridded_data = std::vector<double>(data);
 }
-
 /**
  * @brief Destructor for Grid Object object
- *
- */
-GridObject::~GridObject()
-{
 }
 //-----------------------------------------
 

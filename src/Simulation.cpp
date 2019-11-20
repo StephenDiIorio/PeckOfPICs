@@ -25,12 +25,12 @@ Simulation::Simulation(uint ndump,
     this->n_iter = 0;
     this->ndump = ndump;
 
-    this->Nx = nx;
-    this->Ny = ny;
+    this->Nx = Nx;
+    this->Ny = Ny;
     this->L_x = L_x;
     this->L_y = L_y;
-    this->dx = L_x / double(nx);
-    this->dy = L_y / double(ny);
+    this->dx = L_x / double(Nx);
+    this->dy = L_y / double(Ny);
 
 
     this->dt = dt;//0.99 * this->dx;
@@ -83,7 +83,7 @@ void Simulation::add_species(uint npar, double Qpar, double density,
  * @param init_fcn User provided function which initializes the field to the
  *                 user's specification
  */
-void Simulation::add_e_field(std::function<void(Field &, uint)> init_fcn)
+void Simulation::add_e_field(std::function<void(Field &, uint, uint)> init_fcn)
 {
     this->e_field = Field(this->Nx, this->Ny, this->dx, this->dy, init_fcn);
 }
@@ -94,7 +94,7 @@ void Simulation::add_e_field(std::function<void(Field &, uint)> init_fcn)
  * @param init_fcn User provided function which initializes the field to the
  *                 user's specification
  */
-void Simulation::add_b_field(std::function<void(Field &, uint)> init_fcn)
+void Simulation::add_b_field(std::function<void(Field &, uint, uint)> init_fcn)
 {
     this->b_field = Field(this->Nx, this->Ny, this->dx, this->dy, init_fcn);
 }
@@ -213,7 +213,8 @@ void Simulation::push_species()
 {
     for (auto &s : this->spec)
     {
-        s.push_particles(this->L_x, this->L_y, this->dt, this->dx,
+        s.push_particles(this->n_iter, this->L_x, this->L_y,
+                         this->dt, this->dx,
                          this->dy);
     }
 }
