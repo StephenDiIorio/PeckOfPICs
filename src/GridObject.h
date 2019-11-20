@@ -104,6 +104,8 @@ class GridObject
          */
         inline void add_to_grid_data(uint index_x, uint index_y, double val)
         {
+            index_x = MODULO(index_x, this->Nx);
+            index_y = MODULO(index_y, this->Ny);
             gridded_data.at(index_x * this->Ny + index_y) += val;
         }
 
@@ -117,6 +119,8 @@ class GridObject
          */
         inline void set_grid_data(uint index_x, uint index_y, double val)
         {
+            index_x = MODULO(index_x, this->Nx);
+            index_y = MODULO(index_y, this->Ny);
             gridded_data.at(index_x * this->Ny + index_y) = val;
         }
 
@@ -129,176 +133,9 @@ class GridObject
          */
         inline double get_grid_data(uint index_x, uint index_y) const
         {
+            index_x = MODULO(index_x, this->Nx);
+            index_y = MODULO(index_y, this->Ny);
             return gridded_data.at(index_x * this->Ny + index_y);
-        }
-
-
-        /**
-         * @brief Get the left neighbor of current index
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @return double Value stored in grid at left neighbor of given
-         *                indices
-         */
-        inline double get_left_neighbor(uint index_x, uint index_y) const
-        {
-            uint left_x = MODULO(index_x-1, this->Nx);
-            return this->get_grid_data(left_x, index_y);
-        }
-
-        /**
-         * @brief Set the left neighbor of current index
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @param val Number to set in grid at given indices
-         */
-        inline void set_left_neighbor(uint index_x, uint index_y, double val)
-        {
-            uint left_x = MODULO(index_x-1, this->Nx);
-            this->set_grid_data(left_x, index_y, val);
-        }
-
-        /**
-         * @brief Add the provided value to the current value stored in the
-         *        grid at the left neighbor of given index.
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @param val Number to sum with value at given indices
-         */
-        inline void add_to_left_neighbor(uint index_x, uint index_y,
-                                         double val)
-        {
-            uint left_x = MODULO(index_x-1, this->Nx);
-            this->add_to_grid_data(left_x, index_y, val);
-        }
-
-        /**
-         * @brief Get the right neighbor of current index
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @return double Value stored in grid at right neighbor of given
-         *                indices
-         */
-        inline double get_right_neighbor(uint index_x, uint index_y) const
-        {
-            uint right_x = MODULO(index_x+1, this->Nx);
-            return this->get_grid_data(right_x, index_y);
-        }
-
-        /**
-         * @brief Set the right neighbor of current index
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @param val Number to set in grid at given indices
-         */
-        inline void set_right_neighbor(uint index_x, uint index_y, double val)
-        {
-            uint right_x = MODULO(index_x+1, this->Nx);
-            this->set_grid_data(right_x, index_y, val);
-        }
-
-        /**
-         * @brief Add the provided value to the current value stored in the
-         *        grid at the right neighbor of given index.
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @param val Number to sum with value at given indices
-         */
-        inline void add_to_right_neighbor(uint index_x, uint index_y,
-                                          double val)
-        {
-            uint right_x = MODULO(index_x+1, this->Nx);
-            this->add_to_grid_data(right_x, index_y, val);
-        }
-
-        /**
-         * @brief Get the upper neighbor of current index
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @return double Value stored in grid at upper neighbor of given
-         *                indices
-         */
-        inline double get_upper_neighbor(uint index_x, uint index_y) const
-        {
-            uint upper_y = MODULO(index_y+1, this->Ny);
-            return this->get_grid_data(index_x, upper_y);
-        }
-
-        /**
-         * @brief Set the upper neighbor of current index
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @param val Number to set in grid at given indices
-         */
-        inline void set_upper_neighbor(uint index_x, uint index_y, double val)
-        {
-            uint upper_y = MODULO(index_y+1, this->Ny);
-            this->set_grid_data(index_x, upper_y, val);
-        }
-
-        /**
-         * @brief Add the provided value to the current value stored in the
-         *        grid at the upper neighbor of given index.
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @param val Number to sum with value at given indices
-         */
-        inline void add_to_upper_neighbor(uint index_x, uint index_y,
-                                          double val)
-        {
-            uint upper_y = MODULO(index_y+1, this->Ny);
-            this->add_to_grid_data(index_x, upper_y, val);
-        }
-
-        /**
-         * @brief Get the lower neighbor of current index
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @return double Value stored in grid at lower neighbor of given
-         *                indices
-         */
-        inline double get_lower_neighbor(uint index_x, uint index_y) const
-        {
-            uint lower_y = MODULO(index_y-1, this->Ny);
-            return this->get_grid_data(index_x, lower_y);
-        }
-
-        /**
-         * @brief Set the lower neighbor of current index
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @param val Number to set in grid at given indices
-         */
-        inline void set_lower_neighbor(uint index_x, uint index_y, double val)
-        {
-            uint lower_y = MODULO(index_y-1, this->Ny);
-            this->set_grid_data(index_x, lower_y, val);
-        }
-
-        /**
-         * @brief Add the provided value to the current value stored in the
-         *        grid at the lower neighbor of given index.
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @param val Number to sum with value at given indices
-         */
-        inline void add_to_lower_neighbor(uint index_x, uint index_y,
-                                          double val)
-        {
-            uint lower_y = MODULO(index_y-1, this->Ny);
-            this->add_to_grid_data(index_x, lower_y, val);
         }
 
 
