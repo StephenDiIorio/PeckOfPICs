@@ -213,9 +213,9 @@ void Simulation::push_species()
 {
     for (auto &s : this->spec)
     {
-        s.push_particles(this->n_iter, this->L_x, this->L_y, 
-                         this->dt, this->dx,
-                         this->dy);
+        s.push_particles(this->L_x, this->L_y,
+                         this->dt,
+                         this->dx, this->dy);
     }
 }
 //-----------------------------------------

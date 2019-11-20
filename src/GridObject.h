@@ -35,22 +35,22 @@ class GridObject
         /**********************************************************
         ITERATOR FUNCTIONS
         ***********************************************************/
-        typedef typename std::vector<double>::iterator iterator;
-        typedef typename std::vector<double>::const_iterator const_iterator;
+        using iterator = std::vector<double>::iterator;
+        using const_iterator = std::vector<double>::const_iterator;
 
         inline iterator begin() noexcept
         {
             return gridded_data.begin();
         }
-        inline GridObject::const_iterator cbegin() const noexcept
+        inline const_iterator cbegin() const noexcept
         {
             return gridded_data.cbegin();
         }
-        inline GridObject::iterator end() noexcept
+        inline iterator end() noexcept
         {
             return gridded_data.end();
         }
-        inline GridObject::const_iterator cend() const noexcept
+        inline const_iterator cend() const noexcept
         {
             return gridded_data.cend();
         }
@@ -105,6 +105,8 @@ class GridObject
          */
         inline void add_to_grid_data(uint index_x, uint index_y, double val)
         {
+            index_x = MODULO(index_x, this->Nx);
+            index_y = MODULO(index_y, this->Ny);
             gridded_data.at(index_x * this->Ny + index_y) += val;
         }
 
@@ -118,6 +120,8 @@ class GridObject
          */
         inline void set_grid_data(uint index_x, uint index_y, double val)
         {
+            index_x = MODULO(index_x, this->Nx);
+            index_y = MODULO(index_y, this->Ny);
             gridded_data.at(index_x * this->Ny + index_y) = val;
         }
 
@@ -130,64 +134,9 @@ class GridObject
          */
         inline double get_grid_data(uint index_x, uint index_y) const
         {
+            index_x = MODULO(index_x, this->Nx);
+            index_y = MODULO(index_y, this->Ny);
             return gridded_data.at(index_x * this->Ny + index_y);
-        }
-
-
-        /**
-         * @brief Get the left neighbor of current index
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @return double Value stored in grid at left neighbor of given
-         *                indices
-         */
-        inline double get_left_neighbor(uint index_x, uint index_y) const
-        {
-            uint left_x = MODULO(index_x-1, this->Nx);
-            return gridded_data.at(left_x * this->Ny + index_y);
-        }
-
-        /**
-         * @brief Get the right neighbor of current index
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @return double Value stored in grid at right neighbor of given
-         *                indices
-         */
-        inline double get_right_neighbor(uint index_x, uint index_y) const
-        {
-            uint right_x = MODULO(index_x+1, this->Nx);
-            return gridded_data.at(right_x * this->Ny + index_y);
-        }
-
-        /**
-         * @brief Get the upper neighbor of current index
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @return double Value stored in grid at upper neighbor of given
-         *                indices
-         */
-        inline double get_upper_neighbor(uint index_x, uint index_y) const
-        {
-            uint upper_y = MODULO(index_y+1, this->Ny);
-            return gridded_data.at(index_x * this->Ny + upper_y);
-        }
-
-        /**
-         * @brief Get the lower neighbor of current index
-         *
-         * @param index_x x index of grid
-         * @param index_y y index of grid
-         * @return double Value stored in grid at lower neighbor of given
-         *                indices
-         */
-        inline double get_lower_neighbor(uint index_x, uint index_y) const
-        {
-            uint lower_y = MODULO(index_y-1, this->Ny);
-            return gridded_data.at(index_x * this->Ny + lower_y);
         }
 
 
