@@ -3,13 +3,26 @@
 /**********************************************************
 CONSTRUCTORS/DESTRUCTORS
 ***********************************************************/
-Species::Species(uint npar, uint nx, double Qpar, double density, std::function<void(Species &, uint)> init_fcn)
+
+/**
+ * @brief Constructor for Species object
+ *
+ * @param npar Total number of particles in the species
+ * @param nx Number of grid spaces in x direction
+ * @param ny Number of grid spaces in y direction
+ * @param Qpar Charge of species
+ * @param density Base density of the species
+ * @param init_fcn User provided function which initializes the density of the
+ *                 species to the user's specification
+ */
+Species::Species(uint npar, uint nx, uint ny, double Qpar, double density,
+                 std::function<void(Species &, uint)> init_fcn)
 {
     this->npar = npar;
     this->parts.reserve(npar);
 
     this->density = density;
-    this->density_arr = std::vector<double>(nx, 0.0);
+    this->density_arr = GridObject(nx, ny);
 
     this->Qpar = Qpar;
 
@@ -18,196 +31,285 @@ Species::Species(uint npar, uint nx, double Qpar, double density, std::function<
     init_species(init_fcn);
 }
 
+/**
+ * @brief Destructor for Species object
+ *
+ */
 Species::~Species()
 {
 }
 //-----------------------------------------
 
-void Species::add_particle(double x_pos, double y_pos, double z_pos, double x_mom, double y_mom, double z_mom, double Wpar)
+
+/**
+ * @brief Adds a new particle to the species
+ *
+ * @param x_pos The physical x position of the particle
+ * @param y_pos The physical y position of the particle
+ * @param z_pos The physical z position of the particle
+ * @param x_mom The physical x momentum of the particle
+ * @param y_mom The physical y momentum of the particle
+ * @param z_mom The physical z momentum of the particle
+ * @param Wpar The weight of the particle
+ */
+void Species::add_particle(double x_pos, double y_pos, double z_pos,
+                           double x_mom, double y_mom, double z_mom,
+                           double Wpar)
 {
-    this->add_particle(Particle(x_pos, y_pos, z_pos, x_mom, y_mom, z_mom, Wpar));
+    this->add_particle(Particle(x_pos, y_pos, z_pos,
+                                x_mom, y_mom, z_mom,
+                                Wpar));
 }
 
+/**
+ * @brief Adds a new particle to the species
+ *
+ * @param pos A vector containing all position components of the particle
+ * @param mom A vector containing all momentum components of the particle
+ * @param Wpar The weight of the particle
+ */
 void Species::add_particle(ThreeVec pos, ThreeVec mom, double Wpar)
 {
     this->add_particle(Particle(pos, mom, Wpar));
 }
 
+/**
+ * @brief Adds a new particle to the species
+ *
+ * @param p A particle object to add to the species
+ */
 void Species::add_particle(Particle p)
 {
     this->parts.push_back(p);
 }
-
 //-----------------------------------------
 
-int Species::deposit_charge(const double dx, const double L_sys, const uint Nx)
-{
-    const double idx = 1.0 / dx;
-    unsigned int j;
 
+/**********************************************************
+CLASS METHODS
+***********************************************************/
+
+/**
+ * @brief Deposits and interpolates the species charge onto the grid
+ *
+ * @param dx Spatial grid step in x direction
+ * @param dy Spatial grid step in y direction
+ * @param L_x Physical length of system in x direction
+ * @param L_y Physical length of system in y direction
+ * @param Nx Number of grid spaces in x direction
+ * @param Ny Number of grid spaces in y direction
+ * @return int Returns an error code or 0 if successful
+ */
+int Species::deposit_charge(const double dx, const double dy,
+                            const double L_x, const double L_y,
+                            const uint Nx, const uint Ny)
+{
     // Initialize
     for (auto &d : this->density_arr)
     {
         d = 0.0;
     }
 
-    double weight, par_weight;
+    double x_pos, y_pos, par_weight;
+    double fi, fj, hx, hy;
+    double x_min = 0.0, y_min = 0.0;
+    uint i, j;
 
-    // for (auto &p : this->parts)
-    for (uint i = 0; i < this->npar; ++i)
+    for (const auto &p : this->parts)
     {
-        par_weight = this->parts.at(i).get_weight();
-        weight = this->parts.at(i).get_pos().get_x();
+        par_weight = p.get_weight() / dx / dy; // add normalization factor here
+        x_pos = p.get_pos().get_x();
+        y_pos = p.get_pos().get_y();
 
         // This is because I have chosen to start my boundary at -dx/2
-        if (weight < 0.0)
+        if (x_pos < 0.0)
         {
-            weight += L_sys;
+            x_pos += L_x;
+        }
+        if (y_pos < 0.0)
+        {
+            y_pos += L_y;
         }
 
-        weight *= idx;
-        j = (int)(weight); // cast float -> int
+        fi = (x_pos - x_min) / dx;
+        i  = fi;
+        hx = fi - i;
 
-        weight -= (double)j; // now weight is difference between xi and xj
+        fj = (y_pos - y_min) / dy;
+        j  = fj;
+        hy = fj - j;
 
-        // Increment rho
-        this->density_arr.at(j) += (1.0 - weight) * par_weight;
-        ++j;
-        if (j >= Nx)
-        {
-            this->density_arr.at(0) += weight * par_weight;
-        }
-        else
-        {
-            this->density_arr.at(j) += weight * par_weight;
-        }
+        density_arr.add_to_grid_data(i,   j,   (1.-hx) * (1.-hy) * par_weight);
+        density_arr.add_to_grid_data(i+1, j,   (1.-hx) * hy      * par_weight);
+        density_arr.add_to_grid_data(i,   j+1, hx      * (1.-hy) * par_weight);
+        density_arr.add_to_grid_data(i+1, j+1, hx      * hy      * par_weight);
     }
     return 0;
 }
 
-int Species::map_field_to_part(const Field &f, const double dx, const double L_sys, const uint Nx)
+//TODO:
+/**
+ * @brief Interpolates the field values from the grid to the particle position
+ *
+ * @param f Field to interpolate to particle position
+ * @param dx Spatial grid step in x direction
+ * @param dy Spatial grid step in y direction
+ * @param L_x Physical length of system in x direction
+ * @param L_y Physical length of system in y direction
+ * @param Nx Number of grid spaces in x direction
+ * @param Ny Number of grid spaces in y direction
+ * @return int Returns an error code or 0 if successful
+ */
+int Species::map_field_to_part(const Field &f,
+                               const double dx, const double dy,
+                               const double L_x, const double L_y,
+                               const uint Nx, const uint Ny)
 {
-    const double idx = 1.0 / dx;
-    unsigned long j;
+    double x_pos, y_pos, par_weight;
+    double fi, fj, hx, hy;
+    double x_min = 0.0, y_min = 0.0;
+    uint i, j;
 
-    double weight;
-    double loc_f_x1;
+    double loc_f_x1 = 0.0;
     double loc_f_x2 = 0.0;
     double loc_f_x3 = 0.0;
+
     for (auto &p : this->parts)
     {
-        weight = p.get_pos().get_x();
+        par_weight = p.get_weight() / dx / dy; // add normalization factor here
+        x_pos = p.get_pos().get_x();
+        y_pos = p.get_pos().get_y();
+
         // This is because I have chosen to start my boundary at -dx/2
-        if (weight < 0.0) //NOTE: Assumes L_sys min is 0.0
+        if (x_pos < 0.0)
         {
-            weight += L_sys;
+            x_pos += L_x;
+        }
+        if (y_pos < 0.0)
+        {
+            y_pos += L_y;
         }
 
-        weight *= idx;
-        j = (int)(weight); // cast float -> int
+        fi = (x_pos - x_min) / dx;
+        i = fi;
+        hx = fi - i;
 
-        weight -= (double)j; // now weight is difference between xi and xj
+        fj = (y_pos - y_min) / dy;
+        j = fj;
+        hy = fj - j;
 
-        if ((j + 1) >= Nx)
-        {
-            loc_f_x1 = (1.0 - weight) * this->Qpar * f.f1.at(j) + weight * this->Qpar * f.f1.at(0);
-        }
-        else
-        {
-            loc_f_x1 = (1.0 - weight) * this->Qpar * f.f1.at(j) + weight * this->Qpar * f.f1.at(j + 1);
-        }
+        loc_f_x1 += (1.-hx) * (1.-hy) * par_weight * this->Qpar \
+                    * f.f1.get_grid_data(i, j);
+        loc_f_x1 += (1.-hx) * hy      * par_weight * this->Qpar \
+                    * f.f1.get_grid_data(i+1, j);
+        loc_f_x1 += hx      * (1.-hy) * par_weight * this->Qpar \
+                    * f.f1.get_grid_data(i, j+1);
+        loc_f_x1 += hx      * hy      * par_weight * this->Qpar \
+                    * f.f1.get_grid_data(i+1, j+1);
+
+        loc_f_x2 += (1.-hx) * (1.-hy) * par_weight * this->Qpar \
+                    * f.f2.get_grid_data(i, j);
+        loc_f_x2 += (1.-hx) * hy      * par_weight * this->Qpar \
+                    * f.f2.get_grid_data(i+1, j);
+        loc_f_x2 += hx      * (1.-hy) * par_weight * this->Qpar \
+                    * f.f2.get_grid_data(i, j+1);
+        loc_f_x2 += hx      * hy      * par_weight * this->Qpar \
+                    * f.f2.get_grid_data(i+1, j+1);
+
+        loc_f_x3 += (1.-hx) * (1.-hy) * par_weight * this->Qpar \
+                    * f.f3.get_grid_data(i, j);
+        loc_f_x3 += (1.-hx) * hy      * par_weight * this->Qpar \
+                    * f.f3.get_grid_data(i+1, j);
+        loc_f_x3 += hx      * (1.-hy) * par_weight * this->Qpar \
+                    * f.f3.get_grid_data(i, j+1);
+        loc_f_x3 += hx      * hy      * par_weight * this->Qpar \
+                    * f.f3.get_grid_data(i+1, j+1);
 
         p.set_local_e_field(loc_f_x1, loc_f_x2, loc_f_x3);
     }
     return 0;
 }
 
-int Species::push_particles(const unsigned long n_iter, const double L_sys, const double dt, const double dx)
+//TODO:
+/**
+ * @brief Performs a Boris push on all of the particles in the species
+ *
+ * @param L_x Physical length of system in x direction
+ * @param L_y Physical length of system in y direction
+ * @param dt Timestep
+ * @param dx Spatial grid step in x direction
+ * @param dy Spatial grid step in y direction
+ * @return int Returns an error code or 0 if successful
+ */
+int Species::push_particles(const double L_x, const double L_y,
+                            const double dt,
+                            const double dx, const double dy)
 {
     // For total kinetic energy diagnostic
     double KE = 0.0;
     this->total_KE = 0.0;
 
-    for (auto &p : this->parts)
-    {
-        ThreeVec pos = p.get_pos();
-        ThreeVec mom = p.get_mom();
-
-        // For total kinetic energy diagnostic
-        KE = mom.mag();
-
-        if (n_iter > 0)
-        {
-            mom -= (p.get_local_e_field() * dt);
-        }
-        else
-        {
-            mom -= (p.get_local_e_field() * (dt / 2.0));
-        }
-        p.set_mom(mom);
-
-        // For total kinetic energy diagnostic
-        KE *= mom.mag();
-        this->total_KE += KE;
-
-        pos += (mom * dt);
-        this->apply_bc(pos, L_sys, dx);
-        p.set_pos(pos);
-    }
-
-    // For total kinetic energy diagnostic
-    this->total_KE *= (L_sys / (2.0 * double(this->npar)));
-
-    return 0;
-}
-
-int Species::boris_push(const unsigned long n_iter, const double L_sys, const double dt, const double dx)
-{
-    // For total kinetic energy diagnostic
-    double KE = 0.0;
-    this->total_KE = 0.0;
-
-    double B0 = sqrt(3.0);//1.0;
-    ThreeVec t = ThreeVec(0.0, 0.0, B0 * dt / 2);
-    ThreeVec s = t * (2 / (1 + t.square()));
-
+    // double B0 = sqrt(3.0);//1.0;
+    double b2, mom2, gamma;
+    ThreeVec t, s, pos, mom;
+    // ThreeVec t = ThreeVec(0.0, 0.0, B0 * dt / 2);
+    // ThreeVec s = t * (2 / (1 + t.square()));
     ThreeVec vstar, vperp;
 
     for (auto &p : this->parts)
     {
-        ThreeVec pos = p.get_pos();
-        ThreeVec mom = p.get_mom();
+        pos = p.get_pos();
+        mom = p.get_mom();
 
-        // For total kinetic energy diagnostic
-        KE = mom.mag();
+        // minus instead of plus b/c of convention used in this program
+        mom -= p.get_local_e_field() * (dt * 0.5);
 
-        vperp = mom - (p.get_local_e_field() * (dt / 2.0));
-        vstar = vperp + (vperp^t);
-        vperp = vperp + (vstar^s);
-        mom = vperp - (p.get_local_e_field() * (dt / 2.0));
+        mom2 = mom.square();
+        gamma = 1. / sqrt(1. + mom2);
 
+        b2 = p.get_local_b_field().square();
+        if (b2) // test if non-zero
+        {
+            t = p.get_local_b_field() * dt * 0.5;
+            s = t * (2. / (1. + t.square()));
+
+            vperp = mom - ((mom.element_multiply(p.get_local_b_field()))
+                           / sqrt(b2));
+            vstar = vperp + (vperp^t);
+
+            mom += vstar^s;
+        }
+
+        mom -= p.get_local_e_field() * (dt * 0.5);
+
+        pos += mom * (dt / gamma);
+
+        this->apply_bc(pos, L_x, L_y, dx, dy);
         p.set_mom(mom);
+        p.set_pos(pos);
 
         // For total kinetic energy diagnostic
-        KE *= mom.mag();
-        this->total_KE += KE;
-
-        pos += (mom * dt);
-        this->apply_bc(pos, L_sys, dx);
-        p.set_pos(pos);
+        // KE *= mom.mag();
+        // this->total_KE += KE;
     }
 
     // For total kinetic energy diagnostic
-    this->total_KE *= (L_sys / (2.0 * double(this->npar)));
+    // this->total_KE *= (L_sys / (2.0 * double(this->npar)));
 
     return 0;
 }
 
+/**
+ * @brief Returns all of the particles' x positions
+ *
+ * @return std::vector<double> Vector containing the x positions of all
+ *                             particles in species
+ */
 std::vector<double> Species::get_x_phasespace()
 {
     std::vector<double> to_ret = std::vector<double>(this->npar);
 
-    for (uint i = 0; i < this->npar; ++i)
+    for (int i = 0; i < this->npar; ++i)
     {
         to_ret[i]  = this->parts[i].get_pos().get_x();
     }
@@ -215,11 +317,35 @@ std::vector<double> Species::get_x_phasespace()
     return to_ret;
 }
 
+/**
+ * @brief Returns all of the particles' y positions
+ *
+ * @return std::vector<double> Vector containing the y positions of all
+ *                             particles in species
+ */
+std::vector<double> Species::get_y_phasespace()
+{
+    std::vector<double> to_ret = std::vector<double>(this->npar);
+
+    for (int i = 0; i < this->npar; ++i)
+    {
+        to_ret[i] = this->parts[i].get_pos().get_y();
+    }
+
+    return to_ret;
+}
+
+/**
+ * @brief Returns all of the particles' x momenta
+ *
+ * @return std::vector<double> Vector containing the x momenta of all particles
+ *                             in species
+ */
 std::vector<double> Species::get_px_phasespace()
 {
     std::vector<double> to_ret = std::vector<double>(this->npar);
 
-    for (uint i = 0; i < this->npar; ++i)
+    for (int i = 0; i < this->npar; ++i)
     {
         to_ret[i] = this->parts[i].get_mom().get_x();
     }
@@ -227,11 +353,17 @@ std::vector<double> Species::get_px_phasespace()
     return to_ret;
 }
 
+/**
+ * @brief Returns all of the particles' y momenta
+ *
+ * @return std::vector<double> Vector containing the y momenta of all particles
+ *                             in species
+ */
 std::vector<double> Species::get_py_phasespace()
 {
     std::vector<double> to_ret = std::vector<double>(this->npar);
 
-    for (uint i = 0; i < this->npar; ++i)
+    for (int i = 0; i < this->npar; ++i)
     {
         to_ret[i] = this->parts[i].get_mom().get_y();
     }
@@ -239,34 +371,65 @@ std::vector<double> Species::get_py_phasespace()
     return to_ret;
 }
 
+/**
+ * @brief Prints the density distribution for this species
+ *
+ */
 void Species::print_density()
 {
-    // for (auto &d : this->density_arr)
-    // {
-    //     std::cout << d << '\t';
-    // }
-    // std::cout << std::endl;
-    
+    density_arr.print_grid_data();
 }
+//-----------------------------------------
+
 
 /**********************************************************
-PRIVATE FUNCTIONS
+PRIVATE CLASS METHODS
 ***********************************************************/
+
 void Species::init_species(std::function<void(Species &, uint)> init_fcn)
 {
     init_fcn(*this, this->npar);
 }
 
-void Species::apply_bc(ThreeVec &pos, const double L_sys, const double dx)
+/**
+ * @brief Currently applies periodic boundary conditions in x and y directions
+ *        for the species
+ *
+ * @param pos A vector containing all position components of the particle
+ * @param L_x Physical length of system in x direction
+ * @param L_y Physical length of system in y direction
+ * @param dx Spatial grid step in x direction
+ * @param dy Spatial grid step in y direction
+ */
+void Species::apply_bc(ThreeVec &pos,
+                       const double L_x, const double L_y,
+                       const double dx, const double dy)
 {
     double x1 = pos.get_x();
-    if (pos.get_x() < -dx / 2.0)
+    double y1 = pos.get_y();
+
+    // Periodic x boundaries
+    while (x1 < -dx / 2.0)
     {
-        pos.set_x(x1 + L_sys);
+        x1 += L_x;
+        pos.set_x(x1);
     }
-    else if (pos.get_x() >= (L_sys - (dx / 2.0)))
+    while (x1 >= (L_x - (dx / 2.0)))
     {
-        pos.set_x(x1 - L_sys);
+        x1 -= L_x;
+        pos.set_x(x1);
     }
-    //TODO: add check to make sure that if the particle is farther out of bounds than L_sys that it actually goes back inside. put in while loop to keep subtracting while it's out of bounds.
+
+    // Periodic y boundaries
+    while (y1 < -dy / 2.0)
+    {
+        y1 += L_y;
+        pos.set_y(y1);
+    }
+    while (y1 >= (L_y - (dy / 2.0)))
+    {
+        y1 -= L_y;
+        pos.set_y(y1);
+    }
 }
+//-----------------------------------------
