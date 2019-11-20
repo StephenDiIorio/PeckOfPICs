@@ -8,10 +8,10 @@ Field::Field() //TODO: See if this can be removed
 {
 }
 
-Field::Field(uint nx, uint ny, double dx, double dy,
+Field::Field(uint Nx, uint Ny, double dx, double dy,
     std::function<void(Field &, uint, uint)> init_fcn)
 {
-    this->size = nx * ny;
+    this->size = Nx * Ny;
 
     this->total_U = 0.0;
 
@@ -27,16 +27,119 @@ Field::~Field()
 }
 //-----------------------------------------
 
-int Field::solve_field(GridObject *charge_density)
+
+int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
+                  const uint transform_direction)
 {
     int err = 0;
+    // const uint fft = 1;   // to perform fft
+    // const uint ifft = -1; // to perform ifft
 
+    // assumes real_part and im_part are the same size!
+
+    // spectral solve: Fourier transform rows, then columns
+    // for each row: collect data, Fourier transform, return, and store
+    std::vector<double> xs_re(this->Ny), xs_im(this->Ny);
+    for (int xi = 0; xi < this->Nx; ++xi)
+    {
+        for (int yj = 0; yj < this->Ny; ++yj)
+        {
+            xs_re.at(yj) = real_part.get_grid_data(xi,yj);
+            xs_im.at(yj) = imag_part.get_grid_data(xi,yj);
+        }    
+        err = FFT(xs_re, xs_im, this->Ny, transform_direction);
+        if (err)
+        {
+            return err;
+        }
+        for (int yj = 0; yj < this->Ny; ++yj)
+        {
+            real_part.set_grid_data(xi,yj,xs_re.at(yj));
+            imag_part.set_grid_data(xi,yj,xs_im.at(yj));
+        }  
+    }
+    // now columns
+    std::vector<double> ys_re(this->Nx), ys_im(this->Nx);
+    for (int yj = 0; yj < this->Ny; ++yj)
+    {
+        for (int xi = 0; xi < this->Nx; ++xi)
+        {
+            ys_re.at(xi) = real_part.get_grid_data(xi,yj);
+            ys_im.at(xi) = imag_part.get_grid_data(xi,yj);
+        }    
+        err = FFT(ys_re, ys_im, this->Nx, transform_direction);
+        if (err)
+        {
+            return err;
+        }
+        for (int xi = 0; xi < this->Nx; ++xi)
+        {
+            real_part.set_grid_data(xi,yj,ys_re.at(xi));
+            imag_part.set_grid_data(xi,yj,ys_im.at(xi));
+        }  
+    }
+
+    return 0;
+}
+
+/**
+ * @brief solve_field solves Poisson equation with periodic BCs
+ * 
+ * @param charge_density 
+ * @return int 
+ */
+int Field::solve_field(GridObject &charge_density)
+{
+    int err = 0;
+    const uint fft = 1;   // to perform fft
+    const uint ifft = -1; // to perform ifft
+
+    GridObject dens_im(this->Nx, this->Ny);
     // get field by:
-    GridObject phi;
+    GridObject phi_re(this->Nx, this->Ny);
+    GridObject phi_im(this->Nx, this->Ny);
 
     // A phi = density
+    // 1 fourier transform density
+    err = FFT_2d(charge_density, dens_im, fft);
+
+    // set some values of phi to 0.  phi[0,0]?
+    // then get phi: divide by appropriate value
+
+    // then Ex, Ey are phi times appropriate value
+
+
+    // GridObject Ex_re(this->Nx, this->Ny);
+    GridObject Ex_im(this->Nx, this->Ny);
+    // GridObject Ey_re(this->Nx, this->Ny);
+    GridObject Ey_im(this->Nx, this->Ny);
+
+    // then Ex, Ey are inverse Fourier transformed.
+    err = FFT_2d(f1, Ex_im, ifft);
+    FFT_2d(f2, Ey_im, ifft);
+    // then inverse Fourier transform back each of Ex, Ey
+    // for each row: collect data, Fourier transform, return, and store
 
     return err;
+}
+
+/**
+ * @brief 
+ * 
+ * @param charge_density 
+ * @return int 
+ */
+int solve_field_fftw(GridObject &charge_density)
+{
+    // consider building fftw plan outside function loop
+
+    // initialize fftw things
+    // load charge_density into fftw pointer
+    // perform 2d fft
+    // get phibar from densitybar
+    // get Ebars from phibar
+    // ifft
+    return 0;
 }
 
 int Field::solve_field_spectral(std::vector<double> re, std::vector<double> im)
@@ -97,5 +200,7 @@ PRIVATE FUNCTIONS
 ***********************************************************/
 void Field::init_field(std::function<void(Field &, uint, uint)> init_fcn)
 {
-    init_fcn(*this, this->nx, this->ny);
+    init_fcn(*this, this->Nx, this->Ny);
 }
+
+

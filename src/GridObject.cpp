@@ -13,7 +13,7 @@ GridObject::GridObject()
 }
 
 /**
- * @brief Constructor for Grid Object object
+ * @brief Constructor for Grid Object object - sets to an nx x ny vector of 0s
  *
  * @param nx Number of x values
  * @param ny Number of y values
