@@ -34,19 +34,22 @@ class GridObject
         /**********************************************************
         ITERATOR FUNCTIONS
         ***********************************************************/
-        inline GridObject::iterator begin() noexcept
+        using iterator = std::vector<double>::iterator;
+        using const_iterator = std::vector<double>::const_iterator;
+
+        inline iterator begin() noexcept
         {
             return gridded_data.begin();
         }
-        inline GridObject::const_iterator cbegin() const noexcept
+        inline const_iterator cbegin() const noexcept
         {
             return gridded_data.cbegin();
         }
-        inline GridObject::iterator end() noexcept
+        inline iterator end() noexcept
         {
             return gridded_data.end();
         }
-        inline GridObject::const_iterator cend() const noexcept
+        inline const_iterator cend() const noexcept
         {
             return gridded_data.cend();
         }
