@@ -15,29 +15,29 @@ CONSTRUCTORS/DESTRUCTORS
 /**
  * @brief Constructor for Grid Object object
  *
- * @param nx Number of x values
- * @param ny Number of y values
+ * @param Nx Number of x values
+ * @param Ny Number of y values
  */
-GridObject::GridObject(uint nx, uint ny)
+GridObject::GridObject(uint Nx, uint Ny)
 {
-    this->nx = nx;
-    this->ny = ny;
+    this->Nx = Nx;
+    this->Ny = Ny;
 
-    this->gridded_data = std::vector<double>(nx * ny, 0.0);
+    this->gridded_data = std::vector<double>(Nx * Ny, 0.0);
 }
 
 /**
  * @brief Constructor for Grid Object object
  *
- * @param nx Number of x values
- * @param ny Number of y values
+ * @param Nx Number of x values
+ * @param Ny Number of y values
  * @param init_fcn User provided function which initializes the data in the grid
  *                 to the user's specification
  */
-GridObject::GridObject(uint nx, uint ny, std::function<void(GridObject &, uint, uint)> init_fcn)
+GridObject::GridObject(uint Nx, uint Ny, std::function<void(GridObject &, uint, uint)> init_fcn)
 {
-    this->nx = nx;
-    this->ny = ny;
+    this->Nx = Nx;
+    this->Ny = Ny;
 
     init_grid_obj(init_fcn);
 }
@@ -45,14 +45,14 @@ GridObject::GridObject(uint nx, uint ny, std::function<void(GridObject &, uint, 
 /**
  * @brief Constructor for Grid Object object
  *
- * @param nx Number of x values
- * @param ny Number of y values
+ * @param Nx Number of x values
+ * @param Ny Number of y values
  * @param data A vector object to copy the data from into the current grid
  */
-GridObject::GridObject(uint nx, uint ny, std::vector<double> data) // a 'copy' constructor
+GridObject::GridObject(uint Nx, uint Ny, std::vector<double> data) // a 'copy' constructor
 {
-    this->nx = nx;
-    this->ny = ny;
+    this->Nx = Nx;
+    this->Ny = Ny;
 
     this->gridded_data = std::vector<double>(data);
 }
@@ -90,5 +90,5 @@ PRIVATE FUNCTIONS
 ***********************************************************/
 void GridObject::init_grid_obj(std::function<void(GridObject &, uint, uint)> init_fcn)
 {
-    init_fcn(*this, this->nx, this->ny);
+    init_fcn(*this, this->Nx, this->Ny);
 }
