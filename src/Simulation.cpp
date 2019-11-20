@@ -83,7 +83,7 @@ void Simulation::add_species(uint npar, double Qpar, double density,
  * @param init_fcn User provided function which initializes the field to the
  *                 user's specification
  */
-void Simulation::add_e_field(std::function<void(Field2d &, uint)> init_fcn)
+void Simulation::add_e_field(std::function<void(Field &, uint)> init_fcn)
 {
     this->e_field = Field(this->Nx, this->Ny, this->dx, this->dy, init_fcn);
 }
@@ -94,7 +94,7 @@ void Simulation::add_e_field(std::function<void(Field2d &, uint)> init_fcn)
  * @param init_fcn User provided function which initializes the field to the
  *                 user's specification
  */
-void Simulation::add_b_field(std::function<void(Field2d &, uint)> init_fcn)
+void Simulation::add_b_field(std::function<void(Field &, uint)> init_fcn)
 {
     this->b_field = Field(this->Nx, this->Ny, this->dx, this->dy, init_fcn);
 }
