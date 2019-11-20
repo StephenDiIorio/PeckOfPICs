@@ -95,16 +95,15 @@ int Field::solve_field(GridObject &charge_density)
     const uint ifft = -1; // to perform ifft
 
     GridObject dens_im(this->Nx, this->Ny);
-    // get field by:
-    GridObject phi_re(this->Nx, this->Ny);
-    GridObject phi_im(this->Nx, this->Ny);
 
     // A phi = density
     // 1 fourier transform density
     err = FFT_2d(charge_density, dens_im, fft);
 
-    // set some values of phi to 0.  phi[0,0]?
     // then get phi: divide by appropriate value
+    GridObject phi_re(charge_density);
+    GridObject phi_im(dens_im);
+    // set some values of phi to 0.  phi[0,0]?
 
     // then Ex, Ey are phi times appropriate value
 

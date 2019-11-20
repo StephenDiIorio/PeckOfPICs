@@ -22,7 +22,7 @@
 #ifndef FFT_H
 #define FFT_H
 
-#include<vector>
+#include <vector>
 #include <cmath>
 
 typedef unsigned int uint;

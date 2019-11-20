@@ -28,6 +28,7 @@ class GridObject
                    std::function<void(GridObject &, uint, uint)> init_fcn);
         GridObject(uint Nx, uint Ny,
                    std::vector<double> data); // a 'copy' constructor
+        GridObject(GridObject const &copy_obj); // a copy constructor
         ~GridObject();
         //-----------------------------------------
 
@@ -137,6 +138,21 @@ class GridObject
             index_x = MODULO(index_x, this->Nx);
             index_y = MODULO(index_y, this->Ny);
             return gridded_data.at(index_x * this->Ny + index_y);
+        }
+
+        inline uint get_Nx() const
+        {
+            return this->Nx;
+        }
+
+        inline uint get_Ny() const
+        {
+            return this->Ny;
+        }
+
+        inline std::vector<double> get_grid_data_vector() const
+        {
+            return this->gridded_data;
         }
 
 

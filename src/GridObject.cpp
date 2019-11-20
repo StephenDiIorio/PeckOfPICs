@@ -56,6 +56,13 @@ GridObject::GridObject(uint Nx, uint Ny, std::vector<double> data) // a 'copy' c
 
     this->gridded_data = std::vector<double>(data);
 }
+
+GridObject::GridObject(GridObject const &copy_obj)
+{
+    this->Nx = copy_obj.get_Nx();
+    this->Ny = copy_obj.get_Ny();
+    this->gridded_data = copy_obj.get_grid_data_vector();
+}
 // should there be a Destructor here?
 /**
  * @brief Destructor for Grid Object object
