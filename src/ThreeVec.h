@@ -55,6 +55,9 @@ class ThreeVec
         // Magnitude of the threevector
         double mag();
 
+        // Element-wise multiplication
+        ThreeVec element_multiply(ThreeVec vec);
+
         /*
         Overload the operators +,-,* and ^ to represent vector operations
         */

@@ -64,6 +64,15 @@ double ThreeVec::square()
 // Magnitude of the threevector
 double ThreeVec::mag() { return sqrt(square()); }
 
+// Element-wise multiplication
+ThreeVec ThreeVec::element_multiply(ThreeVec vec)
+{
+    ThreeVec ans(vec.get_x() * coord_[0],
+                 vec.get_y() * coord_[1],
+                 vec.get_z() * coord_[2]);
+    return ans;
+}
+
 /*
 Overload the operators +,-,* and ^ to represent vector operations
 */
