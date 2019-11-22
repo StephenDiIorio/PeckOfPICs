@@ -69,6 +69,9 @@ GridObject::GridObject(GridObject const &copy_obj)
 }
 */
 //-----------------------------------------
+GridObject::~GridObject()
+{
+}
 
 
 /**********************************************************
@@ -80,10 +83,18 @@ CLASS METHODS
  */
 void GridObject::print_grid_data()
 {
-    for (auto &d : this->gridded_data )
+    for (int xi = 0; xi < this->Nx; ++xi)
     {
-        std::cout << d << '\t';
+        for (int yj = 0; yj < this->Ny; ++yj)
+        {
+            std::cout << this->get_grid_data(xi,yj) << '\t';
+        }
+        std::cout << std::endl;
     }
+    // for (auto &d : this->gridded_data )
+    // {
+    //     std::cout << d << '\t';
+    // }
     std::cout << std::endl;
 }
 //-----------------------------------------

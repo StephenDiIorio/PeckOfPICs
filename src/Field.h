@@ -38,6 +38,7 @@ class Field
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
         Field(); //TODO: see if this can be removed
+        Field(uint Nx, uint Ny, double dx, double dy); // zero constructor
         Field(uint Nx, uint Ny, double dx, double dy,
             std::function<void(Field &, uint, uint)> init_fcn);
         ~Field();

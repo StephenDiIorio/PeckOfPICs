@@ -8,6 +8,21 @@ Field::Field() //TODO: See if this can be removed
 {
 }
 
+Field::Field(uint Nx, uint Ny, double dx, double dy) 
+{
+    this->size = Nx * Ny;
+    this->Nx = Nx;
+    this->Ny = Ny;
+    this->dx = dx;
+    this->dy = dy;
+
+    this->total_U = 0.0;
+    
+    this->f1 = GridObject(this->Nx, this->Ny);
+    this->f2 = GridObject(this->Nx, this->Ny);
+    this->f3 = GridObject(this->Nx, this->Ny);
+}
+
 Field::Field(uint Nx, uint Ny, double dx, double dy,
     std::function<void(Field &, uint, uint)> init_fcn)
 {
@@ -119,6 +134,11 @@ int Field::solve_field(GridObject &charge_density)
             double sincky2 = sinc(ky* this->dy / 2);
 
             double Klmsq_ij = Klsq + ky*ky * sincky2*sincky2;
+            // energy is rhobar * phibar conj = |rhobar|^2 / Klm^2
+            this->total_U += (phi_dens_re.get_grid_data(xi,yj) * 
+                phi_dens_re.get_grid_data(xi,yj) + 
+                phi_dens_im.get_grid_data(xi,yj) *
+                phi_dens_im.get_grid_data(xi,yj) ) / Klmsq_ij;
             phi_dens_re.multiply_grid_data_by(xi,yj, 1./Klmsq_ij);
             phi_dens_im.multiply_grid_data_by(xi,yj, 1./Klmsq_ij);
         }
@@ -185,7 +205,7 @@ int solve_field_fftw(GridObject &charge_density)
     // get phibar from densitybar
     // get Ebars from phibar
     // ifft
-    return 0;
+    return 1;
 }
 
 int Field::solve_field_spectral(std::vector<double> re, std::vector<double> im)
@@ -236,8 +256,11 @@ int Field::solve_field_spectral(std::vector<double> re, std::vector<double> im)
 
 void Field::print_field()
 {
+    std::cout << "f1:" << std::endl;
 	f1.print_grid_data();
+    std::cout << "f2:" << std::endl;
 	f2.print_grid_data();
+    std::cout << "f3:" << std::endl;
 	f3.print_grid_data();
 }
 
