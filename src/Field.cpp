@@ -122,6 +122,11 @@ int Field::solve_field(GridObject &charge_density)
     // 1 fourier transform density
     err = FFT_2d(phi_dens_re, phi_dens_im, fft);
 
+    // set some values of phi to 0.  phi[0,0]?
+    phi_dens_re.set_grid_data(0,0,0);
+    phi_dens_im.set_grid_data(0,0,0);
+
+
     for (int xi =0; xi < this->Nx; ++xi)
     {
         double kx = (2. * M_PI * xi) / this->Nx / this->dx;
@@ -130,6 +135,10 @@ int Field::solve_field(GridObject &charge_density)
 
         for (int yj = 0; yj < this->Ny; ++yj)
         {
+            if (xi == 0 and yj == 0)
+            {
+                continue;
+            }
             double ky = (2. * M_PI * yj) / this->Ny / this->dy;
             double sincky2 = sinc(ky* this->dy / 2);
 
@@ -143,10 +152,6 @@ int Field::solve_field(GridObject &charge_density)
             phi_dens_im.multiply_grid_data_by(xi,yj, 1./Klmsq_ij);
         }
     }
-    // set some values of phi to 0.  phi[0,0]?
-    phi_dens_re.set_grid_data(0,0,0);
-    phi_dens_im.set_grid_data(0,0,0);
-
     // then Ex, Ey are phi times appropriate value
     // Ex(l,m) = -i kl sinc(kl dx) phi(l,m)
     // Ey(l,m) = -i km sinc(km dy) phi(l,m)
@@ -169,6 +174,10 @@ int Field::solve_field(GridObject &charge_density)
 
         for (int yj = 0; yj < this->Ny; ++yj)
         {
+            if (xi == 0 and yj == 0)
+            {
+                continue;
+            }
             double ky = (2. * M_PI * yj) / this->Ny / this->dy;
             double sincky = sinc(ky* this->dy);
 
@@ -185,6 +194,9 @@ int Field::solve_field(GridObject &charge_density)
     err = FFT_2d(f2, Ey_im, ifft);
     // then inverse Fourier transform back each of Ex, Ey
     // for each row: collect data, Fourier transform, return, and store
+
+    // For total electrostatic energy diagnostic
+    this->total_U *= 0.5;
 
     return err;
 }

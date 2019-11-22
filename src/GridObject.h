@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <functional>
+#include <math.h>
 
 #define MODULO(a, b) (int)((a % b) >= 0 ? (a % b) : (a % b) + b)
 
@@ -24,6 +25,7 @@ class GridObject
         GridObject(); //TODO: see if this can be removed
         // note: need an empty constructor to allow GridObject to be a member
         GridObject(uint Nx, uint Ny);
+        GridObject(uint Nx, uint Ny, double val);
         GridObject(uint Nx, uint Ny,
                    std::function<void(GridObject &, uint, uint)> init_fcn);
         GridObject(uint Nx, uint Ny,
@@ -148,6 +150,8 @@ class GridObject
         }
 
         void print_grid_data();
+
+        bool compare_with(GridObject &other_obj, double const TOL);
         //-----------------------------------------
 };
 

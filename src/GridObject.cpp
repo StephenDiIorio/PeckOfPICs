@@ -27,6 +27,21 @@ GridObject::GridObject(uint Nx, uint Ny)
 }
 
 /**
+ * @brief Construct a new Grid Object object
+ * 
+ * @param Nx 
+ * @param Ny 
+ * @param val 
+ */
+GridObject::GridObject(uint Nx, uint Ny, double val)
+{
+    this->Nx = Nx;
+    this->Ny = Ny;
+
+    this->gridded_data = std::vector<double>(Nx * Ny, val);
+}
+
+/**
  * @brief Constructor for Grid Object object
  *
  * @param Nx Number of x values
@@ -96,6 +111,29 @@ void GridObject::print_grid_data()
     //     std::cout << d << '\t';
     // }
     std::cout << std::endl;
+}
+
+bool GridObject::compare_with(GridObject &other_obj, double const TOL)
+{
+    if (other_obj.Nx != this->Nx || other_obj.Ny != this->Ny)
+    {
+        return false;
+    }
+    else
+    {
+        for (int xi = 0; xi < this->Nx; ++xi)
+        {
+            for (int yj = 0; yj < this->Ny; ++yj)
+            {
+                if (fabs(this->get_grid_data(xi, yj) - 
+                            other_obj.get_grid_data(xi,yj)) >= TOL)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
 //-----------------------------------------
 
