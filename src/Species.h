@@ -41,6 +41,8 @@ class Species
         /**********************************************************
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
+        Species();
+        Species(uint npar, uint nx, uint ny, double Qpar);
         Species(uint npar, uint nx, uint ny, double Qpar, double density,
 			    std::function<void(Species &, uint)> init_fcn);
 
@@ -74,6 +76,15 @@ class Species
         std::vector<double> get_y_phasespace();
         std::vector<double> get_px_phasespace();
         std::vector<double> get_py_phasespace();
+        void print_part_v_coord(uint ii);
+        void print_part_coord(uint ii);
+        void print_E_x();
+        void print_E_y();
+        void print_E_z();
+        void print_B_x();
+        void print_B_y();
+        void print_B_z();
+        void print_weights();
         void print_density();
         //-----------------------------------------
 };

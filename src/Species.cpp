@@ -15,6 +15,22 @@ CONSTRUCTORS/DESTRUCTORS
  * @param init_fcn User provided function which initializes the density of the
  *                 species to the user's specification
  */
+Species::Species()
+{
+}
+
+Species::Species(uint npar, uint nx, uint ny, double Qpar)
+{
+    this->npar = npar;
+    this->parts.reserve(npar);
+
+    this->density_arr = GridObject(nx, ny);
+
+    this->Qpar = Qpar;
+
+    this->total_KE = 0.0;
+}
+
 Species::Species(uint npar, uint nx, uint ny, double Qpar, double density,
                  std::function<void(Species &, uint)> init_fcn)
 {
@@ -198,6 +214,9 @@ int Species::map_field_to_part(const Field &f,
         j = fj;
         hy = fj - j;
 
+// added a print statement here
+        std::cout << "hx " << hx << ", hy " << hy << std::endl;
+
         loc_f_x1 += (1.-hx) * (1.-hy) * par_weight * this->Qpar \
                     * f.f1.get_grid_data(i, j);
         loc_f_x1 += (1.-hx) * hy      * par_weight * this->Qpar \
@@ -369,6 +388,87 @@ std::vector<double> Species::get_py_phasespace()
     }
 
     return to_ret;
+}
+
+void Species::print_part_v_coord(uint ii)
+{
+    for (auto &particle : parts)
+    {
+        std::cout << (particle.get_mom()).get(ii) << '\t';
+    }
+    std::cout << std::endl;   
+}
+
+void Species::print_part_coord(uint ii)
+{
+    for (auto &particle : parts)
+    {
+        std::cout << (particle.get_pos()).get(ii) << '\t';
+    }
+    std::cout << std::endl;      
+}
+
+void Species::print_E_x()
+{
+    for (auto &particle : parts)
+    {
+        std::cout << (particle.get_local_e_field()).get_x() << '\t';
+    }
+    std::cout << std::endl;
+}
+
+void Species::print_E_y()
+{
+    for (auto &particle : parts)
+    {
+        std::cout << (particle.get_local_e_field()).get_y() << '\t';
+    }
+    std::cout << std::endl;
+}
+
+void Species::print_E_z()
+{
+    for (auto &particle : parts)
+    {
+        std::cout << (particle.get_local_e_field()).get_z() << '\t';
+    }
+    std::cout << std::endl;
+}
+
+void Species::print_B_x()
+{
+    for (auto &particle : parts)
+    {
+        std::cout << (particle.get_local_b_field()).get_x() << '\t';
+    }
+    std::cout << std::endl;
+}
+
+void Species::print_B_y()
+{
+    for (auto &particle : parts)
+    {
+        std::cout << (particle.get_local_b_field()).get_y() << '\t';
+    }
+    std::cout << std::endl;
+}
+
+void Species::print_B_z()
+{
+    for (auto &particle : parts)
+    {
+        std::cout << (particle.get_local_b_field()).get_z() << '\t';
+    }
+    std::cout << std::endl;
+}
+
+void Species::print_weights()
+{
+    for (auto &particle : parts)
+    {
+        std::cout << particle.get_weight() << '\t';
+    }
+    std::cout << std::endl;
 }
 
 /**
