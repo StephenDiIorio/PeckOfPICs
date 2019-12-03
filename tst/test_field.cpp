@@ -18,7 +18,7 @@ int zero_density_zero_field(int Nx, int Ny, double L_x, double L_y)
     {
       if (myfield.total_U != 0)
       {
-        return false
+        return false;
       }
       else
       {
@@ -117,7 +117,7 @@ int main(int argc, char** argv)
     std::cout << "Fail: zero density has nonzero field!\n";
   }
 
-    if (constant_density_zero_field(Nx,Ny,L_x,L_y) )
+    if (constant_density_zero_field(Nx,Ny,L_x,L_y, 2.0) )
   {
     std::cout << "Pass: Zero density has zero field.\n";
   }
@@ -126,7 +126,7 @@ int main(int argc, char** argv)
     std::cout << "Fail: zero density has nonzero field!\n";
   }
 
-    if (point_density_right_field(Nx,Ny,L_x,L_y) )
+    if (point_density_right_field(Nx,Ny,L_x,L_y, 1., 1.,2.) )
   {
     std::cout << "Pass: point density has right field.\n";
   }

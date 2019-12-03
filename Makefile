@@ -48,12 +48,13 @@ $(OBJDIR):
 
 
 # All the dependencies
-pic.o: pic.cpp gyro.h uh.h Simulation.h Species.h Particle.h ThreeVec.h Field.h FFT.h
+pic.o: pic.cpp gyro.h uh.h Simulation.h Species.h Particle.h ThreeVec.h Field.h FFT.h GridObject.h
 	$(CXX) -c $(CXXFLAGS) -o $(OBJDIR)/$@ $<
 
-Simulation.o: Simulation.cpp Simulation.h Species.h Particle.h ThreeVec.h Field.h FFT.h
+Simulation.o: Simulation.cpp Simulation.h Species.h Particle.h ThreeVec.h Field.h FFT.h GridObject.h
 Particle.o: Particle.cpp Particle.h ThreeVec.h
-Species.o: Species.cpp Species.h Particle.h ThreeVec.h Field.h FFT.h
-Field.o: Field.cpp Field.h FFT.h
+Species.o: Species.cpp Species.h Particle.h ThreeVec.h Field.h FFT.h GridObject.h
+Field.o: Field.cpp Field.h FFT.h GridObject.h
 FFT.o: FFT.cpp FFT.h
 ThreeVec.o: ThreeVec.cpp ThreeVec.h
+GridObject.o: GridObject.cpp GridObject.h

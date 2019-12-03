@@ -23,6 +23,9 @@ int main(int argc, char **argv)
     myspec.print_part_coord(1);
     myspec.map_field_to_part(testE,dx,dy,L_x,L_y,Nx,Ny);
     myspec.print_E_x();
+    myspec.print_E_y();
+    myspec.print_E_z();
+    
 
     
     return 0;
