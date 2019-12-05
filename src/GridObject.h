@@ -15,7 +15,11 @@
 class GridObject
 {
     private:
+        /**********************************************************
+        PRIVATE CLASS METHODS
+        ***********************************************************/
         void init_grid_obj(std::function<void(GridObject &, uint, uint)> init_fcn);
+        //-----------------------------------------
 
     public:
         std::vector<double> gridded_data;
@@ -114,6 +118,14 @@ class GridObject
             gridded_data.at(index_x * this->Ny + index_y) += val;
         }
 
+        /**
+         * @brief Multiply the provided value to the current value stored in the
+         *        grid at a given index.
+         *
+         * @param index_x x index of grid
+         * @param index_y y index of grid
+         * @param val Number to multiply with value at given indices
+         */
         inline void multiply_grid_data_by(uint index_x, uint index_y, double val)
         {
             index_x = MODULO(index_x, this->Nx);
@@ -151,9 +163,10 @@ class GridObject
         }
 
 
-        void print_grid_data();
+        void print() const;
+        void print_comp(uint xi, uint yj) const;
 
-        bool compare_with(GridObject const &other_obj, double const TOL);
+        bool equals(GridObject const &other_obj, double const TOL) const;
         //-----------------------------------------
 };
 

@@ -98,21 +98,33 @@ GridObject::~GridObject()
 /**********************************************************
 CLASS METHODS
 ***********************************************************/
+
 /**
  * @brief Print the values stored within the grid object
  *
  */
-void GridObject::print_grid_data()
+void GridObject::print() const
 {
     for (int xi = 0; xi < this->Nx; ++xi)
     {
         for (int yj = 0; yj < this->Ny; ++yj)
         {
-            std::cout << this->get_grid_data(xi,yj) << '\t';
+            std::cout << this->get_grid_data(xi, yj) << '\t';
         }
         std::cout << std::endl;
     }
     std::cout << std::endl;
+}
+
+/**
+ * @brief Print a single entry of grid at given coordinates
+ *
+ * @param xi X index of grid value to print
+ * @param yj Y index of grid value to print
+ */
+void GridObject::print_comp(uint xi, uint yj) const
+{
+    std::cout << this->get_grid_data(xi, yj) << std::endl;
 }
 
 /**
@@ -125,7 +137,7 @@ void GridObject::print_grid_data()
  * @return false If either of the two grids has a different size and if any of
  *               the values differ above the provided tolerance
  */
-bool GridObject::compare_with(GridObject const &other_obj, double const TOL)
+bool GridObject::equals(GridObject const &other_obj, double const TOL) const
 {
     if (other_obj.Nx != this->Nx || other_obj.Ny != this->Ny)
     {
