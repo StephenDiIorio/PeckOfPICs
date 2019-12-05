@@ -51,6 +51,17 @@ class Particle
         }
 
         /**
+         * @brief Get a component of the position of the particle
+         *
+         * @param i Index to component to retrieve
+         * @return double The desired component
+         */
+        inline double get_pos_comp(uint i) const
+        {
+            return this->pos.get(i);
+        }
+
+        /**
          * @brief Get the vector containing the momentum of the particle
          *
          * @return ThreeVec The ThreeVec containing the particle momentum
@@ -58,6 +69,17 @@ class Particle
         inline ThreeVec get_mom() const
         {
             return this->mom;
+        }
+
+        /**
+         * @brief Get a component of the momentum of the particle
+         *
+         * @param i Index to component to retrieve
+         * @return double The desired component
+         */
+        inline double get_mom_comp(uint i) const
+        {
+            return this->mom.get(i);
         }
 
         /**
@@ -82,6 +104,17 @@ class Particle
         }
 
         /**
+         * @brief Get a component of the local electric field of the particle
+         *
+         * @param i Index to component to retrieve
+         * @return double The desired component
+         */
+        inline double get_local_e_field_comp(uint i) const
+        {
+            return this->local_e_field.get(i);
+        }
+
+        /**
          * @brief Get vector containing the local magnetic field the particle
          *        sees
          *
@@ -90,6 +123,17 @@ class Particle
         inline ThreeVec get_local_b_field() const
         {
             return this->local_b_field;
+        }
+
+        /**
+         * @brief Get the local b field comp object
+         *
+         * @param i Index to component to retrieve
+         * @return double The desired component
+         */
+        inline double get_local_b_field_comp(uint i) const
+        {
+            return this->local_b_field.get(i);
         }
 
 
@@ -103,6 +147,17 @@ class Particle
         inline void set_pos(ThreeVec pos)
         {
             this->set_pos(pos.get_x(), pos.get_y(), pos.get_z());
+        }
+
+        /**
+         * @brief Set a component of the particle position
+         *
+         * @param i Index to component to set
+         * @param val Value to set component
+         */
+        inline void set_pos_comp(uint i, const double val)
+        {
+            this->pos.set(i, val);
         }
 
         /**
@@ -128,6 +183,17 @@ class Particle
         inline void set_mom(ThreeVec mom)
         {
             this->set_mom(mom.get_x(), mom.get_y(), mom.get_z());
+        }
+
+        /**
+         * @brief Set a component of the particle momentum
+         *
+         * @param i Index to component to set
+         * @param val Value to set component
+         */
+        inline void set_mom_comp(uint i, const double val)
+        {
+            this->mom.set(i, val);
         }
 
         /**
@@ -169,6 +235,17 @@ class Particle
         }
 
         /**
+         * @brief Set a component of the local electric field of the particle
+         *
+         * @param i Index to component to set
+         * @param val Value to set component
+         */
+        inline void set_local_e_field_comp(uint i, const double val)
+        {
+            this->local_e_field.set(i, val);
+        }
+
+        /**
          * @brief Sets the local electric field the particle sees to the
          *        provided values
          *
@@ -195,6 +272,17 @@ class Particle
             this->set_local_b_field(field.get_x(),
                                     field.get_y(),
                                     field.get_z());
+        }
+
+        /**
+         * @brief Set a component of the local magnetic field of the particle
+         *
+         * @param i Index to component to set
+         * @param val Value to set component
+         */
+        inline void set_local_b_field_comp(uint i, const double val)
+        {
+            this->local_b_field.set(i, val);
         }
 
         /**
