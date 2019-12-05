@@ -70,6 +70,7 @@ class ThreeVec
             coord_[X_IDX] += vec.get_x();
             coord_[Y_IDX] += vec.get_y();
             coord_[Z_IDX] += vec.get_z();
+            return *(this);
         }
 
         /**
@@ -83,6 +84,7 @@ class ThreeVec
             coord_[X_IDX] -= vec.get_x();
             coord_[Y_IDX] -= vec.get_y();
             coord_[Z_IDX] -= vec.get_z();
+            return *(this);
         }
 
         /**
