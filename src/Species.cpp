@@ -57,6 +57,10 @@ Species::~Species()
 //-----------------------------------------
 
 
+/**********************************************************
+CLASS METHODS
+***********************************************************/
+
 /**
  * @brief Adds a new particle to the species
  *
@@ -100,10 +104,6 @@ void Species::add_particle(Particle p)
 }
 //-----------------------------------------
 
-
-/**********************************************************
-CLASS METHODS
-***********************************************************/
 
 /**
  * @brief Deposits and interpolates the species charge onto the grid
@@ -163,7 +163,7 @@ int Species::deposit_charge(const double dx, const double dy,
     return 0;
 }
 
-//TODO:
+
 /**
  * @brief Interpolates the field values from the grid to the particle position
  *
@@ -249,7 +249,7 @@ int Species::map_field_to_part(const Field &f,
     return 0;
 }
 
-//TODO:
+
 /**
  * @brief Performs a Boris push on all of the particles in the species
  *
@@ -390,94 +390,129 @@ std::vector<double> Species::get_py_phasespace()
     return to_ret;
 }
 
-void Species::print_part_v_coord(uint ii)
+/**
+ * @brief Prints the positions of all the particles in the species
+ *
+ */
+void Species::print_pos() const
 {
-    for (auto &particle : parts)
+    for (auto &p : this->parts)
     {
-        std::cout << (particle.get_mom()).get(ii) << '\t';
+        p.print_pos();
     }
-    std::cout << std::endl;   
 }
 
-void Species::print_part_coord(uint ii)
+/**
+ * @brief Prints the component of the position of all the particles in the
+ *        species
+ *
+ * @param i The index of the component to print
+ */
+void Species::print_pos_comp(uint i) const
 {
-    for (auto &particle : parts)
+    for (auto &p : this->parts)
     {
-        std::cout << (particle.get_pos()).get(ii) << '\t';
+        p.print_pos_comp(i);
     }
-    std::cout << std::endl;      
 }
 
-void Species::print_E_x()
+/**
+ * @brief Prints the momentum of all the particles in the species
+ *
+ */
+void Species::print_mom() const
 {
-    for (auto &particle : parts)
+    for (auto &p : this->parts)
     {
-        std::cout << (particle.get_local_e_field()).get_x() << '\t';
+        p.print_mom();
     }
-    std::cout << std::endl;
 }
 
-void Species::print_E_y()
+/**
+ * @brief Prints the component of the momentum of all the particles in the
+ *        species
+ *
+ * @param i The index of the component to print
+ */
+void Species::print_mom_comp(uint i) const
 {
-    for (auto &particle : parts)
+    for (auto &p : this->parts)
     {
-        std::cout << (particle.get_local_e_field()).get_y() << '\t';
+        p.print_mom_comp(i);
     }
-    std::cout << std::endl;
 }
 
-void Species::print_E_z()
+/**
+ * @brief Prints the weights of all the particles in the species
+ *
+ */
+void Species::print_weight() const
 {
-    for (auto &particle : parts)
+    for (auto &p : this->parts)
     {
-        std::cout << (particle.get_local_e_field()).get_z() << '\t';
+        p.print_weight();
     }
-    std::cout << std::endl;
 }
 
-void Species::print_B_x()
+/**
+ * @brief Prints the local electric field for all the particles in the species
+ *
+ */
+void Species::print_local_e_field() const
 {
-    for (auto &particle : parts)
+    for (auto &p : this->parts)
     {
-        std::cout << (particle.get_local_b_field()).get_x() << '\t';
+        p.print_local_e_field();
     }
-    std::cout << std::endl;
 }
 
-void Species::print_B_y()
+/**
+ * @brief Prints the component of the local electric field for all the
+ *        particles in the species
+ *
+ * @param i The index of the component to print
+ */
+void Species::print_local_e_field_comp(uint i) const
 {
-    for (auto &particle : parts)
+    for (auto &p : this->parts)
     {
-        std::cout << (particle.get_local_b_field()).get_y() << '\t';
+        p.print_local_e_field_comp(i);
     }
-    std::cout << std::endl;
 }
 
-void Species::print_B_z()
+/**
+ * @brief Prints the local magnetic field for all the particles in the species
+ *
+ */
+void Species::print_local_b_field() const
 {
-    for (auto &particle : parts)
+    for (auto &p : this->parts)
     {
-        std::cout << (particle.get_local_b_field()).get_z() << '\t';
+        p.print_local_b_field();
     }
-    std::cout << std::endl;
 }
 
-void Species::print_weights()
+/**
+ * @brief Prints the component of the local magnetic field for all the
+ *        particles in the species
+ *
+ * @param i The index of the component to print
+ */
+void Species::print_local_b_field_comp(uint i) const
 {
-    for (auto &particle : parts)
+    for (auto &p : this->parts)
     {
-        std::cout << particle.get_weight() << '\t';
+        p.print_local_b_field_comp(i);
     }
-    std::cout << std::endl;
 }
 
 /**
  * @brief Prints the density distribution for this species
  *
  */
-void Species::print_density()
+void Species::print_density() const
 {
-    density_arr.print_grid_data();
+    this->density_arr.print();
 }
 //-----------------------------------------
 

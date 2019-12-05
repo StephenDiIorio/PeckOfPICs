@@ -76,16 +76,18 @@ class Species
         std::vector<double> get_y_phasespace();
         std::vector<double> get_px_phasespace();
         std::vector<double> get_py_phasespace();
-        void print_part_v_coord(uint ii);
-        void print_part_coord(uint ii);
-        void print_E_x();
-        void print_E_y();
-        void print_E_z();
-        void print_B_x();
-        void print_B_y();
-        void print_B_z();
-        void print_weights();
-        void print_density();
+
+        // Print Functions
+        void print_pos() const;
+        void print_pos_comp(uint i) const;
+        void print_mom() const;
+        void print_mom_comp(uint i) const;
+        void print_weight() const;
+        void print_local_e_field() const;
+        void print_local_e_field_comp(uint i) const;
+        void print_local_b_field() const;
+        void print_local_b_field_comp(uint i) const;
+        void print_density() const;
         //-----------------------------------------
 };
 
