@@ -37,7 +37,7 @@ class ThreeVec
          * @param vec Vector to perform element-wise addition with
          * @return ThreeVec Resultant ThreeVec
          */
-        inline ThreeVec operator+(ThreeVec vec)
+        inline ThreeVec operator+(ThreeVec vec) const
         {
             ThreeVec ans(coord_[X_IDX] + vec.get_x(),
                          coord_[Y_IDX] + vec.get_y(),
@@ -51,7 +51,7 @@ class ThreeVec
          * @param vec Vector to perform element-wise subtraction with
          * @return ThreeVec Resultant ThreeVec
          */
-        inline ThreeVec operator-(ThreeVec vec)
+        inline ThreeVec operator-(ThreeVec vec) const
         {
             ThreeVec ans(coord_[X_IDX] - vec.get_x(),
                          coord_[Y_IDX] - vec.get_y(),
@@ -93,7 +93,7 @@ class ThreeVec
          * @param value Scalar to multiply vector by
          * @return ThreeVec Resultant ThreeVec
          */
-        inline ThreeVec operator*(double value)
+        inline ThreeVec operator*(double value) const
         {
             ThreeVec ans(coord_[X_IDX] * value,
                          coord_[Y_IDX] * value,
@@ -107,7 +107,7 @@ class ThreeVec
          * @param value Scalar to divide vector by
          * @return ThreeVec Resultant ThreeVec
          */
-        inline ThreeVec operator/(double value)
+        inline ThreeVec operator/(double value) const
         {
             ThreeVec ans(coord_[X_IDX] / value,
                          coord_[Y_IDX] / value,
@@ -121,10 +121,10 @@ class ThreeVec
          * @param vec Vector to dot with
          * @return double Resultant dot product
          */
-        inline double operator*(ThreeVec vec)
+        inline double operator*(ThreeVec vec) const
         {
             double ans = 0.0;
-            for (int i = 0; i < MAX_DIM; ++i)
+            for (uint i = 0; i < MAX_DIM; ++i)
             {
                 ans += coord_[i] * vec.get(i);
             }
@@ -137,7 +137,7 @@ class ThreeVec
          * @param vec Vector to cross with
          * @return ThreeVec Resultant cross product
          */
-        inline ThreeVec operator^(ThreeVec vec)
+        inline ThreeVec operator^(ThreeVec vec) const
         {
             ThreeVec ans(coord_[Y_IDX] * vec.get_z() - coord_[Z_IDX] * vec.get_y(),
                          coord_[Z_IDX] * vec.get_x() - coord_[X_IDX] * vec.get_z(),
@@ -150,22 +150,116 @@ class ThreeVec
         /**********************************************************
         CLASS METHODS
         ***********************************************************/
-        double get_x();
-        double get_y();
-        double get_z();
-        double get(int i);
+        // Getter Functions
+        /**
+         * @brief Access function for x coordinate
+         *
+         * @return double x coordinate
+         */
+        inline double get_x() const
+        {
+            return coord_[X_IDX];
+        }
 
-        void set_x(double value);
-        void set_y(double value);
-        void set_z(double value);
-        void set(int i, double value);
-        void set_all(double x, double y, double z);
+        /**
+         * @brief Access function for y coordinate
+         *
+         * @return double y coordinate
+         */
+        inline double get_y() const
+        {
+            return coord_[Y_IDX];
+        }
 
+        /**
+         * @brief Access function for z coordinate
+         *
+         * @return double z coordinate
+         */
+        inline double get_z() const
+        {
+            return coord_[Z_IDX];
+        }
+
+        /**
+         * @brief Access function for ith coordinate
+         *
+         * @param i Index into the vector
+         * @return double Value at ith coordinate
+         */
+        inline double get(int i) const
+        {
+            return coord_[i];
+        }
+
+
+        // Setter Functions
+        /**
+         * @brief Modifier method for x coordinate
+         *
+         * @param value Value to set x coorindate to
+         */
+        inline void set_x(double value)
+        {
+            coord_[X_IDX] = value;
+        }
+
+        /**
+         * @brief Modifier method for y coordinate
+         *
+         * @param value Value to set y coorindate to
+         */
+        inline void set_y(double value)
+        {
+            coord_[Y_IDX] = value;
+        }
+
+        /**
+         * @brief Modifier method for z coordinate
+         *
+         * @param value Value to set z coorindate to
+         */
+        inline void set_z(double value)
+        {
+            coord_[Z_IDX] = value;
+        }
+
+        /**
+         * @brief Modifier method for ith coordinate -> INSERT
+         *
+         * @param i Index into the vector
+         * @param value Value to set ith coorindate to
+         */
+        inline void set(int i, double value)
+        {
+            coord_[i] = value;
+        }
+
+        /**
+         * @brief Modifier method for all coordinate
+         *
+         * @param x New x coordinate
+         * @param y New y coordinate
+         * @param z New z coordinate
+         */
+        inline void set_all(double x, double y, double z)
+        {
+            coord_[X_IDX] = x;
+            coord_[Y_IDX] = y;
+            coord_[Z_IDX] = z;
+        }
+
+
+        // Operations
         void inc(int i, double value);
         double square();
         double mag();
-
         ThreeVec element_multiply(ThreeVec vec);
+
+
+        // Print Functions
+        void print() const;
+        void print_comp(uint i) const;
         //-----------------------------------------
 };
 
