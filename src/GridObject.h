@@ -10,6 +10,10 @@
 
 typedef unsigned int uint;
 
+/**
+ * @brief A 2D Grid that can be used to store data
+ *
+ */
 class GridObject
 {
     private:
