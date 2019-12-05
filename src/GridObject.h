@@ -26,8 +26,7 @@ class GridObject
         /**********************************************************
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
-        GridObject(); //TODO: see if this can be removed
-        // note: need an empty constructor to allow GridObject to be a member
+        GridObject(); // note: need an empty constructor to allow GridObject to be a member
         GridObject(uint Nx, uint Ny);
         GridObject(uint Nx, uint Ny, double val);
         GridObject(uint Nx, uint Ny,
