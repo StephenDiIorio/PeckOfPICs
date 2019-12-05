@@ -8,7 +8,7 @@ Field::Field() //TODO: See if this can be removed
 {
 }
 
-Field::Field(uint Nx, uint Ny, double dx, double dy) 
+Field::Field(uint Nx, uint Ny, double dx, double dy)
 {
     this->size = Nx * Ny;
     this->Nx = Nx;
@@ -17,7 +17,7 @@ Field::Field(uint Nx, uint Ny, double dx, double dy)
     this->dy = dy;
 
     this->total_U = 0.0;
-    
+
     this->f1 = GridObject(this->Nx, this->Ny);
     this->f2 = GridObject(this->Nx, this->Ny);
     this->f3 = GridObject(this->Nx, this->Ny);
@@ -65,7 +65,7 @@ int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
         {
             xs_re.at(yj) = real_part.get_grid_data(xi,yj);
             xs_im.at(yj) = imag_part.get_grid_data(xi,yj);
-        }    
+        }
         err = FFT(xs_re, xs_im, this->Ny, transform_direction);
         if (err)
         {
@@ -75,7 +75,7 @@ int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
         {
             real_part.set_grid_data(xi,yj,xs_re.at(yj));
             imag_part.set_grid_data(xi,yj,xs_im.at(yj));
-        }  
+        }
     }
     // now columns
     std::vector<double> ys_re(this->Nx), ys_im(this->Nx);
@@ -85,7 +85,7 @@ int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
         {
             ys_re.at(xi) = real_part.get_grid_data(xi,yj);
             ys_im.at(xi) = imag_part.get_grid_data(xi,yj);
-        }    
+        }
         err = FFT(ys_re, ys_im, this->Nx, transform_direction);
         if (err)
         {
@@ -95,7 +95,7 @@ int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
         {
             real_part.set_grid_data(xi,yj,ys_re.at(xi));
             imag_part.set_grid_data(xi,yj,ys_im.at(xi));
-        }  
+        }
     }
 
     return 0;
@@ -103,9 +103,9 @@ int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
 
 /**
  * @brief solve_field solves Poisson equation with periodic BCs
- * 
- * @param charge_density 
- * @return int 
+ *
+ * @param charge_density
+ * @return int
  */
 int Field::solve_field(GridObject &charge_density)
 {
@@ -144,8 +144,8 @@ int Field::solve_field(GridObject &charge_density)
 
             double Klmsq_ij = Klsq + ky*ky * sincky2*sincky2;
             // energy is rhobar * phibar conj = |rhobar|^2 / Klm^2
-            this->total_U += (phi_dens_re.get_grid_data(xi,yj) * 
-                phi_dens_re.get_grid_data(xi,yj) + 
+            this->total_U += (phi_dens_re.get_grid_data(xi,yj) *
+                phi_dens_re.get_grid_data(xi,yj) +
                 phi_dens_im.get_grid_data(xi,yj) *
                 phi_dens_im.get_grid_data(xi,yj) ) / Klmsq_ij;
             phi_dens_re.multiply_grid_data_by(xi,yj, 1./Klmsq_ij);
@@ -202,10 +202,10 @@ int Field::solve_field(GridObject &charge_density)
 }
 
 /**
- * @brief 
- * 
- * @param charge_density 
- * @return int 
+ * @brief
+ *
+ * @param charge_density
+ * @return int
  */
 int solve_field_fftw(GridObject &charge_density)
 {
@@ -268,12 +268,12 @@ int Field::solve_field_spectral(std::vector<double> re, std::vector<double> im)
 
 void Field::print_field()
 {
-    std::cout << "f1:" << std::endl;
-	f1.print_grid_data();
-    std::cout << "f2:" << std::endl;
-	f2.print_grid_data();
-    std::cout << "f3:" << std::endl;
-	f3.print_grid_data();
+    std::cout << "F1:" << std::endl;
+	f1.print();
+    std::cout << "F2:" << std::endl;
+	f2.print();
+    std::cout << "F3:" << std::endl;
+	f3.print();
 }
 
 /**********************************************************
