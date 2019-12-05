@@ -8,8 +8,6 @@
 
 #define MODULO(a, b) (int)((a % b) >= 0 ? (a % b) : (a % b) + b)
 
-typedef unsigned int uint;
-
 /**
  * @brief A 2D Grid that can be used to store data
  *

@@ -13,25 +13,21 @@ GridObject::GridObject()
 }
 
 /**
- * @brief Constructor for Grid Object object - sets to an nx x ny vector of 0s
+ * @brief Constructor for GridObject object - sets to an Nx by Ny grid of 0s
  *
  * @param Nx Number of x values
  * @param Ny Number of y values
  */
-GridObject::GridObject(uint Nx, uint Ny)
+GridObject::GridObject(uint Nx, uint Ny) : GridObject(Nx, Ny, 0.0)
 {
-    this->Nx = Nx;
-    this->Ny = Ny;
-
-    this->gridded_data = std::vector<double>(Nx * Ny, 0.0);
 }
 
 /**
- * @brief Construct a new Grid Object object
+ * @brief Construct a new GridObject object - sets to an Nx by Ny grid of val
  *
- * @param Nx
- * @param Ny
- * @param val
+ * @param Nx Number of x values
+ * @param Ny Number of y values
+ * @param val Value to initialize grid to
  */
 GridObject::GridObject(uint Nx, uint Ny, double val)
 {
@@ -42,7 +38,7 @@ GridObject::GridObject(uint Nx, uint Ny, double val)
 }
 
 /**
- * @brief Constructor for Grid Object object
+ * @brief Constructor for GridObject object
  *
  * @param Nx Number of x values
  * @param Ny Number of y values
@@ -58,7 +54,7 @@ GridObject::GridObject(uint Nx, uint Ny, std::function<void(GridObject &, uint, 
 }
 
 /**
- * @brief Constructor for Grid Object object
+ * @brief Constructor for GridObject object
  *
  * @param Nx Number of x values
  * @param Ny Number of y values
@@ -66,12 +62,22 @@ GridObject::GridObject(uint Nx, uint Ny, std::function<void(GridObject &, uint, 
  */
 GridObject::GridObject(uint Nx, uint Ny, std::vector<double> data) // a 'copy' constructor
 {
+    if ((Nx * Ny) != data.size())
+    {
+        throw std::runtime_error("Specified dimensions of grid do not match number of supplied data points.");
+    }
+
     this->Nx = Nx;
     this->Ny = Ny;
 
     this->gridded_data = std::vector<double>(data);
 }
 
+/**
+ * @brief Constructor for GridObject object
+ *
+ * @param copy_obj
+ */
 GridObject::GridObject(GridObject const &copy_obj)
 {
     this->Nx = copy_obj.Nx;
@@ -80,7 +86,7 @@ GridObject::GridObject(GridObject const &copy_obj)
 }
 
 /**
- * @brief Destructor for Grid Object object
+ * @brief Destructor for GridObject object
  *
 */
 GridObject::~GridObject()
@@ -151,3 +157,4 @@ void GridObject::init_grid_obj(std::function<void(GridObject &, uint, uint)> ini
 {
     init_fcn(*this, this->Nx, this->Ny);
 }
+//-----------------------------------------
