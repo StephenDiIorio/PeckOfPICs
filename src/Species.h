@@ -76,6 +76,14 @@ class Species
         std::vector<double> get_y_phasespace();
         std::vector<double> get_px_phasespace();
         std::vector<double> get_py_phasespace();
+        std::vector<double> get_local_E(int i);
+        std::vector<double> get_local_E_x();
+        std::vector<double> get_local_E_y();
+        std::vector<double> get_local_E_z();
+        std::vector<double> get_local_B(int i);
+        std::vector<double> get_local_B_x();
+        std::vector<double> get_local_B_y();
+        std::vector<double> get_local_B_z();
         void print_part_v_coord(uint ii);
         void print_part_coord(uint ii);
         void print_E_x();

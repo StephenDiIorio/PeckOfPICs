@@ -186,12 +186,13 @@ int Species::map_field_to_part(const Field &f,
     double x_min = 0.0, y_min = 0.0;
     uint i, j;
 
-    double loc_f_x1 = 0.0;
-    double loc_f_x2 = 0.0;
-    double loc_f_x3 = 0.0;
 
     for (auto &p : this->parts)
     {
+        double loc_f_x1 = 0.0;
+        double loc_f_x2 = 0.0;
+        double loc_f_x3 = 0.0;
+
         par_weight = p.get_weight() / dx / dy; // add normalization factor here
         x_pos = p.get_pos().get_x();
         y_pos = p.get_pos().get_y();
@@ -214,35 +215,45 @@ int Species::map_field_to_part(const Field &f,
         j = fj;
         hy = fj - j;
 
-// added a print statement here
-        std::cout << "hx " << hx << ", hy " << hy << std::endl;
+// added a print statement here for debuggin purposes
+        // std::cout << "i " << i << ", j " << j << std::endl;
+        // std::cout << "hx " << hx << ", hy " << hy << std::endl;
+        // std::cout << "weight " << par_weight << std::endl;
+        // std::cout << "Qpar " << this->Qpar << std::endl;
+        // std::cout << "Eij " << f.f1.get_grid_data(i,j) << std::endl;
+        // std::cout << "Ei+1,j " << f.f1.get_grid_data(i+1,j) << std::endl;
+        // std::cout << "Ei,j+1 " << f.f1.get_grid_data(i,j+1) << std::endl;
+        // std::cout << "Ei+1,j+1 " << f.f1.get_grid_data(i+1,j+1) << std::endl;
 
-        loc_f_x1 += (1.-hx) * (1.-hy) * par_weight * this->Qpar \
+        loc_f_x1 += (1.-hx) * (1.-hy) * par_weight \
                     * f.f1.get_grid_data(i, j);
-        loc_f_x1 += (1.-hx) * hy      * par_weight * this->Qpar \
+        loc_f_x1 += hx * (1.-hy) * par_weight \
                     * f.f1.get_grid_data(i+1, j);
-        loc_f_x1 += hx      * (1.-hy) * par_weight * this->Qpar \
+        loc_f_x1 += (1.-hx) * hy * par_weight \
                     * f.f1.get_grid_data(i, j+1);
-        loc_f_x1 += hx      * hy      * par_weight * this->Qpar \
+        loc_f_x1 += hx      * hy      * par_weight \
                     * f.f1.get_grid_data(i+1, j+1);
 
-        loc_f_x2 += (1.-hx) * (1.-hy) * par_weight * this->Qpar \
+        loc_f_x2 += (1.-hx) * (1.-hy) * par_weight \
                     * f.f2.get_grid_data(i, j);
-        loc_f_x2 += (1.-hx) * hy      * par_weight * this->Qpar \
+        loc_f_x2 += hx * (1.-hy) * par_weight \
                     * f.f2.get_grid_data(i+1, j);
-        loc_f_x2 += hx      * (1.-hy) * par_weight * this->Qpar \
+        loc_f_x2 += (1.-hx) * hy * par_weight \
                     * f.f2.get_grid_data(i, j+1);
-        loc_f_x2 += hx      * hy      * par_weight * this->Qpar \
+        loc_f_x2 += hx      * hy      * par_weight \
                     * f.f2.get_grid_data(i+1, j+1);
 
-        loc_f_x3 += (1.-hx) * (1.-hy) * par_weight * this->Qpar \
+        loc_f_x3 += (1.-hx) * (1.-hy) * par_weight \
                     * f.f3.get_grid_data(i, j);
-        loc_f_x3 += (1.-hx) * hy      * par_weight * this->Qpar \
+        loc_f_x3 += hx * (1.-hy)      * par_weight \
                     * f.f3.get_grid_data(i+1, j);
-        loc_f_x3 += hx      * (1.-hy) * par_weight * this->Qpar \
+        loc_f_x3 += (1.-hx)   * hy * par_weight \
                     * f.f3.get_grid_data(i, j+1);
-        loc_f_x3 += hx      * hy      * par_weight * this->Qpar \
+        loc_f_x3 += hx      * hy      * par_weight \
                     * f.f3.get_grid_data(i+1, j+1);
+        
+        // std::cout << "loc_f_x1 " << loc_f_x1 << ", loc_f_x2 " << loc_f_x2 \
+        //     << ", loc_f_x3 " << loc_f_x3 << std::endl;
 
         p.set_local_e_field(loc_f_x1, loc_f_x2, loc_f_x3);
     }
@@ -385,6 +396,102 @@ std::vector<double> Species::get_py_phasespace()
     for (int i = 0; i < this->npar; ++i)
     {
         to_ret[i] = this->parts[i].get_mom().get_y();
+    }
+
+    return to_ret;
+}
+
+
+std::vector<double> Species::get_local_E(int i)
+{
+    std::vector<double> to_ret = std::vector<double>(this->npar);
+
+    for (int i = 0; i < this->npar; ++i)
+    {
+        to_ret[i] = this->parts[i].get_local_e_field().get(i);
+    }
+
+    return to_ret;
+}
+
+std::vector<double> Species::get_local_E_x()
+{
+    std::vector<double> to_ret = std::vector<double>(this->npar);
+
+    for (int i = 0; i < this->npar; ++i)
+    {
+        to_ret[i] = (this->parts[i].get_local_e_field()).get_x();
+    }
+
+    return to_ret;
+}
+ 
+std::vector<double> Species::get_local_E_y()
+{
+    std::vector<double> to_ret = std::vector<double>(this->npar);
+
+    for (int i = 0; i < this->npar; ++i)
+    {
+        to_ret[i] = (this->parts[i].get_local_e_field()).get_y();
+    }
+
+    return to_ret;
+}
+
+std::vector<double> Species::get_local_E_z()
+{
+
+    std::vector<double> to_ret = std::vector<double>(this->npar);
+
+    for (int i = 0; i < this->npar; ++i)
+    {
+        to_ret[i] = (this->parts[i].get_local_e_field()).get_z();
+    }
+
+    return to_ret;
+}
+
+std::vector<double> Species::get_local_B(int i)
+{
+    std::vector<double> to_ret = std::vector<double>(this->npar);
+
+    for (int i = 0; i < this->npar; ++i)
+    {
+        to_ret[i] = (this->parts[i].get_local_b_field()).get(i);
+    }
+
+    return to_ret;
+}
+std::vector<double> Species::get_local_B_x()
+{
+
+    std::vector<double> to_ret = std::vector<double>(this->npar);
+
+    for (int i = 0; i < this->npar; ++i)
+    {
+        to_ret[i] = (this->parts[i].get_local_e_field()).get_x();
+    }
+
+    return to_ret;
+}
+std::vector<double> Species::get_local_B_y()
+{
+    std::vector<double> to_ret = std::vector<double>(this->npar);
+
+    for (int i = 0; i < this->npar; ++i)
+    {
+        to_ret[i] = (this->parts[i].get_local_e_field()).get_y();
+    }
+
+    return to_ret;
+}
+std::vector<double> Species::get_local_B_z()
+{
+    std::vector<double> to_ret = std::vector<double>(this->npar);
+
+    for (int i = 0; i < this->npar; ++i)
+    {
+        to_ret[i] = (this->parts[i].get_local_e_field()).get_z();
     }
 
     return to_ret;
