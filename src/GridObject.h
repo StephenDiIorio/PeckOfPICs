@@ -149,9 +149,10 @@ class GridObject
             return gridded_data.at(index_x * this->Ny + index_y);
         }
 
+
         void print_grid_data();
 
-        bool compare_with(GridObject &other_obj, double const TOL);
+        bool compare_with(GridObject const &other_obj, double const TOL);
         //-----------------------------------------
 };
 

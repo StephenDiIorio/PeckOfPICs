@@ -28,10 +28,10 @@ GridObject::GridObject(uint Nx, uint Ny)
 
 /**
  * @brief Construct a new Grid Object object
- * 
- * @param Nx 
- * @param Ny 
- * @param val 
+ *
+ * @param Nx
+ * @param Ny
+ * @param val
  */
 GridObject::GridObject(uint Nx, uint Ny, double val)
 {
@@ -78,15 +78,15 @@ GridObject::GridObject(GridObject const &copy_obj)
     this->Ny = copy_obj.Ny;
     this->gridded_data = copy_obj.gridded_data;
 }
-// should there be a Destructor here?
+
 /**
  * @brief Destructor for Grid Object object
-}
+ *
 */
-//-----------------------------------------
 GridObject::~GridObject()
 {
 }
+//-----------------------------------------
 
 
 /**********************************************************
@@ -106,14 +106,20 @@ void GridObject::print_grid_data()
         }
         std::cout << std::endl;
     }
-    // for (auto &d : this->gridded_data )
-    // {
-    //     std::cout << d << '\t';
-    // }
     std::cout << std::endl;
 }
 
-bool GridObject::compare_with(GridObject &other_obj, double const TOL)
+/**
+ * @brief Compares whether or not two GridObjects are equivalent
+ *
+ * @param other_obj Other GridObject to compare against
+ * @param TOL Tolerance value to compare elements within
+ * @return true If the two grids are of the same size and contain the same
+ *              elements, within the provided tolerance
+ * @return false If either of the two grids has a different size and if any of
+ *               the values differ above the provided tolerance
+ */
+bool GridObject::compare_with(GridObject const &other_obj, double const TOL)
 {
     if (other_obj.Nx != this->Nx || other_obj.Ny != this->Ny)
     {
@@ -125,8 +131,8 @@ bool GridObject::compare_with(GridObject &other_obj, double const TOL)
         {
             for (int yj = 0; yj < this->Ny; ++yj)
             {
-                if (fabs(this->get_grid_data(xi, yj) - 
-                            other_obj.get_grid_data(xi,yj)) >= TOL)
+                if (fabs(this->get_grid_data(xi, yj) -
+                         other_obj.get_grid_data(xi,yj)) >= TOL)
                 {
                     return false;
                 }
