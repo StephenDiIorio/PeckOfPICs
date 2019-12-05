@@ -12,9 +12,9 @@ int zero_density_zero_field(int Nx, int Ny, double L_x, double L_y)
   Field myfield(Nx, Ny, dx, dy);
   myfield.solve_field(density);
 
-  if (myfield.f1.compare_with(density, TOL) &&
-    myfield.f2.compare_with(density,TOL) &&
-    myfield.f3.compare_with(density,TOL) )
+  if (myfield.f1.equals(density, TOL) &&
+    myfield.f2.equals(density,TOL) &&
+    myfield.f3.equals(density,TOL) )
     {
       if (myfield.total_U != 0)
       {
@@ -40,9 +40,9 @@ int constant_density_zero_field(int Nx, int Ny, double L_x, double L_y, double r
   Field myfield(Nx, Ny, dx, dy);
   myfield.solve_field(density);
 
-  if (myfield.f1.compare_with(density, TOL) &&
-    myfield.f2.compare_with(density,TOL) &&
-    myfield.f3.compare_with(density,TOL) )
+  if (myfield.f1.equals(density, TOL) &&
+    myfield.f2.equals(density,TOL) &&
+    myfield.f3.equals(density,TOL) )
     {
       if (myfield.total_U == 0)
       {
@@ -70,9 +70,9 @@ int point_density_right_field(int Nx, int Ny, double L_x, double L_y, int xa, in
 
   GridObject correct_f1(Nx,Ny), correct_f2(Nx,Ny);
 
-  if (myfield.f1.compare_with(correct_f1, TOL) &&
-    myfield.f2.compare_with(correct_f2,TOL) &&
-    myfield.f3.compare_with(density,TOL) )
+  if (myfield.f1.equals(correct_f1, TOL) &&
+    myfield.f2.equals(correct_f2,TOL) &&
+    myfield.f3.equals(density,TOL) )
     {
       if (myfield.total_U == 0)
       {
@@ -101,7 +101,7 @@ int main(int argc, char** argv)
   double dx = L_x / Nx, dy = L_y / Ny;
   GridObject density(Nx, Ny);
   density.set_grid_data(1.,1.,1.);
-  density.print_grid_data();
+  density.print();
 
   Field myfield(Nx, Ny, dx, dy);
   myfield.solve_field(density);

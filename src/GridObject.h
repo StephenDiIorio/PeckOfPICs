@@ -8,12 +8,18 @@
 
 #define MODULO(a, b) (int)((a % b) >= 0 ? (a % b) : (a % b) + b)
 
-typedef unsigned int uint;
-
+/**
+ * @brief A 2D Grid that can be used to store data
+ *
+ */
 class GridObject
 {
     private:
+        /**********************************************************
+        PRIVATE CLASS METHODS
+        ***********************************************************/
         void init_grid_obj(std::function<void(GridObject &, uint, uint)> init_fcn);
+        //-----------------------------------------
 
     public:
         std::vector<double> gridded_data;
@@ -22,8 +28,7 @@ class GridObject
         /**********************************************************
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
-        GridObject(); //TODO: see if this can be removed
-        // note: need an empty constructor to allow GridObject to be a member
+        GridObject(); // Note: need an empty constructor to allow GridObject to be a member
         GridObject(uint Nx, uint Ny);
         GridObject(uint Nx, uint Ny, double val);
         GridObject(uint Nx, uint Ny,
@@ -113,6 +118,14 @@ class GridObject
             gridded_data.at(index_x * this->Ny + index_y) += val;
         }
 
+        /**
+         * @brief Multiply the provided value to the current value stored in the
+         *        grid at a given index.
+         *
+         * @param index_x x index of grid
+         * @param index_y y index of grid
+         * @param val Number to multiply with value at given indices
+         */
         inline void multiply_grid_data_by(uint index_x, uint index_y, double val)
         {
             index_x = MODULO(index_x, this->Nx);
@@ -149,9 +162,11 @@ class GridObject
             return gridded_data.at(index_x * this->Ny + index_y);
         }
 
-        void print_grid_data();
 
-        bool compare_with(GridObject &other_obj, double const TOL);
+        void print() const;
+        void print_comp(uint xi, uint yj) const;
+
+        bool equals(GridObject const &other_obj, double const TOL) const;
         //-----------------------------------------
 };
 

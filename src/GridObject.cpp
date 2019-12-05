@@ -13,25 +13,21 @@ GridObject::GridObject()
 }
 
 /**
- * @brief Constructor for Grid Object object - sets to an nx x ny vector of 0s
+ * @brief Constructor for GridObject object - sets to an Nx by Ny grid of 0s
  *
  * @param Nx Number of x values
  * @param Ny Number of y values
  */
-GridObject::GridObject(uint Nx, uint Ny)
+GridObject::GridObject(uint Nx, uint Ny) : GridObject(Nx, Ny, 0.0)
 {
-    this->Nx = Nx;
-    this->Ny = Ny;
-
-    this->gridded_data = std::vector<double>(Nx * Ny, 0.0);
 }
 
 /**
- * @brief Construct a new Grid Object object
- * 
- * @param Nx 
- * @param Ny 
- * @param val 
+ * @brief Construct a new GridObject object - sets to an Nx by Ny grid of val
+ *
+ * @param Nx Number of x values
+ * @param Ny Number of y values
+ * @param val Value to initialize grid to
  */
 GridObject::GridObject(uint Nx, uint Ny, double val)
 {
@@ -42,7 +38,7 @@ GridObject::GridObject(uint Nx, uint Ny, double val)
 }
 
 /**
- * @brief Constructor for Grid Object object
+ * @brief Constructor for GridObject object
  *
  * @param Nx Number of x values
  * @param Ny Number of y values
@@ -58,7 +54,7 @@ GridObject::GridObject(uint Nx, uint Ny, std::function<void(GridObject &, uint, 
 }
 
 /**
- * @brief Constructor for Grid Object object
+ * @brief Constructor for GridObject object
  *
  * @param Nx Number of x values
  * @param Ny Number of y values
@@ -66,54 +62,82 @@ GridObject::GridObject(uint Nx, uint Ny, std::function<void(GridObject &, uint, 
  */
 GridObject::GridObject(uint Nx, uint Ny, std::vector<double> data) // a 'copy' constructor
 {
+    if ((Nx * Ny) != data.size())
+    {
+        throw std::runtime_error("Specified dimensions of grid do not match number of supplied data points.");
+    }
+
     this->Nx = Nx;
     this->Ny = Ny;
 
     this->gridded_data = std::vector<double>(data);
 }
 
+/**
+ * @brief Constructor for GridObject object
+ *
+ * @param copy_obj
+ */
 GridObject::GridObject(GridObject const &copy_obj)
 {
     this->Nx = copy_obj.Nx;
     this->Ny = copy_obj.Ny;
     this->gridded_data = copy_obj.gridded_data;
 }
-// should there be a Destructor here?
+
 /**
- * @brief Destructor for Grid Object object
-}
+ * @brief Destructor for GridObject object
+ *
 */
-//-----------------------------------------
 GridObject::~GridObject()
 {
 }
+//-----------------------------------------
 
 
 /**********************************************************
 CLASS METHODS
 ***********************************************************/
+
 /**
  * @brief Print the values stored within the grid object
  *
  */
-void GridObject::print_grid_data()
+void GridObject::print() const
 {
     for (int xi = 0; xi < this->Nx; ++xi)
     {
         for (int yj = 0; yj < this->Ny; ++yj)
         {
-            std::cout << this->get_grid_data(xi,yj) << '\t';
+            std::cout << this->get_grid_data(xi, yj) << '\t';
         }
         std::cout << std::endl;
     }
-    // for (auto &d : this->gridded_data )
-    // {
-    //     std::cout << d << '\t';
-    // }
     std::cout << std::endl;
 }
 
-bool GridObject::compare_with(GridObject &other_obj, double const TOL)
+/**
+ * @brief Print a single entry of grid at given coordinates
+ *
+ * @param xi X index of grid value to print
+ * @param yj Y index of grid value to print
+ */
+void GridObject::print_comp(uint xi, uint yj) const
+{
+    std::cout << this->get_grid_data(xi, yj) << std::endl;
+}
+
+/**
+ * @brief Compares whether or not two GridObjects are equivalent
+ *
+ * @param other_obj Other GridObject to compare against
+ * @param TOL Tolerance value to compare elements within
+ * @return true If the two grids are of the same size and contain the same
+ *              elements, within the provided tolerance
+ * @return false If either of the two grids has a different size and if any of
+ *               the values differ above the provided tolerance
+ */
+bool GridObject::equals(GridObject const &other_obj, double const TOL) const
 {
     if (other_obj.Nx != this->Nx || other_obj.Ny != this->Ny)
     {
@@ -125,8 +149,8 @@ bool GridObject::compare_with(GridObject &other_obj, double const TOL)
         {
             for (int yj = 0; yj < this->Ny; ++yj)
             {
-                if (fabs(this->get_grid_data(xi, yj) - 
-                            other_obj.get_grid_data(xi,yj)) >= TOL)
+                if (fabs(this->get_grid_data(xi, yj) -
+                         other_obj.get_grid_data(xi,yj)) >= TOL)
                 {
                     return false;
                 }
@@ -145,3 +169,4 @@ void GridObject::init_grid_obj(std::function<void(GridObject &, uint, uint)> ini
 {
     init_fcn(*this, this->Nx, this->Ny);
 }
+//-----------------------------------------

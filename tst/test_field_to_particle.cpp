@@ -131,16 +131,6 @@ bool test_single_point_field_to_particle(uint field_component, double E0, int b1
     expected_E_b1.push_back(0);
  // end box 1 test
 
-/*
-    std::cout << "part pos\n";
-    box_one.print_part_coord(0);
-    box_one.print_part_coord(1);
-
-    std::cout << "local E\n";
-    box_one.print_E_x();
-    box_one.print_E_y();
-    box_one.print_E_z();
-    */
     box_one.map_field_to_part(testE,dx,dy,L_x,L_y,Nx,Ny);
 
     
