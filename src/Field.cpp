@@ -23,6 +23,37 @@ Field::Field(uint Nx, uint Ny, double dx, double dy)
     this->f3 = GridObject(this->Nx, this->Ny);
 }
 
+Field::Field(uint Nx, uint Ny, double dx, double dy,\
+            uint component, double value)
+{
+    this->size = Nx * Ny;
+    this->Nx = Nx;
+    this->Ny = Ny;
+    this->dx = dx;
+    this->dy = dy;
+
+    this->total_U = 0.0;
+
+    switch(component)
+    {
+        case 1:
+            this->f1 = GridObject(this->Nx, this->Ny);
+            this->f2 = GridObject(this->Nx, this->Ny, value);
+            this->f3 = GridObject(this->Nx, this->Ny);
+            break;
+        case 2:
+            this->f1 = GridObject(this->Nx, this->Ny);
+            this->f2 = GridObject(this->Nx, this->Ny);
+            this->f3 = GridObject(this->Nx, this->Ny, value);
+            break;
+        default:
+            this->f1 = GridObject(this->Nx, this->Ny, value);
+            this->f2 = GridObject(this->Nx, this->Ny);
+            this->f3 = GridObject(this->Nx, this->Ny);
+            break;
+    }
+}
+
 Field::Field(uint Nx, uint Ny, double dx, double dy,
     std::function<void(Field &, uint, uint)> init_fcn)
 {
