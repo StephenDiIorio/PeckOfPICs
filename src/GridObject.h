@@ -6,6 +6,8 @@
 #include <functional>
 #include <math.h>
 
+#include "DataStorage_2D.h"
+
 #define MODULO(a, b) (int)((a % b) >= 0 ? (a % b) : (a % b) + b)
 
 /**
@@ -22,7 +24,7 @@ class GridObject
         //-----------------------------------------
 
     public:
-        std::vector<double> gridded_data;
+        DataStorage_2D gridded_data;
         int Nx, Ny;
 
         /**********************************************************
@@ -34,7 +36,7 @@ class GridObject
         GridObject(uint Nx, uint Ny,
                    std::function<void(GridObject &, uint, uint)> init_fcn);
         GridObject(uint Nx, uint Ny,
-                   std::vector<double> data); // a 'copy' constructor
+                   std::vector<double> data);   // a 'copy' constructor
         GridObject(GridObject const &copy_obj); // a copy constructor
         ~GridObject();
         //-----------------------------------------
@@ -73,13 +75,9 @@ class GridObject
          *        GridObject objects
          *
          */
-        inline GridObject operator+=(GridObject grid)
+        inline GridObject operator+=(const GridObject& grid)
         {
-            for (uint i = 0; i < this->Nx * this->Ny; ++i)
-            {
-                this->gridded_data.at(i) += grid.gridded_data.at(i);
-            }
-
+            this->gridded_data += grid.gridded_data;
             return *(this);
         }
 
@@ -88,13 +86,9 @@ class GridObject
          *        GridObject objects
          *
          */
-        inline GridObject operator-=(GridObject grid)
+        inline GridObject operator-=(const GridObject& grid)
         {
-            for (uint i = 0; i < this->Nx * this->Ny; ++i)
-            {
-                this->gridded_data.at(i) -= grid.gridded_data.at(i);
-            }
-
+            this->gridded_data -= grid.gridded_data;
             return *(this);
         }
         //-----------------------------------------
@@ -111,11 +105,17 @@ class GridObject
          * @param index_y y index of grid
          * @param val Number to sum with value at given indices
          */
-        inline void add_to_grid_data(uint index_x, uint index_y, double val)
+        inline void comp_add_to(uint index_x, uint index_y, double val)
         {
+            std::cout << index_x << std::endl;
             index_x = MODULO(index_x, this->Nx);
+            std::cout << index_x << std::endl;
+            std::cout << index_y << std::endl;
             index_y = MODULO(index_y, this->Ny);
-            gridded_data.at(index_x * this->Ny + index_y) += val;
+            std::cout << index_y << std::endl;
+            std::cout << Nx << std::endl;
+            std::cout << Ny << std::endl;
+            gridded_data.at(index_x, index_y) += val;
         }
 
         /**
@@ -126,11 +126,11 @@ class GridObject
          * @param index_y y index of grid
          * @param val Number to multiply with value at given indices
          */
-        inline void multiply_grid_data_by(uint index_x, uint index_y, double val)
+        inline void comp_multiply_by(uint index_x, uint index_y, double val)
         {
             index_x = MODULO(index_x, this->Nx);
             index_y = MODULO(index_y, this->Ny);
-            gridded_data.at(index_x * this->Ny + index_y) *= val;
+            gridded_data.at(index_x, index_y) *= val;
         }
 
 
@@ -141,11 +141,11 @@ class GridObject
          * @param index_y y index of grid
          * @param val Number to set in grid at given indices
          */
-        inline void set_grid_data(uint index_x, uint index_y, double val)
+        inline void set_comp(uint index_x, uint index_y, double val)
         {
             index_x = MODULO(index_x, this->Nx);
             index_y = MODULO(index_y, this->Ny);
-            gridded_data.at(index_x * this->Ny + index_y) = val;
+            gridded_data.at(index_x, index_y) = val;
         }
 
         /**
@@ -155,18 +155,23 @@ class GridObject
          * @param index_y y index of grid
          * @return double Value stored in grid at given indices
          */
-        inline double get_grid_data(uint index_x, uint index_y) const
+        inline double get_comp(uint index_x, uint index_y) const
         {
             index_x = MODULO(index_x, this->Nx);
             index_y = MODULO(index_y, this->Ny);
-            return gridded_data.at(index_x * this->Ny + index_y);
+            return gridded_data.at(index_x, index_y);
+        }
+
+        inline const DataStorage_2D& get_data() const
+        {
+            return this->gridded_data;
         }
 
 
         void print() const;
         void print_comp(uint xi, uint yj) const;
 
-        bool equals(GridObject const &other_obj, double const TOL) const;
+        bool equals(const GridObject &other_obj, const double TOL) const;
         //-----------------------------------------
 };
 

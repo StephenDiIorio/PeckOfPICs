@@ -34,7 +34,7 @@ GridObject::GridObject(uint Nx, uint Ny, double val)
     this->Nx = Nx;
     this->Ny = Ny;
 
-    this->gridded_data = std::vector<double>(Nx * Ny, val);
+    this->gridded_data = DataStorage_2D(Nx, Ny, val);
 }
 
 /**
@@ -70,7 +70,7 @@ GridObject::GridObject(uint Nx, uint Ny, std::vector<double> data) // a 'copy' c
     this->Nx = Nx;
     this->Ny = Ny;
 
-    this->gridded_data = std::vector<double>(data);
+    this->gridded_data = DataStorage_2D(Nx, Ny, data);
 }
 
 /**
@@ -105,15 +105,7 @@ CLASS METHODS
  */
 void GridObject::print() const
 {
-    for (int xi = 0; xi < this->Nx; ++xi)
-    {
-        for (int yj = 0; yj < this->Ny; ++yj)
-        {
-            std::cout << this->get_grid_data(xi, yj) << '\t';
-        }
-        std::cout << std::endl;
-    }
-    std::cout << std::endl;
+    this->gridded_data.print();
 }
 
 /**
@@ -124,7 +116,7 @@ void GridObject::print() const
  */
 void GridObject::print_comp(uint xi, uint yj) const
 {
-    std::cout << this->get_grid_data(xi, yj) << std::endl;
+    this->gridded_data.print_comp(xi, yj);
 }
 
 /**
@@ -137,26 +129,15 @@ void GridObject::print_comp(uint xi, uint yj) const
  * @return false If either of the two grids has a different size and if any of
  *               the values differ above the provided tolerance
  */
-bool GridObject::equals(GridObject const &other_obj, double const TOL) const
+bool GridObject::equals(const GridObject &other_obj, const double TOL) const
 {
-    if (other_obj.Nx != this->Nx || other_obj.Ny != this->Ny)
+    if (other_obj.Nx != this->Nx || other_obj.Ny != this->Ny) //TODO: this check necessary?
     {
         return false;
     }
     else
     {
-        for (int xi = 0; xi < this->Nx; ++xi)
-        {
-            for (int yj = 0; yj < this->Ny; ++yj)
-            {
-                if (fabs(this->get_grid_data(xi, yj) -
-                         other_obj.get_grid_data(xi,yj)) >= TOL)
-                {
-                    return false;
-                }
-            }
-        }
-        return true;
+        return gridded_data.equals(other_obj.gridded_data, TOL);
     }
 }
 //-----------------------------------------
