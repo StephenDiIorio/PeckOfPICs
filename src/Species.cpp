@@ -183,7 +183,7 @@ int Species::deposit_charge(const double dx, const double dy,
  * @param Ny Number of grid spaces in y direction
  * @return int Returns an error code or 0 if successful
  */
-int Species::map_field_to_part(const Field &f,
+int Species::map_field_to_part(const Field &f, field_type field_to_map,
                                const double dx, const double dy,
                                const double L_x, const double L_y,
                                const uint Nx, const uint Ny)
@@ -232,37 +232,46 @@ int Species::map_field_to_part(const Field &f,
         // std::cout << "Ei,j+1 " << f.f1.get_comp(i,j+1) << std::endl;
         // std::cout << "Ei+1,j+1 " << f.f1.get_comp(i+1,j+1) << std::endl;
 
-        loc_f_x1 += (1.-hx) * (1.-hy) * par_weight \
+        loc_f_x1 += (1.-hx) * (1.-hy)  \
                     * f.f1.get_comp(i, j);
-        loc_f_x1 += hx * (1.-hy) * par_weight \
+        loc_f_x1 += hx * (1.-hy) \
                     * f.f1.get_comp(i+1, j);
-        loc_f_x1 += (1.-hx) * hy * par_weight \
+        loc_f_x1 += (1.-hx) * hy \
                     * f.f1.get_comp(i, j+1);
-        loc_f_x1 += hx      * hy      * par_weight \
+        loc_f_x1 += hx      * hy \
                     * f.f1.get_comp(i+1, j+1);
 
-        loc_f_x2 += (1.-hx) * (1.-hy) * par_weight \
+        loc_f_x2 += (1.-hx) * (1.-hy) \
                     * f.f2.get_comp(i, j);
-        loc_f_x2 += hx * (1.-hy) * par_weight \
+        loc_f_x2 += hx * (1.-hy)  \
                     * f.f2.get_comp(i+1, j);
-        loc_f_x2 += (1.-hx) * hy * par_weight \
+        loc_f_x2 += (1.-hx) * hy  \
                     * f.f2.get_comp(i, j+1);
-        loc_f_x2 += hx      * hy      * par_weight \
+        loc_f_x2 += hx      * hy  \
                     * f.f2.get_comp(i+1, j+1);
 
-        loc_f_x3 += (1.-hx) * (1.-hy) * par_weight \
+        loc_f_x3 += (1.-hx) * (1.-hy)  \
                     * f.f3.get_comp(i, j);
-        loc_f_x3 += hx * (1.-hy)      * par_weight \
+        loc_f_x3 += hx * (1.-hy)  \
                     * f.f3.get_comp(i+1, j);
-        loc_f_x3 += (1.-hx)   * hy * par_weight \
+        loc_f_x3 += (1.-hx)   * hy  \
                     * f.f3.get_comp(i, j+1);
-        loc_f_x3 += hx      * hy      * par_weight \
+        loc_f_x3 += hx      * hy    \
                     * f.f3.get_comp(i+1, j+1);
 
         // std::cout << "loc_f_x1 " << loc_f_x1 << ", loc_f_x2 " << loc_f_x2 \
         //     << ", loc_f_x3 " << loc_f_x3 << std::endl;
 
-        p.set_local_e_field(loc_f_x1, loc_f_x2, loc_f_x3);
+        // p.set_local_e_field(loc_f_x1, loc_f_x2, loc_f_x3);
+        if (field_to_map == electric)
+        {
+            p.set_local_e_field(loc_f_x1, loc_f_x2, loc_f_x3);
+        }
+        else
+        {
+            p.set_local_b_field(loc_f_x1, loc_f_x2, loc_f_x3);
+        }
+
     }
     return 0;
 }
@@ -299,12 +308,19 @@ int Species::push_particles(const double L_x, const double L_y,
         mom = p.get_mom();
 
         // minus instead of plus b/c of convention used in this program
-        mom -= p.get_local_e_field() * (dt * 0.5);
+        mom += p.get_local_e_field() * (this->Qpar * dt * 0.5);
 
         mom2 = mom.square();
         gamma = 1. / sqrt(1. + mom2);
 
         b2 = p.get_local_b_field().square();
+        // debug print statement
+        // std::cout << "local b" << std::endl;
+        // p.print_local_b_field();
+        // std::cout << "local e" << std::endl;
+        // p.print_local_e_field();
+        // end print
+
         if (b2) // test if non-zero
         {
             t = p.get_local_b_field() * dt * 0.5;
@@ -317,11 +333,35 @@ int Species::push_particles(const double L_x, const double L_y,
             mom += vstar^s;
         }
 
-        mom -= p.get_local_e_field() * (dt * 0.5);
+        // something's wrong with position part of pusher
+        // std::cout << "in pusher:" << std::endl;
+        // std::cout << "pos " << std::endl;
+        // pos.print();
+        // std::cout << "halfstep E + B mom " << std::endl;
+        // mom.print();
+        // std::cout << "local e " << std::endl;
+        // p.print_local_e_field();
+        // std::cout << "gamma " << gamma << std::endl;
+        // // end prints
+
+        mom += p.get_local_e_field() * (this->Qpar * dt * 0.5);
+        // //debugging prints
+        // std::cout << "mom after step"<< std::endl;
+        // mom.print();
+        // //end prints
 
         pos += mom * (dt / gamma);
+        // //debugging prints
+        // std::cout << "pos after step" <<  std::endl;
+        // pos.print();
+        // //end prints
 
         this->apply_bc(pos, L_x, L_y, dx, dy);
+        // // debugging prints
+        // std::cout << "pos after mod " << std::endl;
+        // pos.print();
+        // // end prints
+
         p.set_mom(mom);
         p.set_pos(pos);
 
