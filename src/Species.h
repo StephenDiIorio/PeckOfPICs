@@ -10,6 +10,8 @@
 #include "Field.h"
 #include "ThreeVec.h"
 
+enum field_type {electric, magnetic};
+
 class Species
 {
     private:
@@ -63,7 +65,7 @@ class Species
                            const double L_x, const double L_y,
                            const uint Nx, const uint Ny);
 
-        int map_field_to_part(const Field &f,
+        int map_field_to_part(const Field &f, field_type field_to_map,
                               const double dx, const double dy,
                               const double L_x, const double L_y,
                               const uint Nx, const uint Ny);

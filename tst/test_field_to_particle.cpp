@@ -131,7 +131,7 @@ bool test_single_point_field_to_particle(uint field_component, double E0, int b1
     expected_E_b1.push_back(0);
  // end box 1 test
 
-    box_one.map_field_to_part(testE,dx,dy,L_x,L_y,Nx,Ny);
+    box_one.map_field_to_part(testE,electric, dx,dy,L_x,L_y,Nx,Ny);
 
     
     
