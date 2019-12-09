@@ -2,13 +2,15 @@
 #include "Species.h"
 #include "Field.h"
 
-const uint ndump = 1;
-const uint Nx = 256;           // number of grid points
-const double L_sys = 8.0 * M_PI * sqrt(3.0);//2.0 * M_PI; // system length
+const uint ndump = 0;
+const uint Nx = 64;           // number of grid points
+const uint Ny = 64;           // number of grid points
+const double L_x = 8.0 * M_PI * sqrt(3.0);//2.0 * M_PI; // system length
+const double L_y = 8.0 * M_PI * sqrt(3.0); //2.0 * M_PI; // system length
 const double tmax = 10.0 * M_PI;
 const double dt = 0.025;
 
-const uint nspec = 2;
+const uint nspec = 1;
 
 // Gaussian random distribution function
 double gaussian()
@@ -25,112 +27,112 @@ double gaussian()
     return x;
 }
 
-void two_stream(Species &spec, uint Npar)
-{
-    const double Wpar = spec.Qpar / (double(Npar) / double(Nx)); //double(spec.ppc); // weighting (should be / NPPC)
-    double x_pos, x_pert, x_tot, x_mom;
-    double pert = 0.001;
-    double k = 1.0 / (2.0 * sqrt(3.0));//2.0 * 2.0 * M_PI / L_sys;
-    double dx = L_sys / double(Npar);
+// void two_stream(Species &spec, uint Npar)
+// {
+//     const double Wpar = spec.Qpar / (double(Npar) / double(Nx)); //double(spec.ppc); // weighting (should be / NPPC)
+//     double x_pos, x_pert, x_tot, x_mom;
+//     double pert = 0.001;
+//     double k = 1.0 / (2.0 * sqrt(3.0));//2.0 * 2.0 * M_PI / L_sys;
+//     double dx = L_x / double(Npar);
 
-    for (uint i = 0; i < Npar; ++i)
-    {
-        x_pos = ((L_sys / double(Npar)) * double(i));
-        x_pert = (pert / (spec.Qpar * k)) * sin(k * x_pos);
-        x_tot = x_pos + x_pert + 0.01; //TODO: do I need to account for Kaiser-Wilhelm effect here? pg 91 B-L. Dependent on ppc and Nx
-        if (x_tot < -dx / 2.0)
-        {
-            x_tot += L_sys;
-        }
-        else if (x_tot >= (L_sys - (dx / 2.0)))
-        {
-            x_tot -= L_sys;
-        }
+//     for (uint i = 0; i < Npar; ++i)
+//     {
+//         x_pos = ((L_x / double(Npar)) * double(i));
+//         x_pert = (pert / (spec.Qpar * k)) * sin(k * x_pos);
+//         x_tot = x_pos + x_pert + 0.01; //TODO: do I need to account for Kaiser-Wilhelm effect here? pg 91 B-L. Dependent on ppc and Nx
+//         if (x_tot < -dx / 2.0)
+//         {
+//             x_tot += L_sys;
+//         }
+//         else if (x_tot >= (L_sys - (dx / 2.0)))
+//         {
+//             x_tot -= L_sys;
+//         }
 
-        if (i % 2 == 0)
-        {
-            x_mom = 3.0;
-        }
-        else
-        {
-            x_mom = -3.0;
-        }
+//         if (i % 2 == 0)
+//         {
+//             x_mom = 3.0;
+//         }
+//         else
+//         {
+//             x_mom = -3.0;
+//         }
 
-        spec.add_particle(x_tot, 0.0, 0.0, x_mom, 0.0, 0.0, Wpar);
-    }
-    //TODO: call species BC here?
-}
+//         spec.add_particle(x_tot, 0.0, 0.0, x_mom, 0.0, 0.0, Wpar);
+//     }
+//     //TODO: call species BC here?
+// }
 
 void two_stream_plus(Species &spec, uint Npar)
 {
-    const double Wpar = spec.Qpar / (double(Npar) / double(Nx)); //double(spec.ppc); // weighting (should be / NPPC)
+    const double Wpar = spec.Qpar / (double(Npar) / double(Nx) / double(Ny)); //double(spec.ppc); // weighting (should be / NPPC)
     double x_pos, x_pert, x_tot, x_mom;
     double pert = 0.001;
     double k = 1.0 / (2.0 * sqrt(3.0)); //2.0 * 2.0 * M_PI / L_sys;
-    double dx = L_sys / double(Npar);
+    double dx = L_x / double(Npar);
 
     for (uint i = 0; i < Npar; ++i)
     {
-        x_pos = ((L_sys / double(Npar)) * double(i));
-        x_pert = (pert / (spec.Qpar * k)) * sin(k * x_pos);
-        x_tot = x_pos + x_pert + 0.01; //TODO: do I need to account for Kaiser-Wilhelm effect here? pg 91 B-L. Dependent on ppc and Nx
-        if (x_tot < -dx / 2.0)
-        {
-            x_tot += L_sys;
-        }
-        else if (x_tot >= (L_sys - (dx / 2.0)))
-        {
-            x_tot -= L_sys;
-        }
+        // x_pos = ((L_x / double(Npar)) * double(i));
+        // // x_pert = (pert / (spec.Qpar * k)) * sin(k * x_pos);
+        // x_tot = x_pos;// + x_pert + 0.01; //TODO: do I need to account for Kaiser-Wilhelm effect here? pg 91 B-L. Dependent on ppc and Nx
+        // if (x_tot < -dx / 2.0)
+        // {
+        //     x_tot += L_x;
+        // }
+        // else if (x_tot >= (L_x - (dx / 2.0)))
+        // {
+        //     x_tot -= L_x;
+        // }
 
         x_mom = 3.0;
 
-        spec.add_particle(x_tot, 0.0, 0.0, x_mom, 0.0, 0.0, Wpar);
+        spec.add_particle(L_x / 2., L_y / 2., 0.0, x_mom, 0.0, 0.0, Wpar);
     }
     //TODO: call species BC here?
 }
 
-void two_stream_minus(Species &spec, uint Npar)
+// void two_stream_minus(Species &spec, uint Npar)
+// {
+//     const double Wpar = spec.Qpar / (double(Npar) / double(Nx)); //double(spec.ppc); // weighting (should be / NPPC)
+//     double x_pos, x_pert, x_tot, x_mom;
+//     double pert = 0.001;
+//     double k = 1.0 / (2.0 * sqrt(3.0)); //2.0 * 2.0 * M_PI / L_sys;
+//     double dx = L_sys / double(Npar);
+
+//     for (uint i = 0; i < Npar; ++i)
+//     {
+//         x_pos = ((L_sys / double(Npar)) * double(i));
+//         x_pert = (pert / (spec.Qpar * k)) * sin(k * x_pos);
+//         x_tot = x_pos + x_pert + 0.01; //TODO: do I need to account for Kaiser-Wilhelm effect here? pg 91 B-L. Dependent on ppc and Nx
+//         if (x_tot < -dx / 2.0)
+//         {
+//             x_tot += L_sys;
+//         }
+//         else if (x_tot >= (L_sys - (dx / 2.0)))
+//         {
+//             x_tot -= L_sys;
+//         }
+
+//         x_mom = -3.0;
+
+//         spec.add_particle(x_tot, 0.0, 0.0, x_mom, 0.0, 0.0, Wpar);
+//     }
+//     //TODO: call species BC here?
+// }
+
+void init_e_field(Field &f, uint Nx, uint Ny)
 {
-    const double Wpar = spec.Qpar / (double(Npar) / double(Nx)); //double(spec.ppc); // weighting (should be / NPPC)
-    double x_pos, x_pert, x_tot, x_mom;
-    double pert = 0.001;
-    double k = 1.0 / (2.0 * sqrt(3.0)); //2.0 * 2.0 * M_PI / L_sys;
-    double dx = L_sys / double(Npar);
-
-    for (uint i = 0; i < Npar; ++i)
-    {
-        x_pos = ((L_sys / double(Npar)) * double(i));
-        x_pert = (pert / (spec.Qpar * k)) * sin(k * x_pos);
-        x_tot = x_pos + x_pert + 0.01; //TODO: do I need to account for Kaiser-Wilhelm effect here? pg 91 B-L. Dependent on ppc and Nx
-        if (x_tot < -dx / 2.0)
-        {
-            x_tot += L_sys;
-        }
-        else if (x_tot >= (L_sys - (dx / 2.0)))
-        {
-            x_tot -= L_sys;
-        }
-
-        x_mom = -3.0;
-
-        spec.add_particle(x_tot, 0.0, 0.0, x_mom, 0.0, 0.0, Wpar);
-    }
-    //TODO: call species BC here?
+    f.f1 = GridObject(Nx, Ny, 0.0);
+    f.f2 = GridObject(Nx, Ny, 0.0);
+    f.f3 = GridObject(Nx, Ny, 0.0);
 }
 
-void init_e_field(Field &f, uint size)
+void init_b_field(Field &f, uint Nx, uint Ny)
 {
-    f.f1 = std::vector<double>(size, 0.0);
-    f.f2 = std::vector<double>(size, 0.0);
-    f.f3 = std::vector<double>(size, 0.0);
-}
-
-void init_b_field(Field &f, uint size)
-{
-    f.f1 = std::vector<double>(size, 0.0);
-    f.f2 = std::vector<double>(size, 0.0);
-    f.f3 = std::vector<double>(size, 0.0);
+    f.f1 = GridObject(Nx, Ny, 0.0);
+    f.f2 = GridObject(Nx, Ny, 0.0);
+    f.f3 = GridObject(Nx, Ny, 0.0);
 }
 
 void Simulation::init_simulation()
@@ -147,16 +149,20 @@ void Simulation::init_simulation()
     const uint ppc1 = 64;
     const uint npar1 = ppc1 * Nx;
     const double density1 = 1.0;
+    std::cout << "about to add species" << std::endl;
     this->add_species(npar1, Qpar1, density1, two_stream_plus);
+    std::cout << "done adding species" << std::endl;
 
     // Attributes for species 2
-    const double Qpar2 = 1.0; // charge of particle
-    const uint ppc2 = 64;
-    const uint npar2 = ppc2 * Nx;
-    const double density2 = 1.0;
-    this->add_species(npar2, Qpar2, density2, two_stream_minus);
+    // const double Qpar2 = 1.0; // charge of particle
+    // const uint ppc2 = 64;
+    // const uint npar2 = ppc2 * Nx;
+    // const double density2 = 1.0;
+    // this->add_species(npar2, Qpar2, density2, two_stream_minus);
 
     // Initialize fields
+    std::cout << "add fields" << std::endl;
     this->add_e_field(init_e_field);
     this->add_b_field(init_b_field);
+    std::cout << "done adding fields" << std::endl;
 }

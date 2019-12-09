@@ -39,12 +39,15 @@ Simulation::Simulation(uint ndump,
     this->spec.reserve(nspec);
 
     init_simulation();
+    std::cout << "out of init" << std::endl;
 
     this->nspec = this->spec.size();
+    std::cout << "set size" << std::endl;
 
     // Initialize densities and fields after instantiation
     deposit_charge();
     solve_field();
+    std::cout << "done initializing" << std::endl;
 }
 
 /**

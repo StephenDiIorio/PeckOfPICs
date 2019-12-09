@@ -120,19 +120,22 @@ int Species::deposit_charge(const double dx, const double dy,
                             const double L_x, const double L_y,
                             const uint Nx, const uint Ny)
 {
+    std::cout << "in deposit" << std::endl;
     // Initialize
     for (auto &d : this->density_arr)
     {
         d = 0.0;
     }
+    std::cout << "zeroed" << std::endl;
 
     double x_pos, y_pos, par_weight;
     double fi, fj, hx, hy;
     double x_min = 0.0, y_min = 0.0;
-    uint i, j;
+    std::size_t i, j;
 
     for (const auto &p : this->parts)
     {
+        std::cout << "going over parts" << std::endl;
         par_weight = p.get_weight() / dx / dy; // add normalization factor here
         x_pos = p.get_pos().get_x();
         y_pos = p.get_pos().get_y();
@@ -155,10 +158,14 @@ int Species::deposit_charge(const double dx, const double dy,
         j  = fj;
         hy = fj - j;
 
-        density_arr.add_to_grid_data(i,   j,   (1.-hx) * (1.-hy) * par_weight);
-        density_arr.add_to_grid_data(i+1, j,   (1.-hx) * hy      * par_weight);
-        density_arr.add_to_grid_data(i,   j+1, hx      * (1.-hy) * par_weight);
-        density_arr.add_to_grid_data(i+1, j+1, hx      * hy      * par_weight);
+        std::cout << "about to break" << std::endl;
+        std::cout << "i " << i << std::endl;
+        std::cout << "j " << j << std::endl;
+        density_arr.comp_add_to(i,   j,   (1.-hx) * (1.-hy) * par_weight);
+        density_arr.comp_add_to(i+1, j,   (1.-hx) * hy      * par_weight);
+        density_arr.comp_add_to(i,   j+1, hx      * (1.-hy) * par_weight);
+        density_arr.comp_add_to(i+1, j+1, hx      * hy      * par_weight);
+        std::cout << "i didnt break?" << std::endl;
     }
     return 0;
 }
@@ -220,38 +227,38 @@ int Species::map_field_to_part(const Field &f,
         // std::cout << "hx " << hx << ", hy " << hy << std::endl;
         // std::cout << "weight " << par_weight << std::endl;
         // std::cout << "Qpar " << this->Qpar << std::endl;
-        // std::cout << "Eij " << f.f1.get_grid_data(i,j) << std::endl;
-        // std::cout << "Ei+1,j " << f.f1.get_grid_data(i+1,j) << std::endl;
-        // std::cout << "Ei,j+1 " << f.f1.get_grid_data(i,j+1) << std::endl;
-        // std::cout << "Ei+1,j+1 " << f.f1.get_grid_data(i+1,j+1) << std::endl;
+        // std::cout << "Eij " << f.f1.get_comp(i,j) << std::endl;
+        // std::cout << "Ei+1,j " << f.f1.get_comp(i+1,j) << std::endl;
+        // std::cout << "Ei,j+1 " << f.f1.get_comp(i,j+1) << std::endl;
+        // std::cout << "Ei+1,j+1 " << f.f1.get_comp(i+1,j+1) << std::endl;
 
         loc_f_x1 += (1.-hx) * (1.-hy) * par_weight \
-                    * f.f1.get_grid_data(i, j);
+                    * f.f1.get_comp(i, j);
         loc_f_x1 += hx * (1.-hy) * par_weight \
-                    * f.f1.get_grid_data(i+1, j);
+                    * f.f1.get_comp(i+1, j);
         loc_f_x1 += (1.-hx) * hy * par_weight \
-                    * f.f1.get_grid_data(i, j+1);
+                    * f.f1.get_comp(i, j+1);
         loc_f_x1 += hx      * hy      * par_weight \
-                    * f.f1.get_grid_data(i+1, j+1);
+                    * f.f1.get_comp(i+1, j+1);
 
         loc_f_x2 += (1.-hx) * (1.-hy) * par_weight \
-                    * f.f2.get_grid_data(i, j);
+                    * f.f2.get_comp(i, j);
         loc_f_x2 += hx * (1.-hy) * par_weight \
-                    * f.f2.get_grid_data(i+1, j);
+                    * f.f2.get_comp(i+1, j);
         loc_f_x2 += (1.-hx) * hy * par_weight \
-                    * f.f2.get_grid_data(i, j+1);
+                    * f.f2.get_comp(i, j+1);
         loc_f_x2 += hx      * hy      * par_weight \
-                    * f.f2.get_grid_data(i+1, j+1);
+                    * f.f2.get_comp(i+1, j+1);
 
         loc_f_x3 += (1.-hx) * (1.-hy) * par_weight \
-                    * f.f3.get_grid_data(i, j);
+                    * f.f3.get_comp(i, j);
         loc_f_x3 += hx * (1.-hy)      * par_weight \
-                    * f.f3.get_grid_data(i+1, j);
+                    * f.f3.get_comp(i+1, j);
         loc_f_x3 += (1.-hx)   * hy * par_weight \
-                    * f.f3.get_grid_data(i, j+1);
+                    * f.f3.get_comp(i, j+1);
         loc_f_x3 += hx      * hy      * par_weight \
-                    * f.f3.get_grid_data(i+1, j+1);
-        
+                    * f.f3.get_comp(i+1, j+1);
+
         // std::cout << "loc_f_x1 " << loc_f_x1 << ", loc_f_x2 " << loc_f_x2 \
         //     << ", loc_f_x3 " << loc_f_x3 << std::endl;
 
@@ -335,13 +342,13 @@ int Species::push_particles(const double L_x, const double L_y,
  * @return std::vector<double> Vector containing the x positions of all
  *                             particles in species
  */
-std::vector<double> Species::get_x_phasespace()
+DataStorage_1D Species::get_x_phasespace()
 {
-    std::vector<double> to_ret = std::vector<double>(this->npar);
+    DataStorage_1D to_ret(this->npar);
 
     for (int i = 0; i < this->npar; ++i)
     {
-        to_ret[i]  = this->parts[i].get_pos().get_x();
+        to_ret[i] = this->parts[i].get_pos().get_x();
     }
 
     return to_ret;
@@ -353,9 +360,9 @@ std::vector<double> Species::get_x_phasespace()
  * @return std::vector<double> Vector containing the y positions of all
  *                             particles in species
  */
-std::vector<double> Species::get_y_phasespace()
+DataStorage_1D Species::get_y_phasespace()
 {
-    std::vector<double> to_ret = std::vector<double>(this->npar);
+    DataStorage_1D to_ret(this->npar);
 
     for (int i = 0; i < this->npar; ++i)
     {
@@ -371,9 +378,9 @@ std::vector<double> Species::get_y_phasespace()
  * @return std::vector<double> Vector containing the x momenta of all particles
  *                             in species
  */
-std::vector<double> Species::get_px_phasespace()
+DataStorage_1D Species::get_px_phasespace()
 {
-    std::vector<double> to_ret = std::vector<double>(this->npar);
+    DataStorage_1D to_ret(this->npar);
 
     for (int i = 0; i < this->npar; ++i)
     {
@@ -389,9 +396,9 @@ std::vector<double> Species::get_px_phasespace()
  * @return std::vector<double> Vector containing the y momenta of all particles
  *                             in species
  */
-std::vector<double> Species::get_py_phasespace()
+DataStorage_1D Species::get_py_phasespace()
 {
-    std::vector<double> to_ret = std::vector<double>(this->npar);
+    DataStorage_1D to_ret(this->npar);
 
     for (int i = 0; i < this->npar; ++i)
     {
@@ -425,7 +432,7 @@ std::vector<double> Species::get_local_E_x()
 
     return to_ret;
 }
- 
+
 std::vector<double> Species::get_local_E_y()
 {
     std::vector<double> to_ret = std::vector<double>(this->npar);

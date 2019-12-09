@@ -63,8 +63,8 @@ int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
     {
         for (int yj = 0; yj < this->Ny; ++yj)
         {
-            xs_re.at(yj) = real_part.get_grid_data(xi,yj);
-            xs_im.at(yj) = imag_part.get_grid_data(xi,yj);
+            xs_re.at(yj) = real_part.get_comp(xi,yj);
+            xs_im.at(yj) = imag_part.get_comp(xi,yj);
         }
         err = FFT(xs_re, xs_im, this->Ny, transform_direction);
         if (err)
@@ -73,8 +73,8 @@ int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
         }
         for (int yj = 0; yj < this->Ny; ++yj)
         {
-            real_part.set_grid_data(xi,yj,xs_re.at(yj));
-            imag_part.set_grid_data(xi,yj,xs_im.at(yj));
+            real_part.set_comp(xi,yj,xs_re.at(yj));
+            imag_part.set_comp(xi,yj,xs_im.at(yj));
         }
     }
     // now columns
@@ -83,8 +83,8 @@ int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
     {
         for (int xi = 0; xi < this->Nx; ++xi)
         {
-            ys_re.at(xi) = real_part.get_grid_data(xi,yj);
-            ys_im.at(xi) = imag_part.get_grid_data(xi,yj);
+            ys_re.at(xi) = real_part.get_comp(xi,yj);
+            ys_im.at(xi) = imag_part.get_comp(xi,yj);
         }
         err = FFT(ys_re, ys_im, this->Nx, transform_direction);
         if (err)
@@ -93,8 +93,8 @@ int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
         }
         for (int xi = 0; xi < this->Nx; ++xi)
         {
-            real_part.set_grid_data(xi,yj,ys_re.at(xi));
-            imag_part.set_grid_data(xi,yj,ys_im.at(xi));
+            real_part.set_comp(xi,yj,ys_re.at(xi));
+            imag_part.set_comp(xi,yj,ys_im.at(xi));
         }
     }
 
@@ -123,8 +123,8 @@ int Field::solve_field(GridObject &charge_density)
     err = FFT_2d(phi_dens_re, phi_dens_im, fft);
 
     // set some values of phi to 0.  phi[0,0]?
-    phi_dens_re.set_grid_data(0,0,0);
-    phi_dens_im.set_grid_data(0,0,0);
+    phi_dens_re.set_comp(0,0,0);
+    phi_dens_im.set_comp(0,0,0);
 
 
     for (int xi =0; xi < this->Nx; ++xi)
@@ -144,12 +144,12 @@ int Field::solve_field(GridObject &charge_density)
 
             double Klmsq_ij = Klsq + ky*ky * sincky2*sincky2;
             // energy is rhobar * phibar conj = |rhobar|^2 / Klm^2
-            this->total_U += (phi_dens_re.get_grid_data(xi,yj) *
-                phi_dens_re.get_grid_data(xi,yj) +
-                phi_dens_im.get_grid_data(xi,yj) *
-                phi_dens_im.get_grid_data(xi,yj) ) / Klmsq_ij;
-            phi_dens_re.multiply_grid_data_by(xi,yj, 1./Klmsq_ij);
-            phi_dens_im.multiply_grid_data_by(xi,yj, 1./Klmsq_ij);
+            this->total_U += (phi_dens_re.get_comp(xi,yj) *
+                phi_dens_re.get_comp(xi,yj) +
+                phi_dens_im.get_comp(xi,yj) *
+                phi_dens_im.get_comp(xi,yj) ) / Klmsq_ij;
+            phi_dens_re.comp_multiply_by(xi,yj, 1./Klmsq_ij);
+            phi_dens_im.comp_multiply_by(xi,yj, 1./Klmsq_ij);
         }
     }
     // then Ex, Ey are phi times appropriate value
@@ -182,10 +182,10 @@ int Field::solve_field(GridObject &charge_density)
             double sincky = sinc(ky* this->dy);
 
             double Kj = ky * sincky;
-            f1.multiply_grid_data_by(xi,yj, Ki);
-            Ex_im.multiply_grid_data_by(xi,yj, -Ki);
-            f2.multiply_grid_data_by(xi,yj, Kj);
-            Ey_im.multiply_grid_data_by(xi,yj, -Kj);
+            f1.comp_multiply_by(xi,yj, Ki);
+            Ex_im.comp_multiply_by(xi,yj, -Ki);
+            f2.comp_multiply_by(xi,yj, Kj);
+            Ey_im.comp_multiply_by(xi,yj, -Kj);
         }
     }
 

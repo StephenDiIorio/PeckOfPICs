@@ -6,6 +6,7 @@
 #include <functional>
 
 #include "GridObject.h"
+#include "DataStorage_1D.h"
 #include "Particle.h"
 #include "Field.h"
 #include "ThreeVec.h"
@@ -72,10 +73,10 @@ class Species
                            const double dt,
                            const double dx, const double dy);
 
-        std::vector<double> get_x_phasespace();
-        std::vector<double> get_y_phasespace();
-        std::vector<double> get_px_phasespace();
-        std::vector<double> get_py_phasespace();
+        DataStorage_1D get_x_phasespace();
+        DataStorage_1D get_y_phasespace();
+        DataStorage_1D get_px_phasespace();
+        DataStorage_1D get_py_phasespace();
         std::vector<double> get_local_E(int i);
         std::vector<double> get_local_E_x();
         std::vector<double> get_local_E_y();
