@@ -120,13 +120,11 @@ int Species::deposit_charge(const double dx, const double dy,
                             const double L_x, const double L_y,
                             const uint Nx, const uint Ny)
 {
-    std::cout << "in deposit" << std::endl;
     // Initialize
     for (auto &d : this->density_arr)
     {
         d = 0.0;
     }
-    std::cout << "zeroed" << std::endl;
 
     double x_pos, y_pos, par_weight;
     double fi, fj, hx, hy;
@@ -135,7 +133,6 @@ int Species::deposit_charge(const double dx, const double dy,
 
     for (const auto &p : this->parts)
     {
-        std::cout << "going over parts" << std::endl;
         par_weight = p.get_weight() / dx / dy; // add normalization factor here
         x_pos = p.get_pos().get_x();
         y_pos = p.get_pos().get_y();
@@ -158,14 +155,10 @@ int Species::deposit_charge(const double dx, const double dy,
         j  = fj;
         hy = fj - j;
 
-        std::cout << "about to break" << std::endl;
-        std::cout << "i " << i << std::endl;
-        std::cout << "j " << j << std::endl;
         density_arr.comp_add_to(i,   j,   (1.-hx) * (1.-hy) * par_weight);
         density_arr.comp_add_to(i+1, j,   (1.-hx) * hy      * par_weight);
         density_arr.comp_add_to(i,   j+1, hx      * (1.-hy) * par_weight);
         density_arr.comp_add_to(i+1, j+1, hx      * hy      * par_weight);
-        std::cout << "i didnt break?" << std::endl;
     }
     return 0;
 }

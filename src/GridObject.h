@@ -107,14 +107,8 @@ class GridObject
          */
         inline void comp_add_to(uint index_x, uint index_y, double val)
         {
-            std::cout << index_x << std::endl;
             index_x = MODULO(index_x, this->Nx);
-            std::cout << index_x << std::endl;
-            std::cout << index_y << std::endl;
             index_y = MODULO(index_y, this->Ny);
-            std::cout << index_y << std::endl;
-            std::cout << Nx << std::endl;
-            std::cout << Ny << std::endl;
             gridded_data.at(index_x, index_y) += val;
         }
 

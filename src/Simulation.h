@@ -77,7 +77,7 @@ class Simulation
         void iterate();
         GridObject get_total_density();
 
-        void print_spec_density(uint i);
+        void print_spec_density(std::size_t i) const;
         //-----------------------------------------
 };
 

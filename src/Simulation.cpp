@@ -39,15 +39,12 @@ Simulation::Simulation(uint ndump,
     this->spec.reserve(nspec);
 
     init_simulation();
-    std::cout << "out of init" << std::endl;
 
     this->nspec = this->spec.size();
-    std::cout << "set size" << std::endl;
 
     // Initialize densities and fields after instantiation
     deposit_charge();
     solve_field();
-    std::cout << "done initializing" << std::endl;
 }
 
 /**
@@ -159,7 +156,7 @@ GridObject Simulation::get_total_density()
  *
  * @param i Species number to print the density of
  */
-void Simulation::print_spec_density(uint i)
+void Simulation::print_spec_density(std::size_t i) const
 {
     spec.at(i).print_density();
 }

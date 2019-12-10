@@ -8,24 +8,6 @@ FileIO::~FileIO()
 {
 }
 
-// void FileIO::open_files()
-// {
-//     #ifdef D_HDF5
-//         open_hdf5_files();
-//     #else
-//         open_txt_files();
-//     #endif
-// }
-
-// void FileIO::close_files()
-// {
-//     #ifdef D_HDF5
-//         close_hdf5_files();
-//     #else
-//         close_txt_files();
-//     #endif
-// }
-
 void FileIO::open_txt_files()
 {
     x_dom.open("x_domain.txt");
@@ -44,20 +26,20 @@ void FileIO::open_hdf5_files(std::string fname)
 {
     // Turn off the auto-printing when failure occurs so that we can
     // handle the errors appropriately
-    H5::Exception::dontPrint();
+    H5::Exception::dontPrint(); // Set globally
 
-    // H5File *myh5file = NULL;
     H5std_string f_name(fname);
-    try
-    {
-        // Try to open existing file
-        this->h5_file = H5::H5File(f_name, H5F_ACC_RDWR);
-    }
-    catch (H5::FileIException error)
-    {
-        // Create a new file
-        this->h5_file = H5::H5File(f_name, H5F_ACC_TRUNC);
-    }
+    file = H5::H5File(f_name, H5F_ACC_TRUNC);
+    // try
+    // {
+    //     // Try to open existing file
+    //     file = H5::H5File(f_name, H5F_ACC_RDWR);
+    // }
+    // catch (H5::FileIException error)
+    // {
+    //     // Create a new file
+    //     file = H5::H5File(f_name, H5F_ACC_TRUNC);
+    // }
 }
 
 void FileIO::close_txt_files()
@@ -76,25 +58,32 @@ void FileIO::close_txt_files()
 
 void FileIO::close_hdf5_files()
 {
-    this->h5_file.close();
+    file.close();
 }
 
 
-int FileIO::write_to_hdf5(std::string group_name, std::string ds_name, const DataStorage& data)
+int FileIO::write_species_to_HDF5(const std::size_t spec_name, const std::size_t itr_num, const DataStorage& data)
 {
-    H5::Exception::dontPrint();
-
-    // Create/open our group
-    H5::Group group_to_write;
+    H5::Group top_group;
+    H5std_string dens_gname("/DENSITY/");
     try
     {
-        // Create it
-        group_to_write = H5::Group(this->h5_file.createGroup("/" + group_name));
+        top_group = H5::Group(file.createGroup(dens_gname));
     }
-    catch (H5::FileIException error)
+    catch(H5::FileIException error)
     {
-        // Open it
-        group_to_write = H5::Group(this->h5_file.openGroup("/" + group_name));
+        top_group = H5::Group(file.openGroup(dens_gname));
+    }
+
+    H5::Group spec_group;
+    H5std_string spec_gname(std::to_string(spec_name));
+    try
+    {
+        spec_group = H5::Group(top_group.createGroup(spec_gname));
+    }
+    catch (H5::GroupIException error)
+    {
+        spec_group = H5::Group(top_group.openGroup(spec_gname));
     }
 
     try
@@ -104,15 +93,14 @@ int FileIO::write_to_hdf5(std::string group_name, std::string ds_name, const Dat
         {
             dim_sizes[i] = data.get_Ni_size(i);
         }
-        H5::DataSpace myDSpace(data.get_ndims(), dim_sizes);
+        H5::DataSpace spec_ds(data.get_ndims(), dim_sizes);
+        H5std_string spec_dsname(std::to_string(itr_num));
+        H5::DataSet spec_dataset = spec_group.createDataSet(spec_dsname, H5::PredType::NATIVE_DOUBLE, spec_ds);
 
-        H5std_string dsname(ds_name);
-        H5::DataSet mydataset = group_to_write.createDataSet(dsname, H5::PredType::NATIVE_DOUBLE, myDSpace);
+        spec_dataset.write(data.get_data(), H5::PredType::NATIVE_DOUBLE);
 
-        mydataset.write(data.get_data(), H5::PredType::NATIVE_DOUBLE);
-
-        mydataset.close();
-        myDSpace.close();
+        spec_dataset.close();
+        spec_ds.close();
     }
     catch (H5::DataSpaceIException error)
     {
@@ -125,12 +113,213 @@ int FileIO::write_to_hdf5(std::string group_name, std::string ds_name, const Dat
         return -3;
     }
 
-    group_to_write.close();
+    spec_group.close();
+    top_group.close();
 
     return 0;
 }
 
-int FileIO::write_to_hdf5(std::string group_name, std::string ds_name, const GridObject& data)
+int FileIO::write_species_to_HDF5(const std::size_t spec_name, const std::size_t itr_num, const GridObject& data)
 {
-    return write_to_hdf5(group_name, ds_name, data.get_data());
+    return write_species_to_HDF5(spec_name, itr_num, data.get_data());
+}
+
+
+int FileIO::write_e_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const DataStorage& data)
+{
+    H5::Group top_group;
+    H5std_string f_gname("/E_FIELD/");
+    try
+    {
+        top_group = H5::Group(file.createGroup(f_gname));
+    }
+    catch(H5::FileIException error)
+    {
+        top_group = H5::Group(file.openGroup(f_gname));
+    }
+
+    H5::Group comp_group;
+    H5std_string comp_gname("x" + std::to_string(field_comp));
+    try
+    {
+        comp_group = H5::Group(top_group.createGroup(comp_gname));
+    }
+    catch (H5::GroupIException error)
+    {
+        comp_group = H5::Group(top_group.openGroup(comp_gname));
+    }
+
+    try
+    {
+        hsize_t dim_sizes[data.get_ndims()];
+        for (std::size_t i = 0; i < data.get_ndims(); ++i)
+        {
+            dim_sizes[i] = data.get_Ni_size(i);
+        }
+        H5::DataSpace f_ds(data.get_ndims(), dim_sizes);
+        H5std_string f_dsname(std::to_string(itr_num));
+        H5::DataSet f_dataset = comp_group.createDataSet(f_dsname, H5::PredType::NATIVE_DOUBLE, f_ds);
+
+        f_dataset.write(data.get_data(), H5::PredType::NATIVE_DOUBLE);
+
+        f_dataset.close();
+        f_ds.close();
+    }
+    catch (H5::DataSpaceIException error)
+    {
+        error.printErrorStack();
+        return -2;
+    }
+    catch (H5::DataSetIException error)
+    {
+        error.printErrorStack();
+        return -3;
+    }
+
+    comp_group.close();
+    top_group.close();
+
+    return 0;
+}
+
+int FileIO::write_e_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const GridObject& data)
+{
+    return write_e_field_to_HDF5(field_comp, itr_num, data.get_data());
+}
+
+
+int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const DataStorage &data)
+{
+    H5::Group top_group;
+    H5std_string f_gname("/B_FIELD/");
+    try
+    {
+        top_group = H5::Group(file.createGroup(f_gname));
+    }
+    catch (H5::FileIException error)
+    {
+        top_group = H5::Group(file.openGroup(f_gname));
+    }
+
+    H5::Group comp_group;
+    H5std_string comp_gname("x" + std::to_string(field_comp));
+    try
+    {
+        comp_group = H5::Group(top_group.createGroup(comp_gname));
+    }
+    catch (H5::GroupIException error)
+    {
+        comp_group = H5::Group(top_group.openGroup(comp_gname));
+    }
+
+    try
+    {
+        hsize_t dim_sizes[data.get_ndims()];
+        for (std::size_t i = 0; i < data.get_ndims(); ++i)
+        {
+            dim_sizes[i] = data.get_Ni_size(i);
+        }
+        H5::DataSpace f_ds(data.get_ndims(), dim_sizes);
+        H5std_string f_dsname(std::to_string(itr_num));
+        H5::DataSet f_dataset = comp_group.createDataSet(f_dsname, H5::PredType::NATIVE_DOUBLE, f_ds);
+
+        f_dataset.write(data.get_data(), H5::PredType::NATIVE_DOUBLE);
+
+        f_dataset.close();
+        f_ds.close();
+    }
+    catch (H5::DataSpaceIException error)
+    {
+        error.printErrorStack();
+        return -2;
+    }
+    catch (H5::DataSetIException error)
+    {
+        error.printErrorStack();
+        return -3;
+    }
+
+    comp_group.close();
+    top_group.close();
+
+    return 0;
+}
+
+int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const GridObject &data)
+{
+    return write_b_field_to_HDF5(field_comp, itr_num, data.get_data());
+}
+
+int FileIO::write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const DataStorage &data)
+{
+    H5::Group top_group;
+    H5std_string p_gname("/PHASE/");
+    try
+    {
+        top_group = H5::Group(file.createGroup(p_gname));
+    }
+    catch (H5::FileIException error)
+    {
+        top_group = H5::Group(file.openGroup(p_gname));
+    }
+
+    H5::Group ptype_group;
+    H5std_string ptype_gname(phase_name);
+    try
+    {
+        ptype_group = H5::Group(top_group.createGroup(ptype_gname));
+    }
+    catch (H5::GroupIException error)
+    {
+        ptype_group = H5::Group(top_group.openGroup(ptype_gname));
+    }
+
+    H5::Group spec_group;
+    H5std_string spec_gname(std::to_string(spec_name));
+    try
+    {
+        spec_group = H5::Group(ptype_group.createGroup(spec_gname));
+    }
+    catch (H5::GroupIException error)
+    {
+        spec_group = H5::Group(ptype_group.openGroup(spec_gname));
+    }
+
+    try
+    {
+        hsize_t dim_sizes[data.get_ndims()];
+        for (std::size_t i = 0; i < data.get_ndims(); ++i)
+        {
+            dim_sizes[i] = data.get_Ni_size(i);
+        }
+        H5::DataSpace p_ds(data.get_ndims(), dim_sizes);
+        H5std_string p_dsname(std::to_string(itr_num));
+        H5::DataSet p_dataset = spec_group.createDataSet(p_dsname, H5::PredType::NATIVE_DOUBLE, p_ds);
+
+        p_dataset.write(data.get_data(), H5::PredType::NATIVE_DOUBLE);
+
+        p_dataset.close();
+        p_ds.close();
+    }
+    catch (H5::DataSpaceIException error)
+    {
+        error.printErrorStack();
+        return -2;
+    }
+    catch (H5::DataSetIException error)
+    {
+        error.printErrorStack();
+        return -3;
+    }
+
+    spec_group.close();
+    ptype_group.close();
+    top_group.close();
+
+    return 0;
+}
+
+int FileIO::write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const GridObject &data)
+{
+    return write_phase_to_HDF5(phase_name, spec_name, itr_num, data.get_data());
 }

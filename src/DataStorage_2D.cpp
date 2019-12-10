@@ -142,13 +142,6 @@ CLASS METHODS
  */
 double& DataStorage_2D::at(const std::size_t x1, const std::size_t x2)
 {
-    std::cout << "indexing" << std::endl;
-    std::cout << "x1 " << x1 << std::endl;
-    std::cout << "nx " << this->Nx << std::endl;
-    std::cout << "ny " << this->Ny << std::endl;
-    std::cout << "size " << this->size << std::endl;
-    std::cout << "x2 " << x2 << std::endl;
-    std::cout << (x1 * this->Ny + x2) << std::endl;
     return this->DataStorage::at(x1 * this->Ny + x2);
 }
 
@@ -224,7 +217,7 @@ bool DataStorage_2D::equals(const DataStorage_2D& other_grid, const double TOL) 
  */
 void DataStorage_2D::print() const
 {
-    std::cout<< this << std::endl;
+    std::cout<< *this << std::endl;
 }
 
 /**

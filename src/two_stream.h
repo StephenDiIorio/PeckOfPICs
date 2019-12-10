@@ -2,12 +2,12 @@
 #include "Species.h"
 #include "Field.h"
 
-const uint ndump = 0;
-const uint Nx = 64;           // number of grid points
-const uint Ny = 64;           // number of grid points
+const uint ndump = 1;
+const uint Nx = 8;           // number of grid points
+const uint Ny = 8;           // number of grid points
 const double L_x = 8.0 * M_PI * sqrt(3.0);//2.0 * M_PI; // system length
 const double L_y = 8.0 * M_PI * sqrt(3.0); //2.0 * M_PI; // system length
-const double tmax = 10.0 * M_PI;
+const double tmax = 0.05;//10.0 * M_PI;
 const double dt = 0.025;
 
 const uint nspec = 1;
