@@ -1,0 +1,696 @@
+\hypertarget{class_particle}{}\doxysection{Particle Class Reference}
+\label{class_particle}\index{Particle@{Particle}}
+
+
+A particle class with all of the attributes a particle can have.  
+
+
+
+
+{\ttfamily \#include $<$Particle.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_particle_a40f4c7e248029d72e7714b7802d5e5e1}{Particle}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_particle}{Particle}} object -\/ sets all pos and mom values to 0 and weight to 1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_particle_a39f5f9a6d50df7731c525a8706482a4d}{Particle}} (double weight)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_particle}{Particle}} object -\/ sets all pos and mom values to 0 and weight to the provided value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_particle_a01035574b73a7d47c125576203859ff4}{Particle}} (double pos\+\_\+x, double pos\+\_\+y, double pos\+\_\+z, double mom\+\_\+x, double mom\+\_\+y, double mom\+\_\+z)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_particle}{Particle}} object -\/ sets pos and mom values to provided quantities and weight to 1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_particle_af16b84b52dcf7e8f86279271fdce0f34}{Particle}} (double pos\+\_\+x, double pos\+\_\+y, double pos\+\_\+z, double mom\+\_\+x, double mom\+\_\+y, double mom\+\_\+z, double weight)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_particle}{Particle}} object -\/ sets all values to provided quantities. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_particle_a02307e3781c158565ab11704baf98b55}{Particle}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} pos, \mbox{\hyperlink{class_three_vec}{Three\+Vec}} mom)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_particle}{Particle}} object -\/ copies pos and mom values from provided vectors and sets weight to 1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_particle_ac5e1ef905672de64ee4281bfc8239e30}{Particle}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} pos, \mbox{\hyperlink{class_three_vec}{Three\+Vec}} mom, double weight)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_particle}{Particle}} object -\/ copies pos and mom values from provided vectors and sets weight to provided value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_particle_ad030d0fe7b88cf81744b127c99244ff4}{$\sim$\+Particle}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_particle}{Particle}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_particle_ac27f3c3684e763606ddec400d46ec877}{get\+\_\+pos}} () const
+\begin{DoxyCompactList}\small\item\em Get the vector containing the position of the particle. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_particle_a584b3a0b22fee5d672ee94b74dbda923}{get\+\_\+pos\+\_\+comp}} (uint i) const
+\begin{DoxyCompactList}\small\item\em Get a component of the position of the particle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_particle_acafe9470be7a8678db0bd758b03c180a}{get\+\_\+mom}} () const
+\begin{DoxyCompactList}\small\item\em Get the vector containing the momentum of the particle. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_particle_a8d3ce33754743e079c0824a54f165ca2}{get\+\_\+mom\+\_\+comp}} (uint i) const
+\begin{DoxyCompactList}\small\item\em Get a component of the momentum of the particle. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_particle_af8f1564ac4c474d416fd05b98b687668}{get\+\_\+weight}} () const
+\begin{DoxyCompactList}\small\item\em Get the weight of the particle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_particle_a21b177f92f5beb9bdc80d97a517deee7}{get\+\_\+local\+\_\+e\+\_\+field}} () const
+\begin{DoxyCompactList}\small\item\em Get vector containing the local electric field the particle sees. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_particle_added9d86ef04fb76718ffa405d9602d2}{get\+\_\+local\+\_\+e\+\_\+field\+\_\+comp}} (uint i) const
+\begin{DoxyCompactList}\small\item\em Get a component of the local electric field of the particle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_particle_adc5753b5e093d8307ee6bef942b1360f}{get\+\_\+local\+\_\+b\+\_\+field}} () const
+\begin{DoxyCompactList}\small\item\em Get vector containing the local magnetic field the particle sees. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_particle_ab8be3cb58b905275e4220a6eb8fb192e}{get\+\_\+local\+\_\+b\+\_\+field\+\_\+comp}} (uint i) const
+\begin{DoxyCompactList}\small\item\em Get the local b field comp object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a1f3fa6cbe09290a7aad78d0563c37236}{set\+\_\+pos}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} pos)
+\begin{DoxyCompactList}\small\item\em Copy values from a vector to set the particle position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a17553252c074c5fe864cc5fc4ec9a492}{set\+\_\+pos\+\_\+comp}} (uint i, const double val)
+\begin{DoxyCompactList}\small\item\em Set a component of the particle position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a724b701a20f8579d8052e4ce627d5562}{set\+\_\+pos}} (const double pos\+\_\+x, const double pos\+\_\+y, const double pos\+\_\+z)
+\begin{DoxyCompactList}\small\item\em Sets the position components to provided values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a6eba3372263489c997f006e166b0c8b4}{set\+\_\+mom}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} mom)
+\begin{DoxyCompactList}\small\item\em Copy values from a vector to set the particle momentum. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a6c103d3d6292931785a3dce855337eda}{set\+\_\+mom\+\_\+comp}} (uint i, const double val)
+\begin{DoxyCompactList}\small\item\em Set a component of the particle momentum. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_ab93fe71b619087f8eebb9d04abd362ba}{set\+\_\+mom}} (const double mom\+\_\+x, const double mom\+\_\+y, const double mom\+\_\+z)
+\begin{DoxyCompactList}\small\item\em Sets the momentum components to provided values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_af4213954302789663b779fde6d9d0bd5}{set\+\_\+weight}} (const double weight)
+\begin{DoxyCompactList}\small\item\em Set the weight of the particle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a6adfde8ce5120f88c274d183b83ed646}{set\+\_\+local\+\_\+e\+\_\+field}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} field)
+\begin{DoxyCompactList}\small\item\em Copy values from a vector to set the local electric field the particle sees. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a44208ba37e3f7604d9df20fa18d7e018}{set\+\_\+local\+\_\+e\+\_\+field\+\_\+comp}} (uint i, const double val)
+\begin{DoxyCompactList}\small\item\em Set a component of the local electric field of the particle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_aa1748578be3456e3e1805c94c350c756}{set\+\_\+local\+\_\+e\+\_\+field}} (const double x1, const double x2, const double x3)
+\begin{DoxyCompactList}\small\item\em Sets the local electric field the particle sees to the provided values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a2b5a741f3cc4b622ecd21fe8d4756008}{set\+\_\+local\+\_\+b\+\_\+field}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} field)
+\begin{DoxyCompactList}\small\item\em Copy values from a vector to set the local magnetic field the particle sees. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a4c91cb7eb76922e9a9ca71204fbce064}{set\+\_\+local\+\_\+b\+\_\+field\+\_\+comp}} (uint i, const double val)
+\begin{DoxyCompactList}\small\item\em Set a component of the local magnetic field of the particle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a90a26efe3960cf3859a0c61886fea809}{set\+\_\+local\+\_\+b\+\_\+field}} (const double x1, const double x2, const double x3)
+\begin{DoxyCompactList}\small\item\em Sets the local magnetic field the particle sees to the provided values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a7607fa59376dbbb68e10dd48d256a8c4}{print\+\_\+pos}} () const
+\begin{DoxyCompactList}\small\item\em Print the position of the particle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a5c529826775b28f312523d1db00517e0}{print\+\_\+pos\+\_\+comp}} (uint i) const
+\begin{DoxyCompactList}\small\item\em Print a coordinate of the potision of the particle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_abc033102a03154b7becf067fc0089a26}{print\+\_\+mom}} () const
+\begin{DoxyCompactList}\small\item\em Print the momentum of the particle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_af097adc197777056c077a1bedbc9f4f5}{print\+\_\+mom\+\_\+comp}} (uint i) const
+\begin{DoxyCompactList}\small\item\em Print a coordinate of the momentum of the particle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_ab5d4ed209640ff4b5ae2c2420239064e}{print\+\_\+weight}} () const
+\begin{DoxyCompactList}\small\item\em Print the weight of the particle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_ac92554380f588216b14af0fa67769561}{print\+\_\+local\+\_\+e\+\_\+field}} () const
+\begin{DoxyCompactList}\small\item\em Print the local electric field the particle sees. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_affd64f4fc0ab0862b124ca382f6442b8}{print\+\_\+local\+\_\+e\+\_\+field\+\_\+comp}} (uint i) const
+\begin{DoxyCompactList}\small\item\em Print a coordinate of the local electric field the particle sees. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a674069d45d3d90d2cab36ee135722f2a}{print\+\_\+local\+\_\+b\+\_\+field}} () const
+\begin{DoxyCompactList}\small\item\em Print the local magnetic field the partilce sees. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a24d76bd498d354701a16082aae7ea1ba}{print\+\_\+local\+\_\+b\+\_\+field\+\_\+comp}} (uint i) const
+\begin{DoxyCompactList}\small\item\em Print a coordinate of the local magnetic field the particle sees. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A particle class with all of the attributes a particle can have. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_particle_a40f4c7e248029d72e7714b7802d5e5e1}\label{class_particle_a40f4c7e248029d72e7714b7802d5e5e1}} 
+\index{Particle@{Particle}!Particle@{Particle}}
+\index{Particle@{Particle}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{Particle()}{Particle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily Particle\+::\+Particle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_particle}{Particle}} object -\/ sets all pos and mom values to 0 and weight to 1. 
+
+\mbox{\Hypertarget{class_particle_a39f5f9a6d50df7731c525a8706482a4d}\label{class_particle_a39f5f9a6d50df7731c525a8706482a4d}} 
+\index{Particle@{Particle}!Particle@{Particle}}
+\index{Particle@{Particle}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{Particle()}{Particle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily Particle\+::\+Particle (\begin{DoxyParamCaption}\item[{double}]{weight }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_particle}{Particle}} object -\/ sets all pos and mom values to 0 and weight to the provided value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weight} & The weight to assign the particle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_a01035574b73a7d47c125576203859ff4}\label{class_particle_a01035574b73a7d47c125576203859ff4}} 
+\index{Particle@{Particle}!Particle@{Particle}}
+\index{Particle@{Particle}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{Particle()}{Particle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily Particle\+::\+Particle (\begin{DoxyParamCaption}\item[{double}]{pos\+\_\+x,  }\item[{double}]{pos\+\_\+y,  }\item[{double}]{pos\+\_\+z,  }\item[{double}]{mom\+\_\+x,  }\item[{double}]{mom\+\_\+y,  }\item[{double}]{mom\+\_\+z }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_particle}{Particle}} object -\/ sets pos and mom values to provided quantities and weight to 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+\_\+x} & Position x coordinate \\
+\hline
+{\em pos\+\_\+y} & Position y coordinate \\
+\hline
+{\em pos\+\_\+z} & Position z coordinate \\
+\hline
+{\em mom\+\_\+x} & Momentum x coordinate \\
+\hline
+{\em mom\+\_\+y} & Momentum y coordinate \\
+\hline
+{\em mom\+\_\+z} & Momentum z coordinate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_af16b84b52dcf7e8f86279271fdce0f34}\label{class_particle_af16b84b52dcf7e8f86279271fdce0f34}} 
+\index{Particle@{Particle}!Particle@{Particle}}
+\index{Particle@{Particle}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{Particle()}{Particle()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily Particle\+::\+Particle (\begin{DoxyParamCaption}\item[{double}]{pos\+\_\+x,  }\item[{double}]{pos\+\_\+y,  }\item[{double}]{pos\+\_\+z,  }\item[{double}]{mom\+\_\+x,  }\item[{double}]{mom\+\_\+y,  }\item[{double}]{mom\+\_\+z,  }\item[{double}]{weight }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_particle}{Particle}} object -\/ sets all values to provided quantities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+\_\+x} & Position x coordinate \\
+\hline
+{\em pos\+\_\+y} & Position y coordinate \\
+\hline
+{\em pos\+\_\+z} & Position z coordinate \\
+\hline
+{\em mom\+\_\+x} & Momentum x coordinate \\
+\hline
+{\em mom\+\_\+y} & Momentum y coordinate \\
+\hline
+{\em mom\+\_\+z} & Momentum z coordinate \\
+\hline
+{\em weight} & The weight to assign the particle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_a02307e3781c158565ab11704baf98b55}\label{class_particle_a02307e3781c158565ab11704baf98b55}} 
+\index{Particle@{Particle}!Particle@{Particle}}
+\index{Particle@{Particle}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{Particle()}{Particle()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily Particle\+::\+Particle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{pos,  }\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{mom }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_particle}{Particle}} object -\/ copies pos and mom values from provided vectors and sets weight to 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \mbox{\hyperlink{class_three_vec}{Three\+Vec}} with position values to copy \\
+\hline
+{\em mom} & \mbox{\hyperlink{class_three_vec}{Three\+Vec}} with momentum values to copy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_ac5e1ef905672de64ee4281bfc8239e30}\label{class_particle_ac5e1ef905672de64ee4281bfc8239e30}} 
+\index{Particle@{Particle}!Particle@{Particle}}
+\index{Particle@{Particle}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{Particle()}{Particle()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily Particle\+::\+Particle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{pos,  }\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{mom,  }\item[{double}]{weight }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_particle}{Particle}} object -\/ copies pos and mom values from provided vectors and sets weight to provided value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \mbox{\hyperlink{class_three_vec}{Three\+Vec}} with position values to copy \\
+\hline
+{\em mom} & \mbox{\hyperlink{class_three_vec}{Three\+Vec}} with momentum values to copy \\
+\hline
+{\em weight} & The weight to assign the particle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_ad030d0fe7b88cf81744b127c99244ff4}\label{class_particle_ad030d0fe7b88cf81744b127c99244ff4}} 
+\index{Particle@{Particle}!````~Particle@{$\sim$Particle}}
+\index{````~Particle@{$\sim$Particle}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{$\sim$Particle()}{~Particle()}}
+{\footnotesize\ttfamily Particle\+::$\sim$\+Particle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \mbox{\hyperlink{class_particle}{Particle}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_adc5753b5e093d8307ee6bef942b1360f}\label{class_particle_adc5753b5e093d8307ee6bef942b1360f}} 
+\index{Particle@{Particle}!get\_local\_b\_field@{get\_local\_b\_field}}
+\index{get\_local\_b\_field@{get\_local\_b\_field}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{get\_local\_b\_field()}{get\_local\_b\_field()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Particle\+::get\+\_\+local\+\_\+b\+\_\+field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get vector containing the local magnetic field the particle sees. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} The \mbox{\hyperlink{class_three_vec}{Three\+Vec}} containing the local magnetic field 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_ab8be3cb58b905275e4220a6eb8fb192e}\label{class_particle_ab8be3cb58b905275e4220a6eb8fb192e}} 
+\index{Particle@{Particle}!get\_local\_b\_field\_comp@{get\_local\_b\_field\_comp}}
+\index{get\_local\_b\_field\_comp@{get\_local\_b\_field\_comp}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{get\_local\_b\_field\_comp()}{get\_local\_b\_field\_comp()}}
+{\footnotesize\ttfamily double Particle\+::get\+\_\+local\+\_\+b\+\_\+field\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the local b field comp object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index to component to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double The desired component 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_a21b177f92f5beb9bdc80d97a517deee7}\label{class_particle_a21b177f92f5beb9bdc80d97a517deee7}} 
+\index{Particle@{Particle}!get\_local\_e\_field@{get\_local\_e\_field}}
+\index{get\_local\_e\_field@{get\_local\_e\_field}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{get\_local\_e\_field()}{get\_local\_e\_field()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Particle\+::get\+\_\+local\+\_\+e\+\_\+field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get vector containing the local electric field the particle sees. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} The \mbox{\hyperlink{class_three_vec}{Three\+Vec}} containing the local electric field 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_added9d86ef04fb76718ffa405d9602d2}\label{class_particle_added9d86ef04fb76718ffa405d9602d2}} 
+\index{Particle@{Particle}!get\_local\_e\_field\_comp@{get\_local\_e\_field\_comp}}
+\index{get\_local\_e\_field\_comp@{get\_local\_e\_field\_comp}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{get\_local\_e\_field\_comp()}{get\_local\_e\_field\_comp()}}
+{\footnotesize\ttfamily double Particle\+::get\+\_\+local\+\_\+e\+\_\+field\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a component of the local electric field of the particle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index to component to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double The desired component 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_acafe9470be7a8678db0bd758b03c180a}\label{class_particle_acafe9470be7a8678db0bd758b03c180a}} 
+\index{Particle@{Particle}!get\_mom@{get\_mom}}
+\index{get\_mom@{get\_mom}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{get\_mom()}{get\_mom()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Particle\+::get\+\_\+mom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the vector containing the momentum of the particle. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} The \mbox{\hyperlink{class_three_vec}{Three\+Vec}} containing the particle momentum 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_a8d3ce33754743e079c0824a54f165ca2}\label{class_particle_a8d3ce33754743e079c0824a54f165ca2}} 
+\index{Particle@{Particle}!get\_mom\_comp@{get\_mom\_comp}}
+\index{get\_mom\_comp@{get\_mom\_comp}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{get\_mom\_comp()}{get\_mom\_comp()}}
+{\footnotesize\ttfamily double Particle\+::get\+\_\+mom\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a component of the momentum of the particle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index to component to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double The desired component 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_ac27f3c3684e763606ddec400d46ec877}\label{class_particle_ac27f3c3684e763606ddec400d46ec877}} 
+\index{Particle@{Particle}!get\_pos@{get\_pos}}
+\index{get\_pos@{get\_pos}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{get\_pos()}{get\_pos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Particle\+::get\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the vector containing the position of the particle. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} The \mbox{\hyperlink{class_three_vec}{Three\+Vec}} containing the particle position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_a584b3a0b22fee5d672ee94b74dbda923}\label{class_particle_a584b3a0b22fee5d672ee94b74dbda923}} 
+\index{Particle@{Particle}!get\_pos\_comp@{get\_pos\_comp}}
+\index{get\_pos\_comp@{get\_pos\_comp}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{get\_pos\_comp()}{get\_pos\_comp()}}
+{\footnotesize\ttfamily double Particle\+::get\+\_\+pos\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a component of the position of the particle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index to component to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double The desired component 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_af8f1564ac4c474d416fd05b98b687668}\label{class_particle_af8f1564ac4c474d416fd05b98b687668}} 
+\index{Particle@{Particle}!get\_weight@{get\_weight}}
+\index{get\_weight@{get\_weight}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{get\_weight()}{get\_weight()}}
+{\footnotesize\ttfamily double Particle\+::get\+\_\+weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the weight of the particle. 
+
+\begin{DoxyReturn}{Returns}
+double The weight of the particle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_a674069d45d3d90d2cab36ee135722f2a}\label{class_particle_a674069d45d3d90d2cab36ee135722f2a}} 
+\index{Particle@{Particle}!print\_local\_b\_field@{print\_local\_b\_field}}
+\index{print\_local\_b\_field@{print\_local\_b\_field}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{print\_local\_b\_field()}{print\_local\_b\_field()}}
+{\footnotesize\ttfamily void Particle\+::print\+\_\+local\+\_\+b\+\_\+field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Print the local magnetic field the partilce sees. 
+
+\mbox{\Hypertarget{class_particle_a24d76bd498d354701a16082aae7ea1ba}\label{class_particle_a24d76bd498d354701a16082aae7ea1ba}} 
+\index{Particle@{Particle}!print\_local\_b\_field\_comp@{print\_local\_b\_field\_comp}}
+\index{print\_local\_b\_field\_comp@{print\_local\_b\_field\_comp}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{print\_local\_b\_field\_comp()}{print\_local\_b\_field\_comp()}}
+{\footnotesize\ttfamily void Particle\+::print\+\_\+local\+\_\+b\+\_\+field\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Print a coordinate of the local magnetic field the particle sees. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index to the coordinate to print \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_ac92554380f588216b14af0fa67769561}\label{class_particle_ac92554380f588216b14af0fa67769561}} 
+\index{Particle@{Particle}!print\_local\_e\_field@{print\_local\_e\_field}}
+\index{print\_local\_e\_field@{print\_local\_e\_field}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{print\_local\_e\_field()}{print\_local\_e\_field()}}
+{\footnotesize\ttfamily void Particle\+::print\+\_\+local\+\_\+e\+\_\+field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Print the local electric field the particle sees. 
+
+\mbox{\Hypertarget{class_particle_affd64f4fc0ab0862b124ca382f6442b8}\label{class_particle_affd64f4fc0ab0862b124ca382f6442b8}} 
+\index{Particle@{Particle}!print\_local\_e\_field\_comp@{print\_local\_e\_field\_comp}}
+\index{print\_local\_e\_field\_comp@{print\_local\_e\_field\_comp}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{print\_local\_e\_field\_comp()}{print\_local\_e\_field\_comp()}}
+{\footnotesize\ttfamily void Particle\+::print\+\_\+local\+\_\+e\+\_\+field\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Print a coordinate of the local electric field the particle sees. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index to the coordinate to print \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_abc033102a03154b7becf067fc0089a26}\label{class_particle_abc033102a03154b7becf067fc0089a26}} 
+\index{Particle@{Particle}!print\_mom@{print\_mom}}
+\index{print\_mom@{print\_mom}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{print\_mom()}{print\_mom()}}
+{\footnotesize\ttfamily void Particle\+::print\+\_\+mom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Print the momentum of the particle. 
+
+\mbox{\Hypertarget{class_particle_af097adc197777056c077a1bedbc9f4f5}\label{class_particle_af097adc197777056c077a1bedbc9f4f5}} 
+\index{Particle@{Particle}!print\_mom\_comp@{print\_mom\_comp}}
+\index{print\_mom\_comp@{print\_mom\_comp}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{print\_mom\_comp()}{print\_mom\_comp()}}
+{\footnotesize\ttfamily void Particle\+::print\+\_\+mom\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Print a coordinate of the momentum of the particle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index to the coordinate to print \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_a7607fa59376dbbb68e10dd48d256a8c4}\label{class_particle_a7607fa59376dbbb68e10dd48d256a8c4}} 
+\index{Particle@{Particle}!print\_pos@{print\_pos}}
+\index{print\_pos@{print\_pos}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{print\_pos()}{print\_pos()}}
+{\footnotesize\ttfamily void Particle\+::print\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Print the position of the particle. 
+
+\mbox{\Hypertarget{class_particle_a5c529826775b28f312523d1db00517e0}\label{class_particle_a5c529826775b28f312523d1db00517e0}} 
+\index{Particle@{Particle}!print\_pos\_comp@{print\_pos\_comp}}
+\index{print\_pos\_comp@{print\_pos\_comp}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{print\_pos\_comp()}{print\_pos\_comp()}}
+{\footnotesize\ttfamily void Particle\+::print\+\_\+pos\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Print a coordinate of the potision of the particle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index to the coordinate to print \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_ab5d4ed209640ff4b5ae2c2420239064e}\label{class_particle_ab5d4ed209640ff4b5ae2c2420239064e}} 
+\index{Particle@{Particle}!print\_weight@{print\_weight}}
+\index{print\_weight@{print\_weight}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{print\_weight()}{print\_weight()}}
+{\footnotesize\ttfamily void Particle\+::print\+\_\+weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Print the weight of the particle. 
+
+\mbox{\Hypertarget{class_particle_a90a26efe3960cf3859a0c61886fea809}\label{class_particle_a90a26efe3960cf3859a0c61886fea809}} 
+\index{Particle@{Particle}!set\_local\_b\_field@{set\_local\_b\_field}}
+\index{set\_local\_b\_field@{set\_local\_b\_field}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_local\_b\_field()}{set\_local\_b\_field()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+local\+\_\+b\+\_\+field (\begin{DoxyParamCaption}\item[{const double}]{x1,  }\item[{const double}]{x2,  }\item[{const double}]{x3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the local magnetic field the particle sees to the provided values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Value to set x1 component \\
+\hline
+{\em x2} & Value to set x2 component \\
+\hline
+{\em x3} & Value to set x3 component \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_a2b5a741f3cc4b622ecd21fe8d4756008}\label{class_particle_a2b5a741f3cc4b622ecd21fe8d4756008}} 
+\index{Particle@{Particle}!set\_local\_b\_field@{set\_local\_b\_field}}
+\index{set\_local\_b\_field@{set\_local\_b\_field}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_local\_b\_field()}{set\_local\_b\_field()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+local\+\_\+b\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{field }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy values from a vector to set the local magnetic field the particle sees. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & The \mbox{\hyperlink{class_three_vec}{Three\+Vec}} with electric field vaules to copy to the local copy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_a4c91cb7eb76922e9a9ca71204fbce064}\label{class_particle_a4c91cb7eb76922e9a9ca71204fbce064}} 
+\index{Particle@{Particle}!set\_local\_b\_field\_comp@{set\_local\_b\_field\_comp}}
+\index{set\_local\_b\_field\_comp@{set\_local\_b\_field\_comp}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_local\_b\_field\_comp()}{set\_local\_b\_field\_comp()}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+local\+\_\+b\+\_\+field\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i,  }\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set a component of the local magnetic field of the particle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index to component to set \\
+\hline
+{\em val} & Value to set component \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_aa1748578be3456e3e1805c94c350c756}\label{class_particle_aa1748578be3456e3e1805c94c350c756}} 
+\index{Particle@{Particle}!set\_local\_e\_field@{set\_local\_e\_field}}
+\index{set\_local\_e\_field@{set\_local\_e\_field}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_local\_e\_field()}{set\_local\_e\_field()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+local\+\_\+e\+\_\+field (\begin{DoxyParamCaption}\item[{const double}]{x1,  }\item[{const double}]{x2,  }\item[{const double}]{x3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the local electric field the particle sees to the provided values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Value to set x1 component \\
+\hline
+{\em x2} & Value to set x2 component \\
+\hline
+{\em x3} & Value to set x3 component \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_a6adfde8ce5120f88c274d183b83ed646}\label{class_particle_a6adfde8ce5120f88c274d183b83ed646}} 
+\index{Particle@{Particle}!set\_local\_e\_field@{set\_local\_e\_field}}
+\index{set\_local\_e\_field@{set\_local\_e\_field}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_local\_e\_field()}{set\_local\_e\_field()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+local\+\_\+e\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{field }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy values from a vector to set the local electric field the particle sees. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & The \mbox{\hyperlink{class_three_vec}{Three\+Vec}} with electric field vaules to copy to the local copy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_a44208ba37e3f7604d9df20fa18d7e018}\label{class_particle_a44208ba37e3f7604d9df20fa18d7e018}} 
+\index{Particle@{Particle}!set\_local\_e\_field\_comp@{set\_local\_e\_field\_comp}}
+\index{set\_local\_e\_field\_comp@{set\_local\_e\_field\_comp}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_local\_e\_field\_comp()}{set\_local\_e\_field\_comp()}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+local\+\_\+e\+\_\+field\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i,  }\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set a component of the local electric field of the particle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index to component to set \\
+\hline
+{\em val} & Value to set component \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_ab93fe71b619087f8eebb9d04abd362ba}\label{class_particle_ab93fe71b619087f8eebb9d04abd362ba}} 
+\index{Particle@{Particle}!set\_mom@{set\_mom}}
+\index{set\_mom@{set\_mom}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_mom()}{set\_mom()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+mom (\begin{DoxyParamCaption}\item[{const double}]{mom\+\_\+x,  }\item[{const double}]{mom\+\_\+y,  }\item[{const double}]{mom\+\_\+z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the momentum components to provided values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mom\+\_\+x} & Value to set x coordinate \\
+\hline
+{\em mom\+\_\+y} & Value to set y coordinate \\
+\hline
+{\em mom\+\_\+z} & Value to set z coordinate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_a6eba3372263489c997f006e166b0c8b4}\label{class_particle_a6eba3372263489c997f006e166b0c8b4}} 
+\index{Particle@{Particle}!set\_mom@{set\_mom}}
+\index{set\_mom@{set\_mom}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_mom()}{set\_mom()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+mom (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{mom }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy values from a vector to set the particle momentum. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mom} & The \mbox{\hyperlink{class_three_vec}{Three\+Vec}} with momentum values to copy to current particle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_a6c103d3d6292931785a3dce855337eda}\label{class_particle_a6c103d3d6292931785a3dce855337eda}} 
+\index{Particle@{Particle}!set\_mom\_comp@{set\_mom\_comp}}
+\index{set\_mom\_comp@{set\_mom\_comp}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_mom\_comp()}{set\_mom\_comp()}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+mom\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i,  }\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set a component of the particle momentum. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index to component to set \\
+\hline
+{\em val} & Value to set component \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_a724b701a20f8579d8052e4ce627d5562}\label{class_particle_a724b701a20f8579d8052e4ce627d5562}} 
+\index{Particle@{Particle}!set\_pos@{set\_pos}}
+\index{set\_pos@{set\_pos}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_pos()}{set\_pos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+pos (\begin{DoxyParamCaption}\item[{const double}]{pos\+\_\+x,  }\item[{const double}]{pos\+\_\+y,  }\item[{const double}]{pos\+\_\+z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the position components to provided values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+\_\+x} & Value to set x coordinate \\
+\hline
+{\em pos\+\_\+y} & Value to set y coordinate \\
+\hline
+{\em pos\+\_\+z} & Value to set z coordinate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_a1f3fa6cbe09290a7aad78d0563c37236}\label{class_particle_a1f3fa6cbe09290a7aad78d0563c37236}} 
+\index{Particle@{Particle}!set\_pos@{set\_pos}}
+\index{set\_pos@{set\_pos}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_pos()}{set\_pos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copy values from a vector to set the particle position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The \mbox{\hyperlink{class_three_vec}{Three\+Vec}} with position values to copy to current particle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_a17553252c074c5fe864cc5fc4ec9a492}\label{class_particle_a17553252c074c5fe864cc5fc4ec9a492}} 
+\index{Particle@{Particle}!set\_pos\_comp@{set\_pos\_comp}}
+\index{set\_pos\_comp@{set\_pos\_comp}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_pos\_comp()}{set\_pos\_comp()}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+pos\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i,  }\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set a component of the particle position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index to component to set \\
+\hline
+{\em val} & Value to set component \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_af4213954302789663b779fde6d9d0bd5}\label{class_particle_af4213954302789663b779fde6d9d0bd5}} 
+\index{Particle@{Particle}!set\_weight@{set\_weight}}
+\index{set\_weight@{set\_weight}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_weight()}{set\_weight()}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+weight (\begin{DoxyParamCaption}\item[{const double}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the weight of the particle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weight} & Value to set the weight of the particle \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Particle.\+h\item 
+src/Particle.\+cpp\end{DoxyCompactItemize}

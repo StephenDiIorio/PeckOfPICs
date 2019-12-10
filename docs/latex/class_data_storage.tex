@@ -1,0 +1,210 @@
+\hypertarget{class_data_storage}{}\doxysection{Data\+Storage Class Reference}
+\label{class_data_storage}\index{DataStorage@{DataStorage}}
+
+
+\mbox{\hyperlink{class_data_storage}{Data\+Storage}} is the abstract interface for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects used to store n-\/dimensional sets of data. A lot of the common functionalities and operations that are dimension independent are defined here, whereas the dimension specific function and operations are relegated to subclasses.  
+
+
+
+
+{\ttfamily \#include $<$Data\+Storage.\+h$>$}
+
+Inheritance diagram for Data\+Storage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_data_storage}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_data_storage_a2272054bb0f79ec885f1d490712185fd}\label{class_data_storage_a2272054bb0f79ec885f1d490712185fd}} 
+using {\bfseries iterator} = std\+::vector$<$ double $>$\+::iterator
+\item 
+\mbox{\Hypertarget{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}\label{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}} 
+using {\bfseries const\+\_\+iterator} = std\+::vector$<$ double $>$\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_data_storage_a4cd0342d8b9e4ebf2239464a09c73c3f}\label{class_data_storage_a4cd0342d8b9e4ebf2239464a09c73c3f}} 
+iterator {\bfseries begin} () noexcept
+\item 
+\mbox{\Hypertarget{class_data_storage_abc13353dbdeacac56f1f67e61c43b97c}\label{class_data_storage_abc13353dbdeacac56f1f67e61c43b97c}} 
+const\+\_\+iterator {\bfseries cbegin} () const noexcept
+\item 
+\mbox{\Hypertarget{class_data_storage_ad5798355a01c470615b2b1b0fb489c49}\label{class_data_storage_ad5798355a01c470615b2b1b0fb489c49}} 
+iterator {\bfseries end} () noexcept
+\item 
+\mbox{\Hypertarget{class_data_storage_ac159ad0c1725fce4c8b32c3fefa2abb7}\label{class_data_storage_ac159ad0c1725fce4c8b32c3fefa2abb7}} 
+const\+\_\+iterator {\bfseries cend} () const noexcept
+\item 
+double \& \mbox{\hyperlink{class_data_storage_a3fffe7a97e286084d6d3607377485d68}{operator\mbox{[}$\,$\mbox{]}}} (const std\+::size\+\_\+t idx)
+\begin{DoxyCompactList}\small\item\em Returns a reference to the element at specified location idx. No bounds checking is performed. \end{DoxyCompactList}\item 
+const double \& \mbox{\hyperlink{class_data_storage_a1e59974201b9e506d2448c227898fd9b}{operator\mbox{[}$\,$\mbox{]}}} (const std\+::size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the element at specified location idx. No bounds checking is performed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_storage_a2abf71f8ad75ddea12da6f6e9ee59b2c}\label{class_data_storage_a2abf71f8ad75ddea12da6f6e9ee59b2c}} 
+double \& {\bfseries at} (const std\+::size\+\_\+t idx)
+\item 
+const double \& \mbox{\hyperlink{class_data_storage_ac8deb1f1d7518f676490d52cb4e61eb2}{at}} (const std\+::size\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the element at specified location idx, with bounds checking. If idx is not within the range of the container, an exception of type std\+::out\+\_\+of\+\_\+range is thrown. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_storage_a1615220a9c7e39d2d8643640b663be38}\label{class_data_storage_a1615220a9c7e39d2d8643640b663be38}} 
+virtual void {\bfseries print} () const =0
+\item 
+\mbox{\Hypertarget{class_data_storage_a97f6356641ae855e40d1be2510abdb4c}\label{class_data_storage_a97f6356641ae855e40d1be2510abdb4c}} 
+virtual std\+::ostream \& {\bfseries print} (std\+::ostream \&s) const =0
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{class_data_storage_a686ce00581d02d9f7a99f5061c81e21e}{get\+\_\+size}} () const
+\begin{DoxyCompactList}\small\item\em Get the total number of elements in \mbox{\hyperlink{class_data_storage}{Data\+Storage}}. \end{DoxyCompactList}\item 
+const double $\ast$ \mbox{\hyperlink{class_data_storage_aefa3e9b8a52dd2c109047abe9ea921d7}{get\+\_\+data}} () const
+\begin{DoxyCompactList}\small\item\em Get a pointer to the data stored in the object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_storage_af6458585b27eab6c4d04441cbc0a8447}\label{class_data_storage_af6458585b27eab6c4d04441cbc0a8447}} 
+virtual std\+::size\+\_\+t {\bfseries get\+\_\+ndims} () const =0
+\item 
+\mbox{\Hypertarget{class_data_storage_a63f21a3abccd5ba7a75408d7f640e0d7}\label{class_data_storage_a63f21a3abccd5ba7a75408d7f640e0d7}} 
+virtual std\+::size\+\_\+t {\bfseries get\+\_\+\+Ni\+\_\+size} (std\+::size\+\_\+t i) const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_data_storage_ade18a41b15f09db78805439c8e95910c}\label{class_data_storage_ade18a41b15f09db78805439c8e95910c}} 
+enum {\bfseries accessors} \{ {\bfseries x1\+\_\+accessor} = 0, 
+{\bfseries x2\+\_\+accessor} = 1, 
+{\bfseries x3\+\_\+accessor} = 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_data_storage_aee2c57d5704a0677bd07283d661cb18a}\label{class_data_storage_aee2c57d5704a0677bd07283d661cb18a}} 
+std\+::size\+\_\+t {\bfseries size}
+\item 
+\mbox{\Hypertarget{class_data_storage_ae317b0de769982e5286e3e2d9301aa25}\label{class_data_storage_ae317b0de769982e5286e3e2d9301aa25}} 
+std\+::vector$<$ double $>$ {\bfseries data}
+\item 
+\mbox{\Hypertarget{class_data_storage_a98dddf43330a23b4570708838aeebe00}\label{class_data_storage_a98dddf43330a23b4570708838aeebe00}} 
+const char {\bfseries same\+\_\+size\+\_\+err} \mbox{[}45\mbox{]} = \char`\"{}Error\+: Data objects are not of the same size\char`\"{}
+\item 
+\mbox{\Hypertarget{class_data_storage_a850608ca2a666e57a5b810dc3f220f8d}\label{class_data_storage_a850608ca2a666e57a5b810dc3f220f8d}} 
+const char {\bfseries no\+\_\+dimension\+\_\+err} \mbox{[}45\mbox{]} = \char`\"{}Error\+: Data object dimension does not exist\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_data_storage_a4347b2e9cf825c51021eb8a6277da2f3}\label{class_data_storage_a4347b2e9cf825c51021eb8a6277da2f3}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&s, const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&d)
+\item 
+void \mbox{\hyperlink{class_data_storage_ae9b682caff16617cc24c66c4eba59b8e}{print}} (const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&d)
+\begin{DoxyCompactList}\small\item\em Prints the \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_data_storage}{Data\+Storage}} is the abstract interface for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects used to store n-\/dimensional sets of data. A lot of the common functionalities and operations that are dimension independent are defined here, whereas the dimension specific function and operations are relegated to subclasses. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_data_storage_ac8deb1f1d7518f676490d52cb4e61eb2}\label{class_data_storage_ac8deb1f1d7518f676490d52cb4e61eb2}} 
+\index{DataStorage@{DataStorage}!at@{at}}
+\index{at@{at}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily const double \& Data\+Storage\+::at (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{idx }\end{DoxyParamCaption}) const}
+
+
+
+Returns a reference to the element at specified location idx, with bounds checking. If idx is not within the range of the container, an exception of type std\+::out\+\_\+of\+\_\+range is thrown. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & Position of the element to return. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\& Reference to the requested element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage_aefa3e9b8a52dd2c109047abe9ea921d7}\label{class_data_storage_aefa3e9b8a52dd2c109047abe9ea921d7}} 
+\index{DataStorage@{DataStorage}!get\_data@{get\_data}}
+\index{get\_data@{get\_data}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{get\_data()}{get\_data()}}
+{\footnotesize\ttfamily const double$\ast$ Data\+Storage\+::get\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a pointer to the data stored in the object. 
+
+\begin{DoxyReturn}{Returns}
+const double$\ast$ A pointer to the data 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage_a686ce00581d02d9f7a99f5061c81e21e}\label{class_data_storage_a686ce00581d02d9f7a99f5061c81e21e}} 
+\index{DataStorage@{DataStorage}!get\_size@{get\_size}}
+\index{get\_size@{get\_size}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{get\_size()}{get\_size()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t Data\+Storage\+::get\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the total number of elements in \mbox{\hyperlink{class_data_storage}{Data\+Storage}}. 
+
+\begin{DoxyReturn}{Returns}
+std\+::size\+\_\+t The number of elements in \mbox{\hyperlink{class_data_storage}{Data\+Storage}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage_a3fffe7a97e286084d6d3607377485d68}\label{class_data_storage_a3fffe7a97e286084d6d3607377485d68}} 
+\index{DataStorage@{DataStorage}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double\& Data\+Storage\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a reference to the element at specified location idx. No bounds checking is performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & Position of the element to return \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\& Reference to the requested element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage_a1e59974201b9e506d2448c227898fd9b}\label{class_data_storage_a1e59974201b9e506d2448c227898fd9b}} 
+\index{DataStorage@{DataStorage}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const double\& Data\+Storage\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a reference to the element at specified location idx. No bounds checking is performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & Position of the element to return \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const double\& Reference to the requested element 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_data_storage_ae9b682caff16617cc24c66c4eba59b8e}\label{class_data_storage_ae9b682caff16617cc24c66c4eba59b8e}} 
+\index{DataStorage@{DataStorage}!print@{print}}
+\index{print@{print}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{print}{print}}
+{\footnotesize\ttfamily void print (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Prints the \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & A reference to the \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object to print \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Data\+Storage.\+h\item 
+src/Data\+Storage.\+cpp\end{DoxyCompactItemize}

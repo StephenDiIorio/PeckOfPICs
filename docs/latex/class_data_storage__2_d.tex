@@ -1,0 +1,745 @@
+\hypertarget{class_data_storage__2_d}{}\doxysection{Data\+Storage\+\_\+2D Class Reference}
+\label{class_data_storage__2_d}\index{DataStorage\_2D@{DataStorage\_2D}}
+Inheritance diagram for Data\+Storage\+\_\+2D\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_data_storage__2_d}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_storage__2_d_a0da57a05dc96fac400afeebaf6533d65}{Data\+Storage\+\_\+2D}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d_af44ec6556e60724cbfcf8862897eb21b}{Data\+Storage\+\_\+2D}} (std\+::size\+\_\+t Nx, std\+::size\+\_\+t Ny)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object -\/ sets to a grid of Nx by Ny 0s. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d_a8b76128eca645b33a9d663b92ac7cb20}{Data\+Storage\+\_\+2D}} (std\+::size\+\_\+t Nx, std\+::size\+\_\+t Ny, double val)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object -\/ sets to a grid of Nx by Ny vals. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d_a06f486bef424e94886977f4472895860}{Data\+Storage\+\_\+2D}} (std\+::size\+\_\+t Nx, std\+::size\+\_\+t Ny, std\+::vector$<$ double $>$ data)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object -\/ stores the values in data in the \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d_ad46f632aca03a87807a576506bc4c1ac}{Data\+Storage\+\_\+2D}} (const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&copy\+\_\+obj)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object -\/ copies from another \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d_a2e62f4e3e3689dff63f46145c17591da}{$\sim$\+Data\+Storage\+\_\+2D}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \& \mbox{\hyperlink{class_data_storage__2_d_aae40b2db46c6b6406543de105f94ede0}{operator=}} (const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&to\+\_\+copy)
+\begin{DoxyCompactList}\small\item\em Overload copy assignment operator. \end{DoxyCompactList}\item 
+double \& \mbox{\hyperlink{class_data_storage__2_d_a96733a9065d1e4b3a790ed057ae445a7}{operator()}} (const std\+::size\+\_\+t x1, const std\+::size\+\_\+t x2)
+\begin{DoxyCompactList}\small\item\em Returns a reference to the element at specified location (x1, x2). No bounds checking is performed. \end{DoxyCompactList}\item 
+const double \& \mbox{\hyperlink{class_data_storage__2_d_a625c2ef520c5b7ea4a4013adc80bb13a}{operator()}} (const std\+::size\+\_\+t x1, const std\+::size\+\_\+t x2) const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the element at specified location (x1, x2). No bounds checking is performed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \& \mbox{\hyperlink{class_data_storage__2_d_aa8a6a45a8e08d712f3b962cdd472476f}{operator+=}} (const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&other\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Element-\/wise addition and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \& \mbox{\hyperlink{class_data_storage__2_d_a0a25eb12f42f86a2dc87b390071eb00b}{operator+=}} (const double val)
+\begin{DoxyCompactList}\small\item\em Element-\/wise addition and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \& \mbox{\hyperlink{class_data_storage__2_d_a41e76cee41edf2ec6f2664b9aa3eff75}{operator-\/=}} (const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&other\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Element-\/wise subtraction and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \& \mbox{\hyperlink{class_data_storage__2_d_a7d7eb8ac6a8750a7ec5ba335386c7dd9}{operator-\/=}} (const double val)
+\begin{DoxyCompactList}\small\item\em Element-\/wise subtraction and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \& \mbox{\hyperlink{class_data_storage__2_d_a993a954495fdc9c6335e517c96e16f27}{operator$\ast$=}} (const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&other\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Element-\/wise multiplication and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \& \mbox{\hyperlink{class_data_storage__2_d_a465c3c1bbf7dd7fd827c1074f51a5c66}{operator$\ast$=}} (const double val)
+\begin{DoxyCompactList}\small\item\em Element-\/wise multiplication and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \& \mbox{\hyperlink{class_data_storage__2_d_a0fda492d193c12ccc5899b9255c91b38}{operator/=}} (const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&other\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Element-\/wise division and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \& \mbox{\hyperlink{class_data_storage__2_d_a2d96dd0bbb3dbfb6b390b5a79bea46de}{operator/=}} (const double val)
+\begin{DoxyCompactList}\small\item\em Element-\/wise division and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and scalar. \end{DoxyCompactList}\item 
+double \& \mbox{\hyperlink{class_data_storage__2_d_a4e9b60050e79d193276412dd410ce94e}{at}} (const std\+::size\+\_\+t x1, const std\+::size\+\_\+t x2)
+\begin{DoxyCompactList}\small\item\em Returns a reference to the element at specified location (x1,x2), with bounds checking. If index is not within the range of the container, an exception of type std\+::out\+\_\+of\+\_\+range is thrown. \end{DoxyCompactList}\item 
+const double \& \mbox{\hyperlink{class_data_storage__2_d_aa45c155208390fd086cce3a34e53c86e}{at}} (const std\+::size\+\_\+t idx, const std\+::size\+\_\+t x2) const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the element at specified location (x1,x2), with bounds checking. If index is not within the range of the container, an exception of type std\+::out\+\_\+of\+\_\+range is thrown. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{class_data_storage__2_d_ad47e883ad13f92e253bbd6e7446f6f33}{get\+\_\+\+Nx}} () const
+\begin{DoxyCompactList}\small\item\em Get the number of Nx points in \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{class_data_storage__2_d_a487577ecf0edb54198c0c800bf26f839}{get\+\_\+\+Ny}} () const
+\begin{DoxyCompactList}\small\item\em Get the number of Ny points in \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{class_data_storage__2_d_a6a1c521928eadf77b730e03fc122de79}{get\+\_\+ndims}} () const
+\begin{DoxyCompactList}\small\item\em Get the dimensionality of the object. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{class_data_storage__2_d_a969746bdd5885b34535c26facd1ea696}{get\+\_\+\+Ni\+\_\+size}} (std\+::size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Get the number of elements in the ith component of the data structure. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_data_storage__2_d_a59ecd3bc1ef738e740fc81ead70acaac}{equals}} (const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&other\+\_\+grid, const double T\+OL) const
+\begin{DoxyCompactList}\small\item\em Compares two \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} objects to see if they are equivalent. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_storage__2_d_a42cf7649099190df8d6e9f1c76bc6ac2}{print}} () const
+\begin{DoxyCompactList}\small\item\em Prints the \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object to std\+::cout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_storage__2_d_afcb196ddedae584c22160b4e3a1f3153}{print\+\_\+comp}} (const std\+::size\+\_\+t xi, const std\+::size\+\_\+t yi) const
+\begin{DoxyCompactList}\small\item\em Prints a single value stored at position (x1, x2) in \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{class_data_storage__2_d_ad2ce0ba0674e5aca9e5caf1bf35552b5}{print}} (std\+::ostream \&s) const
+\begin{DoxyCompactList}\small\item\em Prints the \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object to a IO stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \mbox{\hyperlink{class_data_storage__2_d_ac093627a2852755a55cf91f5e9036f35}{operator+}} (\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} d1, const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&d2)
+\begin{DoxyCompactList}\small\item\em Element-\/wise add two \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \mbox{\hyperlink{class_data_storage__2_d_a67063cd6fc8238fc9002fd91ca68c6a2}{operator+}} (\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} d, const double val)
+\begin{DoxyCompactList}\small\item\em Element-\/wise addition with \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and a scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \mbox{\hyperlink{class_data_storage__2_d_a0c219d8dc86ed735df8d4dd3101cc745}{operator-\/}} (\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} d1, const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&d2)
+\begin{DoxyCompactList}\small\item\em Element-\/wise subtraction two \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \mbox{\hyperlink{class_data_storage__2_d_a2e8ba0be7bafe632452e292511800f5a}{operator-\/}} (\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} d, const double val)
+\begin{DoxyCompactList}\small\item\em Element-\/wise subtraction with \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and a scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \mbox{\hyperlink{class_data_storage__2_d_aa85269d8083e7487e96ada9b15ddb7db}{operator$\ast$}} (\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} d1, const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&d2)
+\begin{DoxyCompactList}\small\item\em Element-\/wise multiplication two \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \mbox{\hyperlink{class_data_storage__2_d_ac01af2801febf099621a8b7e7d67a9c1}{operator$\ast$}} (\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} d, const double val)
+\begin{DoxyCompactList}\small\item\em Element-\/wise multiplication with \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and a scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \mbox{\hyperlink{class_data_storage__2_d_a14a2ddea7575a34fb27f056d58c84832}{operator/}} (\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} d1, const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&d2)
+\begin{DoxyCompactList}\small\item\em Element-\/wise division two \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \mbox{\hyperlink{class_data_storage__2_d_a5019c79efa76ea4db7dfa2acb832a789}{operator/}} (\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} d, const double val)
+\begin{DoxyCompactList}\small\item\em Element-\/wise division with \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and a scalar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_data_storage__2_d_a0da57a05dc96fac400afeebaf6533d65}\label{class_data_storage__2_d_a0da57a05dc96fac400afeebaf6533d65}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!DataStorage\_2D@{DataStorage\_2D}}
+\index{DataStorage\_2D@{DataStorage\_2D}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{DataStorage\_2D()}{DataStorage\_2D()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily Data\+Storage\+\_\+2\+D\+::\+Data\+Storage\+\_\+2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object. 
+
+\mbox{\Hypertarget{class_data_storage__2_d_af44ec6556e60724cbfcf8862897eb21b}\label{class_data_storage__2_d_af44ec6556e60724cbfcf8862897eb21b}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!DataStorage\_2D@{DataStorage\_2D}}
+\index{DataStorage\_2D@{DataStorage\_2D}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{DataStorage\_2D()}{DataStorage\_2D()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily Data\+Storage\+\_\+2\+D\+::\+Data\+Storage\+\_\+2D (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{Nx,  }\item[{std\+::size\+\_\+t}]{Ny }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object -\/ sets to a grid of Nx by Ny 0s. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nx} & Number of x values \\
+\hline
+{\em Ny} & Number of y values \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_data_storage__2_d_a8b76128eca645b33a9d663b92ac7cb20}\label{class_data_storage__2_d_a8b76128eca645b33a9d663b92ac7cb20}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!DataStorage\_2D@{DataStorage\_2D}}
+\index{DataStorage\_2D@{DataStorage\_2D}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{DataStorage\_2D()}{DataStorage\_2D()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily Data\+Storage\+\_\+2\+D\+::\+Data\+Storage\+\_\+2D (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{Nx,  }\item[{std\+::size\+\_\+t}]{Ny,  }\item[{double}]{val }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object -\/ sets to a grid of Nx by Ny vals. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nx} & Number of x values \\
+\hline
+{\em Ny} & Number of y values \\
+\hline
+{\em val} & Value to initialize grid to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_data_storage__2_d_a06f486bef424e94886977f4472895860}\label{class_data_storage__2_d_a06f486bef424e94886977f4472895860}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!DataStorage\_2D@{DataStorage\_2D}}
+\index{DataStorage\_2D@{DataStorage\_2D}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{DataStorage\_2D()}{DataStorage\_2D()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily Data\+Storage\+\_\+2\+D\+::\+Data\+Storage\+\_\+2D (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{Nx,  }\item[{std\+::size\+\_\+t}]{Ny,  }\item[{std\+::vector$<$ double $>$}]{data }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object -\/ stores the values in data in the \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object. 
+
+\begin{DoxyVerb}  @brief Constructor for DataStorage_2D object - sets to grid defined by
+         init_fcn
+
+  @param Nx Number of x values
+  @param Ny Number of y values
+  @param init_fcn User provided function which initializes the data in the grid
+                  to the user's specification
+ &zwj;/
+\end{DoxyVerb}
+ \mbox{\hyperlink{class_data_storage__2_d_a0da57a05dc96fac400afeebaf6533d65}{Data\+Storage\+\_\+2\+D\+::\+Data\+Storage\+\_\+2D}}(std\+::size\+\_\+t Nx, std\+::size\+\_\+t Ny, std\+::function$<$void(\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\&, std\+::size\+\_\+t, std\+::size\+\_\+t)$>$ init\+\_\+fcn) \{ this-\/$>$Nx = Nx; this-\/$>$Ny = Ny this-\/$>$size = Nx $\ast$ Ny;
+
+init\+\_\+grid\+\_\+obj(init\+\_\+fcn); \}
+
+/$\ast$$\ast$ 
+\begin{DoxyParams}{Parameters}
+{\em Nx} & Number of x values \\
+\hline
+{\em Ny} & Number of y values \\
+\hline
+{\em data} & A vector object to copy the data from into the current grid \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_data_storage__2_d_ad46f632aca03a87807a576506bc4c1ac}\label{class_data_storage__2_d_ad46f632aca03a87807a576506bc4c1ac}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!DataStorage\_2D@{DataStorage\_2D}}
+\index{DataStorage\_2D@{DataStorage\_2D}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{DataStorage\_2D()}{DataStorage\_2D()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily Data\+Storage\+\_\+2\+D\+::\+Data\+Storage\+\_\+2D (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&}]{copy\+\_\+obj }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object -\/ copies from another \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em copy\+\_\+obj} & \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} to copy from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_data_storage__2_d_a2e62f4e3e3689dff63f46145c17591da}\label{class_data_storage__2_d_a2e62f4e3e3689dff63f46145c17591da}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!````~DataStorage\_2D@{$\sim$DataStorage\_2D}}
+\index{````~DataStorage\_2D@{$\sim$DataStorage\_2D}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{$\sim$DataStorage\_2D()}{~DataStorage\_2D()}}
+{\footnotesize\ttfamily Data\+Storage\+\_\+2\+D\+::$\sim$\+Data\+Storage\+\_\+2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_data_storage__2_d_aa45c155208390fd086cce3a34e53c86e}\label{class_data_storage__2_d_aa45c155208390fd086cce3a34e53c86e}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!at@{at}}
+\index{at@{at}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const double \& Data\+Storage\+\_\+2\+D\+::at (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{x1,  }\item[{const std\+::size\+\_\+t}]{x2 }\end{DoxyParamCaption}) const}
+
+
+
+Returns a reference to the element at specified location (x1,x2), with bounds checking. If index is not within the range of the container, an exception of type std\+::out\+\_\+of\+\_\+range is thrown. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Index to first dimension to access \\
+\hline
+{\em x2} & Index to second dimension to access \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\& Reference to the requested element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a4e9b60050e79d193276412dd410ce94e}\label{class_data_storage__2_d_a4e9b60050e79d193276412dd410ce94e}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!at@{at}}
+\index{at@{at}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double \& Data\+Storage\+\_\+2\+D\+::at (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{x1,  }\item[{const std\+::size\+\_\+t}]{x2 }\end{DoxyParamCaption})}
+
+
+
+Returns a reference to the element at specified location (x1,x2), with bounds checking. If index is not within the range of the container, an exception of type std\+::out\+\_\+of\+\_\+range is thrown. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Index to first dimension to access \\
+\hline
+{\em x2} & Index to second dimension to access \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\& Reference to the requested element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a59ecd3bc1ef738e740fc81ead70acaac}\label{class_data_storage__2_d_a59ecd3bc1ef738e740fc81ead70acaac}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!equals@{equals}}
+\index{equals@{equals}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily bool Data\+Storage\+\_\+2\+D\+::equals (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&}]{other\+\_\+grid,  }\item[{const double}]{T\+OL }\end{DoxyParamCaption}) const}
+
+
+
+Compares two \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} objects to see if they are equivalent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other\+\_\+grid} & Other \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object to check equivalence against \\
+\hline
+{\em T\+OL} & Tolerance value to compare elements within \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the two objects are of the same size and contain the same elements, within the provided tolerance 
+
+false If either of the two objects has a different size or if any of the values differ above the provided tolerance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a6a1c521928eadf77b730e03fc122de79}\label{class_data_storage__2_d_a6a1c521928eadf77b730e03fc122de79}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!get\_ndims@{get\_ndims}}
+\index{get\_ndims@{get\_ndims}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{get\_ndims()}{get\_ndims()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t Data\+Storage\+\_\+2\+D\+::get\+\_\+ndims (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get the dimensionality of the object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::size\+\_\+t The dimensionality of the object 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_data_storage}{Data\+Storage}}.
+
+\mbox{\Hypertarget{class_data_storage__2_d_a969746bdd5885b34535c26facd1ea696}\label{class_data_storage__2_d_a969746bdd5885b34535c26facd1ea696}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!get\_Ni\_size@{get\_Ni\_size}}
+\index{get\_Ni\_size@{get\_Ni\_size}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{get\_Ni\_size()}{get\_Ni\_size()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t Data\+Storage\+\_\+2\+D\+::get\+\_\+\+Ni\+\_\+size (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the number of elements in the ith component of the data structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The ith component to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::size\+\_\+t The number of elements in the ith component 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_data_storage}{Data\+Storage}}.
+
+\mbox{\Hypertarget{class_data_storage__2_d_ad47e883ad13f92e253bbd6e7446f6f33}\label{class_data_storage__2_d_ad47e883ad13f92e253bbd6e7446f6f33}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!get\_Nx@{get\_Nx}}
+\index{get\_Nx@{get\_Nx}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{get\_Nx()}{get\_Nx()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t Data\+Storage\+\_\+2\+D\+::get\+\_\+\+Nx (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of Nx points in \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::size\+\_\+t Number of Nx points in \mbox{\hyperlink{class_data_storage}{Data\+Storage}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a487577ecf0edb54198c0c800bf26f839}\label{class_data_storage__2_d_a487577ecf0edb54198c0c800bf26f839}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!get\_Ny@{get\_Ny}}
+\index{get\_Ny@{get\_Ny}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{get\_Ny()}{get\_Ny()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t Data\+Storage\+\_\+2\+D\+::get\+\_\+\+Ny (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of Ny points in \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::size\+\_\+t Number of Ny points in \mbox{\hyperlink{class_data_storage}{Data\+Storage}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a96733a9065d1e4b3a790ed057ae445a7}\label{class_data_storage__2_d_a96733a9065d1e4b3a790ed057ae445a7}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator()@{operator()}}
+\index{operator()@{operator()}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double\& Data\+Storage\+\_\+2\+D\+::operator() (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{x1,  }\item[{const std\+::size\+\_\+t}]{x2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a reference to the element at specified location (x1, x2). No bounds checking is performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Position of the element in first dimension to return \\
+\hline
+{\em x2} & Position of the element in second dimension to return \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\& Reference to the requested element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a625c2ef520c5b7ea4a4013adc80bb13a}\label{class_data_storage__2_d_a625c2ef520c5b7ea4a4013adc80bb13a}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator()@{operator()}}
+\index{operator()@{operator()}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const double\& Data\+Storage\+\_\+2\+D\+::operator() (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{x1,  }\item[{const std\+::size\+\_\+t}]{x2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a reference to the element at specified location (x1, x2). No bounds checking is performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Position of the element in first dimension to return \\
+\hline
+{\em x2} & Position of the element in second dimension to return \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double\& Reference to the requested element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a993a954495fdc9c6335e517c96e16f27}\label{class_data_storage__2_d_a993a954495fdc9c6335e517c96e16f27}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& Data\+Storage\+\_\+2\+D\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&}]{other\+\_\+data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Element-\/wise multiplication and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other\+\_\+data} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& This object after operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a465c3c1bbf7dd7fd827c1074f51a5c66}\label{class_data_storage__2_d_a465c3c1bbf7dd7fd827c1074f51a5c66}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& Data\+Storage\+\_\+2\+D\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Element-\/wise multiplication and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Scalar right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& This object after operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_aa8a6a45a8e08d712f3b962cdd472476f}\label{class_data_storage__2_d_aa8a6a45a8e08d712f3b962cdd472476f}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& Data\+Storage\+\_\+2\+D\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&}]{other\+\_\+data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Element-\/wise addition and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other\+\_\+data} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& This object after operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a0a25eb12f42f86a2dc87b390071eb00b}\label{class_data_storage__2_d_a0a25eb12f42f86a2dc87b390071eb00b}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& Data\+Storage\+\_\+2\+D\+::operator+= (\begin{DoxyParamCaption}\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Element-\/wise addition and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Scalar right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage}{Data\+Storage}}\& This object after operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a41e76cee41edf2ec6f2664b9aa3eff75}\label{class_data_storage__2_d_a41e76cee41edf2ec6f2664b9aa3eff75}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& Data\+Storage\+\_\+2\+D\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&}]{other\+\_\+data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Element-\/wise subtraction and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other\+\_\+data} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& This object after operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a7d7eb8ac6a8750a7ec5ba335386c7dd9}\label{class_data_storage__2_d_a7d7eb8ac6a8750a7ec5ba335386c7dd9}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& Data\+Storage\+\_\+2\+D\+::operator-\/= (\begin{DoxyParamCaption}\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Element-\/wise subtraction and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Scalar right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& This object after operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a0fda492d193c12ccc5899b9255c91b38}\label{class_data_storage__2_d_a0fda492d193c12ccc5899b9255c91b38}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& Data\+Storage\+\_\+2\+D\+::operator/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&}]{other\+\_\+data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Element-\/wise division and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other\+\_\+data} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& This object after operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a2d96dd0bbb3dbfb6b390b5a79bea46de}\label{class_data_storage__2_d_a2d96dd0bbb3dbfb6b390b5a79bea46de}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& Data\+Storage\+\_\+2\+D\+::operator/= (\begin{DoxyParamCaption}\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Element-\/wise division and assignment for \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Scalar right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}\& This object after operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_aae40b2db46c6b6406543de105f94ede0}\label{class_data_storage__2_d_aae40b2db46c6b6406543de105f94ede0}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator=@{operator=}}
+\index{operator=@{operator=}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \& Data\+Storage\+\_\+2\+D\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&}]{to\+\_\+copy }\end{DoxyParamCaption})}
+
+
+
+Overload copy assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+\_\+copy} & Object to copy values from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__1_d}{Data\+Storage\+\_\+1D}}\& New opbject with copied values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a42cf7649099190df8d6e9f1c76bc6ac2}\label{class_data_storage__2_d_a42cf7649099190df8d6e9f1c76bc6ac2}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!print@{print}}
+\index{print@{print}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Data\+Storage\+\_\+2\+D\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Prints the \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object to std\+::cout. 
+
+
+
+Implements \mbox{\hyperlink{class_data_storage}{Data\+Storage}}.
+
+\mbox{\Hypertarget{class_data_storage__2_d_ad2ce0ba0674e5aca9e5caf1bf35552b5}\label{class_data_storage__2_d_ad2ce0ba0674e5aca9e5caf1bf35552b5}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!print@{print}}
+\index{print@{print}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream \& Data\+Storage\+\_\+2\+D\+::print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Prints the \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} object to a IO stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The IO stream to print the object to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream\& The stream with the object printed to it 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_data_storage}{Data\+Storage}}.
+
+\mbox{\Hypertarget{class_data_storage__2_d_afcb196ddedae584c22160b4e3a1f3153}\label{class_data_storage__2_d_afcb196ddedae584c22160b4e3a1f3153}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!print\_comp@{print\_comp}}
+\index{print\_comp@{print\_comp}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{print\_comp()}{print\_comp()}}
+{\footnotesize\ttfamily void Data\+Storage\+\_\+2\+D\+::print\+\_\+comp (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{x1,  }\item[{const std\+::size\+\_\+t}]{x2 }\end{DoxyParamCaption}) const}
+
+
+
+Prints a single value stored at position (x1, x2) in \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Index to first dimension of the item to print \\
+\hline
+{\em x2} & Index to second dimension of the item to print \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_data_storage__2_d_ac01af2801febf099621a8b7e7d67a9c1}\label{class_data_storage__2_d_ac01af2801febf099621a8b7e7d67a9c1}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} operator$\ast$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}}]{d,  }\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Element-\/wise multiplication with \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and a scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} left of the operator \\
+\hline
+{\em val} & Scalar right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} Resultant \mbox{\hyperlink{class_data_storage}{Data\+Storage}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_aa85269d8083e7487e96ada9b15ddb7db}\label{class_data_storage__2_d_aa85269d8083e7487e96ada9b15ddb7db}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} operator$\ast$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}}]{d1,  }\item[{const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&}]{d2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Element-\/wise multiplication two \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d1} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} left of the operator \\
+\hline
+{\em d2} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} Resultant \mbox{\hyperlink{class_data_storage}{Data\+Storage}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a67063cd6fc8238fc9002fd91ca68c6a2}\label{class_data_storage__2_d_a67063cd6fc8238fc9002fd91ca68c6a2}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator+@{operator+}}
+\index{operator+@{operator+}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}}]{d,  }\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Element-\/wise addition with \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and a scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} left of the operator \\
+\hline
+{\em val} & Scalar right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} Resultant \mbox{\hyperlink{class_data_storage}{Data\+Storage}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_ac093627a2852755a55cf91f5e9036f35}\label{class_data_storage__2_d_ac093627a2852755a55cf91f5e9036f35}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator+@{operator+}}
+\index{operator+@{operator+}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}}]{d1,  }\item[{const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&}]{d2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Element-\/wise add two \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d1} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} left of the operator \\
+\hline
+{\em d2} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} Resultant \mbox{\hyperlink{class_data_storage}{Data\+Storage}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a2e8ba0be7bafe632452e292511800f5a}\label{class_data_storage__2_d_a2e8ba0be7bafe632452e292511800f5a}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator-\/}{operator-}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}}]{d,  }\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Element-\/wise subtraction with \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and a scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} left of the operator \\
+\hline
+{\em val} & Scalar right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} Resultant \mbox{\hyperlink{class_data_storage}{Data\+Storage}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a0c219d8dc86ed735df8d4dd3101cc745}\label{class_data_storage__2_d_a0c219d8dc86ed735df8d4dd3101cc745}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator-\/}{operator-}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}}]{d1,  }\item[{const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&}]{d2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Element-\/wise subtraction two \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d1} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} left of the operator \\
+\hline
+{\em d2} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} Resultant \mbox{\hyperlink{class_data_storage}{Data\+Storage}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a5019c79efa76ea4db7dfa2acb832a789}\label{class_data_storage__2_d_a5019c79efa76ea4db7dfa2acb832a789}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator/@{operator/}}
+\index{operator/@{operator/}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} operator/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}}]{d,  }\item[{const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Element-\/wise division with \mbox{\hyperlink{class_data_storage}{Data\+Storage}} and a scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} left of the operator \\
+\hline
+{\em val} & Scalar right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} Resultant \mbox{\hyperlink{class_data_storage}{Data\+Storage}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage__2_d_a14a2ddea7575a34fb27f056d58c84832}\label{class_data_storage__2_d_a14a2ddea7575a34fb27f056d58c84832}} 
+\index{DataStorage\_2D@{DataStorage\_2D}!operator/@{operator/}}
+\index{operator/@{operator/}!DataStorage\_2D@{DataStorage\_2D}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} operator/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}}}]{d1,  }\item[{const \mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} \&}]{d2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Element-\/wise division two \mbox{\hyperlink{class_data_storage}{Data\+Storage}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d1} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} left of the operator \\
+\hline
+{\em d2} & \mbox{\hyperlink{class_data_storage}{Data\+Storage}} right of the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_data_storage__2_d}{Data\+Storage\+\_\+2D}} Resultant \mbox{\hyperlink{class_data_storage}{Data\+Storage}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Data\+Storage\+\_\+2\+D.\+h\item 
+src/Data\+Storage\+\_\+2\+D.\+cpp\end{DoxyCompactItemize}

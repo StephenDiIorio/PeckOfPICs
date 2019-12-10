@@ -1,0 +1,490 @@
+\hypertarget{class_three_vec}{}\doxysection{Three\+Vec Class Reference}
+\label{class_three_vec}\index{ThreeVec@{ThreeVec}}
+
+
+Three-\/vector class including mathematical operations.  
+
+
+
+
+{\ttfamily \#include $<$Three\+Vec.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_three_vec_ab32ea4b7408b929e9127056463204675}{Three\+Vec}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_three_vec}{Three\+Vec}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec_ab061c0776c444d1d4c701315eada67d0}{Three\+Vec}} (double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Cartesian constructor for \mbox{\hyperlink{class_three_vec}{Three\+Vec}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec_a69d885c14327b03b7f96fe06d71e4a75}{$\sim$\+Three\+Vec}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_three_vec}{Three\+Vec}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_a2e83bfc2bf5e2488d34a1ff97379ec7c}{operator+}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec) const
+\begin{DoxyCompactList}\small\item\em Overload the + operator for vector addition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_a40e5b42f664ab0b0d4fb4f85b49b7565}{operator-\/}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec) const
+\begin{DoxyCompactList}\small\item\em Overload the -\/ operator for vector subtraction. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_ac0279ca6f321cf23308861c99cb92236}{operator+=}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec)
+\begin{DoxyCompactList}\small\item\em Overload the += operator to increment current \mbox{\hyperlink{class_three_vec}{Three\+Vec}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_a09aded16a95c71fe2c3554a742fe2c97}{operator-\/=}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec)
+\begin{DoxyCompactList}\small\item\em Overload the -\/= operator to decrement current \mbox{\hyperlink{class_three_vec}{Three\+Vec}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_a33143e8e73d34e8db9ef9c6804e69959}{operator$\ast$}} (double value) const
+\begin{DoxyCompactList}\small\item\em Overload the $\ast$ operator to perform scalar multiplication. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_aebfc85441293df782fee0f7b275ad3cc}{operator/}} (double value) const
+\begin{DoxyCompactList}\small\item\em Overload the / operator to perform scalar division. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_three_vec_ad94c4bbb725ada5fdb344f876ee02377}{operator$\ast$}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec) const
+\begin{DoxyCompactList}\small\item\em Overload the $\ast$ operator to perform a vector dot product. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_aeea8db92c1468d428e9ce70062911816}{operator$^\wedge$}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec) const
+\begin{DoxyCompactList}\small\item\em Overload the $^\wedge$ operator to perform a vector cross product. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_three_vec_a9a8ceef102cfe8cd098b2f854a30dd98}{get\+\_\+x}} () const
+\begin{DoxyCompactList}\small\item\em Access function for x coordinate. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_three_vec_a89146f64366afb4c7044507fedb82075}{get\+\_\+y}} () const
+\begin{DoxyCompactList}\small\item\em Access function for y coordinate. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_three_vec_a7f17cdb916bfccfa23ebade7f76ef2c5}{get\+\_\+z}} () const
+\begin{DoxyCompactList}\small\item\em Access function for z coordinate. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_three_vec_a74e3192c77a12957dd9145562712066a}{get}} (int i) const
+\begin{DoxyCompactList}\small\item\em Access function for ith coordinate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_three_vec_a7d8b1106324a9899895ae1aaa2aca3dd}{set\+\_\+x}} (double value)
+\begin{DoxyCompactList}\small\item\em Modifier method for x coordinate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_three_vec_a3db3771030a5a8b696a90197bbc271f4}{set\+\_\+y}} (double value)
+\begin{DoxyCompactList}\small\item\em Modifier method for y coordinate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_three_vec_a31a8a5ab6ea005fefb3d3020155aff02}{set\+\_\+z}} (double value)
+\begin{DoxyCompactList}\small\item\em Modifier method for z coordinate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_three_vec_aa6407f31a4075b0b0bd101c18592b8c4}{set}} (int i, double value)
+\begin{DoxyCompactList}\small\item\em Modifier method for ith coordinate -\/$>$ I\+N\+S\+E\+RT. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_three_vec_a808b2174359cf8c16de3f2efa2f6af26}{set\+\_\+all}} (double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Modifier method for all coordinate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_three_vec_a051b257fd2f766c2ea41f80e6679e7b7}{inc}} (int i, double value)
+\begin{DoxyCompactList}\small\item\em Alternative modifier method for ith coordinate -\/$>$ A\+DD. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_three_vec_a075e3da82b4393d3ea6193f7414f6349}{square}} ()
+\begin{DoxyCompactList}\small\item\em Square the \mbox{\hyperlink{class_three_vec}{Three\+Vec}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_three_vec_a191f3e647dc51311857fb30f82f608d7}{mag}} ()
+\begin{DoxyCompactList}\small\item\em Calculate the magnitude of the \mbox{\hyperlink{class_three_vec}{Three\+Vec}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_a87d3cacc8732e262b9553b772a8b6803}{element\+\_\+multiply}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec)
+\begin{DoxyCompactList}\small\item\em Perform element-\/wise multiplication. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_three_vec_a0aed9bf37d41ff8a909da723da5537e9}{print}} () const
+\begin{DoxyCompactList}\small\item\em Prints all components of the vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_three_vec_aafbfe90c70943b22f194bce13e447213}{print\+\_\+comp}} (uint i) const
+\begin{DoxyCompactList}\small\item\em Prints a single component of the vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Three-\/vector class including mathematical operations. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_three_vec_ab32ea4b7408b929e9127056463204675}\label{class_three_vec_ab32ea4b7408b929e9127056463204675}} 
+\index{ThreeVec@{ThreeVec}!ThreeVec@{ThreeVec}}
+\index{ThreeVec@{ThreeVec}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{ThreeVec()}{ThreeVec()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Three\+Vec\+::\+Three\+Vec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_three_vec}{Three\+Vec}} object. 
+
+\mbox{\Hypertarget{class_three_vec_ab061c0776c444d1d4c701315eada67d0}\label{class_three_vec_ab061c0776c444d1d4c701315eada67d0}} 
+\index{ThreeVec@{ThreeVec}!ThreeVec@{ThreeVec}}
+\index{ThreeVec@{ThreeVec}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{ThreeVec()}{ThreeVec()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Three\+Vec\+::\+Three\+Vec (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})}
+
+
+
+Cartesian constructor for \mbox{\hyperlink{class_three_vec}{Three\+Vec}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate \\
+\hline
+{\em y} & y coordinate \\
+\hline
+{\em z} & z coordinate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_three_vec_a69d885c14327b03b7f96fe06d71e4a75}\label{class_three_vec_a69d885c14327b03b7f96fe06d71e4a75}} 
+\index{ThreeVec@{ThreeVec}!````~ThreeVec@{$\sim$ThreeVec}}
+\index{````~ThreeVec@{$\sim$ThreeVec}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{$\sim$ThreeVec()}{~ThreeVec()}}
+{\footnotesize\ttfamily Three\+Vec\+::$\sim$\+Three\+Vec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \mbox{\hyperlink{class_three_vec}{Three\+Vec}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_three_vec_a87d3cacc8732e262b9553b772a8b6803}\label{class_three_vec_a87d3cacc8732e262b9553b772a8b6803}} 
+\index{ThreeVec@{ThreeVec}!element\_multiply@{element\_multiply}}
+\index{element\_multiply@{element\_multiply}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{element\_multiply()}{element\_multiply()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::element\+\_\+multiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec }\end{DoxyParamCaption})}
+
+
+
+Perform element-\/wise multiplication. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Vector to multiply element-\/wise with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_a74e3192c77a12957dd9145562712066a}\label{class_three_vec_a74e3192c77a12957dd9145562712066a}} 
+\index{ThreeVec@{ThreeVec}!get@{get}}
+\index{get@{get}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily double Three\+Vec\+::get (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Access function for ith coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index into the vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Value at ith coordinate 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_a9a8ceef102cfe8cd098b2f854a30dd98}\label{class_three_vec_a9a8ceef102cfe8cd098b2f854a30dd98}} 
+\index{ThreeVec@{ThreeVec}!get\_x@{get\_x}}
+\index{get\_x@{get\_x}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{get\_x()}{get\_x()}}
+{\footnotesize\ttfamily double Three\+Vec\+::get\+\_\+x (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Access function for x coordinate. 
+
+\begin{DoxyReturn}{Returns}
+double x coordinate 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_a89146f64366afb4c7044507fedb82075}\label{class_three_vec_a89146f64366afb4c7044507fedb82075}} 
+\index{ThreeVec@{ThreeVec}!get\_y@{get\_y}}
+\index{get\_y@{get\_y}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{get\_y()}{get\_y()}}
+{\footnotesize\ttfamily double Three\+Vec\+::get\+\_\+y (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Access function for y coordinate. 
+
+\begin{DoxyReturn}{Returns}
+double y coordinate 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_a7f17cdb916bfccfa23ebade7f76ef2c5}\label{class_three_vec_a7f17cdb916bfccfa23ebade7f76ef2c5}} 
+\index{ThreeVec@{ThreeVec}!get\_z@{get\_z}}
+\index{get\_z@{get\_z}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{get\_z()}{get\_z()}}
+{\footnotesize\ttfamily double Three\+Vec\+::get\+\_\+z (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Access function for z coordinate. 
+
+\begin{DoxyReturn}{Returns}
+double z coordinate 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_a051b257fd2f766c2ea41f80e6679e7b7}\label{class_three_vec_a051b257fd2f766c2ea41f80e6679e7b7}} 
+\index{ThreeVec@{ThreeVec}!inc@{inc}}
+\index{inc@{inc}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{inc()}{inc()}}
+{\footnotesize\ttfamily void Three\+Vec\+::inc (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Alternative modifier method for ith coordinate -\/$>$ A\+DD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index into the vector \\
+\hline
+{\em value} & Value to add to the ith element \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_three_vec_a191f3e647dc51311857fb30f82f608d7}\label{class_three_vec_a191f3e647dc51311857fb30f82f608d7}} 
+\index{ThreeVec@{ThreeVec}!mag@{mag}}
+\index{mag@{mag}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{mag()}{mag()}}
+{\footnotesize\ttfamily double Three\+Vec\+::mag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculate the magnitude of the \mbox{\hyperlink{class_three_vec}{Three\+Vec}}. 
+
+\begin{DoxyReturn}{Returns}
+double Magnitude of the \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_a33143e8e73d34e8db9ef9c6804e69959}\label{class_three_vec_a33143e8e73d34e8db9ef9c6804e69959}} 
+\index{ThreeVec@{ThreeVec}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overload the $\ast$ operator to perform scalar multiplication. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Scalar to multiply vector by \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_ad94c4bbb725ada5fdb344f876ee02377}\label{class_three_vec_ad94c4bbb725ada5fdb344f876ee02377}} 
+\index{ThreeVec@{ThreeVec}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Three\+Vec\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overload the $\ast$ operator to perform a vector dot product. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Vector to dot with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Resultant dot product 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_a2e83bfc2bf5e2488d34a1ff97379ec7c}\label{class_three_vec_a2e83bfc2bf5e2488d34a1ff97379ec7c}} 
+\index{ThreeVec@{ThreeVec}!operator+@{operator+}}
+\index{operator+@{operator+}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overload the + operator for vector addition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Vector to perform element-\/wise addition with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_ac0279ca6f321cf23308861c99cb92236}\label{class_three_vec_ac0279ca6f321cf23308861c99cb92236}} 
+\index{ThreeVec@{ThreeVec}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overload the += operator to increment current \mbox{\hyperlink{class_three_vec}{Three\+Vec}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Vector to perform in place element-\/wise addition with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_a40e5b42f664ab0b0d4fb4f85b49b7565}\label{class_three_vec_a40e5b42f664ab0b0d4fb4f85b49b7565}} 
+\index{ThreeVec@{ThreeVec}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overload the -\/ operator for vector subtraction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Vector to perform element-\/wise subtraction with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_a09aded16a95c71fe2c3554a742fe2c97}\label{class_three_vec_a09aded16a95c71fe2c3554a742fe2c97}} 
+\index{ThreeVec@{ThreeVec}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator-\/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overload the -\/= operator to decrement current \mbox{\hyperlink{class_three_vec}{Three\+Vec}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Vector to perform in place element-\/wise subtraction with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_aebfc85441293df782fee0f7b275ad3cc}\label{class_three_vec_aebfc85441293df782fee0f7b275ad3cc}} 
+\index{ThreeVec@{ThreeVec}!operator/@{operator/}}
+\index{operator/@{operator/}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator/ (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overload the / operator to perform scalar division. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Scalar to divide vector by \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_aeea8db92c1468d428e9ce70062911816}\label{class_three_vec_aeea8db92c1468d428e9ce70062911816}} 
+\index{ThreeVec@{ThreeVec}!operator$^\wedge$@{operator$^\wedge$}}
+\index{operator$^\wedge$@{operator$^\wedge$}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{operator$^\wedge$()}{operator^()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator$^\wedge$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overload the $^\wedge$ operator to perform a vector cross product. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Vector to cross with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant cross product 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_a0aed9bf37d41ff8a909da723da5537e9}\label{class_three_vec_a0aed9bf37d41ff8a909da723da5537e9}} 
+\index{ThreeVec@{ThreeVec}!print@{print}}
+\index{print@{print}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Three\+Vec\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Prints all components of the vector. 
+
+\mbox{\Hypertarget{class_three_vec_aafbfe90c70943b22f194bce13e447213}\label{class_three_vec_aafbfe90c70943b22f194bce13e447213}} 
+\index{ThreeVec@{ThreeVec}!print\_comp@{print\_comp}}
+\index{print\_comp@{print\_comp}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{print\_comp()}{print\_comp()}}
+{\footnotesize\ttfamily void Three\+Vec\+::print\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Prints a single component of the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of the component to print \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_three_vec_aa6407f31a4075b0b0bd101c18592b8c4}\label{class_three_vec_aa6407f31a4075b0b0bd101c18592b8c4}} 
+\index{ThreeVec@{ThreeVec}!set@{set}}
+\index{set@{set}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily void Three\+Vec\+::set (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{double}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Modifier method for ith coordinate -\/$>$ I\+N\+S\+E\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index into the vector \\
+\hline
+{\em value} & Value to set ith coorindate to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_three_vec_a808b2174359cf8c16de3f2efa2f6af26}\label{class_three_vec_a808b2174359cf8c16de3f2efa2f6af26}} 
+\index{ThreeVec@{ThreeVec}!set\_all@{set\_all}}
+\index{set\_all@{set\_all}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{set\_all()}{set\_all()}}
+{\footnotesize\ttfamily void Three\+Vec\+::set\+\_\+all (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Modifier method for all coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & New x coordinate \\
+\hline
+{\em y} & New y coordinate \\
+\hline
+{\em z} & New z coordinate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_three_vec_a7d8b1106324a9899895ae1aaa2aca3dd}\label{class_three_vec_a7d8b1106324a9899895ae1aaa2aca3dd}} 
+\index{ThreeVec@{ThreeVec}!set\_x@{set\_x}}
+\index{set\_x@{set\_x}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{set\_x()}{set\_x()}}
+{\footnotesize\ttfamily void Three\+Vec\+::set\+\_\+x (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Modifier method for x coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Value to set x coorindate to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_three_vec_a3db3771030a5a8b696a90197bbc271f4}\label{class_three_vec_a3db3771030a5a8b696a90197bbc271f4}} 
+\index{ThreeVec@{ThreeVec}!set\_y@{set\_y}}
+\index{set\_y@{set\_y}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{set\_y()}{set\_y()}}
+{\footnotesize\ttfamily void Three\+Vec\+::set\+\_\+y (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Modifier method for y coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Value to set y coorindate to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_three_vec_a31a8a5ab6ea005fefb3d3020155aff02}\label{class_three_vec_a31a8a5ab6ea005fefb3d3020155aff02}} 
+\index{ThreeVec@{ThreeVec}!set\_z@{set\_z}}
+\index{set\_z@{set\_z}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{set\_z()}{set\_z()}}
+{\footnotesize\ttfamily void Three\+Vec\+::set\+\_\+z (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Modifier method for z coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Value to set z coorindate to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_three_vec_a075e3da82b4393d3ea6193f7414f6349}\label{class_three_vec_a075e3da82b4393d3ea6193f7414f6349}} 
+\index{ThreeVec@{ThreeVec}!square@{square}}
+\index{square@{square}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{square()}{square()}}
+{\footnotesize\ttfamily double Three\+Vec\+::square (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Square the \mbox{\hyperlink{class_three_vec}{Three\+Vec}}. 
+
+\begin{DoxyReturn}{Returns}
+double The sum of the squares of all components 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Three\+Vec.\+h\item 
+src/Three\+Vec.\+cpp\end{DoxyCompactItemize}

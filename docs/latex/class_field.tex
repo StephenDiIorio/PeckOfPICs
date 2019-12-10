@@ -1,0 +1,82 @@
+\hypertarget{class_field}{}\doxysection{Field Class Reference}
+\label{class_field}\index{Field@{Field}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_field_ad5696f2169994d70722bce531e00c7bf}\label{class_field_ad5696f2169994d70722bce531e00c7bf}} 
+{\bfseries Field} (uint Nx, uint Ny, double dx, double dy)
+\item 
+\mbox{\Hypertarget{class_field_ab4bdade90e8f70a9198f184b51ff8cb5}\label{class_field_ab4bdade90e8f70a9198f184b51ff8cb5}} 
+{\bfseries Field} (uint Nx, uint Ny, double dx, double dy, uint component, double value)
+\item 
+\mbox{\Hypertarget{class_field_a9c359505ce106cade49c960b64acf560}\label{class_field_a9c359505ce106cade49c960b64acf560}} 
+{\bfseries Field} (uint Nx, uint Ny, double dx, double dy, std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, uint, uint)$>$ init\+\_\+fcn)
+\item 
+\mbox{\Hypertarget{class_field_a8f76af79491c8ccf55bd9383310cb1b6}\label{class_field_a8f76af79491c8ccf55bd9383310cb1b6}} 
+int {\bfseries solve\+\_\+field\+\_\+spectral} (std\+::vector$<$ double $>$ re, std\+::vector$<$ double $>$ im)
+\item 
+int \mbox{\hyperlink{class_field_a002c050a341e860932f736823e97cf3b}{solve\+\_\+field}} (\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&charge\+\_\+density)
+\begin{DoxyCompactList}\small\item\em solve\+\_\+field solves Poisson equation with periodic B\+Cs \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_field_a7d0329754ae9820356282cbff6382009}\label{class_field_a7d0329754ae9820356282cbff6382009}} 
+int {\bfseries solve\+\_\+field\+\_\+fftw} (\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&charge\+\_\+density)
+\item 
+\mbox{\Hypertarget{class_field_ae06a91c2b487401f8ff6391cb42f1808}\label{class_field_ae06a91c2b487401f8ff6391cb42f1808}} 
+void {\bfseries print\+\_\+field} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_field_af32cf46b6c5f730a5ea6cd4d2df4694d}\label{class_field_af32cf46b6c5f730a5ea6cd4d2df4694d}} 
+uint {\bfseries Nx}
+\item 
+\mbox{\Hypertarget{class_field_a9d392f35b2827303a5453bfe4ba17353}\label{class_field_a9d392f35b2827303a5453bfe4ba17353}} 
+uint {\bfseries Ny}
+\item 
+\mbox{\Hypertarget{class_field_afc50f0c25084b23104115b47cf5a17e2}\label{class_field_afc50f0c25084b23104115b47cf5a17e2}} 
+double {\bfseries dx}
+\item 
+\mbox{\Hypertarget{class_field_a1f79847ffaf9d0dc098d06ce44e64ffd}\label{class_field_a1f79847ffaf9d0dc098d06ce44e64ffd}} 
+double {\bfseries dy}
+\item 
+\mbox{\Hypertarget{class_field_a8e393304d91b5b0989207eb262c42d06}\label{class_field_a8e393304d91b5b0989207eb262c42d06}} 
+uint {\bfseries size}
+\item 
+\mbox{\Hypertarget{class_field_af6c2708431321fc7516aa341135c94d8}\label{class_field_af6c2708431321fc7516aa341135c94d8}} 
+\mbox{\hyperlink{class_grid_object}{Grid\+Object}} {\bfseries f1}
+\item 
+\mbox{\Hypertarget{class_field_a7bf089d1beeecd3a149ee77d935ca94a}\label{class_field_a7bf089d1beeecd3a149ee77d935ca94a}} 
+\mbox{\hyperlink{class_grid_object}{Grid\+Object}} {\bfseries f2}
+\item 
+\mbox{\Hypertarget{class_field_a836cfe4c741941c9db9381e5fcf87bdf}\label{class_field_a836cfe4c741941c9db9381e5fcf87bdf}} 
+\mbox{\hyperlink{class_grid_object}{Grid\+Object}} {\bfseries f3}
+\item 
+\mbox{\Hypertarget{class_field_a83fef6278e2b6cb3681cf3dfa6db78d9}\label{class_field_a83fef6278e2b6cb3681cf3dfa6db78d9}} 
+double {\bfseries total\+\_\+U}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_field_a002c050a341e860932f736823e97cf3b}\label{class_field_a002c050a341e860932f736823e97cf3b}} 
+\index{Field@{Field}!solve\_field@{solve\_field}}
+\index{solve\_field@{solve\_field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{solve\_field()}{solve\_field()}}
+{\footnotesize\ttfamily int Field\+::solve\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&}]{charge\+\_\+density }\end{DoxyParamCaption})}
+
+
+
+solve\+\_\+field solves Poisson equation with periodic B\+Cs 
+
+
+\begin{DoxyParams}{Parameters}
+{\em charge\+\_\+density} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Field.\+h\item 
+src/Field.\+cpp\end{DoxyCompactItemize}

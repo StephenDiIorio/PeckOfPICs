@@ -1,0 +1,227 @@
+\hypertarget{class_simulation}{}\doxysection{Simulation Class Reference}
+\label{class_simulation}\index{Simulation@{Simulation}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_simulation_a903351886cff6b2ce683d4c828771927}{Simulation}} (uint ndump, uint Nx, uint Ny, double L\+\_\+x, double L\+\_\+y, double dt, double tmax)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_simulation}{Simulation}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_simulation_a80fad3f57dfaf195a36f7bc49bc88279}{$\sim$\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_simulation}{Simulation}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_simulation_a160ea91c95613451f128ddbb66680bb2}{add\+\_\+species}} (uint npar, double Qpar, double density, std\+::function$<$ void(\mbox{\hyperlink{class_species}{Species}} \&, uint)$>$ init\+\_\+fcn)
+\begin{DoxyCompactList}\small\item\em Add a new species object to the simulation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_simulation_a13970235afbcef60d9b7d71000537c38}{add\+\_\+e\+\_\+field}} (std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, uint, uint)$>$ init\+\_\+fcn)
+\begin{DoxyCompactList}\small\item\em Add a new electric field to the simulation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_simulation_a60286cd89e16402b3fcc5300123edc22}{add\+\_\+b\+\_\+field}} (std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, uint, uint)$>$ init\+\_\+fcn)
+\begin{DoxyCompactList}\small\item\em Add a new magnetic field to the simulation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_simulation_a60656250cb2b710d53f144329acaced4}{dump\+\_\+data}} ()
+\begin{DoxyCompactList}\small\item\em Determine whether or not to dump simulation data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_simulation_aeb608e82917947fa9e47117cf0400547}{iterate}} ()
+\begin{DoxyCompactList}\small\item\em Completes a single P\+IC loop iteration. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \mbox{\hyperlink{class_simulation_a433f3a5bae5e4b322a7ff6443dc689c6}{get\+\_\+total\+\_\+density}} ()
+\begin{DoxyCompactList}\small\item\em Get the sum of all species\textquotesingle{} densities in simulation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_simulation_a9c6fd84b153a79ac86c2d536b1171f02}{print\+\_\+spec\+\_\+density}} (std\+::size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Prints the density of the \textquotesingle{}ith\textquotesingle{} species in simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_simulation_aedda8aa9a13c3d9302750715d83c38e0}\label{class_simulation_aedda8aa9a13c3d9302750715d83c38e0}} 
+unsigned long {\bfseries n\+\_\+iter}
+\item 
+\mbox{\Hypertarget{class_simulation_a53dfedd2e31bdc7488d84f60196e9268}\label{class_simulation_a53dfedd2e31bdc7488d84f60196e9268}} 
+uint {\bfseries ndump}
+\item 
+\mbox{\Hypertarget{class_simulation_affdeb381435d460ddab2c509c8a318b4}\label{class_simulation_affdeb381435d460ddab2c509c8a318b4}} 
+uint {\bfseries Nx}
+\item 
+\mbox{\Hypertarget{class_simulation_ab346f153460df80e73384db8420a2e69}\label{class_simulation_ab346f153460df80e73384db8420a2e69}} 
+uint {\bfseries Ny}
+\item 
+\mbox{\Hypertarget{class_simulation_a063b57900a629484597552fb17f859d2}\label{class_simulation_a063b57900a629484597552fb17f859d2}} 
+double {\bfseries L\+\_\+x}
+\item 
+\mbox{\Hypertarget{class_simulation_a198b2d992121658d3859e0e3b6915073}\label{class_simulation_a198b2d992121658d3859e0e3b6915073}} 
+double {\bfseries L\+\_\+y}
+\item 
+\mbox{\Hypertarget{class_simulation_a26f1d3168ba61738b6539537fa95fe3b}\label{class_simulation_a26f1d3168ba61738b6539537fa95fe3b}} 
+double {\bfseries dx}
+\item 
+\mbox{\Hypertarget{class_simulation_a017c4acf95956529b20748374c29fe08}\label{class_simulation_a017c4acf95956529b20748374c29fe08}} 
+double {\bfseries dy}
+\item 
+\mbox{\Hypertarget{class_simulation_af43e498bfc83c777db5f5ac4025ff923}\label{class_simulation_af43e498bfc83c777db5f5ac4025ff923}} 
+double {\bfseries dt}
+\item 
+\mbox{\Hypertarget{class_simulation_afa0838d9f8a03416d8ee0d3a0fe2b347}\label{class_simulation_afa0838d9f8a03416d8ee0d3a0fe2b347}} 
+double {\bfseries tmax}
+\item 
+\mbox{\Hypertarget{class_simulation_ae7b2d3fca98b94c5d7249ae3bb44c8fc}\label{class_simulation_ae7b2d3fca98b94c5d7249ae3bb44c8fc}} 
+uint {\bfseries nspec}
+\item 
+\mbox{\Hypertarget{class_simulation_ad9ca2fc6beb253e8e0baada14aac90ab}\label{class_simulation_ad9ca2fc6beb253e8e0baada14aac90ab}} 
+std\+::vector$<$ \mbox{\hyperlink{class_species}{Species}} $>$ {\bfseries spec}
+\item 
+\mbox{\Hypertarget{class_simulation_a8ef307ef9538f944222e19480e162244}\label{class_simulation_a8ef307ef9538f944222e19480e162244}} 
+\mbox{\hyperlink{class_field}{Field}} {\bfseries e\+\_\+field}
+\item 
+\mbox{\Hypertarget{class_simulation_adfbc2f698fa481f5a70c82d53a7a3dde}\label{class_simulation_adfbc2f698fa481f5a70c82d53a7a3dde}} 
+\mbox{\hyperlink{class_field}{Field}} {\bfseries b\+\_\+field}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_simulation_a903351886cff6b2ce683d4c828771927}\label{class_simulation_a903351886cff6b2ce683d4c828771927}} 
+\index{Simulation@{Simulation}!Simulation@{Simulation}}
+\index{Simulation@{Simulation}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{Simulation()}{Simulation()}}
+{\footnotesize\ttfamily Simulation\+::\+Simulation (\begin{DoxyParamCaption}\item[{uint}]{ndump,  }\item[{uint}]{Nx,  }\item[{uint}]{Ny,  }\item[{double}]{L\+\_\+x,  }\item[{double}]{L\+\_\+y,  }\item[{double}]{dt,  }\item[{double}]{tmax }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_simulation}{Simulation}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ndump} & Number of data dumps \\
+\hline
+{\em Nx} & Number of grid spaces in x direction \\
+\hline
+{\em Ny} & Number of grid spaces in y direction \\
+\hline
+{\em L\+\_\+x} & Physical length of system in x direction \\
+\hline
+{\em L\+\_\+y} & Physical length of system in y direction \\
+\hline
+{\em dt} & Timestep \\
+\hline
+{\em tmax} & Max simulation runtime \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_simulation_a80fad3f57dfaf195a36f7bc49bc88279}\label{class_simulation_a80fad3f57dfaf195a36f7bc49bc88279}} 
+\index{Simulation@{Simulation}!````~Simulation@{$\sim$Simulation}}
+\index{````~Simulation@{$\sim$Simulation}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{$\sim$Simulation()}{~Simulation()}}
+{\footnotesize\ttfamily Simulation\+::$\sim$\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \mbox{\hyperlink{class_simulation}{Simulation}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_simulation_a60286cd89e16402b3fcc5300123edc22}\label{class_simulation_a60286cd89e16402b3fcc5300123edc22}} 
+\index{Simulation@{Simulation}!add\_b\_field@{add\_b\_field}}
+\index{add\_b\_field@{add\_b\_field}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{add\_b\_field()}{add\_b\_field()}}
+{\footnotesize\ttfamily void Simulation\+::add\+\_\+b\+\_\+field (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, uint, uint)$>$}]{init\+\_\+fcn }\end{DoxyParamCaption})}
+
+
+
+Add a new magnetic field to the simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init\+\_\+fcn} & User provided function which initializes the field to the user\textquotesingle{}s specification \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_simulation_a13970235afbcef60d9b7d71000537c38}\label{class_simulation_a13970235afbcef60d9b7d71000537c38}} 
+\index{Simulation@{Simulation}!add\_e\_field@{add\_e\_field}}
+\index{add\_e\_field@{add\_e\_field}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{add\_e\_field()}{add\_e\_field()}}
+{\footnotesize\ttfamily void Simulation\+::add\+\_\+e\+\_\+field (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, uint, uint)$>$}]{init\+\_\+fcn }\end{DoxyParamCaption})}
+
+
+
+Add a new electric field to the simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init\+\_\+fcn} & User provided function which initializes the field to the user\textquotesingle{}s specification \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_simulation_a160ea91c95613451f128ddbb66680bb2}\label{class_simulation_a160ea91c95613451f128ddbb66680bb2}} 
+\index{Simulation@{Simulation}!add\_species@{add\_species}}
+\index{add\_species@{add\_species}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{add\_species()}{add\_species()}}
+{\footnotesize\ttfamily void Simulation\+::add\+\_\+species (\begin{DoxyParamCaption}\item[{uint}]{npar,  }\item[{double}]{Qpar,  }\item[{double}]{density,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{class_species}{Species}} \&, uint)$>$}]{init\+\_\+fcn }\end{DoxyParamCaption})}
+
+
+
+Add a new species object to the simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em npar} & Total number of particles in the species \\
+\hline
+{\em Qpar} & Charge of species \\
+\hline
+{\em density} & Base density of the species \\
+\hline
+{\em init\+\_\+fcn} & User provided function which initializes the density of the species to the user\textquotesingle{}s specification \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_simulation_a60656250cb2b710d53f144329acaced4}\label{class_simulation_a60656250cb2b710d53f144329acaced4}} 
+\index{Simulation@{Simulation}!dump\_data@{dump\_data}}
+\index{dump\_data@{dump\_data}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{dump\_data()}{dump\_data()}}
+{\footnotesize\ttfamily bool Simulation\+::dump\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determine whether or not to dump simulation data. 
+
+\begin{DoxyReturn}{Returns}
+true True if number of iterations is a multiple of ndump 
+
+false False if number of iterations is not a multiple of ndump 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_simulation_a433f3a5bae5e4b322a7ff6443dc689c6}\label{class_simulation_a433f3a5bae5e4b322a7ff6443dc689c6}} 
+\index{Simulation@{Simulation}!get\_total\_density@{get\_total\_density}}
+\index{get\_total\_density@{get\_total\_density}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{get\_total\_density()}{get\_total\_density()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_grid_object}{Grid\+Object}} Simulation\+::get\+\_\+total\+\_\+density (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the sum of all species\textquotesingle{} densities in simulation. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_grid_object}{Grid\+Object}} Matrix containing the sum of all species\textquotesingle{} densities in simulation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_simulation_aeb608e82917947fa9e47117cf0400547}\label{class_simulation_aeb608e82917947fa9e47117cf0400547}} 
+\index{Simulation@{Simulation}!iterate@{iterate}}
+\index{iterate@{iterate}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{iterate()}{iterate()}}
+{\footnotesize\ttfamily void Simulation\+::iterate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Completes a single P\+IC loop iteration. 
+
+\mbox{\Hypertarget{class_simulation_a9c6fd84b153a79ac86c2d536b1171f02}\label{class_simulation_a9c6fd84b153a79ac86c2d536b1171f02}} 
+\index{Simulation@{Simulation}!print\_spec\_density@{print\_spec\_density}}
+\index{print\_spec\_density@{print\_spec\_density}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{print\_spec\_density()}{print\_spec\_density()}}
+{\footnotesize\ttfamily void Simulation\+::print\+\_\+spec\+\_\+density (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Prints the density of the \textquotesingle{}ith\textquotesingle{} species in simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & \mbox{\hyperlink{class_species}{Species}} number to print the density of \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Simulation.\+h\item 
+src/beam\+\_\+plasma.\+h\item 
+src/gyro.\+h\item 
+src/landau.\+h\item 
+src/Simulation.\+cpp\item 
+src/two\+\_\+stream.\+h\item 
+src/two\+D\+\_\+test.\+h\item 
+src/uh.\+h\end{DoxyCompactItemize}
