@@ -19,6 +19,9 @@ class FileIO
                       totE_out, part_x, part_px, part_py;
         H5::H5File file;
 
+        int COMPRESSION_LVL = 6;
+        std::size_t NUM_CHUNK = 8;
+
     public:
         FileIO();
         ~FileIO();
