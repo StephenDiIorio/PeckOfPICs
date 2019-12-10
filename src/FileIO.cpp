@@ -1,13 +1,35 @@
 #include "FileIO.h"
 
+/**********************************************************
+CONSTRUCTORS/DESTRUCTORS
+***********************************************************/
+
+/**
+ * @brief Constructor for the FileIO object
+ *
+ */
 FileIO::FileIO()
 {
 }
 
+/**
+ * @brief Destructor for FileIO object
+ *
+ */
 FileIO::~FileIO()
 {
 }
+//-----------------------------------------
 
+
+/**********************************************************
+CLASS METHODS
+***********************************************************/
+
+/**
+ * @brief Opens all of the necessary text files to write data in .txt format
+ *
+ */
 void FileIO::open_txt_files()
 {
     x_dom.open("x_domain.txt");
@@ -22,6 +44,11 @@ void FileIO::open_txt_files()
     part_py.open("part_py.txt");
 }
 
+/**
+ * @brief Opens the HDF5 file to write the data to
+ *
+ * @param fname The string containing the name to call the output file
+ */
 void FileIO::open_hdf5_files(std::string fname)
 {
     // Turn off the auto-printing when failure occurs so that we can
@@ -33,6 +60,10 @@ void FileIO::open_hdf5_files(std::string fname)
     file = H5::H5File(f_name, H5F_ACC_TRUNC);
 }
 
+/**
+ * @brief Closes all of the .txt files that were opened
+ *
+ */
 void FileIO::close_txt_files()
 {
     x_dom.close();
@@ -47,12 +78,24 @@ void FileIO::close_txt_files()
     part_py.close();
 }
 
+/**
+ * @brief Closes the .hdf5 files that were opened
+ *
+ */
 void FileIO::close_hdf5_files()
 {
     file.close();
 }
 
 
+/**
+ * @brief Writes a Species's density to an HDF5 file
+ *
+ * @param spec_name The name/identifier of the species
+ * @param itr_num The simulation iteration number
+ * @param data The DataStorage object to write to file
+ * @return int An error code if something failed, otherwise 0
+ */
 int FileIO::write_species_to_HDF5(const std::size_t spec_name, const std::size_t itr_num, const DataStorage& data)
 {
     H5::Group top_group;
@@ -117,13 +160,28 @@ int FileIO::write_species_to_HDF5(const std::size_t spec_name, const std::size_t
     return 0;
 }
 
+/**
+ * @brief Writes a Species's density to an HDF5 file
+ *
+ * @param spec_name The name/identifier of the species
+ * @param itr_num The simulation iteration number
+ * @param data The GridObject object to write to file
+ * @return int An error code if something failed, otherwise 0
+ */
 int FileIO::write_species_to_HDF5(const std::size_t spec_name, const std::size_t itr_num, const GridObject& data)
 {
     return write_species_to_HDF5(spec_name, itr_num, data.get_data());
 }
 
-
-int FileIO::write_e_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const DataStorage& data)
+/**
+ * @brief Writes a Electric Field components to file
+ *
+ * @param field_comp The identifier for the component of the field
+ * @param itr_num The simulation iteration number
+ * @param data The DataStorage object to write to file
+ * @return int An error code if something failed, otherwise 0
+ */
+int FileIO::write_e_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const DataStorage &data)
 {
     H5::Group top_group;
     H5std_string f_gname("/E_FIELD/");
@@ -187,12 +245,28 @@ int FileIO::write_e_field_to_HDF5(const std::size_t field_comp, const std::size_
     return 0;
 }
 
+/**
+ * @brief Writes a Electric Field components to file
+ *
+ * @param field_comp The identifier for the component of the field
+ * @param itr_num The simulation iteration number
+ * @param data The GridObject object to write to file
+ * @return int An error code if something failed, otherwise 0
+ */
 int FileIO::write_e_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const GridObject& data)
 {
     return write_e_field_to_HDF5(field_comp, itr_num, data.get_data());
 }
 
 
+/**
+ * @brief Writes a Magnetic Field components to file
+ *
+ * @param field_comp The identifier for the component of the field
+ * @param itr_num The simulation iteration number
+ * @param data The DataStorage object to write to file
+ * @return int An error code if something failed, otherwise 0
+ */
 int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const DataStorage &data)
 {
     H5::Group top_group;
@@ -257,11 +331,29 @@ int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_
     return 0;
 }
 
+/**
+ * @brief Writes a Magnetic Field components to file
+ *
+ * @param field_comp The identifier for the component of the field
+ * @param itr_num The simulation iteration number
+ * @param data The GridObject object to write to file
+ * @return int An error code if something failed, otherwise 0
+ */
 int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const GridObject &data)
 {
     return write_b_field_to_HDF5(field_comp, itr_num, data.get_data());
 }
 
+
+/**
+ * @brief Writes a species phase space to file
+ *
+ * @param phase_name The name of the phase space being written
+ * @param spec_name The name/identifier of the species
+ * @param itr_num itr_num The simulation iteration number
+ * @param data The DataStorage object to write to file
+ * @return int An error code if something failed, otherwise 0
+ */
 int FileIO::write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const DataStorage &data)
 {
     H5::Group top_group;
@@ -338,7 +430,17 @@ int FileIO::write_phase_to_HDF5(const char phase_name[], const std::size_t spec_
     return 0;
 }
 
+/**
+ * @brief Writes a species phase space to file
+ *
+ * @param phase_name The name of the phase space being written
+ * @param spec_name The name/identifier of the species
+ * @param itr_num itr_num The simulation iteration number
+ * @param data The GridObject object to write to file
+ * @return int An error code if something failed, otherwise 0
+ */
 int FileIO::write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const GridObject &data)
 {
     return write_phase_to_HDF5(phase_name, spec_name, itr_num, data.get_data());
 }
+//-----------------------------------------

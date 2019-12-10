@@ -11,6 +11,12 @@
 
 //TODO: this should be a singleton
 // Have to be very careful here as any path within the hdf5 file that has the same name with throw some sort of group error.
+/**
+ * @brief This is meant to deal with file IO in various formats. In particular,
+ *        this handles writing the data of the simulation to HDF5 files, and is
+ *        the only interface necessary to interact with the HDF5 system.
+ *
+ */
 class FileIO
 {
     private:
@@ -23,9 +29,17 @@ class FileIO
         std::size_t NUM_CHUNK = 8;
 
     public:
+        /**********************************************************
+        CONSTRUCTORS/DESTRUCTORS
+        ***********************************************************/
         FileIO();
         ~FileIO();
+        //-----------------------------------------
 
+
+        /**********************************************************
+        CLASS METHODS
+        ***********************************************************/
         void open_txt_files();
         void open_hdf5_files(std::string fname);
 
@@ -43,6 +57,7 @@ class FileIO
 
         int write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const DataStorage &data);
         int write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const GridObject &data);
+        //-----------------------------------------
 };
 
 #endif
