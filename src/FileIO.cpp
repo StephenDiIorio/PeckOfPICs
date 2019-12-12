@@ -124,10 +124,16 @@ int FileIO::write_species_to_HDF5(const std::size_t spec_name, const std::size_t
     {
         hsize_t dim_sizes[data.get_ndims()];
         hsize_t chunk_dims[data.get_ndims()];
+        hsize_t chunk_size;
         for (std::size_t i = 0; i < data.get_ndims(); ++i)
         {
             dim_sizes[i] = data.get_Ni_size(i);
-            chunk_dims[i] = data.get_Ni_size(i) / NUM_CHUNK;
+            chunk_size = data.get_Ni_size(i) / NUM_CHUNK;
+            if (chunk_size == 0)
+            {
+                chunk_size = 1;
+            }
+            chunk_dims[i] = chunk_size;
         }
         H5::DSetCreatPropList *plist = new H5::DSetCreatPropList;
         plist->setChunk(data.get_ndims(), chunk_dims);
@@ -209,10 +215,16 @@ int FileIO::write_e_field_to_HDF5(const std::size_t field_comp, const std::size_
     {
         hsize_t dim_sizes[data.get_ndims()];
         hsize_t chunk_dims[data.get_ndims()];
+        hsize_t chunk_size;
         for (std::size_t i = 0; i < data.get_ndims(); ++i)
         {
             dim_sizes[i] = data.get_Ni_size(i);
-            chunk_dims[i] = data.get_Ni_size(i) / NUM_CHUNK;
+            chunk_size = data.get_Ni_size(i) / NUM_CHUNK;
+            if (chunk_size == 0)
+            {
+                chunk_size = 1;
+            }
+            chunk_dims[i] = chunk_size;
         }
         H5::DSetCreatPropList *plist = new H5::DSetCreatPropList;
         plist->setChunk(data.get_ndims(), chunk_dims);
@@ -295,10 +307,16 @@ int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_
     {
         hsize_t dim_sizes[data.get_ndims()];
         hsize_t chunk_dims[data.get_ndims()];
+        hsize_t chunk_size;
         for (std::size_t i = 0; i < data.get_ndims(); ++i)
         {
             dim_sizes[i] = data.get_Ni_size(i);
-            chunk_dims[i] = data.get_Ni_size(i) / NUM_CHUNK;
+            chunk_size = data.get_Ni_size(i) / NUM_CHUNK;
+            if (chunk_size == 0)
+            {
+                chunk_size = 1;
+            }
+            chunk_dims[i] = chunk_size;
         }
         H5::DSetCreatPropList *plist = new H5::DSetCreatPropList;
         plist->setChunk(data.get_ndims(), chunk_dims);
@@ -393,10 +411,16 @@ int FileIO::write_phase_to_HDF5(const char phase_name[], const std::size_t spec_
     {
         hsize_t dim_sizes[data.get_ndims()];
         hsize_t chunk_dims[data.get_ndims()];
+        hsize_t chunk_size;
         for (std::size_t i = 0; i < data.get_ndims(); ++i)
         {
             dim_sizes[i] = data.get_Ni_size(i);
-            chunk_dims[i] = data.get_Ni_size(i) / NUM_CHUNK;
+            chunk_size = data.get_Ni_size(i) / NUM_CHUNK;
+            if (chunk_size == 0)
+            {
+                chunk_size = 1;
+            }
+            chunk_dims[i] = chunk_size;
         }
         H5::DSetCreatPropList *plist = new H5::DSetCreatPropList;
         plist->setChunk(data.get_ndims(), chunk_dims);
