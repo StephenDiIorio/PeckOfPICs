@@ -173,11 +173,16 @@ PRIVATE CLASS METHODS
  */
 void Simulation::deposit_charge()
 {
+    std::cout << "Depositing charge" << std::endl;
+    spec[0].print_weight();
+    spec[0].print_density();
     for (auto &s : this->spec)
     {
         s.deposit_charge(this->dx, this->dy, this->L_x, this->L_y, this->Nx,
                          this->Ny);
     }
+    spec[0].print_weight();
+    spec[0].print_density();
 }
 
 /**
@@ -186,10 +191,9 @@ void Simulation::deposit_charge()
  */
 void Simulation::solve_field()
 {
-    // std::vector<double> total_dens_re = get_total_density();
-    // std::vector<double> total_dens_im = std::vector<double>(this->Nx, 0.0);
+    GridObject total_dens = get_total_density();
 
-    // this->e_field.solve_field(total_dens_re, total_dens_im); //TODO: having this function return a value and change state seems bad, maybe pass err as a parameter to also be changed?
+    this->e_field.solve_field(total_dens); //TODO: having this function return a value and change state seems bad, maybe pass err as a parameter to also be changed?
 }
 
 /**
@@ -198,11 +202,20 @@ void Simulation::solve_field()
  */
 void Simulation::map_field_to_species()
 {
+    std::cout << "Mapping field to part" << std::endl;
+    std::cout << "Before: (local field and then total E)" << std::endl;
+    spec[0].print_local_e_field();
+    // e_field.print_field();
     for (auto &s : this->spec)
     {
-        s.map_field_to_part(this->e_field, electric, this->dx, this->dy, this->L_x,
-                            this->L_y, this->Nx, this->Ny);
+        s.map_field_to_part(this->e_field, electric,
+                            this->dx,  this->dy,
+                            this->L_x, this->L_y,
+                            this->Nx,  this->Ny);
     }
+    std::cout << "After: (local field and then total E)" << std::endl;
+    spec[0].print_local_e_field();
+    // e_field.print_field();
 }
 
 /**

@@ -10,34 +10,31 @@ using namespace std;
 
 int main()
 {
-    // std::cout << "beginning" << std::endl;
     FileIO io;
     std::string fname = "output.h5";
     io.open_hdf5_files(fname);
-    // std::cout << "made file" << std::endl;
 
     // double ke = 0.0, u = 0.0, tote = 0.0;
 
     Simulation sim(ndump, Nx, Ny, L_x, L_y, dt, tmax);
 
-    // std::cout << "made sim" << std::endl;
+    std::cout << "Made sim" << std::endl;
+    std::cout << sim.spec[0].density << std::endl;
+    std::cout << sim.spec[0].npar << std::endl;
+    std::cout << sim.spec[0].Qpar << std::endl;
+    sim.spec[0].print_pos();
+    sim.spec[0].print_weight();
 
     double t;
     for (t = 0.0; t < sim.tmax; t += sim.dt)
     {
-        // std::cout << "in loop" << std::endl;
-        // std::cout << t << std::endl;
-        // std::cout << sim.nspec << std::endl;
-        // sim.print_spec_density(0);
+        std::cout << t << std::endl;
+
         if (sim.dump_data())
         {
-            // std::cout << "print density" << std::endl;
             std::size_t spec_counter = 0;
             for (auto &s : sim.spec)
             {
-                // s.density_arr.print();
-                // std::cout << "/DENSITY/" + std::to_string(spec_counter) + "/" + std::to_string(sim.n_iter) << std::endl;
-
                 io.write_species_to_HDF5(spec_counter, sim.n_iter, s.density_arr);
                 ++spec_counter;
             }
@@ -68,9 +65,8 @@ int main()
         sim.iterate();
     }
 
-    // std::cout << "about to close" << std::endl;
     io.close_hdf5_files();
-    // std::cout << "closed and exiting" << std::endl;
+    std::cout << "closed and exiting" << std::endl;
 
     return 0;
 }
