@@ -316,7 +316,7 @@ int Species::push_particles(const double L_x, const double L_y,
 
         if (b2) // test if non-zero
         {
-            t = p.get_local_b_field() * dt * 0.5;
+            t = p.get_local_b_field() * this->Qpar * dt * 0.5;
             s = t * (2. / (1. + t.square()));
 
             vperp = mom - ((mom.element_multiply(p.get_local_b_field()))
