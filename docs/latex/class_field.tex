@@ -1,61 +1,93 @@
 \hypertarget{class_field}{}\doxysection{Field Class Reference}
 \label{class_field}\index{Field@{Field}}
+
+
+{\ttfamily \#include $<$Field.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_field_ad5696f2169994d70722bce531e00c7bf}\label{class_field_ad5696f2169994d70722bce531e00c7bf}} 
-{\bfseries Field} (uint Nx, uint Ny, double dx, double dy)
+\mbox{\hyperlink{class_field_a3e804c92273d9159f413f227b535c672}{Field}} ()
 \item 
-\mbox{\Hypertarget{class_field_ab4bdade90e8f70a9198f184b51ff8cb5}\label{class_field_ab4bdade90e8f70a9198f184b51ff8cb5}} 
-{\bfseries Field} (uint Nx, uint Ny, double dx, double dy, uint component, double value)
+\mbox{\hyperlink{class_field_ad5696f2169994d70722bce531e00c7bf}{Field}} (\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_field_af32cf46b6c5f730a5ea6cd4d2df4694d}{Nx}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_field_a9d392f35b2827303a5453bfe4ba17353}{Ny}}, double \mbox{\hyperlink{class_field_afc50f0c25084b23104115b47cf5a17e2}{dx}}, double \mbox{\hyperlink{class_field_a1f79847ffaf9d0dc098d06ce44e64ffd}{dy}})
 \item 
-\mbox{\Hypertarget{class_field_a9c359505ce106cade49c960b64acf560}\label{class_field_a9c359505ce106cade49c960b64acf560}} 
-{\bfseries Field} (uint Nx, uint Ny, double dx, double dy, std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, uint, uint)$>$ init\+\_\+fcn)
+\mbox{\hyperlink{class_field_ab4bdade90e8f70a9198f184b51ff8cb5}{Field}} (\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_field_af32cf46b6c5f730a5ea6cd4d2df4694d}{Nx}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_field_a9d392f35b2827303a5453bfe4ba17353}{Ny}}, double \mbox{\hyperlink{class_field_afc50f0c25084b23104115b47cf5a17e2}{dx}}, double \mbox{\hyperlink{class_field_a1f79847ffaf9d0dc098d06ce44e64ffd}{dy}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} component, double value)
 \item 
-\mbox{\Hypertarget{class_field_a8f76af79491c8ccf55bd9383310cb1b6}\label{class_field_a8f76af79491c8ccf55bd9383310cb1b6}} 
-int {\bfseries solve\+\_\+field\+\_\+spectral} (std\+::vector$<$ double $>$ re, std\+::vector$<$ double $>$ im)
+\mbox{\hyperlink{class_field_a9c359505ce106cade49c960b64acf560}{Field}} (\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_field_af32cf46b6c5f730a5ea6cd4d2df4694d}{Nx}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_field_a9d392f35b2827303a5453bfe4ba17353}{Ny}}, double \mbox{\hyperlink{class_field_afc50f0c25084b23104115b47cf5a17e2}{dx}}, double \mbox{\hyperlink{class_field_a1f79847ffaf9d0dc098d06ce44e64ffd}{dy}}, std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})$>$ init\+\_\+fcn)
+\item 
+\mbox{\hyperlink{class_field_a45d6e6d09b8f8e46de62b40119d62c60}{$\sim$\+Field}} ()
+\item 
+int \mbox{\hyperlink{class_field_a8f76af79491c8ccf55bd9383310cb1b6}{solve\+\_\+field\+\_\+spectral}} (std\+::vector$<$ double $>$ re, std\+::vector$<$ double $>$ im)
 \item 
 int \mbox{\hyperlink{class_field_a002c050a341e860932f736823e97cf3b}{solve\+\_\+field}} (\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&charge\+\_\+density)
 \begin{DoxyCompactList}\small\item\em solve\+\_\+field solves Poisson equation with periodic B\+Cs \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_field_a7d0329754ae9820356282cbff6382009}\label{class_field_a7d0329754ae9820356282cbff6382009}} 
-int {\bfseries solve\+\_\+field\+\_\+fftw} (\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&charge\+\_\+density)
+int \mbox{\hyperlink{class_field_a7d0329754ae9820356282cbff6382009}{solve\+\_\+field\+\_\+fftw}} (\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&charge\+\_\+density)
 \item 
-\mbox{\Hypertarget{class_field_ae06a91c2b487401f8ff6391cb42f1808}\label{class_field_ae06a91c2b487401f8ff6391cb42f1808}} 
-void {\bfseries print\+\_\+field} ()
+void \mbox{\hyperlink{class_field_ae06a91c2b487401f8ff6391cb42f1808}{print\+\_\+field}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_field_af32cf46b6c5f730a5ea6cd4d2df4694d}\label{class_field_af32cf46b6c5f730a5ea6cd4d2df4694d}} 
-uint {\bfseries Nx}
+\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_field_af32cf46b6c5f730a5ea6cd4d2df4694d}{Nx}}
 \item 
-\mbox{\Hypertarget{class_field_a9d392f35b2827303a5453bfe4ba17353}\label{class_field_a9d392f35b2827303a5453bfe4ba17353}} 
-uint {\bfseries Ny}
+\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_field_a9d392f35b2827303a5453bfe4ba17353}{Ny}}
 \item 
-\mbox{\Hypertarget{class_field_afc50f0c25084b23104115b47cf5a17e2}\label{class_field_afc50f0c25084b23104115b47cf5a17e2}} 
-double {\bfseries dx}
+double \mbox{\hyperlink{class_field_afc50f0c25084b23104115b47cf5a17e2}{dx}}
 \item 
-\mbox{\Hypertarget{class_field_a1f79847ffaf9d0dc098d06ce44e64ffd}\label{class_field_a1f79847ffaf9d0dc098d06ce44e64ffd}} 
-double {\bfseries dy}
+double \mbox{\hyperlink{class_field_a1f79847ffaf9d0dc098d06ce44e64ffd}{dy}}
 \item 
-\mbox{\Hypertarget{class_field_a8e393304d91b5b0989207eb262c42d06}\label{class_field_a8e393304d91b5b0989207eb262c42d06}} 
-uint {\bfseries size}
+\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_field_a8e393304d91b5b0989207eb262c42d06}{size}}
 \item 
-\mbox{\Hypertarget{class_field_af6c2708431321fc7516aa341135c94d8}\label{class_field_af6c2708431321fc7516aa341135c94d8}} 
-\mbox{\hyperlink{class_grid_object}{Grid\+Object}} {\bfseries f1}
+\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \mbox{\hyperlink{class_field_af6c2708431321fc7516aa341135c94d8}{f1}}
 \item 
-\mbox{\Hypertarget{class_field_a7bf089d1beeecd3a149ee77d935ca94a}\label{class_field_a7bf089d1beeecd3a149ee77d935ca94a}} 
-\mbox{\hyperlink{class_grid_object}{Grid\+Object}} {\bfseries f2}
+\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \mbox{\hyperlink{class_field_a7bf089d1beeecd3a149ee77d935ca94a}{f2}}
 \item 
-\mbox{\Hypertarget{class_field_a836cfe4c741941c9db9381e5fcf87bdf}\label{class_field_a836cfe4c741941c9db9381e5fcf87bdf}} 
-\mbox{\hyperlink{class_grid_object}{Grid\+Object}} {\bfseries f3}
+\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \mbox{\hyperlink{class_field_a836cfe4c741941c9db9381e5fcf87bdf}{f3}}
 \item 
-\mbox{\Hypertarget{class_field_a83fef6278e2b6cb3681cf3dfa6db78d9}\label{class_field_a83fef6278e2b6cb3681cf3dfa6db78d9}} 
-double {\bfseries total\+\_\+U}
+double \mbox{\hyperlink{class_field_a83fef6278e2b6cb3681cf3dfa6db78d9}{total\+\_\+U}}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_field_a3e804c92273d9159f413f227b535c672}\label{class_field_a3e804c92273d9159f413f227b535c672}} 
+\index{Field@{Field}!Field@{Field}}
+\index{Field@{Field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{Field()}{Field()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Field\+::\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_field_ad5696f2169994d70722bce531e00c7bf}\label{class_field_ad5696f2169994d70722bce531e00c7bf}} 
+\index{Field@{Field}!Field@{Field}}
+\index{Field@{Field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{Field()}{Field()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Field\+::\+Field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Nx,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Ny,  }\item[{double}]{dx,  }\item[{double}]{dy }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_field_ab4bdade90e8f70a9198f184b51ff8cb5}\label{class_field_ab4bdade90e8f70a9198f184b51ff8cb5}} 
+\index{Field@{Field}!Field@{Field}}
+\index{Field@{Field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{Field()}{Field()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Field\+::\+Field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Nx,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Ny,  }\item[{double}]{dx,  }\item[{double}]{dy,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{component,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_field_a9c359505ce106cade49c960b64acf560}\label{class_field_a9c359505ce106cade49c960b64acf560}} 
+\index{Field@{Field}!Field@{Field}}
+\index{Field@{Field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{Field()}{Field()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Field\+::\+Field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Nx,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Ny,  }\item[{double}]{dx,  }\item[{double}]{dy,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})$>$}]{init\+\_\+fcn }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_field_a45d6e6d09b8f8e46de62b40119d62c60}\label{class_field_a45d6e6d09b8f8e46de62b40119d62c60}} 
+\index{Field@{Field}!````~Field@{$\sim$Field}}
+\index{````~Field@{$\sim$Field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{$\sim$Field()}{~Field()}}
+{\footnotesize\ttfamily Field\+::$\sim$\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_field_ae06a91c2b487401f8ff6391cb42f1808}\label{class_field_ae06a91c2b487401f8ff6391cb42f1808}} 
+\index{Field@{Field}!print\_field@{print\_field}}
+\index{print\_field@{print\_field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{print\_field()}{print\_field()}}
+{\footnotesize\ttfamily void Field\+::print\+\_\+field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_field_a002c050a341e860932f736823e97cf3b}\label{class_field_a002c050a341e860932f736823e97cf3b}} 
 \index{Field@{Field}!solve\_field@{solve\_field}}
 \index{solve\_field@{solve\_field}!Field@{Field}}
@@ -74,9 +106,78 @@ solve\+\_\+field solves Poisson equation with periodic B\+Cs
 \begin{DoxyReturn}{Returns}
 int 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_field_a7d0329754ae9820356282cbff6382009}\label{class_field_a7d0329754ae9820356282cbff6382009}} 
+\index{Field@{Field}!solve\_field\_fftw@{solve\_field\_fftw}}
+\index{solve\_field\_fftw@{solve\_field\_fftw}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{solve\_field\_fftw()}{solve\_field\_fftw()}}
+{\footnotesize\ttfamily int Field\+::solve\+\_\+field\+\_\+fftw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&}]{charge\+\_\+density }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_field_a8f76af79491c8ccf55bd9383310cb1b6}\label{class_field_a8f76af79491c8ccf55bd9383310cb1b6}} 
+\index{Field@{Field}!solve\_field\_spectral@{solve\_field\_spectral}}
+\index{solve\_field\_spectral@{solve\_field\_spectral}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{solve\_field\_spectral()}{solve\_field\_spectral()}}
+{\footnotesize\ttfamily int Field\+::solve\+\_\+field\+\_\+spectral (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{re,  }\item[{std\+::vector$<$ double $>$}]{im }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_field_afc50f0c25084b23104115b47cf5a17e2}\label{class_field_afc50f0c25084b23104115b47cf5a17e2}} 
+\index{Field@{Field}!dx@{dx}}
+\index{dx@{dx}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{dx}{dx}}
+{\footnotesize\ttfamily double Field\+::dx}
+
+\mbox{\Hypertarget{class_field_a1f79847ffaf9d0dc098d06ce44e64ffd}\label{class_field_a1f79847ffaf9d0dc098d06ce44e64ffd}} 
+\index{Field@{Field}!dy@{dy}}
+\index{dy@{dy}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{dy}{dy}}
+{\footnotesize\ttfamily double Field\+::dy}
+
+\mbox{\Hypertarget{class_field_af6c2708431321fc7516aa341135c94d8}\label{class_field_af6c2708431321fc7516aa341135c94d8}} 
+\index{Field@{Field}!f1@{f1}}
+\index{f1@{f1}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{f1}{f1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_grid_object}{Grid\+Object}} Field\+::f1}
+
+\mbox{\Hypertarget{class_field_a7bf089d1beeecd3a149ee77d935ca94a}\label{class_field_a7bf089d1beeecd3a149ee77d935ca94a}} 
+\index{Field@{Field}!f2@{f2}}
+\index{f2@{f2}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{f2}{f2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_grid_object}{Grid\+Object}} Field\+::f2}
+
+\mbox{\Hypertarget{class_field_a836cfe4c741941c9db9381e5fcf87bdf}\label{class_field_a836cfe4c741941c9db9381e5fcf87bdf}} 
+\index{Field@{Field}!f3@{f3}}
+\index{f3@{f3}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{f3}{f3}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_grid_object}{Grid\+Object}} Field\+::f3}
+
+\mbox{\Hypertarget{class_field_af32cf46b6c5f730a5ea6cd4d2df4694d}\label{class_field_af32cf46b6c5f730a5ea6cd4d2df4694d}} 
+\index{Field@{Field}!Nx@{Nx}}
+\index{Nx@{Nx}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{Nx}{Nx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Field\+::\+Nx}
+
+\mbox{\Hypertarget{class_field_a9d392f35b2827303a5453bfe4ba17353}\label{class_field_a9d392f35b2827303a5453bfe4ba17353}} 
+\index{Field@{Field}!Ny@{Ny}}
+\index{Ny@{Ny}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{Ny}{Ny}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Field\+::\+Ny}
+
+\mbox{\Hypertarget{class_field_a8e393304d91b5b0989207eb262c42d06}\label{class_field_a8e393304d91b5b0989207eb262c42d06}} 
+\index{Field@{Field}!size@{size}}
+\index{size@{size}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Field\+::size}
+
+\mbox{\Hypertarget{class_field_a83fef6278e2b6cb3681cf3dfa6db78d9}\label{class_field_a83fef6278e2b6cb3681cf3dfa6db78d9}} 
+\index{Field@{Field}!total\_U@{total\_U}}
+\index{total\_U@{total\_U}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{total\_U}{total\_U}}
+{\footnotesize\ttfamily double Field\+::total\+\_\+U}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/Field.\+h\item 
-src/Field.\+cpp\end{DoxyCompactItemize}
+src/\mbox{\hyperlink{_field_8h}{Field.\+h}}\item 
+src/\mbox{\hyperlink{_field_8cpp}{Field.\+cpp}}\end{DoxyCompactItemize}

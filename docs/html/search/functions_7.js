@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['mag_163',['mag',['../class_three_vec.html#a191f3e647dc51311857fb30f82f608d7',1,'ThreeVec']]],
-  ['map_5ffield_5fto_5fpart_164',['map_field_to_part',['../class_species.html#a077d22fb70ac63cc4ab026bea719ea2f',1,'Species']]]
+  ['inc_317',['inc',['../class_three_vec.html#a051b257fd2f766c2ea41f80e6679e7b7',1,'ThreeVec']]],
+  ['init_5fb_5ffield_318',['init_b_field',['../beam__plasma_8h.html#a55b85256031b377084391c3a14e42175',1,'init_b_field(Field &amp;f, uint size):&#160;beam_plasma.h'],['../gyro_8h.html#a55b85256031b377084391c3a14e42175',1,'init_b_field(Field &amp;f, uint size):&#160;gyro.h'],['../landau_8h.html#a55b85256031b377084391c3a14e42175',1,'init_b_field(Field &amp;f, uint size):&#160;landau.h'],['../two__stream_8h.html#af33bf84a7bbc7f7673d7fc107f4183a9',1,'init_b_field(Field &amp;f, uint Nx, uint Ny):&#160;two_stream.h'],['../two_d__test_8h.html#a55b85256031b377084391c3a14e42175',1,'init_b_field(Field &amp;f, uint size):&#160;twoD_test.h'],['../uh_8h.html#a55b85256031b377084391c3a14e42175',1,'init_b_field(Field &amp;f, uint size):&#160;uh.h']]],
+  ['init_5fe_5ffield_319',['init_e_field',['../beam__plasma_8h.html#ab4908972b17888da64d7fdc2d2b47a90',1,'init_e_field(Field &amp;f, uint size):&#160;beam_plasma.h'],['../gyro_8h.html#ab4908972b17888da64d7fdc2d2b47a90',1,'init_e_field(Field &amp;f, uint size):&#160;gyro.h'],['../landau_8h.html#ab4908972b17888da64d7fdc2d2b47a90',1,'init_e_field(Field &amp;f, uint size):&#160;landau.h'],['../two__stream_8h.html#a2274ef8fdaf4984c0eeaafa59c84e4ce',1,'init_e_field(Field &amp;f, uint Nx, uint Ny):&#160;two_stream.h'],['../two_d__test_8h.html#ab4908972b17888da64d7fdc2d2b47a90',1,'init_e_field(Field &amp;f, uint size):&#160;twoD_test.h'],['../uh_8h.html#ab4908972b17888da64d7fdc2d2b47a90',1,'init_e_field(Field &amp;f, uint size):&#160;uh.h']]],
+  ['iterate_320',['iterate',['../class_simulation.html#aeb608e82917947fa9e47117cf0400547',1,'Simulation']]]
 ];

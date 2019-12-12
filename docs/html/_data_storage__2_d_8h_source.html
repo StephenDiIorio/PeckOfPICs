@@ -91,14 +91,14 @@ $(document).ready(function(){initNavTree('_data_storage__2_d_8h_source.html','')
 <div class="title">DataStorage_2D.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DATA_STORAGE_2D_H</span></div>
+<a href="_data_storage__2_d_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DATA_STORAGE_2D_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DATA_STORAGE_2D_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// #include &lt;functional&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;DataStorage.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_data_storage_8h.html">DataStorage.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_data_storage__2_d.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_data_storage__2_d.html">DataStorage_2D</a> : <span class="keyword">public</span> <a class="code" href="class_data_storage.html">DataStorage</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
@@ -122,13 +122,13 @@ $(document).ready(function(){initNavTree('_data_storage__2_d_8h_source.html','')
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">        CONSTRUCTORS/DESTRUCTORS</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">        ***********************************************************/</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="class_data_storage__2_d.html#a0da57a05dc96fac400afeebaf6533d65">DataStorage_2D</a>(); <span class="comment">// Note: need an empty constructor to allow DataStorage_2D to be a member</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="class_data_storage__2_d.html#a0da57a05dc96fac400afeebaf6533d65">DataStorage_2D</a>(std::size_t Nx, std::size_t Ny);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="class_data_storage__2_d.html#a0da57a05dc96fac400afeebaf6533d65">DataStorage_2D</a>(std::size_t Nx, std::size_t Ny, <span class="keywordtype">double</span> val);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="class_data_storage__2_d.html#a0da57a05dc96fac400afeebaf6533d65">DataStorage_2D</a>(std::size_t <a class="code" href="beam__plasma_8h.html#a8dfb498413096d9fce8a7ed69cb41d16">Nx</a>, std::size_t <a class="code" href="two__stream_8h.html#a276dfd99384a9c735597add8d0b07b3d">Ny</a>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="class_data_storage__2_d.html#a0da57a05dc96fac400afeebaf6533d65">DataStorage_2D</a>(std::size_t <a class="code" href="beam__plasma_8h.html#a8dfb498413096d9fce8a7ed69cb41d16">Nx</a>, std::size_t <a class="code" href="two__stream_8h.html#a276dfd99384a9c735597add8d0b07b3d">Ny</a>, <span class="keywordtype">double</span> val);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="comment">// DataStorage_2D(std::size_t Nx, std::size_t Ny,</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">//                std::function&lt;void(DataStorage_2D&amp;,</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">//                                   std::size_t, std::size_t)&gt; init_fcn);</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="class_data_storage__2_d.html#a0da57a05dc96fac400afeebaf6533d65">DataStorage_2D</a>(std::size_t Nx, std::size_t Ny,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                       std::vector&lt;double&gt; data);       <span class="comment">// a &#39;copy&#39; constructor</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="class_data_storage__2_d.html#a0da57a05dc96fac400afeebaf6533d65">DataStorage_2D</a>(std::size_t <a class="code" href="beam__plasma_8h.html#a8dfb498413096d9fce8a7ed69cb41d16">Nx</a>, std::size_t <a class="code" href="two__stream_8h.html#a276dfd99384a9c735597add8d0b07b3d">Ny</a>,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                       std::vector&lt;double&gt; <a class="code" href="class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25">data</a>);       <span class="comment">// a &#39;copy&#39; constructor</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="class_data_storage__2_d.html#a0da57a05dc96fac400afeebaf6533d65">DataStorage_2D</a>(<span class="keyword">const</span> <a class="code" href="class_data_storage__2_d.html">DataStorage_2D</a>&amp; copy_obj); <span class="comment">// a copy constructor</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="class_data_storage__2_d.html#a2e62f4e3e3689dff63f46145c17591da">~DataStorage_2D</a>();</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">//-----------------------------------------</span></div>
@@ -212,12 +212,12 @@ $(document).ready(function(){initNavTree('_data_storage__2_d_8h_source.html','')
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        {</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="keywordflow">if</span> (!this-&gt;same_size(other_data))</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            {</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(same_size_err);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<a class="code" href="class_data_storage.html#a98dddf43330a23b4570708838aeebe00">same_size_err</a>);</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            }</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;size; ++i)</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;<a class="code" href="class_data_storage.html#aee2c57d5704a0677bd07283d661cb18a">size</a>; ++i)</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            {</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                this-&gt;data[i] += other_data.data[i];</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                this-&gt;data[i] += other_data.<a class="code" href="class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25">data</a>[i];</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            }</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
@@ -225,7 +225,7 @@ $(document).ready(function(){initNavTree('_data_storage__2_d_8h_source.html','')
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keyword">inline</span> <a class="code" href="class_data_storage__2_d.html">DataStorage_2D</a>&amp; <a class="code" href="class_data_storage__2_d.html#aa8a6a45a8e08d712f3b962cdd472476f">operator+=</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> val)</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        {</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;size; ++i)</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;<a class="code" href="class_data_storage.html#aee2c57d5704a0677bd07283d661cb18a">size</a>; ++i)</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            {</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                this-&gt;data[i] += val;</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            }</div>
@@ -239,12 +239,12 @@ $(document).ready(function(){initNavTree('_data_storage__2_d_8h_source.html','')
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        {</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            <span class="keywordflow">if</span> (!this-&gt;same_size(other_data))</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            {</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(same_size_err);</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<a class="code" href="class_data_storage.html#a98dddf43330a23b4570708838aeebe00">same_size_err</a>);</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            }</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;size; ++i)</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;<a class="code" href="class_data_storage.html#aee2c57d5704a0677bd07283d661cb18a">size</a>; ++i)</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            {</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                this-&gt;data[i] -= other_data.data[i];</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                this-&gt;data[i] -= other_data.<a class="code" href="class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25">data</a>[i];</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            }</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
@@ -252,7 +252,7 @@ $(document).ready(function(){initNavTree('_data_storage__2_d_8h_source.html','')
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keyword">inline</span> <a class="code" href="class_data_storage__2_d.html">DataStorage_2D</a>&amp; <a class="code" href="class_data_storage__2_d.html#a41e76cee41edf2ec6f2664b9aa3eff75">operator-=</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> val)</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        {</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;size; ++i)</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;<a class="code" href="class_data_storage.html#aee2c57d5704a0677bd07283d661cb18a">size</a>; ++i)</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            {</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                this-&gt;data[i] -= val;</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            }</div>
@@ -266,12 +266,12 @@ $(document).ready(function(){initNavTree('_data_storage__2_d_8h_source.html','')
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        {</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            <span class="keywordflow">if</span> (!this-&gt;same_size(other_data))</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            {</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(same_size_err);</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<a class="code" href="class_data_storage.html#a98dddf43330a23b4570708838aeebe00">same_size_err</a>);</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            }</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;size; ++i)</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;<a class="code" href="class_data_storage.html#aee2c57d5704a0677bd07283d661cb18a">size</a>; ++i)</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            {</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                this-&gt;data[i] *= other_data.data[i];</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                this-&gt;data[i] *= other_data.<a class="code" href="class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25">data</a>[i];</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            }</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
@@ -279,7 +279,7 @@ $(document).ready(function(){initNavTree('_data_storage__2_d_8h_source.html','')
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keyword">inline</span> <a class="code" href="class_data_storage__2_d.html">DataStorage_2D</a>&amp; <a class="code" href="class_data_storage__2_d.html#a993a954495fdc9c6335e517c96e16f27">operator*=</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> val)</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        {</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;size; ++i)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;<a class="code" href="class_data_storage.html#aee2c57d5704a0677bd07283d661cb18a">size</a>; ++i)</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            {</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                this-&gt;data[i] *= val;</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            }</div>
@@ -293,12 +293,12 @@ $(document).ready(function(){initNavTree('_data_storage__2_d_8h_source.html','')
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        {</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            <span class="keywordflow">if</span> (!this-&gt;same_size(other_data))</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            {</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(same_size_err);</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(<a class="code" href="class_data_storage.html#a98dddf43330a23b4570708838aeebe00">same_size_err</a>);</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            }</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;size; ++i)</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;<a class="code" href="class_data_storage.html#aee2c57d5704a0677bd07283d661cb18a">size</a>; ++i)</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            {</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                this-&gt;data[i] /= other_data.data[i];</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                this-&gt;data[i] /= other_data.<a class="code" href="class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25">data</a>[i];</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;            }</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
@@ -306,7 +306,7 @@ $(document).ready(function(){initNavTree('_data_storage__2_d_8h_source.html','')
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="keyword">inline</span> <a class="code" href="class_data_storage__2_d.html">DataStorage_2D</a>&amp; <a class="code" href="class_data_storage__2_d.html#a0fda492d193c12ccc5899b9255c91b38">operator/=</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> val)</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        {</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;size; ++i)</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; this-&gt;<a class="code" href="class_data_storage.html#aee2c57d5704a0677bd07283d661cb18a">size</a>; ++i)</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;            {</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                this-&gt;data[i] /= val;</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            }</div>
@@ -357,12 +357,15 @@ $(document).ready(function(){initNavTree('_data_storage__2_d_8h_source.html','')
 <div class="ttc" id="aclass_data_storage__2_d_html"><div class="ttname"><a href="class_data_storage__2_d.html">DataStorage_2D</a></div><div class="ttdef"><b>Definition:</b> DataStorage_2D.h:10</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_a487577ecf0edb54198c0c800bf26f839"><div class="ttname"><a href="class_data_storage__2_d.html#a487577ecf0edb54198c0c800bf26f839">DataStorage_2D::get_Ny</a></div><div class="ttdeci">std::size_t get_Ny() const</div><div class="ttdoc">Get the number of Ny points in DataStorage object.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.h:370</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_a993a954495fdc9c6335e517c96e16f27"><div class="ttname"><a href="class_data_storage__2_d.html#a993a954495fdc9c6335e517c96e16f27">DataStorage_2D::operator*=</a></div><div class="ttdeci">DataStorage_2D &amp; operator*=(const DataStorage_2D &amp;other_data)</div><div class="ttdoc">Element-wise multiplication and assignment for DataStorage objects.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.h:275</div></div>
+<div class="ttc" id="abeam__plasma_8h_html_a8dfb498413096d9fce8a7ed69cb41d16"><div class="ttname"><a href="beam__plasma_8h.html#a8dfb498413096d9fce8a7ed69cb41d16">Nx</a></div><div class="ttdeci">const uint Nx</div><div class="ttdef"><b>Definition:</b> beam_plasma.h:6</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_a969746bdd5885b34535c26facd1ea696"><div class="ttname"><a href="class_data_storage__2_d.html#a969746bdd5885b34535c26facd1ea696">DataStorage_2D::get_Ni_size</a></div><div class="ttdeci">std::size_t get_Ni_size(std::size_t i) const</div><div class="ttdoc">Get the number of elements in the ith component of the data structure.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.cpp:165</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_a4e9b60050e79d193276412dd410ce94e"><div class="ttname"><a href="class_data_storage__2_d.html#a4e9b60050e79d193276412dd410ce94e">DataStorage_2D::at</a></div><div class="ttdeci">double &amp; at(const std::size_t x1, const std::size_t x2)</div><div class="ttdoc">Returns a reference to the element at specified location (x1,x2), with bounds checking....</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.cpp:140</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_a96733a9065d1e4b3a790ed057ae445a7"><div class="ttname"><a href="class_data_storage__2_d.html#a96733a9065d1e4b3a790ed057ae445a7">DataStorage_2D::operator()</a></div><div class="ttdeci">double &amp; operator()(const std::size_t x1, const std::size_t x2)</div><div class="ttdoc">Returns a reference to the element at specified location (x1, x2). No bounds checking is performed.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.h:55</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_aae40b2db46c6b6406543de105f94ede0"><div class="ttname"><a href="class_data_storage__2_d.html#aae40b2db46c6b6406543de105f94ede0">DataStorage_2D::operator=</a></div><div class="ttdeci">DataStorage_2D &amp; operator=(const DataStorage_2D &amp;to_copy)</div><div class="ttdoc">Overload copy assignment operator.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.cpp:117</div></div>
+<div class="ttc" id="aclass_data_storage_html_a98dddf43330a23b4570708838aeebe00"><div class="ttname"><a href="class_data_storage.html#a98dddf43330a23b4570708838aeebe00">DataStorage::same_size_err</a></div><div class="ttdeci">const char same_size_err[45]</div><div class="ttdef"><b>Definition:</b> DataStorage.h:28</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_aa8a6a45a8e08d712f3b962cdd472476f"><div class="ttname"><a href="class_data_storage__2_d.html#aa8a6a45a8e08d712f3b962cdd472476f">DataStorage_2D::operator+=</a></div><div class="ttdeci">DataStorage_2D &amp; operator+=(const DataStorage_2D &amp;other_data)</div><div class="ttdoc">Element-wise addition and assignment for DataStorage objects.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.h:193</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_a6a1c521928eadf77b730e03fc122de79"><div class="ttname"><a href="class_data_storage__2_d.html#a6a1c521928eadf77b730e03fc122de79">DataStorage_2D::get_ndims</a></div><div class="ttdeci">std::size_t get_ndims() const</div><div class="ttdoc">Get the dimensionality of the object.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.h:380</div></div>
+<div class="ttc" id="atwo__stream_8h_html_a276dfd99384a9c735597add8d0b07b3d"><div class="ttname"><a href="two__stream_8h.html#a276dfd99384a9c735597add8d0b07b3d">Ny</a></div><div class="ttdeci">const uint Ny</div><div class="ttdef"><b>Definition:</b> two_stream.h:7</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_a0c219d8dc86ed735df8d4dd3101cc745"><div class="ttname"><a href="class_data_storage__2_d.html#a0c219d8dc86ed735df8d4dd3101cc745">DataStorage_2D::operator-</a></div><div class="ttdeci">friend DataStorage_2D operator-(DataStorage_2D d1, const DataStorage_2D &amp;d2)</div><div class="ttdoc">Element-wise subtraction two DataStorage objects.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.h:110</div></div>
 <div class="ttc" id="aclass_data_storage_html"><div class="ttname"><a href="class_data_storage.html">DataStorage</a></div><div class="ttdoc">DataStorage is the abstract interface for DataStorage objects used to store n-dimensional sets of dat...</div><div class="ttdef"><b>Definition:</b> DataStorage.h:15</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_aa85269d8083e7487e96ada9b15ddb7db"><div class="ttname"><a href="class_data_storage__2_d.html#aa85269d8083e7487e96ada9b15ddb7db">DataStorage_2D::operator*</a></div><div class="ttdeci">friend DataStorage_2D operator*(DataStorage_2D d1, const DataStorage_2D &amp;d2)</div><div class="ttdoc">Element-wise multiplication two DataStorage objects.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.h:138</div></div>
@@ -371,13 +374,16 @@ $(document).ready(function(){initNavTree('_data_storage__2_d_8h_source.html','')
 <div class="ttc" id="aclass_data_storage__2_d_html_ad47e883ad13f92e253bbd6e7446f6f33"><div class="ttname"><a href="class_data_storage__2_d.html#ad47e883ad13f92e253bbd6e7446f6f33">DataStorage_2D::get_Nx</a></div><div class="ttdeci">std::size_t get_Nx() const</div><div class="ttdoc">Get the number of Nx points in DataStorage object.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.h:360</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_ac093627a2852755a55cf91f5e9036f35"><div class="ttname"><a href="class_data_storage__2_d.html#ac093627a2852755a55cf91f5e9036f35">DataStorage_2D::operator+</a></div><div class="ttdeci">friend DataStorage_2D operator+(DataStorage_2D d1, const DataStorage_2D &amp;d2)</div><div class="ttdoc">Element-wise add two DataStorage objects.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.h:82</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_a41e76cee41edf2ec6f2664b9aa3eff75"><div class="ttname"><a href="class_data_storage__2_d.html#a41e76cee41edf2ec6f2664b9aa3eff75">DataStorage_2D::operator-=</a></div><div class="ttdeci">DataStorage_2D &amp; operator-=(const DataStorage_2D &amp;other_data)</div><div class="ttdoc">Element-wise subtraction and assignment for DataStorage objects.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.h:234</div></div>
+<div class="ttc" id="aclass_data_storage_html_aee2c57d5704a0677bd07283d661cb18a"><div class="ttname"><a href="class_data_storage.html#aee2c57d5704a0677bd07283d661cb18a">DataStorage::size</a></div><div class="ttdeci">std::size_t size</div><div class="ttdef"><b>Definition:</b> DataStorage.h:25</div></div>
+<div class="ttc" id="aclass_data_storage_html_ae317b0de769982e5286e3e2d9301aa25"><div class="ttname"><a href="class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25">DataStorage::data</a></div><div class="ttdeci">std::vector&lt; double &gt; data</div><div class="ttdef"><b>Definition:</b> DataStorage.h:26</div></div>
+<div class="ttc" id="a_data_storage_8h_html"><div class="ttname"><a href="_data_storage_8h.html">DataStorage.h</a></div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_a0da57a05dc96fac400afeebaf6533d65"><div class="ttname"><a href="class_data_storage__2_d.html#a0da57a05dc96fac400afeebaf6533d65">DataStorage_2D::DataStorage_2D</a></div><div class="ttdeci">DataStorage_2D()</div><div class="ttdoc">Constructor for DataStorage_2D object.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.cpp:10</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_a0fda492d193c12ccc5899b9255c91b38"><div class="ttname"><a href="class_data_storage__2_d.html#a0fda492d193c12ccc5899b9255c91b38">DataStorage_2D::operator/=</a></div><div class="ttdeci">DataStorage_2D &amp; operator/=(const DataStorage_2D &amp;other_data)</div><div class="ttdoc">Element-wise division and assignment for DataStorage objects.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.h:315</div></div>
 <div class="ttc" id="aclass_data_storage__2_d_html_a42cf7649099190df8d6e9f1c76bc6ac2"><div class="ttname"><a href="class_data_storage__2_d.html#a42cf7649099190df8d6e9f1c76bc6ac2">DataStorage_2D::print</a></div><div class="ttdeci">void print() const</div><div class="ttdoc">Prints the DataStorage_2D object to std::cout.</div><div class="ttdef"><b>Definition:</b> DataStorage_2D.cpp:215</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>DataStorage_2D.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_data_storage__2_d_8h.html">DataStorage_2D.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>

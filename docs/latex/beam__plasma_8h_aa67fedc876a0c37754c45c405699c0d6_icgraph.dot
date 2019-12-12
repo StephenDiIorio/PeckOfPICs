@@ -1,0 +1,12 @@
+digraph "gaussian"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="gaussian",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="plasma",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$beam__plasma_8h.html#a23d0ff0d90ac7834dc53fef93285f02e",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="single_plasma",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$beam__plasma_8h.html#a471b3be541f04a04a69cb2de235cb8d5",tooltip=" "];
+}

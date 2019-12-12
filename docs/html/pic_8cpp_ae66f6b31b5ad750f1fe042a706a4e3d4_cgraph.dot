@@ -1,0 +1,24 @@
+digraph "main"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="main",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="FileIO::close_hdf5\l_files",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_file_i_o.html#a2ea8ff246c4688eab6c29bf0ec74d9ea",tooltip="Closes the .hdf5 files that were opened."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Simulation::dump_data",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simulation.html#a60656250cb2b710d53f144329acaced4",tooltip="Determine whether or not to dump simulation data."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Simulation::iterate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simulation.html#aeb608e82917947fa9e47117cf0400547",tooltip="Completes a single PIC loop iteration."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="FileIO::open_hdf5_files",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_file_i_o.html#ad50ab267f7290caff5b932b5cdfb5ef1",tooltip="Opens the HDF5 file to write the data to."];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="FileIO::write_b_field\l_to_HDF5",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_file_i_o.html#a0c8562d97b03eac8c2d34b1d16e58afe",tooltip="Writes a Magnetic Field components to file."];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="FileIO::write_e_field\l_to_HDF5",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_file_i_o.html#af64baa6140c2fa225384cab5d03898a1",tooltip="Writes a Electric Field components to file."];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="FileIO::write_phase\l_to_HDF5",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_file_i_o.html#a1c768a863ee2c006320debf5a61f0b69",tooltip="Writes a species phase space to file."];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="FileIO::write_species\l_to_HDF5",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_file_i_o.html#a1931c669432007a94660213294966066",tooltip="Writes a Species's density to an HDF5 file."];
+}

@@ -1,0 +1,105 @@
+\hypertarget{two_d__test_8h}{}\doxysection{src/two\+D\+\_\+test.h File Reference}
+\label{two_d__test_8h}\index{src/twoD\_test.h@{src/twoD\_test.h}}
+{\ttfamily \#include \char`\"{}Simulation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Species.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Field.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{two_d__test_8h_a171aec4023827d23ef9ff06c791a7aa7}{two\+D\+\_\+test}} (\mbox{\hyperlink{class_species}{Species}} \&spec, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Npar)
+\item 
+void \mbox{\hyperlink{two_d__test_8h_a7599c215e775b32e8f7e8e92687117b0}{two\+\_\+stream\+\_\+plus}} (\mbox{\hyperlink{class_species}{Species}} \&spec, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Npar)
+\item 
+void \mbox{\hyperlink{two_d__test_8h_a5890d9f7091ea697adf479fd1d5e7972}{two\+\_\+stream\+\_\+minus}} (\mbox{\hyperlink{class_species}{Species}} \&spec, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Npar)
+\item 
+void \mbox{\hyperlink{two_d__test_8h_ab4908972b17888da64d7fdc2d2b47a90}{init\+\_\+e\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} size)
+\item 
+void \mbox{\hyperlink{two_d__test_8h_a55b85256031b377084391c3a14e42175}{init\+\_\+b\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{two_d__test_8h_a909b9f327fc67ca5ecf61e243a098db3}{ndump}} = 1
+\item 
+const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{two_d__test_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}} = 256
+\item 
+const double \mbox{\hyperlink{two_d__test_8h_a72cf8d5b890ce916d1ef3f13e4e10068}{L\+\_\+sys}} = 8.\+0 $\ast$ M\+\_\+\+PI $\ast$ sqrt(3.\+0)
+\item 
+const double \mbox{\hyperlink{two_d__test_8h_acebd3f4d3a03bd5d4250087d3e45dc72}{tmax}} = 10.\+0 $\ast$ M\+\_\+\+PI
+\item 
+const double \mbox{\hyperlink{two_d__test_8h_a4d2852f394c94e7eaac02e3c5b393654}{dt}} = 0.\+025
+\item 
+const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{two_d__test_8h_ab8aad333299221f97399a7290e821569}{nspec}} = 2
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{two_d__test_8h_a55b85256031b377084391c3a14e42175}\label{two_d__test_8h_a55b85256031b377084391c3a14e42175}} 
+\index{twoD\_test.h@{twoD\_test.h}!init\_b\_field@{init\_b\_field}}
+\index{init\_b\_field@{init\_b\_field}!twoD\_test.h@{twoD\_test.h}}
+\doxysubsubsection{\texorpdfstring{init\_b\_field()}{init\_b\_field()}}
+{\footnotesize\ttfamily void init\+\_\+b\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{two_d__test_8h_ab4908972b17888da64d7fdc2d2b47a90}\label{two_d__test_8h_ab4908972b17888da64d7fdc2d2b47a90}} 
+\index{twoD\_test.h@{twoD\_test.h}!init\_e\_field@{init\_e\_field}}
+\index{init\_e\_field@{init\_e\_field}!twoD\_test.h@{twoD\_test.h}}
+\doxysubsubsection{\texorpdfstring{init\_e\_field()}{init\_e\_field()}}
+{\footnotesize\ttfamily void init\+\_\+e\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{two_d__test_8h_a5890d9f7091ea697adf479fd1d5e7972}\label{two_d__test_8h_a5890d9f7091ea697adf479fd1d5e7972}} 
+\index{twoD\_test.h@{twoD\_test.h}!two\_stream\_minus@{two\_stream\_minus}}
+\index{two\_stream\_minus@{two\_stream\_minus}!twoD\_test.h@{twoD\_test.h}}
+\doxysubsubsection{\texorpdfstring{two\_stream\_minus()}{two\_stream\_minus()}}
+{\footnotesize\ttfamily void two\+\_\+stream\+\_\+minus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Npar }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{two_d__test_8h_a7599c215e775b32e8f7e8e92687117b0}\label{two_d__test_8h_a7599c215e775b32e8f7e8e92687117b0}} 
+\index{twoD\_test.h@{twoD\_test.h}!two\_stream\_plus@{two\_stream\_plus}}
+\index{two\_stream\_plus@{two\_stream\_plus}!twoD\_test.h@{twoD\_test.h}}
+\doxysubsubsection{\texorpdfstring{two\_stream\_plus()}{two\_stream\_plus()}}
+{\footnotesize\ttfamily void two\+\_\+stream\+\_\+plus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Npar }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{two_d__test_8h_a171aec4023827d23ef9ff06c791a7aa7}\label{two_d__test_8h_a171aec4023827d23ef9ff06c791a7aa7}} 
+\index{twoD\_test.h@{twoD\_test.h}!twoD\_test@{twoD\_test}}
+\index{twoD\_test@{twoD\_test}!twoD\_test.h@{twoD\_test.h}}
+\doxysubsubsection{\texorpdfstring{twoD\_test()}{twoD\_test()}}
+{\footnotesize\ttfamily void two\+D\+\_\+test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Npar }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{two_d__test_8h_a4d2852f394c94e7eaac02e3c5b393654}\label{two_d__test_8h_a4d2852f394c94e7eaac02e3c5b393654}} 
+\index{twoD\_test.h@{twoD\_test.h}!dt@{dt}}
+\index{dt@{dt}!twoD\_test.h@{twoD\_test.h}}
+\doxysubsubsection{\texorpdfstring{dt}{dt}}
+{\footnotesize\ttfamily const double dt = 0.\+025}
+
+\mbox{\Hypertarget{two_d__test_8h_a72cf8d5b890ce916d1ef3f13e4e10068}\label{two_d__test_8h_a72cf8d5b890ce916d1ef3f13e4e10068}} 
+\index{twoD\_test.h@{twoD\_test.h}!L\_sys@{L\_sys}}
+\index{L\_sys@{L\_sys}!twoD\_test.h@{twoD\_test.h}}
+\doxysubsubsection{\texorpdfstring{L\_sys}{L\_sys}}
+{\footnotesize\ttfamily const double L\+\_\+sys = 8.\+0 $\ast$ M\+\_\+\+PI $\ast$ sqrt(3.\+0)}
+
+\mbox{\Hypertarget{two_d__test_8h_a909b9f327fc67ca5ecf61e243a098db3}\label{two_d__test_8h_a909b9f327fc67ca5ecf61e243a098db3}} 
+\index{twoD\_test.h@{twoD\_test.h}!ndump@{ndump}}
+\index{ndump@{ndump}!twoD\_test.h@{twoD\_test.h}}
+\doxysubsubsection{\texorpdfstring{ndump}{ndump}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ndump = 1}
+
+\mbox{\Hypertarget{two_d__test_8h_ab8aad333299221f97399a7290e821569}\label{two_d__test_8h_ab8aad333299221f97399a7290e821569}} 
+\index{twoD\_test.h@{twoD\_test.h}!nspec@{nspec}}
+\index{nspec@{nspec}!twoD\_test.h@{twoD\_test.h}}
+\doxysubsubsection{\texorpdfstring{nspec}{nspec}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} nspec = 2}
+
+\mbox{\Hypertarget{two_d__test_8h_a8dfb498413096d9fce8a7ed69cb41d16}\label{two_d__test_8h_a8dfb498413096d9fce8a7ed69cb41d16}} 
+\index{twoD\_test.h@{twoD\_test.h}!Nx@{Nx}}
+\index{Nx@{Nx}!twoD\_test.h@{twoD\_test.h}}
+\doxysubsubsection{\texorpdfstring{Nx}{Nx}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Nx = 256}
+
+\mbox{\Hypertarget{two_d__test_8h_acebd3f4d3a03bd5d4250087d3e45dc72}\label{two_d__test_8h_acebd3f4d3a03bd5d4250087d3e45dc72}} 
+\index{twoD\_test.h@{twoD\_test.h}!tmax@{tmax}}
+\index{tmax@{tmax}!twoD\_test.h@{twoD\_test.h}}
+\doxysubsubsection{\texorpdfstring{tmax}{tmax}}
+{\footnotesize\ttfamily const double tmax = 10.\+0 $\ast$ M\+\_\+\+PI}
+

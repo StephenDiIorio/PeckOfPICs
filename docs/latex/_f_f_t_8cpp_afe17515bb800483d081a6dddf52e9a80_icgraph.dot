@@ -1,0 +1,12 @@
+digraph "sinc"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="sinc",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="get_K2_vec",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_f_f_t_8h.html#a110ee0a07ccf8ac7fe39a5b8d24b1da1",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="get_kappa_vec",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_f_f_t_8h.html#af3cea07f24f004d510b214db62ff7de1",tooltip=" "];
+}

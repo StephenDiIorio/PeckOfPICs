@@ -1,0 +1,49 @@
+digraph "src/FFT.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="src/FFT.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="src/Field.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_field_8h.html",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="src/Species.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_species_8h.html",tooltip=" "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="src/Simulation.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_simulation_8h.html",tooltip=" "];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="src/beam_plasma.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$beam__plasma_8h.html",tooltip=" "];
+  Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="src/gyro.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$gyro_8h.html",tooltip=" "];
+  Node4 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="src/landau.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$landau_8h.html",tooltip=" "];
+  Node4 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="src/pic.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pic_8cpp.html",tooltip=" "];
+  Node4 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="src/two_stream.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$two__stream_8h.html",tooltip=" "];
+  Node9 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="src/Simulation.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_simulation_8cpp.html",tooltip=" "];
+  Node4 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="src/twoD_test.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$two_d__test_8h.html",tooltip=" "];
+  Node4 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="src/uh.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$uh_8h.html",tooltip=" "];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="src/Species.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_species_8cpp.html",tooltip=" "];
+  Node3 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="src/Field.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_field_8cpp.html",tooltip=" "];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="src/FFT.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_f_f_t_8cpp.html",tooltip=" "];
+}

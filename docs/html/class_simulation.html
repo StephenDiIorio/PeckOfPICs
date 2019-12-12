@@ -95,22 +95,24 @@ $(document).ready(function(){initNavTree('class_simulation.html','');});
 <div class="title">Simulation Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_simulation_8h_source.html">Simulation.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a903351886cff6b2ce683d4c828771927"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a903351886cff6b2ce683d4c828771927">Simulation</a> (uint ndump, uint Nx, uint Ny, double L_x, double L_y, double dt, double tmax)</td></tr>
+<tr class="memitem:a903351886cff6b2ce683d4c828771927"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a903351886cff6b2ce683d4c828771927">Simulation</a> (<a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="class_simulation.html#a53dfedd2e31bdc7488d84f60196e9268">ndump</a>, <a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="class_simulation.html#affdeb381435d460ddab2c509c8a318b4">Nx</a>, <a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="class_simulation.html#ab346f153460df80e73384db8420a2e69">Ny</a>, double <a class="el" href="class_simulation.html#a063b57900a629484597552fb17f859d2">L_x</a>, double <a class="el" href="class_simulation.html#a198b2d992121658d3859e0e3b6915073">L_y</a>, double <a class="el" href="class_simulation.html#af43e498bfc83c777db5f5ac4025ff923">dt</a>, double <a class="el" href="class_simulation.html#afa0838d9f8a03416d8ee0d3a0fe2b347">tmax</a>)</td></tr>
 <tr class="memdesc:a903351886cff6b2ce683d4c828771927"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_simulation.html">Simulation</a> object.  <a href="class_simulation.html#a903351886cff6b2ce683d4c828771927">More...</a><br /></td></tr>
 <tr class="separator:a903351886cff6b2ce683d4c828771927"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80fad3f57dfaf195a36f7bc49bc88279"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a80fad3f57dfaf195a36f7bc49bc88279">~Simulation</a> ()</td></tr>
 <tr class="memdesc:a80fad3f57dfaf195a36f7bc49bc88279"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="class_simulation.html">Simulation</a> object.  <a href="class_simulation.html#a80fad3f57dfaf195a36f7bc49bc88279">More...</a><br /></td></tr>
 <tr class="separator:a80fad3f57dfaf195a36f7bc49bc88279"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a160ea91c95613451f128ddbb66680bb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a160ea91c95613451f128ddbb66680bb2">add_species</a> (uint npar, double Qpar, double density, std::function&lt; void(<a class="el" href="class_species.html">Species</a> &amp;, uint)&gt; init_fcn)</td></tr>
+<tr class="memitem:a160ea91c95613451f128ddbb66680bb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a160ea91c95613451f128ddbb66680bb2">add_species</a> (<a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> npar, double Qpar, double density, std::function&lt; void(<a class="el" href="class_species.html">Species</a> &amp;, <a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>)&gt; init_fcn)</td></tr>
 <tr class="memdesc:a160ea91c95613451f128ddbb66680bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new species object to the simulation.  <a href="class_simulation.html#a160ea91c95613451f128ddbb66680bb2">More...</a><br /></td></tr>
 <tr class="separator:a160ea91c95613451f128ddbb66680bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13970235afbcef60d9b7d71000537c38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a13970235afbcef60d9b7d71000537c38">add_e_field</a> (std::function&lt; void(<a class="el" href="class_field.html">Field</a> &amp;, uint, uint)&gt; init_fcn)</td></tr>
+<tr class="memitem:a13970235afbcef60d9b7d71000537c38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a13970235afbcef60d9b7d71000537c38">add_e_field</a> (std::function&lt; void(<a class="el" href="class_field.html">Field</a> &amp;, <a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, <a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>)&gt; init_fcn)</td></tr>
 <tr class="memdesc:a13970235afbcef60d9b7d71000537c38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new electric field to the simulation.  <a href="class_simulation.html#a13970235afbcef60d9b7d71000537c38">More...</a><br /></td></tr>
 <tr class="separator:a13970235afbcef60d9b7d71000537c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60286cd89e16402b3fcc5300123edc22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a60286cd89e16402b3fcc5300123edc22">add_b_field</a> (std::function&lt; void(<a class="el" href="class_field.html">Field</a> &amp;, uint, uint)&gt; init_fcn)</td></tr>
+<tr class="memitem:a60286cd89e16402b3fcc5300123edc22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a60286cd89e16402b3fcc5300123edc22">add_b_field</a> (std::function&lt; void(<a class="el" href="class_field.html">Field</a> &amp;, <a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, <a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>)&gt; init_fcn)</td></tr>
 <tr class="memdesc:a60286cd89e16402b3fcc5300123edc22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new magnetic field to the simulation.  <a href="class_simulation.html#a60286cd89e16402b3fcc5300123edc22">More...</a><br /></td></tr>
 <tr class="separator:a60286cd89e16402b3fcc5300123edc22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60656250cb2b710d53f144329acaced4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a60656250cb2b710d53f144329acaced4">dump_data</a> ()</td></tr>
@@ -128,47 +130,33 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aedda8aa9a13c3d9302750715d83c38e0"><td class="memItemLeft" align="right" valign="top"><a id="aedda8aa9a13c3d9302750715d83c38e0"></a>
-unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>n_iter</b></td></tr>
+<tr class="memitem:aedda8aa9a13c3d9302750715d83c38e0"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#aedda8aa9a13c3d9302750715d83c38e0">n_iter</a></td></tr>
 <tr class="separator:aedda8aa9a13c3d9302750715d83c38e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53dfedd2e31bdc7488d84f60196e9268"><td class="memItemLeft" align="right" valign="top"><a id="a53dfedd2e31bdc7488d84f60196e9268"></a>
-uint&#160;</td><td class="memItemRight" valign="bottom"><b>ndump</b></td></tr>
+<tr class="memitem:a53dfedd2e31bdc7488d84f60196e9268"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a53dfedd2e31bdc7488d84f60196e9268">ndump</a></td></tr>
 <tr class="separator:a53dfedd2e31bdc7488d84f60196e9268"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affdeb381435d460ddab2c509c8a318b4"><td class="memItemLeft" align="right" valign="top"><a id="affdeb381435d460ddab2c509c8a318b4"></a>
-uint&#160;</td><td class="memItemRight" valign="bottom"><b>Nx</b></td></tr>
+<tr class="memitem:affdeb381435d460ddab2c509c8a318b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#affdeb381435d460ddab2c509c8a318b4">Nx</a></td></tr>
 <tr class="separator:affdeb381435d460ddab2c509c8a318b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab346f153460df80e73384db8420a2e69"><td class="memItemLeft" align="right" valign="top"><a id="ab346f153460df80e73384db8420a2e69"></a>
-uint&#160;</td><td class="memItemRight" valign="bottom"><b>Ny</b></td></tr>
+<tr class="memitem:ab346f153460df80e73384db8420a2e69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#ab346f153460df80e73384db8420a2e69">Ny</a></td></tr>
 <tr class="separator:ab346f153460df80e73384db8420a2e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a063b57900a629484597552fb17f859d2"><td class="memItemLeft" align="right" valign="top"><a id="a063b57900a629484597552fb17f859d2"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>L_x</b></td></tr>
+<tr class="memitem:a063b57900a629484597552fb17f859d2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a063b57900a629484597552fb17f859d2">L_x</a></td></tr>
 <tr class="separator:a063b57900a629484597552fb17f859d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a198b2d992121658d3859e0e3b6915073"><td class="memItemLeft" align="right" valign="top"><a id="a198b2d992121658d3859e0e3b6915073"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>L_y</b></td></tr>
+<tr class="memitem:a198b2d992121658d3859e0e3b6915073"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a198b2d992121658d3859e0e3b6915073">L_y</a></td></tr>
 <tr class="separator:a198b2d992121658d3859e0e3b6915073"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26f1d3168ba61738b6539537fa95fe3b"><td class="memItemLeft" align="right" valign="top"><a id="a26f1d3168ba61738b6539537fa95fe3b"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>dx</b></td></tr>
+<tr class="memitem:a26f1d3168ba61738b6539537fa95fe3b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a26f1d3168ba61738b6539537fa95fe3b">dx</a></td></tr>
 <tr class="separator:a26f1d3168ba61738b6539537fa95fe3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a017c4acf95956529b20748374c29fe08"><td class="memItemLeft" align="right" valign="top"><a id="a017c4acf95956529b20748374c29fe08"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>dy</b></td></tr>
+<tr class="memitem:a017c4acf95956529b20748374c29fe08"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a017c4acf95956529b20748374c29fe08">dy</a></td></tr>
 <tr class="separator:a017c4acf95956529b20748374c29fe08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af43e498bfc83c777db5f5ac4025ff923"><td class="memItemLeft" align="right" valign="top"><a id="af43e498bfc83c777db5f5ac4025ff923"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>dt</b></td></tr>
+<tr class="memitem:af43e498bfc83c777db5f5ac4025ff923"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#af43e498bfc83c777db5f5ac4025ff923">dt</a></td></tr>
 <tr class="separator:af43e498bfc83c777db5f5ac4025ff923"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa0838d9f8a03416d8ee0d3a0fe2b347"><td class="memItemLeft" align="right" valign="top"><a id="afa0838d9f8a03416d8ee0d3a0fe2b347"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>tmax</b></td></tr>
+<tr class="memitem:afa0838d9f8a03416d8ee0d3a0fe2b347"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#afa0838d9f8a03416d8ee0d3a0fe2b347">tmax</a></td></tr>
 <tr class="separator:afa0838d9f8a03416d8ee0d3a0fe2b347"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7b2d3fca98b94c5d7249ae3bb44c8fc"><td class="memItemLeft" align="right" valign="top"><a id="ae7b2d3fca98b94c5d7249ae3bb44c8fc"></a>
-uint&#160;</td><td class="memItemRight" valign="bottom"><b>nspec</b></td></tr>
+<tr class="memitem:ae7b2d3fca98b94c5d7249ae3bb44c8fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#ae7b2d3fca98b94c5d7249ae3bb44c8fc">nspec</a></td></tr>
 <tr class="separator:ae7b2d3fca98b94c5d7249ae3bb44c8fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9ca2fc6beb253e8e0baada14aac90ab"><td class="memItemLeft" align="right" valign="top"><a id="ad9ca2fc6beb253e8e0baada14aac90ab"></a>
-std::vector&lt; <a class="el" href="class_species.html">Species</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>spec</b></td></tr>
+<tr class="memitem:ad9ca2fc6beb253e8e0baada14aac90ab"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_species.html">Species</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#ad9ca2fc6beb253e8e0baada14aac90ab">spec</a></td></tr>
 <tr class="separator:ad9ca2fc6beb253e8e0baada14aac90ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ef307ef9538f944222e19480e162244"><td class="memItemLeft" align="right" valign="top"><a id="a8ef307ef9538f944222e19480e162244"></a>
-<a class="el" href="class_field.html">Field</a>&#160;</td><td class="memItemRight" valign="bottom"><b>e_field</b></td></tr>
+<tr class="memitem:a8ef307ef9538f944222e19480e162244"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_field.html">Field</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#a8ef307ef9538f944222e19480e162244">e_field</a></td></tr>
 <tr class="separator:a8ef307ef9538f944222e19480e162244"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfbc2f698fa481f5a70c82d53a7a3dde"><td class="memItemLeft" align="right" valign="top"><a id="adfbc2f698fa481f5a70c82d53a7a3dde"></a>
-<a class="el" href="class_field.html">Field</a>&#160;</td><td class="memItemRight" valign="bottom"><b>b_field</b></td></tr>
+<tr class="memitem:adfbc2f698fa481f5a70c82d53a7a3dde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_field.html">Field</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation.html#adfbc2f698fa481f5a70c82d53a7a3dde">b_field</a></td></tr>
 <tr class="separator:adfbc2f698fa481f5a70c82d53a7a3dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -181,19 +169,19 @@ std::vector&lt; <a class="el" href="class_species.html">Species</a> &gt;&#160;</
         <tr>
           <td class="memname">Simulation::Simulation </td>
           <td>(</td>
-          <td class="paramtype">uint&#160;</td>
+          <td class="paramtype"><a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
           <td class="paramname"><em>ndump</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint&#160;</td>
+          <td class="paramtype"><a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
           <td class="paramname"><em>Nx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint&#160;</td>
+          <td class="paramtype"><a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
           <td class="paramname"><em>Ny</em>, </td>
         </tr>
         <tr>
@@ -273,7 +261,7 @@ std::vector&lt; <a class="el" href="class_species.html">Species</a> &gt;&#160;</
         <tr>
           <td class="memname">void Simulation::add_b_field </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; void(<a class="el" href="class_field.html">Field</a> &amp;, uint, uint)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="class_field.html">Field</a> &amp;, <a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, <a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>)&gt;&#160;</td>
           <td class="paramname"><em>init_fcn</em></td><td>)</td>
           <td></td>
         </tr>
@@ -299,7 +287,7 @@ std::vector&lt; <a class="el" href="class_species.html">Species</a> &gt;&#160;</
         <tr>
           <td class="memname">void Simulation::add_e_field </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; void(<a class="el" href="class_field.html">Field</a> &amp;, uint, uint)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="class_field.html">Field</a> &amp;, <a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, <a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>)&gt;&#160;</td>
           <td class="paramname"><em>init_fcn</em></td><td>)</td>
           <td></td>
         </tr>
@@ -325,7 +313,7 @@ std::vector&lt; <a class="el" href="class_species.html">Species</a> &gt;&#160;</
         <tr>
           <td class="memname">void Simulation::add_species </td>
           <td>(</td>
-          <td class="paramtype">uint&#160;</td>
+          <td class="paramtype"><a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&#160;</td>
           <td class="paramname"><em>npar</em>, </td>
         </tr>
         <tr>
@@ -343,7 +331,7 @@ std::vector&lt; <a class="el" href="class_species.html">Species</a> &gt;&#160;</
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; void(<a class="el" href="class_species.html">Species</a> &amp;, uint)&gt;&#160;</td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="class_species.html">Species</a> &amp;, <a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>)&gt;&#160;</td>
           <td class="paramname"><em>init_fcn</em>&#160;</td>
         </tr>
         <tr>
@@ -454,12 +442,209 @@ false False if number of iterations is not a multiple of ndump </dd></dl>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="adfbc2f698fa481f5a70c82d53a7a3dde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfbc2f698fa481f5a70c82d53a7a3dde">&#9670;&nbsp;</a></span>b_field</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_field.html">Field</a> Simulation::b_field</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af43e498bfc83c777db5f5ac4025ff923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af43e498bfc83c777db5f5ac4025ff923">&#9670;&nbsp;</a></span>dt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Simulation::dt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a26f1d3168ba61738b6539537fa95fe3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26f1d3168ba61738b6539537fa95fe3b">&#9670;&nbsp;</a></span>dx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Simulation::dx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a017c4acf95956529b20748374c29fe08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a017c4acf95956529b20748374c29fe08">&#9670;&nbsp;</a></span>dy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Simulation::dy</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ef307ef9538f944222e19480e162244"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ef307ef9538f944222e19480e162244">&#9670;&nbsp;</a></span>e_field</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_field.html">Field</a> Simulation::e_field</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a063b57900a629484597552fb17f859d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a063b57900a629484597552fb17f859d2">&#9670;&nbsp;</a></span>L_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Simulation::L_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a198b2d992121658d3859e0e3b6915073"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a198b2d992121658d3859e0e3b6915073">&#9670;&nbsp;</a></span>L_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Simulation::L_y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedda8aa9a13c3d9302750715d83c38e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedda8aa9a13c3d9302750715d83c38e0">&#9670;&nbsp;</a></span>n_iter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long Simulation::n_iter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a53dfedd2e31bdc7488d84f60196e9268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53dfedd2e31bdc7488d84f60196e9268">&#9670;&nbsp;</a></span>ndump</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Simulation::ndump</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7b2d3fca98b94c5d7249ae3bb44c8fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7b2d3fca98b94c5d7249ae3bb44c8fc">&#9670;&nbsp;</a></span>nspec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Simulation::nspec</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="affdeb381435d460ddab2c509c8a318b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affdeb381435d460ddab2c509c8a318b4">&#9670;&nbsp;</a></span>Nx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Simulation::Nx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab346f153460df80e73384db8420a2e69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab346f153460df80e73384db8420a2e69">&#9670;&nbsp;</a></span>Ny</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Simulation::Ny</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9ca2fc6beb253e8e0baada14aac90ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9ca2fc6beb253e8e0baada14aac90ab">&#9670;&nbsp;</a></span>spec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_species.html">Species</a>&gt; Simulation::spec</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa0838d9f8a03416d8ee0d3a0fe2b347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa0838d9f8a03416d8ee0d3a0fe2b347">&#9670;&nbsp;</a></span>tmax</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Simulation::tmax</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="_simulation_8h_source.html">Simulation.h</a></li>
 <li>src/<a class="el" href="beam__plasma_8h_source.html">beam_plasma.h</a></li>
 <li>src/<a class="el" href="gyro_8h_source.html">gyro.h</a></li>
 <li>src/<a class="el" href="landau_8h_source.html">landau.h</a></li>
-<li>src/Simulation.cpp</li>
+<li>src/<a class="el" href="_simulation_8cpp.html">Simulation.cpp</a></li>
 <li>src/<a class="el" href="two__stream_8h_source.html">two_stream.h</a></li>
 <li>src/<a class="el" href="two_d__test_8h_source.html">twoD_test.h</a></li>
 <li>src/<a class="el" href="uh_8h_source.html">uh.h</a></li>

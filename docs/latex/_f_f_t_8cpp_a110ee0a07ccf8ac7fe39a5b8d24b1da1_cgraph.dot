@@ -1,0 +1,10 @@
+digraph "get_K2_vec"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="get_K2_vec",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="sinc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_f_f_t_8cpp.html#afe17515bb800483d081a6dddf52e9a80",tooltip=" "];
+}

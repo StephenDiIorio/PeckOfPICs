@@ -18,81 +18,64 @@ Inheritance diagram for Data\+Storage\+:\begin{figure}[H]
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_data_storage_a2272054bb0f79ec885f1d490712185fd}\label{class_data_storage_a2272054bb0f79ec885f1d490712185fd}} 
-using {\bfseries iterator} = std\+::vector$<$ double $>$\+::iterator
+using \mbox{\hyperlink{class_data_storage_a2272054bb0f79ec885f1d490712185fd}{iterator}} = std\+::vector$<$ double $>$\+::\mbox{\hyperlink{class_data_storage_a2272054bb0f79ec885f1d490712185fd}{iterator}}
 \item 
-\mbox{\Hypertarget{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}\label{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}} 
-using {\bfseries const\+\_\+iterator} = std\+::vector$<$ double $>$\+::const\+\_\+iterator
+using \mbox{\hyperlink{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}{const\+\_\+iterator}} = std\+::vector$<$ double $>$\+::\mbox{\hyperlink{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}{const\+\_\+iterator}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_data_storage_a4cd0342d8b9e4ebf2239464a09c73c3f}\label{class_data_storage_a4cd0342d8b9e4ebf2239464a09c73c3f}} 
-iterator {\bfseries begin} () noexcept
+\mbox{\hyperlink{class_data_storage_a2272054bb0f79ec885f1d490712185fd}{iterator}} \mbox{\hyperlink{class_data_storage_a4cd0342d8b9e4ebf2239464a09c73c3f}{begin}} () noexcept
 \item 
-\mbox{\Hypertarget{class_data_storage_abc13353dbdeacac56f1f67e61c43b97c}\label{class_data_storage_abc13353dbdeacac56f1f67e61c43b97c}} 
-const\+\_\+iterator {\bfseries cbegin} () const noexcept
+\mbox{\hyperlink{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}{const\+\_\+iterator}} \mbox{\hyperlink{class_data_storage_abc13353dbdeacac56f1f67e61c43b97c}{cbegin}} () const noexcept
 \item 
-\mbox{\Hypertarget{class_data_storage_ad5798355a01c470615b2b1b0fb489c49}\label{class_data_storage_ad5798355a01c470615b2b1b0fb489c49}} 
-iterator {\bfseries end} () noexcept
+\mbox{\hyperlink{class_data_storage_a2272054bb0f79ec885f1d490712185fd}{iterator}} \mbox{\hyperlink{class_data_storage_ad5798355a01c470615b2b1b0fb489c49}{end}} () noexcept
 \item 
-\mbox{\Hypertarget{class_data_storage_ac159ad0c1725fce4c8b32c3fefa2abb7}\label{class_data_storage_ac159ad0c1725fce4c8b32c3fefa2abb7}} 
-const\+\_\+iterator {\bfseries cend} () const noexcept
+\mbox{\hyperlink{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}{const\+\_\+iterator}} \mbox{\hyperlink{class_data_storage_ac159ad0c1725fce4c8b32c3fefa2abb7}{cend}} () const noexcept
 \item 
 double \& \mbox{\hyperlink{class_data_storage_a3fffe7a97e286084d6d3607377485d68}{operator\mbox{[}$\,$\mbox{]}}} (const std\+::size\+\_\+t idx)
 \begin{DoxyCompactList}\small\item\em Returns a reference to the element at specified location idx. No bounds checking is performed. \end{DoxyCompactList}\item 
 const double \& \mbox{\hyperlink{class_data_storage_a1e59974201b9e506d2448c227898fd9b}{operator\mbox{[}$\,$\mbox{]}}} (const std\+::size\+\_\+t idx) const
 \begin{DoxyCompactList}\small\item\em Returns a reference to the element at specified location idx. No bounds checking is performed. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_data_storage_a2abf71f8ad75ddea12da6f6e9ee59b2c}\label{class_data_storage_a2abf71f8ad75ddea12da6f6e9ee59b2c}} 
-double \& {\bfseries at} (const std\+::size\+\_\+t idx)
+double \& \mbox{\hyperlink{class_data_storage_a2abf71f8ad75ddea12da6f6e9ee59b2c}{at}} (const std\+::size\+\_\+t idx)
 \item 
 const double \& \mbox{\hyperlink{class_data_storage_ac8deb1f1d7518f676490d52cb4e61eb2}{at}} (const std\+::size\+\_\+t idx) const
 \begin{DoxyCompactList}\small\item\em Returns a reference to the element at specified location idx, with bounds checking. If idx is not within the range of the container, an exception of type std\+::out\+\_\+of\+\_\+range is thrown. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_data_storage_a1615220a9c7e39d2d8643640b663be38}\label{class_data_storage_a1615220a9c7e39d2d8643640b663be38}} 
-virtual void {\bfseries print} () const =0
+virtual void \mbox{\hyperlink{class_data_storage_a1615220a9c7e39d2d8643640b663be38}{print}} () const =0
 \item 
-\mbox{\Hypertarget{class_data_storage_a97f6356641ae855e40d1be2510abdb4c}\label{class_data_storage_a97f6356641ae855e40d1be2510abdb4c}} 
-virtual std\+::ostream \& {\bfseries print} (std\+::ostream \&s) const =0
+virtual std\+::ostream \& \mbox{\hyperlink{class_data_storage_a97f6356641ae855e40d1be2510abdb4c}{print}} (std\+::ostream \&s) const =0
 \item 
 std\+::size\+\_\+t \mbox{\hyperlink{class_data_storage_a686ce00581d02d9f7a99f5061c81e21e}{get\+\_\+size}} () const
 \begin{DoxyCompactList}\small\item\em Get the total number of elements in \mbox{\hyperlink{class_data_storage}{Data\+Storage}}. \end{DoxyCompactList}\item 
 const double $\ast$ \mbox{\hyperlink{class_data_storage_aefa3e9b8a52dd2c109047abe9ea921d7}{get\+\_\+data}} () const
 \begin{DoxyCompactList}\small\item\em Get a pointer to the data stored in the object. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_data_storage_af6458585b27eab6c4d04441cbc0a8447}\label{class_data_storage_af6458585b27eab6c4d04441cbc0a8447}} 
-virtual std\+::size\+\_\+t {\bfseries get\+\_\+ndims} () const =0
+virtual std\+::size\+\_\+t \mbox{\hyperlink{class_data_storage_af6458585b27eab6c4d04441cbc0a8447}{get\+\_\+ndims}} () const =0
 \item 
-\mbox{\Hypertarget{class_data_storage_a63f21a3abccd5ba7a75408d7f640e0d7}\label{class_data_storage_a63f21a3abccd5ba7a75408d7f640e0d7}} 
-virtual std\+::size\+\_\+t {\bfseries get\+\_\+\+Ni\+\_\+size} (std\+::size\+\_\+t i) const =0
+virtual std\+::size\+\_\+t \mbox{\hyperlink{class_data_storage_a63f21a3abccd5ba7a75408d7f640e0d7}{get\+\_\+\+Ni\+\_\+size}} (std\+::size\+\_\+t i) const =0
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Types}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_data_storage_ade18a41b15f09db78805439c8e95910c}\label{class_data_storage_ade18a41b15f09db78805439c8e95910c}} 
-enum {\bfseries accessors} \{ {\bfseries x1\+\_\+accessor} = 0, 
-{\bfseries x2\+\_\+accessor} = 1, 
-{\bfseries x3\+\_\+accessor} = 2
+enum \mbox{\hyperlink{class_data_storage_ade18a41b15f09db78805439c8e95910c}{accessors}} \{ \mbox{\hyperlink{class_data_storage_ade18a41b15f09db78805439c8e95910ca9fab98a09b8a507fea0ccd524458b320}{x1\+\_\+accessor}} = 0, 
+\mbox{\hyperlink{class_data_storage_ade18a41b15f09db78805439c8e95910cad1adaf3abb9ed6cb672eb933d4089246}{x2\+\_\+accessor}} = 1, 
+\mbox{\hyperlink{class_data_storage_ade18a41b15f09db78805439c8e95910cae06f0bff6a9e359a76447a34e8199491}{x3\+\_\+accessor}} = 2
  \}
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_data_storage_aee2c57d5704a0677bd07283d661cb18a}\label{class_data_storage_aee2c57d5704a0677bd07283d661cb18a}} 
-std\+::size\+\_\+t {\bfseries size}
+std\+::size\+\_\+t \mbox{\hyperlink{class_data_storage_aee2c57d5704a0677bd07283d661cb18a}{size}}
 \item 
-\mbox{\Hypertarget{class_data_storage_ae317b0de769982e5286e3e2d9301aa25}\label{class_data_storage_ae317b0de769982e5286e3e2d9301aa25}} 
-std\+::vector$<$ double $>$ {\bfseries data}
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_data_storage_ae317b0de769982e5286e3e2d9301aa25}{data}}
 \item 
-\mbox{\Hypertarget{class_data_storage_a98dddf43330a23b4570708838aeebe00}\label{class_data_storage_a98dddf43330a23b4570708838aeebe00}} 
-const char {\bfseries same\+\_\+size\+\_\+err} \mbox{[}45\mbox{]} = \char`\"{}Error\+: Data objects are not of the same size\char`\"{}
+const char \mbox{\hyperlink{class_data_storage_a98dddf43330a23b4570708838aeebe00}{same\+\_\+size\+\_\+err}} \mbox{[}45\mbox{]} = \char`\"{}Error\+: Data objects are not of the same \mbox{\hyperlink{class_data_storage_aee2c57d5704a0677bd07283d661cb18a}{size}}\char`\"{}
 \item 
-\mbox{\Hypertarget{class_data_storage_a850608ca2a666e57a5b810dc3f220f8d}\label{class_data_storage_a850608ca2a666e57a5b810dc3f220f8d}} 
-const char {\bfseries no\+\_\+dimension\+\_\+err} \mbox{[}45\mbox{]} = \char`\"{}Error\+: Data object dimension does not exist\char`\"{}
+const char \mbox{\hyperlink{class_data_storage_a850608ca2a666e57a5b810dc3f220f8d}{no\+\_\+dimension\+\_\+err}} \mbox{[}45\mbox{]} = \char`\"{}Error\+: Data object dimension does not exist\char`\"{}
 \end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_data_storage_a4347b2e9cf825c51021eb8a6277da2f3}\label{class_data_storage_a4347b2e9cf825c51021eb8a6277da2f3}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&s, const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&d)
+std\+::ostream \& \mbox{\hyperlink{class_data_storage_a4347b2e9cf825c51021eb8a6277da2f3}{operator$<$$<$}} (std\+::ostream \&s, const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&d)
 \item 
 void \mbox{\hyperlink{class_data_storage_ae9b682caff16617cc24c66c4eba59b8e}{print}} (const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&d)
 \begin{DoxyCompactList}\small\item\em Prints the \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -103,11 +86,55 @@ void \mbox{\hyperlink{class_data_storage_ae9b682caff16617cc24c66c4eba59b8e}{prin
 
 
 
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}\label{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}} 
+\index{DataStorage@{DataStorage}!const\_iterator@{const\_iterator}}
+\index{const\_iterator@{const\_iterator}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{const\_iterator}{const\_iterator}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}{Data\+Storage\+::const\+\_\+iterator}} =  std\+::vector$<$double$>$\+::\mbox{\hyperlink{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}{const\+\_\+iterator}}}
+
+\mbox{\Hypertarget{class_data_storage_a2272054bb0f79ec885f1d490712185fd}\label{class_data_storage_a2272054bb0f79ec885f1d490712185fd}} 
+\index{DataStorage@{DataStorage}!iterator@{iterator}}
+\index{iterator@{iterator}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{class_data_storage_a2272054bb0f79ec885f1d490712185fd}{Data\+Storage\+::iterator}} =  std\+::vector$<$double$>$\+::\mbox{\hyperlink{class_data_storage_a2272054bb0f79ec885f1d490712185fd}{iterator}}}
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_data_storage_ade18a41b15f09db78805439c8e95910c}\label{class_data_storage_ade18a41b15f09db78805439c8e95910c}} 
+\index{DataStorage@{DataStorage}!accessors@{accessors}}
+\index{accessors@{accessors}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{accessors}{accessors}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_data_storage_ade18a41b15f09db78805439c8e95910c}{Data\+Storage\+::accessors}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{x1\_accessor@{x1\_accessor}!DataStorage@{DataStorage}}\index{DataStorage@{DataStorage}!x1\_accessor@{x1\_accessor}}}\mbox{\Hypertarget{class_data_storage_ade18a41b15f09db78805439c8e95910ca9fab98a09b8a507fea0ccd524458b320}\label{class_data_storage_ade18a41b15f09db78805439c8e95910ca9fab98a09b8a507fea0ccd524458b320}} 
+x1\+\_\+accessor&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{x2\_accessor@{x2\_accessor}!DataStorage@{DataStorage}}\index{DataStorage@{DataStorage}!x2\_accessor@{x2\_accessor}}}\mbox{\Hypertarget{class_data_storage_ade18a41b15f09db78805439c8e95910cad1adaf3abb9ed6cb672eb933d4089246}\label{class_data_storage_ade18a41b15f09db78805439c8e95910cad1adaf3abb9ed6cb672eb933d4089246}} 
+x2\+\_\+accessor&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{x3\_accessor@{x3\_accessor}!DataStorage@{DataStorage}}\index{DataStorage@{DataStorage}!x3\_accessor@{x3\_accessor}}}\mbox{\Hypertarget{class_data_storage_ade18a41b15f09db78805439c8e95910cae06f0bff6a9e359a76447a34e8199491}\label{class_data_storage_ade18a41b15f09db78805439c8e95910cae06f0bff6a9e359a76447a34e8199491}} 
+x3\+\_\+accessor&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_data_storage_a2abf71f8ad75ddea12da6f6e9ee59b2c}\label{class_data_storage_a2abf71f8ad75ddea12da6f6e9ee59b2c}} 
+\index{DataStorage@{DataStorage}!at@{at}}
+\index{at@{at}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double\& Data\+Storage\+::at (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{idx }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_data_storage_ac8deb1f1d7518f676490d52cb4e61eb2}\label{class_data_storage_ac8deb1f1d7518f676490d52cb4e61eb2}} 
 \index{DataStorage@{DataStorage}!at@{at}}
 \index{at@{at}!DataStorage@{DataStorage}}
-\doxysubsubsection{\texorpdfstring{at()}{at()}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily const double \& Data\+Storage\+::at (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{idx }\end{DoxyParamCaption}) const}
 
 
@@ -122,6 +149,30 @@ Returns a reference to the element at specified location idx, with bounds checki
 \begin{DoxyReturn}{Returns}
 double\& Reference to the requested element. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage_a4cd0342d8b9e4ebf2239464a09c73c3f}\label{class_data_storage_a4cd0342d8b9e4ebf2239464a09c73c3f}} 
+\index{DataStorage@{DataStorage}!begin@{begin}}
+\index{begin@{begin}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage_a2272054bb0f79ec885f1d490712185fd}{iterator}} Data\+Storage\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{class_data_storage_abc13353dbdeacac56f1f67e61c43b97c}\label{class_data_storage_abc13353dbdeacac56f1f67e61c43b97c}} 
+\index{DataStorage@{DataStorage}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{cbegin()}{cbegin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}{const\+\_\+iterator}} Data\+Storage\+::cbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{class_data_storage_ac159ad0c1725fce4c8b32c3fefa2abb7}\label{class_data_storage_ac159ad0c1725fce4c8b32c3fefa2abb7}} 
+\index{DataStorage@{DataStorage}!cend@{cend}}
+\index{cend@{cend}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{cend()}{cend()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage_a3c433d3edb80931617fb6b2e853359ea}{const\+\_\+iterator}} Data\+Storage\+::cend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{class_data_storage_ad5798355a01c470615b2b1b0fb489c49}\label{class_data_storage_ad5798355a01c470615b2b1b0fb489c49}} 
+\index{DataStorage@{DataStorage}!end@{end}}
+\index{end@{end}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_storage_a2272054bb0f79ec885f1d490712185fd}{iterator}} Data\+Storage\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
 \mbox{\Hypertarget{class_data_storage_aefa3e9b8a52dd2c109047abe9ea921d7}\label{class_data_storage_aefa3e9b8a52dd2c109047abe9ea921d7}} 
 \index{DataStorage@{DataStorage}!get\_data@{get\_data}}
 \index{get\_data@{get\_data}!DataStorage@{DataStorage}}
@@ -135,6 +186,26 @@ Get a pointer to the data stored in the object.
 \begin{DoxyReturn}{Returns}
 const double$\ast$ A pointer to the data 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage_af6458585b27eab6c4d04441cbc0a8447}\label{class_data_storage_af6458585b27eab6c4d04441cbc0a8447}} 
+\index{DataStorage@{DataStorage}!get\_ndims@{get\_ndims}}
+\index{get\_ndims@{get\_ndims}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{get\_ndims()}{get\_ndims()}}
+{\footnotesize\ttfamily virtual std\+::size\+\_\+t Data\+Storage\+::get\+\_\+ndims (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_data_storage__2_d_a6a1c521928eadf77b730e03fc122de79}{Data\+Storage\+\_\+2D}}, and \mbox{\hyperlink{class_data_storage__1_d_a0899168b4dc7662f6012291061112f6f}{Data\+Storage\+\_\+1D}}.
+
+\mbox{\Hypertarget{class_data_storage_a63f21a3abccd5ba7a75408d7f640e0d7}\label{class_data_storage_a63f21a3abccd5ba7a75408d7f640e0d7}} 
+\index{DataStorage@{DataStorage}!get\_Ni\_size@{get\_Ni\_size}}
+\index{get\_Ni\_size@{get\_Ni\_size}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{get\_Ni\_size()}{get\_Ni\_size()}}
+{\footnotesize\ttfamily virtual std\+::size\+\_\+t Data\+Storage\+::get\+\_\+\+Ni\+\_\+size (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_data_storage__2_d_a969746bdd5885b34535c26facd1ea696}{Data\+Storage\+\_\+2D}}, and \mbox{\hyperlink{class_data_storage__1_d_a02d5ce9923e4bae26c1d6aa46759e775}{Data\+Storage\+\_\+1D}}.
+
 \mbox{\Hypertarget{class_data_storage_a686ce00581d02d9f7a99f5061c81e21e}\label{class_data_storage_a686ce00581d02d9f7a99f5061c81e21e}} 
 \index{DataStorage@{DataStorage}!get\_size@{get\_size}}
 \index{get\_size@{get\_size}!DataStorage@{DataStorage}}
@@ -184,9 +255,35 @@ Returns a reference to the element at specified location idx. No bounds checking
 \begin{DoxyReturn}{Returns}
 const double\& Reference to the requested element 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_data_storage_a1615220a9c7e39d2d8643640b663be38}\label{class_data_storage_a1615220a9c7e39d2d8643640b663be38}} 
+\index{DataStorage@{DataStorage}!print@{print}}
+\index{print@{print}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Data\+Storage\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_data_storage__2_d_a42cf7649099190df8d6e9f1c76bc6ac2}{Data\+Storage\+\_\+2D}}, and \mbox{\hyperlink{class_data_storage__1_d_aa36e4678ef12e088728c5a60aa2f5592}{Data\+Storage\+\_\+1D}}.
+
+\mbox{\Hypertarget{class_data_storage_a97f6356641ae855e40d1be2510abdb4c}\label{class_data_storage_a97f6356641ae855e40d1be2510abdb4c}} 
+\index{DataStorage@{DataStorage}!print@{print}}
+\index{print@{print}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual std\+::ostream\& Data\+Storage\+::print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_data_storage__2_d_ad2ce0ba0674e5aca9e5caf1bf35552b5}{Data\+Storage\+\_\+2D}}, and \mbox{\hyperlink{class_data_storage__1_d_ac8d8860e0fc6105ab70efcb1780bc0ff}{Data\+Storage\+\_\+1D}}.
+
 
 
 \doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_data_storage_a4347b2e9cf825c51021eb8a6277da2f3}\label{class_data_storage_a4347b2e9cf825c51021eb8a6277da2f3}} 
+\index{DataStorage@{DataStorage}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{s,  }\item[{const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
 \mbox{\Hypertarget{class_data_storage_ae9b682caff16617cc24c66c4eba59b8e}\label{class_data_storage_ae9b682caff16617cc24c66c4eba59b8e}} 
 \index{DataStorage@{DataStorage}!print@{print}}
 \index{print@{print}!DataStorage@{DataStorage}}
@@ -204,7 +301,34 @@ Prints the \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object.
 \end{DoxyParams}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_data_storage_ae317b0de769982e5286e3e2d9301aa25}\label{class_data_storage_ae317b0de769982e5286e3e2d9301aa25}} 
+\index{DataStorage@{DataStorage}!data@{data}}
+\index{data@{data}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Data\+Storage\+::data\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_data_storage_a850608ca2a666e57a5b810dc3f220f8d}\label{class_data_storage_a850608ca2a666e57a5b810dc3f220f8d}} 
+\index{DataStorage@{DataStorage}!no\_dimension\_err@{no\_dimension\_err}}
+\index{no\_dimension\_err@{no\_dimension\_err}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{no\_dimension\_err}{no\_dimension\_err}}
+{\footnotesize\ttfamily const char Data\+Storage\+::no\+\_\+dimension\+\_\+err\mbox{[}45\mbox{]} = \char`\"{}Error\+: Data object dimension does not exist\char`\"{}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_data_storage_a98dddf43330a23b4570708838aeebe00}\label{class_data_storage_a98dddf43330a23b4570708838aeebe00}} 
+\index{DataStorage@{DataStorage}!same\_size\_err@{same\_size\_err}}
+\index{same\_size\_err@{same\_size\_err}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{same\_size\_err}{same\_size\_err}}
+{\footnotesize\ttfamily const char Data\+Storage\+::same\+\_\+size\+\_\+err\mbox{[}45\mbox{]} = \char`\"{}Error\+: Data objects are not of the same \mbox{\hyperlink{class_data_storage_aee2c57d5704a0677bd07283d661cb18a}{size}}\char`\"{}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_data_storage_aee2c57d5704a0677bd07283d661cb18a}\label{class_data_storage_aee2c57d5704a0677bd07283d661cb18a}} 
+\index{DataStorage@{DataStorage}!size@{size}}
+\index{size@{size}!DataStorage@{DataStorage}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily std\+::size\+\_\+t Data\+Storage\+::size\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/Data\+Storage.\+h\item 
-src/Data\+Storage.\+cpp\end{DoxyCompactItemize}
+src/\mbox{\hyperlink{_data_storage_8h}{Data\+Storage.\+h}}\item 
+src/\mbox{\hyperlink{_data_storage_8cpp}{Data\+Storage.\+cpp}}\end{DoxyCompactItemize}

@@ -1,22 +1,10 @@
 var searchData=
 [
-  ['set_77',['set',['../class_three_vec.html#aa6407f31a4075b0b0bd101c18592b8c4',1,'ThreeVec']]],
-  ['set_5fall_78',['set_all',['../class_three_vec.html#a808b2174359cf8c16de3f2efa2f6af26',1,'ThreeVec']]],
-  ['set_5fcomp_79',['set_comp',['../class_grid_object.html#a02b6805710ee1340e7febb80abdb16dd',1,'GridObject']]],
-  ['set_5flocal_5fb_5ffield_80',['set_local_b_field',['../class_particle.html#a2b5a741f3cc4b622ecd21fe8d4756008',1,'Particle::set_local_b_field(ThreeVec field)'],['../class_particle.html#a90a26efe3960cf3859a0c61886fea809',1,'Particle::set_local_b_field(const double x1, const double x2, const double x3)']]],
-  ['set_5flocal_5fb_5ffield_5fcomp_81',['set_local_b_field_comp',['../class_particle.html#a4c91cb7eb76922e9a9ca71204fbce064',1,'Particle']]],
-  ['set_5flocal_5fe_5ffield_82',['set_local_e_field',['../class_particle.html#a6adfde8ce5120f88c274d183b83ed646',1,'Particle::set_local_e_field(ThreeVec field)'],['../class_particle.html#aa1748578be3456e3e1805c94c350c756',1,'Particle::set_local_e_field(const double x1, const double x2, const double x3)']]],
-  ['set_5flocal_5fe_5ffield_5fcomp_83',['set_local_e_field_comp',['../class_particle.html#a44208ba37e3f7604d9df20fa18d7e018',1,'Particle']]],
-  ['set_5fmom_84',['set_mom',['../class_particle.html#a6eba3372263489c997f006e166b0c8b4',1,'Particle::set_mom(ThreeVec mom)'],['../class_particle.html#ab93fe71b619087f8eebb9d04abd362ba',1,'Particle::set_mom(const double mom_x, const double mom_y, const double mom_z)']]],
-  ['set_5fmom_5fcomp_85',['set_mom_comp',['../class_particle.html#a6c103d3d6292931785a3dce855337eda',1,'Particle']]],
-  ['set_5fpos_86',['set_pos',['../class_particle.html#a1f3fa6cbe09290a7aad78d0563c37236',1,'Particle::set_pos(ThreeVec pos)'],['../class_particle.html#a724b701a20f8579d8052e4ce627d5562',1,'Particle::set_pos(const double pos_x, const double pos_y, const double pos_z)']]],
-  ['set_5fpos_5fcomp_87',['set_pos_comp',['../class_particle.html#a17553252c074c5fe864cc5fc4ec9a492',1,'Particle']]],
-  ['set_5fweight_88',['set_weight',['../class_particle.html#af4213954302789663b779fde6d9d0bd5',1,'Particle']]],
-  ['set_5fx_89',['set_x',['../class_three_vec.html#a7d8b1106324a9899895ae1aaa2aca3dd',1,'ThreeVec']]],
-  ['set_5fy_90',['set_y',['../class_three_vec.html#a3db3771030a5a8b696a90197bbc271f4',1,'ThreeVec']]],
-  ['set_5fz_91',['set_z',['../class_three_vec.html#a31a8a5ab6ea005fefb3d3020155aff02',1,'ThreeVec']]],
-  ['simulation_92',['Simulation',['../class_simulation.html',1,'Simulation'],['../class_simulation.html#a903351886cff6b2ce683d4c828771927',1,'Simulation::Simulation()']]],
-  ['solve_5ffield_93',['solve_field',['../class_field.html#a002c050a341e860932f736823e97cf3b',1,'Field']]],
-  ['species_94',['Species',['../class_species.html',1,'Species'],['../class_species.html#abb0f8e3208b0cc676157b7dff837c0be',1,'Species::Species()']]],
-  ['square_95',['square',['../class_three_vec.html#a075e3da82b4393d3ea6193f7414f6349',1,'ThreeVec']]]
+  ['n_5fiter_110',['n_iter',['../class_simulation.html#aedda8aa9a13c3d9302750715d83c38e0',1,'Simulation']]],
+  ['ndump_111',['ndump',['../class_simulation.html#a53dfedd2e31bdc7488d84f60196e9268',1,'Simulation::ndump()'],['../beam__plasma_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;beam_plasma.h'],['../gyro_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;gyro.h'],['../landau_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;landau.h'],['../two__stream_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;two_stream.h'],['../two_d__test_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;twoD_test.h'],['../uh_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;uh.h']]],
+  ['no_5fdimension_5ferr_112',['no_dimension_err',['../class_data_storage.html#a850608ca2a666e57a5b810dc3f220f8d',1,'DataStorage']]],
+  ['npar_113',['npar',['../class_species.html#a6bf69a894875766344521c8af7a38f71',1,'Species']]],
+  ['nspec_114',['nspec',['../class_simulation.html#ae7b2d3fca98b94c5d7249ae3bb44c8fc',1,'Simulation::nspec()'],['../beam__plasma_8h.html#ab8aad333299221f97399a7290e821569',1,'nspec():&#160;beam_plasma.h'],['../landau_8h.html#ab8aad333299221f97399a7290e821569',1,'nspec():&#160;landau.h'],['../two__stream_8h.html#ab8aad333299221f97399a7290e821569',1,'nspec():&#160;two_stream.h'],['../two_d__test_8h.html#ab8aad333299221f97399a7290e821569',1,'nspec():&#160;twoD_test.h']]],
+  ['nx_115',['Nx',['../class_field.html#af32cf46b6c5f730a5ea6cd4d2df4694d',1,'Field::Nx()'],['../class_grid_object.html#a6844fcd614aa7e10faa039a7bff6a2f9',1,'GridObject::Nx()'],['../class_simulation.html#affdeb381435d460ddab2c509c8a318b4',1,'Simulation::Nx()'],['../beam__plasma_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;beam_plasma.h'],['../gyro_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;gyro.h'],['../landau_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;landau.h'],['../two__stream_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;two_stream.h'],['../two_d__test_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;twoD_test.h'],['../uh_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;uh.h']]],
+  ['ny_116',['Ny',['../class_field.html#a9d392f35b2827303a5453bfe4ba17353',1,'Field::Ny()'],['../class_grid_object.html#affa5fba2697c22e0618539f3c0941a74',1,'GridObject::Ny()'],['../class_simulation.html#ab346f153460df80e73384db8420a2e69',1,'Simulation::Ny()'],['../two__stream_8h.html#a276dfd99384a9c735597add8d0b07b3d',1,'Ny():&#160;two_stream.h']]]
 ];
