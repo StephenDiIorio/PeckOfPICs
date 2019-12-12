@@ -160,8 +160,8 @@ int Field::solve_field(GridObject &charge_density)
 
     for (int xi =0; xi < this->Nx; ++xi)
     {
-        double kx = (2. * M_PI * xi) / this->Nx / this->dx;
-        double sinckx2 = sinc(kx* this->dx / 2);
+        double kx = (2. * M_PI * xi) / (this->Nx * this->dx);
+        double sinckx2 = sinc(kx* this->dx / 2.);
         double Klsq = kx*kx *sinckx2 * sinckx2;
 
         for (int yj = 0; yj < this->Ny; ++yj)
@@ -170,10 +170,10 @@ int Field::solve_field(GridObject &charge_density)
             {
                 continue;
             }
-            double ky = (2. * M_PI * yj) / this->Ny / this->dy;
-            double sincky2 = sinc(ky* this->dy / 2);
+            double ky = (2. * M_PI * yj) / (this->Ny * this->dy);
+            double sincky2 = sinc(ky* this->dy / 2.);
 
-            double Klmsq_ij = Klsq + ky*ky * sincky2*sincky2;
+            double Klmsq_ij = Klsq + (ky*ky * sincky2*sincky2);
             // energy is rhobar * phibar conj = |rhobar|^2 / Klm^2
             this->total_U += (phi_dens_re.get_comp(xi,yj) *
                 phi_dens_re.get_comp(xi,yj) +
@@ -199,7 +199,7 @@ int Field::solve_field(GridObject &charge_density)
 
     for (int xi =0; xi < this->Nx; ++xi)
     {
-        double kx = (2. * M_PI * xi) / this->Nx / this->dx;
+        double kx = (2. * M_PI * xi) / (this->Nx * this->dx);
         double sinckx = sinc(kx* this->dx);
         double Ki = kx *sinckx;
 
@@ -209,7 +209,7 @@ int Field::solve_field(GridObject &charge_density)
             {
                 continue;
             }
-            double ky = (2. * M_PI * yj) / this->Ny / this->dy;
+            double ky = (2. * M_PI * yj) / (this->Ny * this->dy);
             double sincky = sinc(ky* this->dy);
 
             double Kj = ky * sincky;
@@ -226,6 +226,9 @@ int Field::solve_field(GridObject &charge_density)
     // then inverse Fourier transform back each of Ex, Ey
     // for each row: collect data, Fourier transform, return, and store
 
+    //*** I am hacking right now!!! Don't let this be forgotten!!!
+    // f1.gridded_data *= 1/sqrt(this->Nx) * 1/sqrt(this->Ny);
+    // f2.gridded_data *= 1/sqrt(this->Nx) * 1/sqrt(this->Ny);
     // For total electrostatic energy diagnostic
     this->total_U *= 0.5;
 

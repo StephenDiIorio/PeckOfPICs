@@ -21,8 +21,7 @@ class Field
 
 
         void init_field(std::function<void(Field &, uint, uint)> init_fcn);
-        int FFT_2d(GridObject &real_part, GridObject &imag_part, 
-                   const uint transform_direction);
+        
 
     public:
         uint Nx, Ny;
@@ -45,6 +44,9 @@ class Field
             std::function<void(Field &, uint, uint)> init_fcn);
         ~Field();
         //-----------------------------------------
+
+        int FFT_2d(GridObject &real_part, GridObject &imag_part, 
+                        const uint transform_direction);
 
         int solve_field_spectral(std::vector<double> re, std::vector<double> im);
         // solve_field_spectral may not currently work

@@ -27,14 +27,14 @@ bool test_single_point_field_to_particle(uint field_component, double E0, int b1
     switch (field_component)
     {
     case 1:
-        testE.f2.set_grid_data(b1_x,b1_y,E0);
+        testE.f2.set_comp(b1_x,b1_y,E0);
         break;
     case 2:
-        testE.f3.set_grid_data(b1_x,b1_y,E0);
+        testE.f3.set_comp(b1_x,b1_y,E0);
         break;
     
     default:
-        testE.f1.set_grid_data(b1_x,b1_y,E0);
+        testE.f1.set_comp(b1_x,b1_y,E0);
         break;
     }
 
