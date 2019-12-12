@@ -116,7 +116,7 @@ OPERATOR FUNCTIONS
  * @param to_copy Object to copy values from
  * @return DataStorage_1D& New opbject with copied values
  */
-DataStorage_2D& DataStorage_2D::operator=(const DataStorage_2D &to_copy)
+DataStorage_2D& DataStorage_2D::operator=(const DataStorage_2D& to_copy)
 {
     Nx = to_copy.Nx;
     Ny = to_copy.Ny;

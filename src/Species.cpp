@@ -7,23 +7,25 @@ CONSTRUCTORS/DESTRUCTORS
 /**
  * @brief Constructor for Species object
  *
- * @param npar Total number of particles in the species
- * @param nx Number of grid spaces in x direction
- * @param ny Number of grid spaces in y direction
- * @param Qpar Charge of species
- * @param density Base density of the species
- * @param init_fcn User provided function which initializes the density of the
- *                 species to the user's specification
  */
 Species::Species()
 {
 }
 
+/**
+ * @brief Constructor for Species object - inits density to 0.0 everywhere
+ *
+ * @param npar Total number of particles in the species
+ * @param nx Number of grid spaces in x direction
+ * @param ny Number of grid spaces in y direction
+ * @param Qpar Charge of particle in units of fundamental charge
+ */
 Species::Species(uint npar, uint nx, uint ny, double Qpar)
 {
     this->npar = npar;
     this->parts.reserve(npar);
 
+    this->density = 0.0;
     this->density_arr = GridObject(nx, ny);
 
     this->Qpar = Qpar;
@@ -31,14 +33,25 @@ Species::Species(uint npar, uint nx, uint ny, double Qpar)
     this->total_KE = 0.0;
 }
 
-Species::Species(uint npar, uint nx, uint ny, double Qpar, double density,
+/**
+ * @brief Constructor for Species object
+ *
+ * @param npar Total number of particles in the species
+ * @param Nx Number of grid spaces in x direction
+ * @param Ny Number of grid spaces in y direction
+ * @param Qpar Charge of particle in units of fundamental charge
+ * @param density
+ * @param init_fcn User provided function which initializes the density of the
+ *                 species to the user's specification
+ */
+Species::Species(uint npar, uint Nx, uint Ny, double Qpar, double density,
                  std::function<void(Species &, uint)> init_fcn)
 {
     this->npar = npar;
     this->parts.reserve(npar);
 
     this->density = density;
-    this->density_arr = GridObject(nx, ny);
+    this->density_arr = GridObject(Nx, Ny);
 
     this->Qpar = Qpar;
 
@@ -131,11 +144,17 @@ int Species::deposit_charge(const double dx, const double dy,
     double x_min = 0.0, y_min = 0.0;
     std::size_t i, j;
 
+    // uint print_num = 0;
     for (const auto &p : this->parts)
     {
+        // std::cout << "Printing info for part " << print_num << std::endl;
         par_weight = p.get_weight() / dx / dy; // add normalization factor here
         x_pos = p.get_pos().get_x();
         y_pos = p.get_pos().get_y();
+
+        // std::cout << "weight " << par_weight << std::endl;
+        // std::cout << "x pos " << x_pos << std::endl;
+        // std::cout << "y pos " << y_pos << std::endl;
 
         // This is because I have chosen to start my boundary at -dx/2
         if (x_pos < 0.0)
@@ -147,18 +166,30 @@ int Species::deposit_charge(const double dx, const double dy,
             y_pos += L_y;
         }
 
-        fi = (x_pos - x_min) / dx;
+        fi = (x_pos - x_min) / dx; // shape function normalization here
         i  = fi;
         hx = fi - i;
 
-        fj = (y_pos - y_min) / dy;
+        fj = (y_pos - y_min) / dy; // shape function normalization here
         j  = fj;
         hy = fj - j;
+
+        // std::cout << "fi=" << fi << std::endl;
+        // std::cout << "i=" << i << std::endl;
+        // std::cout << "hx=" << hx << std::endl;
+        // std::cout << "fj=" << fj << std::endl;
+        // std::cout << "j=" << j << std::endl;
+        // std::cout << "hy=" << hy << std::endl;
+        // std::cout << "i, j gets " << (1.-hx) * (1.-hy) * par_weight << std::endl;
+        // std::cout << "i+1, j gets " << (1. - hx) * hy * par_weight << std::endl;
+        // std::cout << "i, j+1 gets " << hx * (1. - hy) * par_weight << std::endl;
+        // std::cout << "i+1, j+1 gets " << hx * hy * par_weight << std::endl;
 
         density_arr.comp_add_to(i,   j,   (1.-hx) * (1.-hy) * par_weight);
         density_arr.comp_add_to(i+1, j,   (1.-hx) * hy      * par_weight);
         density_arr.comp_add_to(i,   j+1, hx      * (1.-hy) * par_weight);
         density_arr.comp_add_to(i+1, j+1, hx      * hy      * par_weight);
+        // print_num++;
     }
     return 0;
 }
@@ -176,7 +207,7 @@ int Species::deposit_charge(const double dx, const double dy,
  * @param Ny Number of grid spaces in y direction
  * @return int Returns an error code or 0 if successful
  */
-int Species::map_field_to_part(const Field &f, field_type field_to_map,
+int Species::map_field_to_part(const Field& f, field_type field_to_map,
                                const double dx, const double dy,
                                const double L_x, const double L_y,
                                const uint Nx, const uint Ny)
@@ -701,24 +732,32 @@ void Species::apply_bc(ThreeVec &pos,
     // Periodic x boundaries
     while (x1 < -dx / 2.0)
     {
+        // std::cout << "x pos too small: before=" << x1 << std::endl;
         x1 += L_x;
+        // std::cout << "x pos too small: after=" << x1 << std::endl;
         pos.set_x(x1);
     }
     while (x1 >= (L_x - (dx / 2.0)))
     {
+        // std::cout << "x pos too large: before=" << x1 << std::endl;
         x1 -= L_x;
+        // std::cout << "x pos too large: after=" << x1 << std::endl;
         pos.set_x(x1);
     }
 
     // Periodic y boundaries
     while (y1 < -dy / 2.0)
     {
+        // std::cout << "y pos too small: before=" << y1 << std::endl;
         y1 += L_y;
+        // std::cout << "y pos too small: after=" << y1 << std::endl;
         pos.set_y(y1);
     }
     while (y1 >= (L_y - (dy / 2.0)))
     {
+        // std::cout << "y pos too large: before=" << y1 << std::endl;
         y1 -= L_y;
+        // std::cout << "y pos too large: before=" << y1 << std::endl;
         pos.set_y(y1);
     }
 }
