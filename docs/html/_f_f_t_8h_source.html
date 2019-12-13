@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('_f_f_t_8h_source.html','');});
 <div class="title">FFT.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<a href="_f_f_t_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">****************************************************************************</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*                                                                          *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*   FFT Header file, based on code from www.codeproject.com, originally    *</span></div>
@@ -118,25 +118,31 @@ $(document).ready(function(){initNavTree('_f_f_t_8h_source.html','');});
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uint;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">   28</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">double</span> sinc(<span class="keyword">const</span> <span class="keywordtype">double</span> x);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">double</span> <a class="code" href="_f_f_t_8h.html#afe17515bb800483d081a6dddf52e9a80">sinc</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">int</span> FFT(std::vector&lt;double&gt; &amp;data_re, std::vector&lt;double&gt; &amp;data_im, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> NVALS, <span class="keyword">const</span> <span class="keywordtype">int</span> isign);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">int</span> <a class="code" href="_f_f_t_8h.html#ad9da065eaf32ebe46821f84844511530">FFT</a>(std::vector&lt;double&gt; &amp;data_re, std::vector&lt;double&gt; &amp;data_im, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> NVALS, <span class="keyword">const</span> <span class="keywordtype">int</span> isign);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;std::vector&lt;double&gt; get_k_vec(<span class="keyword">const</span> uint size, <span class="keyword">const</span> <span class="keywordtype">double</span> dx);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;std::vector&lt;double&gt; <a class="code" href="_f_f_t_8h.html#a77a9ec8ae5778f42f2de8a2436b4fa4f">get_k_vec</a>(<span class="keyword">const</span> <a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> size, <span class="keyword">const</span> <span class="keywordtype">double</span> dx);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;std::vector&lt;double&gt; get_K2_vec(<span class="keyword">const</span> std::vector&lt;double&gt; k, <span class="keyword">const</span> uint size, <span class="keyword">const</span> <span class="keywordtype">double</span> dx);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;std::vector&lt;double&gt; <a class="code" href="_f_f_t_8h.html#a110ee0a07ccf8ac7fe39a5b8d24b1da1">get_K2_vec</a>(<span class="keyword">const</span> std::vector&lt;double&gt; k, <span class="keyword">const</span> <a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> size, <span class="keyword">const</span> <span class="keywordtype">double</span> dx);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;std::vector&lt;double&gt; get_kappa_vec(<span class="keyword">const</span> std::vector&lt;double&gt; k, <span class="keyword">const</span> uint size, <span class="keyword">const</span> <span class="keywordtype">double</span> dx);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;std::vector&lt;double&gt; <a class="code" href="_f_f_t_8h.html#af3cea07f24f004d510b214db62ff7de1">get_kappa_vec</a>(<span class="keyword">const</span> std::vector&lt;double&gt; k, <span class="keyword">const</span> <a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> size, <span class="keyword">const</span> <span class="keywordtype">double</span> dx);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="a_f_f_t_8h_html_a91ad9478d81a7aaf2593e8d9c3d06a14"><div class="ttname"><a href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a></div><div class="ttdeci">unsigned int uint</div><div class="ttdef"><b>Definition:</b> FFT.h:28</div></div>
+<div class="ttc" id="a_f_f_t_8h_html_ad9da065eaf32ebe46821f84844511530"><div class="ttname"><a href="_f_f_t_8h.html#ad9da065eaf32ebe46821f84844511530">FFT</a></div><div class="ttdeci">int FFT(std::vector&lt; double &gt; &amp;data_re, std::vector&lt; double &gt; &amp;data_im, const unsigned long NVALS, const int isign)</div><div class="ttdef"><b>Definition:</b> FFT.cpp:42</div></div>
+<div class="ttc" id="a_f_f_t_8h_html_afe17515bb800483d081a6dddf52e9a80"><div class="ttname"><a href="_f_f_t_8h.html#afe17515bb800483d081a6dddf52e9a80">sinc</a></div><div class="ttdeci">double sinc(const double x)</div><div class="ttdef"><b>Definition:</b> FFT.cpp:30</div></div>
+<div class="ttc" id="a_f_f_t_8h_html_a110ee0a07ccf8ac7fe39a5b8d24b1da1"><div class="ttname"><a href="_f_f_t_8h.html#a110ee0a07ccf8ac7fe39a5b8d24b1da1">get_K2_vec</a></div><div class="ttdeci">std::vector&lt; double &gt; get_K2_vec(const std::vector&lt; double &gt; k, const uint size, const double dx)</div><div class="ttdef"><b>Definition:</b> FFT.cpp:178</div></div>
+<div class="ttc" id="a_f_f_t_8h_html_a77a9ec8ae5778f42f2de8a2436b4fa4f"><div class="ttname"><a href="_f_f_t_8h.html#a77a9ec8ae5778f42f2de8a2436b4fa4f">get_k_vec</a></div><div class="ttdeci">std::vector&lt; double &gt; get_k_vec(const uint size, const double dx)</div><div class="ttdef"><b>Definition:</b> FFT.cpp:161</div></div>
+<div class="ttc" id="a_f_f_t_8h_html_af3cea07f24f004d510b214db62ff7de1"><div class="ttname"><a href="_f_f_t_8h.html#af3cea07f24f004d510b214db62ff7de1">get_kappa_vec</a></div><div class="ttdeci">std::vector&lt; double &gt; get_kappa_vec(const std::vector&lt; double &gt; k, const uint size, const double dx)</div><div class="ttdef"><b>Definition:</b> FFT.cpp:192</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>FFT.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_f_f_t_8h.html">FFT.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>

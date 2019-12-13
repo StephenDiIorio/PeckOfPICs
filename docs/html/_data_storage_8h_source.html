@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('_data_storage_8h_source.html','');});
 <div class="title">DataStorage.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DATA_STORAGE_H</span></div>
+<a href="_data_storage_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DATA_STORAGE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DATA_STORAGE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -100,41 +100,41 @@ $(document).ready(function(){initNavTree('_data_storage_8h_source.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_data_storage.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_data_storage.html">DataStorage</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">enum</span> accessors</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_data_storage.html#ade18a41b15f09db78805439c8e95910c">   18</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="class_data_storage.html#ade18a41b15f09db78805439c8e95910c">accessors</a></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            x1_accessor = 0,</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            x2_accessor = 1,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            x3_accessor = 2</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_data_storage.html#ade18a41b15f09db78805439c8e95910ca9fab98a09b8a507fea0ccd524458b320">   20</a></span>&#160;            <a class="code" href="class_data_storage.html#ade18a41b15f09db78805439c8e95910ca9fab98a09b8a507fea0ccd524458b320">x1_accessor</a> = 0,</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_data_storage.html#ade18a41b15f09db78805439c8e95910cad1adaf3abb9ed6cb672eb933d4089246">   21</a></span>&#160;            <a class="code" href="class_data_storage.html#ade18a41b15f09db78805439c8e95910cad1adaf3abb9ed6cb672eb933d4089246">x2_accessor</a> = 1,</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_data_storage.html#ade18a41b15f09db78805439c8e95910cae06f0bff6a9e359a76447a34e8199491">   22</a></span>&#160;            <a class="code" href="class_data_storage.html#ade18a41b15f09db78805439c8e95910cae06f0bff6a9e359a76447a34e8199491">x3_accessor</a> = 2</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        };</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        std::size_t size;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::vector&lt;double&gt; data;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_data_storage.html#aee2c57d5704a0677bd07283d661cb18a">   25</a></span>&#160;        std::size_t <a class="code" href="class_data_storage.html#aee2c57d5704a0677bd07283d661cb18a">size</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25">   26</a></span>&#160;        std::vector&lt;double&gt; <a class="code" href="class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25">data</a>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> same_size_err[45] = <span class="stringliteral">&quot;Error: Data objects are not of the same size&quot;</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> no_dimension_err[45] = <span class="stringliteral">&quot;Error: Data object dimension does not exist&quot;</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_data_storage.html#a98dddf43330a23b4570708838aeebe00">   28</a></span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="class_data_storage.html#a98dddf43330a23b4570708838aeebe00">same_size_err</a>[45] = <span class="stringliteral">&quot;Error: Data objects are not of the same size&quot;</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_data_storage.html#a850608ca2a666e57a5b810dc3f220f8d">   29</a></span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="class_data_storage.html#a850608ca2a666e57a5b810dc3f220f8d">no_dimension_err</a>[45] = <span class="stringliteral">&quot;Error: Data object dimension does not exist&quot;</span>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">        /**********************************************************</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">        ITERATOR FUNCTIONS</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">        ***********************************************************/</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">using</span> iterator = std::vector&lt;double&gt;::iterator;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">using</span> const_iterator = std::vector&lt;double&gt;::const_iterator;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">inline</span> iterator begin() noexcept</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_data_storage.html#a2272054bb0f79ec885f1d490712185fd">   34</a></span>&#160;<span class="comment">        ***********************************************************/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_data_storage.html#a3c433d3edb80931617fb6b2e853359ea">   35</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="class_data_storage.html#a2272054bb0f79ec885f1d490712185fd">iterator</a> = std::vector&lt;double&gt;::iterator;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">using</span> <a class="code" href="class_data_storage.html#a3c433d3edb80931617fb6b2e853359ea">const_iterator</a> = std::vector&lt;double&gt;::const_iterator;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_data_storage.html#a4cd0342d8b9e4ebf2239464a09c73c3f">   37</a></span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">inline</span> <a class="code" href="class_data_storage.html#a2272054bb0f79ec885f1d490712185fd">iterator</a> <a class="code" href="class_data_storage.html#a4cd0342d8b9e4ebf2239464a09c73c3f">begin</a>() noexcept</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> data.begin();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">inline</span> const_iterator cbegin() <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25">data</a>.begin();</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_data_storage.html#abc13353dbdeacac56f1f67e61c43b97c">   41</a></span>&#160;        }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">inline</span> <a class="code" href="class_data_storage.html#a3c433d3edb80931617fb6b2e853359ea">const_iterator</a> <a class="code" href="class_data_storage.html#abc13353dbdeacac56f1f67e61c43b97c">cbegin</a>() const noexcept</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">return</span> data.cbegin();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">inline</span> iterator end() noexcept</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25">data</a>.cbegin();</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_data_storage.html#ad5798355a01c470615b2b1b0fb489c49">   45</a></span>&#160;        }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">inline</span> <a class="code" href="class_data_storage.html#a2272054bb0f79ec885f1d490712185fd">iterator</a> <a class="code" href="class_data_storage.html#ad5798355a01c470615b2b1b0fb489c49">end</a>() noexcept</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">return</span> data.end();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">inline</span> const_iterator cend() <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25">data</a>.end();</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_data_storage.html#ac159ad0c1725fce4c8b32c3fefa2abb7">   49</a></span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">inline</span> <a class="code" href="class_data_storage.html#a3c433d3edb80931617fb6b2e853359ea">const_iterator</a> <a class="code" href="class_data_storage.html#ac159ad0c1725fce4c8b32c3fefa2abb7">cend</a>() const noexcept</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> data.cend();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25">data</a>.cend();</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">//-----------------------------------------</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
@@ -152,11 +152,11 @@ $(document).ready(function(){initNavTree('_data_storage_8h_source.html','');});
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">return</span> this-&gt;data[idx];</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="class_data_storage.html#a4347b2e9cf825c51021eb8a6277da2f3">   84</a></span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="comment">// Printing Operator</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; s, <span class="keyword">const</span> <a class="code" href="class_data_storage.html">DataStorage</a>&amp; d)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="class_data_storage.html#a4347b2e9cf825c51021eb8a6277da2f3">operator&lt;&lt;</a>(std::ostream&amp; s, <span class="keyword">const</span> <a class="code" href="class_data_storage.html">DataStorage</a>&amp; d)</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">return</span> d.print(s);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">return</span> d.<a class="code" href="class_data_storage.html#a1615220a9c7e39d2d8643640b663be38">print</a>(s);</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="comment">//-----------------------------------------</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
@@ -164,20 +164,20 @@ $(document).ready(function(){initNavTree('_data_storage_8h_source.html','');});
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">        /**********************************************************</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">        CLASS METHODS</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">        ***********************************************************/</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordtype">double</span>&amp; at(<span class="keyword">const</span> std::size_t idx);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; at(<span class="keyword">const</span> std::size_t idx) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordtype">double</span>&amp; <a class="code" href="class_data_storage.html#a2abf71f8ad75ddea12da6f6e9ee59b2c">at</a>(<span class="keyword">const</span> std::size_t idx);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="class_data_storage.html#a2abf71f8ad75ddea12da6f6e9ee59b2c">at</a>(<span class="keyword">const</span> std::size_t idx) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> print() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keyword">virtual</span> std::ostream&amp; print(std::ostream&amp; s) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_data_storage.html#a1615220a9c7e39d2d8643640b663be38">print</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keyword">virtual</span> std::ostream&amp; <a class="code" href="class_data_storage.html#a1615220a9c7e39d2d8643640b663be38">print</a>(std::ostream&amp; s) <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keyword">friend</span> <span class="keywordtype">void</span> print(<span class="keyword">const</span> <a class="code" href="class_data_storage.html">DataStorage</a>&amp; d)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keyword">friend</span> <span class="keywordtype">void</span> <a class="code" href="class_data_storage.html#a1615220a9c7e39d2d8643640b663be38">print</a>(<span class="keyword">const</span> <a class="code" href="class_data_storage.html">DataStorage</a>&amp; d)</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            d.print();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            d.<a class="code" href="class_data_storage.html#a1615220a9c7e39d2d8643640b663be38">print</a>();</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keyword">inline</span> std::size_t <a class="code" href="class_data_storage.html#a686ce00581d02d9f7a99f5061c81e21e">get_size</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordflow">return</span> this-&gt;size;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_data_storage.html#aee2c57d5704a0677bd07283d661cb18a">size</a>;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        }</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">double</span>* <a class="code" href="class_data_storage.html#aefa3e9b8a52dd2c109047abe9ea921d7">get_data</a>()<span class="keyword"> const</span></div>
@@ -185,8 +185,8 @@ $(document).ready(function(){initNavTree('_data_storage_8h_source.html','');});
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keywordflow">return</span> this-&gt;data.data();</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        }</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">inline</span> std::size_t get_ndims() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">inline</span> std::size_t get_Ni_size(std::size_t i) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">inline</span> std::size_t <a class="code" href="class_data_storage.html#af6458585b27eab6c4d04441cbc0a8447">get_ndims</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">inline</span> std::size_t <a class="code" href="class_data_storage.html#a63f21a3abccd5ba7a75408d7f640e0d7">get_Ni_size</a>(std::size_t i) <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="comment">//-----------------------------------------</span></div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;};</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
@@ -194,13 +194,32 @@ $(document).ready(function(){initNavTree('_data_storage_8h_source.html','');});
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_data_storage_html_a3fffe7a97e286084d6d3607377485d68"><div class="ttname"><a href="class_data_storage.html#a3fffe7a97e286084d6d3607377485d68">DataStorage::operator[]</a></div><div class="ttdeci">double &amp; operator[](const std::size_t idx)</div><div class="ttdoc">Returns a reference to the element at specified location idx. No bounds checking is performed.</div><div class="ttdef"><b>Definition:</b> DataStorage.h:66</div></div>
+<div class="ttc" id="aclass_data_storage_html_a4347b2e9cf825c51021eb8a6277da2f3"><div class="ttname"><a href="class_data_storage.html#a4347b2e9cf825c51021eb8a6277da2f3">DataStorage::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;s, const DataStorage &amp;d)</div><div class="ttdef"><b>Definition:</b> DataStorage.h:84</div></div>
+<div class="ttc" id="aclass_data_storage_html_a3c433d3edb80931617fb6b2e853359ea"><div class="ttname"><a href="class_data_storage.html#a3c433d3edb80931617fb6b2e853359ea">DataStorage::const_iterator</a></div><div class="ttdeci">std::vector&lt; double &gt;::const_iterator const_iterator</div><div class="ttdef"><b>Definition:</b> DataStorage.h:35</div></div>
+<div class="ttc" id="aclass_data_storage_html_a63f21a3abccd5ba7a75408d7f640e0d7"><div class="ttname"><a href="class_data_storage.html#a63f21a3abccd5ba7a75408d7f640e0d7">DataStorage::get_Ni_size</a></div><div class="ttdeci">virtual std::size_t get_Ni_size(std::size_t i) const =0</div></div>
+<div class="ttc" id="aclass_data_storage_html_abc13353dbdeacac56f1f67e61c43b97c"><div class="ttname"><a href="class_data_storage.html#abc13353dbdeacac56f1f67e61c43b97c">DataStorage::cbegin</a></div><div class="ttdeci">const_iterator cbegin() const noexcept</div><div class="ttdef"><b>Definition:</b> DataStorage.h:41</div></div>
+<div class="ttc" id="aclass_data_storage_html_ade18a41b15f09db78805439c8e95910cae06f0bff6a9e359a76447a34e8199491"><div class="ttname"><a href="class_data_storage.html#ade18a41b15f09db78805439c8e95910cae06f0bff6a9e359a76447a34e8199491">DataStorage::x3_accessor</a></div><div class="ttdef"><b>Definition:</b> DataStorage.h:22</div></div>
+<div class="ttc" id="aclass_data_storage_html_a98dddf43330a23b4570708838aeebe00"><div class="ttname"><a href="class_data_storage.html#a98dddf43330a23b4570708838aeebe00">DataStorage::same_size_err</a></div><div class="ttdeci">const char same_size_err[45]</div><div class="ttdef"><b>Definition:</b> DataStorage.h:28</div></div>
+<div class="ttc" id="aclass_data_storage_html_a2272054bb0f79ec885f1d490712185fd"><div class="ttname"><a href="class_data_storage.html#a2272054bb0f79ec885f1d490712185fd">DataStorage::iterator</a></div><div class="ttdeci">std::vector&lt; double &gt;::iterator iterator</div><div class="ttdef"><b>Definition:</b> DataStorage.h:34</div></div>
+<div class="ttc" id="aclass_data_storage_html_ade18a41b15f09db78805439c8e95910cad1adaf3abb9ed6cb672eb933d4089246"><div class="ttname"><a href="class_data_storage.html#ade18a41b15f09db78805439c8e95910cad1adaf3abb9ed6cb672eb933d4089246">DataStorage::x2_accessor</a></div><div class="ttdef"><b>Definition:</b> DataStorage.h:21</div></div>
 <div class="ttc" id="aclass_data_storage_html_a686ce00581d02d9f7a99f5061c81e21e"><div class="ttname"><a href="class_data_storage.html#a686ce00581d02d9f7a99f5061c81e21e">DataStorage::get_size</a></div><div class="ttdeci">std::size_t get_size() const</div><div class="ttdoc">Get the total number of elements in DataStorage.</div><div class="ttdef"><b>Definition:</b> DataStorage.h:114</div></div>
 <div class="ttc" id="aclass_data_storage_html"><div class="ttname"><a href="class_data_storage.html">DataStorage</a></div><div class="ttdoc">DataStorage is the abstract interface for DataStorage objects used to store n-dimensional sets of dat...</div><div class="ttdef"><b>Definition:</b> DataStorage.h:15</div></div>
+<div class="ttc" id="aclass_data_storage_html_a2abf71f8ad75ddea12da6f6e9ee59b2c"><div class="ttname"><a href="class_data_storage.html#a2abf71f8ad75ddea12da6f6e9ee59b2c">DataStorage::at</a></div><div class="ttdeci">double &amp; at(const std::size_t idx)</div></div>
+<div class="ttc" id="aclass_data_storage_html_ade18a41b15f09db78805439c8e95910c"><div class="ttname"><a href="class_data_storage.html#ade18a41b15f09db78805439c8e95910c">DataStorage::accessors</a></div><div class="ttdeci">accessors</div><div class="ttdef"><b>Definition:</b> DataStorage.h:18</div></div>
+<div class="ttc" id="aclass_data_storage_html_ade18a41b15f09db78805439c8e95910ca9fab98a09b8a507fea0ccd524458b320"><div class="ttname"><a href="class_data_storage.html#ade18a41b15f09db78805439c8e95910ca9fab98a09b8a507fea0ccd524458b320">DataStorage::x1_accessor</a></div><div class="ttdef"><b>Definition:</b> DataStorage.h:20</div></div>
+<div class="ttc" id="aclass_data_storage_html_a1615220a9c7e39d2d8643640b663be38"><div class="ttname"><a href="class_data_storage.html#a1615220a9c7e39d2d8643640b663be38">DataStorage::print</a></div><div class="ttdeci">virtual void print() const =0</div></div>
+<div class="ttc" id="aclass_data_storage_html_ac159ad0c1725fce4c8b32c3fefa2abb7"><div class="ttname"><a href="class_data_storage.html#ac159ad0c1725fce4c8b32c3fefa2abb7">DataStorage::cend</a></div><div class="ttdeci">const_iterator cend() const noexcept</div><div class="ttdef"><b>Definition:</b> DataStorage.h:49</div></div>
+<div class="ttc" id="aclass_data_storage_html_aee2c57d5704a0677bd07283d661cb18a"><div class="ttname"><a href="class_data_storage.html#aee2c57d5704a0677bd07283d661cb18a">DataStorage::size</a></div><div class="ttdeci">std::size_t size</div><div class="ttdef"><b>Definition:</b> DataStorage.h:25</div></div>
+<div class="ttc" id="aclass_data_storage_html_ae317b0de769982e5286e3e2d9301aa25"><div class="ttname"><a href="class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25">DataStorage::data</a></div><div class="ttdeci">std::vector&lt; double &gt; data</div><div class="ttdef"><b>Definition:</b> DataStorage.h:26</div></div>
+<div class="ttc" id="aclass_data_storage_html_a850608ca2a666e57a5b810dc3f220f8d"><div class="ttname"><a href="class_data_storage.html#a850608ca2a666e57a5b810dc3f220f8d">DataStorage::no_dimension_err</a></div><div class="ttdeci">const char no_dimension_err[45]</div><div class="ttdef"><b>Definition:</b> DataStorage.h:29</div></div>
 <div class="ttc" id="aclass_data_storage_html_aefa3e9b8a52dd2c109047abe9ea921d7"><div class="ttname"><a href="class_data_storage.html#aefa3e9b8a52dd2c109047abe9ea921d7">DataStorage::get_data</a></div><div class="ttdeci">const double * get_data() const</div><div class="ttdoc">Get a pointer to the data stored in the object.</div><div class="ttdef"><b>Definition:</b> DataStorage.h:124</div></div>
+<div class="ttc" id="aclass_data_storage_html_a4cd0342d8b9e4ebf2239464a09c73c3f"><div class="ttname"><a href="class_data_storage.html#a4cd0342d8b9e4ebf2239464a09c73c3f">DataStorage::begin</a></div><div class="ttdeci">iterator begin() noexcept</div><div class="ttdef"><b>Definition:</b> DataStorage.h:37</div></div>
+<div class="ttc" id="aclass_data_storage_html_ad5798355a01c470615b2b1b0fb489c49"><div class="ttname"><a href="class_data_storage.html#ad5798355a01c470615b2b1b0fb489c49">DataStorage::end</a></div><div class="ttdeci">iterator end() noexcept</div><div class="ttdef"><b>Definition:</b> DataStorage.h:45</div></div>
+<div class="ttc" id="aclass_data_storage_html_af6458585b27eab6c4d04441cbc0a8447"><div class="ttname"><a href="class_data_storage.html#af6458585b27eab6c4d04441cbc0a8447">DataStorage::get_ndims</a></div><div class="ttdeci">virtual std::size_t get_ndims() const =0</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>DataStorage.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_data_storage_8h.html">DataStorage.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>

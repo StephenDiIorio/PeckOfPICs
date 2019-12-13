@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['datastorage_9',['DataStorage',['../class_data_storage.html',1,'']]],
-  ['datastorage_5f1d_10',['DataStorage_1D',['../class_data_storage__1_d.html',1,'DataStorage_1D'],['../class_data_storage__1_d.html#a9376807f5f341d3b8208009f06835135',1,'DataStorage_1D::DataStorage_1D()'],['../class_data_storage__1_d.html#ae69cefa23c06776b847ea40aeb99eb40',1,'DataStorage_1D::DataStorage_1D(std::size_t Nx)'],['../class_data_storage__1_d.html#ac9824ef360d1a37a04e1ad21192965e2',1,'DataStorage_1D::DataStorage_1D(std::size_t Nx, double val)'],['../class_data_storage__1_d.html#a4d0401126715d27b965cf73b72944981',1,'DataStorage_1D::DataStorage_1D(std::size_t Nx, std::vector&lt; double &gt; data)'],['../class_data_storage__1_d.html#a40eb5f4311c5be6a153e4a2c22ee08b4',1,'DataStorage_1D::DataStorage_1D(const DataStorage_1D &amp;copy_obj)']]],
-  ['datastorage_5f2d_11',['DataStorage_2D',['../class_data_storage__2_d.html',1,'DataStorage_2D'],['../class_data_storage__2_d.html#a0da57a05dc96fac400afeebaf6533d65',1,'DataStorage_2D::DataStorage_2D()'],['../class_data_storage__2_d.html#af44ec6556e60724cbfcf8862897eb21b',1,'DataStorage_2D::DataStorage_2D(std::size_t Nx, std::size_t Ny)'],['../class_data_storage__2_d.html#a8b76128eca645b33a9d663b92ac7cb20',1,'DataStorage_2D::DataStorage_2D(std::size_t Nx, std::size_t Ny, double val)'],['../class_data_storage__2_d.html#a06f486bef424e94886977f4472895860',1,'DataStorage_2D::DataStorage_2D(std::size_t Nx, std::size_t Ny, std::vector&lt; double &gt; data)'],['../class_data_storage__2_d.html#ad46f632aca03a87807a576506bc4c1ac',1,'DataStorage_2D::DataStorage_2D(const DataStorage_2D &amp;copy_obj)']]],
-  ['deposit_5fcharge_12',['deposit_charge',['../class_species.html#a1d8369aea7ba3f40b29d30078e29a412',1,'Species']]],
-  ['dump_5fdata_13',['dump_data',['../class_simulation.html#a60656250cb2b710d53f144329acaced4',1,'Simulation']]]
+  ['cbegin_10',['cbegin',['../class_data_storage.html#abc13353dbdeacac56f1f67e61c43b97c',1,'DataStorage::cbegin()'],['../class_grid_object.html#ad309ae131fb9bc41f8964e637605c662',1,'GridObject::cbegin()']]],
+  ['cend_11',['cend',['../class_data_storage.html#ac159ad0c1725fce4c8b32c3fefa2abb7',1,'DataStorage::cend()'],['../class_grid_object.html#a229dc108b47d53fd083937e2244d01d7',1,'GridObject::cend()']]],
+  ['close_5fhdf5_5ffiles_12',['close_hdf5_files',['../class_file_i_o.html#a2ea8ff246c4688eab6c29bf0ec74d9ea',1,'FileIO']]],
+  ['close_5ftxt_5ffiles_13',['close_txt_files',['../class_file_i_o.html#a51619d5a81e74626bee05f8f1b3e55fb',1,'FileIO']]],
+  ['comp_5fadd_5fto_14',['comp_add_to',['../class_grid_object.html#a5e14782215014c4ae62d6eeddb0425d8',1,'GridObject']]],
+  ['comp_5fmultiply_5fby_15',['comp_multiply_by',['../class_grid_object.html#abc9180ac50a07794bec64e4db75b144c',1,'GridObject']]],
+  ['const_5fiterator_16',['const_iterator',['../class_data_storage.html#a3c433d3edb80931617fb6b2e853359ea',1,'DataStorage::const_iterator()'],['../class_grid_object.html#a736700a7e998e298d57ba11f87fa5006',1,'GridObject::const_iterator()']]]
 ];

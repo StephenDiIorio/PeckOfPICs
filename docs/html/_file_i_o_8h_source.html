@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('_file_i_o_8h_source.html','');});
 <div class="title">FileIO.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef FILE_IO_H</span></div>
+<a href="_file_i_o_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef FILE_IO_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define FILE_IO_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
@@ -99,8 +99,8 @@ $(document).ready(function(){initNavTree('_file_i_o_8h_source.html','');});
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;H5Cpp.h&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;DataStorage.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;GridObject.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_data_storage_8h.html">DataStorage.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_grid_object_8h.html">GridObject.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//TODO: this should be a singleton</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// Have to be very careful here as any path within the hdf5 file that has the same name with throw some sort of group error.</span></div>
@@ -157,7 +157,9 @@ $(document).ready(function(){initNavTree('_file_i_o_8h_source.html','');});
 <div class="ttc" id="aclass_file_i_o_html_a0c8562d97b03eac8c2d34b1d16e58afe"><div class="ttname"><a href="class_file_i_o.html#a0c8562d97b03eac8c2d34b1d16e58afe">FileIO::write_b_field_to_HDF5</a></div><div class="ttdeci">int write_b_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const DataStorage &amp;data)</div><div class="ttdoc">Writes a Magnetic Field components to file.</div><div class="ttdef"><b>Definition:</b> FileIO.cpp:268</div></div>
 <div class="ttc" id="aclass_file_i_o_html_a1931c669432007a94660213294966066"><div class="ttname"><a href="class_file_i_o.html#a1931c669432007a94660213294966066">FileIO::write_species_to_HDF5</a></div><div class="ttdeci">int write_species_to_HDF5(const std::size_t spec_name, const std::size_t itr_num, const DataStorage &amp;data)</div><div class="ttdoc">Writes a Species's density to an HDF5 file.</div><div class="ttdef"><b>Definition:</b> FileIO.cpp:97</div></div>
 <div class="ttc" id="aclass_data_storage_html"><div class="ttname"><a href="class_data_storage.html">DataStorage</a></div><div class="ttdoc">DataStorage is the abstract interface for DataStorage objects used to store n-dimensional sets of dat...</div><div class="ttdef"><b>Definition:</b> DataStorage.h:15</div></div>
+<div class="ttc" id="a_grid_object_8h_html"><div class="ttname"><a href="_grid_object_8h.html">GridObject.h</a></div></div>
 <div class="ttc" id="aclass_file_i_o_html_ad50ab267f7290caff5b932b5cdfb5ef1"><div class="ttname"><a href="class_file_i_o.html#ad50ab267f7290caff5b932b5cdfb5ef1">FileIO::open_hdf5_files</a></div><div class="ttdeci">void open_hdf5_files(std::string fname)</div><div class="ttdoc">Opens the HDF5 file to write the data to.</div><div class="ttdef"><b>Definition:</b> FileIO.cpp:50</div></div>
+<div class="ttc" id="a_data_storage_8h_html"><div class="ttname"><a href="_data_storage_8h.html">DataStorage.h</a></div></div>
 <div class="ttc" id="aclass_file_i_o_html_a8b0d602c3461181e12c05f655dea5018"><div class="ttname"><a href="class_file_i_o.html#a8b0d602c3461181e12c05f655dea5018">FileIO::FileIO</a></div><div class="ttdeci">FileIO()</div><div class="ttdoc">Constructor for the FileIO object.</div><div class="ttdef"><b>Definition:</b> FileIO.cpp:10</div></div>
 <div class="ttc" id="aclass_file_i_o_html"><div class="ttname"><a href="class_file_i_o.html">FileIO</a></div><div class="ttdoc">This is meant to deal with file IO in various formats. In particular, this handles writing the data o...</div><div class="ttdef"><b>Definition:</b> FileIO.h:20</div></div>
 <div class="ttc" id="aclass_file_i_o_html_aa1790415f2129feaaf9f0fa556034e42"><div class="ttname"><a href="class_file_i_o.html#aa1790415f2129feaaf9f0fa556034e42">FileIO::open_txt_files</a></div><div class="ttdeci">void open_txt_files()</div><div class="ttdoc">Opens all of the necessary text files to write data in .txt format.</div><div class="ttdef"><b>Definition:</b> FileIO.cpp:31</div></div>
@@ -166,7 +168,7 @@ $(document).ready(function(){initNavTree('_file_i_o_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>FileIO.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_file_i_o_8h.html">FileIO.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>

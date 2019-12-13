@@ -69,9 +69,9 @@ class Simulation
         CLASS METHODS
         ***********************************************************/
         void add_species(uint npar, double Qpar, double density,
-                         std::function<void(Species &, uint)> init_fcn);
-        void add_e_field(std::function<void(Field &, uint, uint)> init_fcn);
-        void add_b_field(std::function<void(Field &, uint, uint)> init_fcn);
+                         std::function<void(Species&, uint)> init_fcn);
+        void add_e_field(std::function<void(Field&, uint, uint)> init_fcn);
+        void add_b_field(std::function<void(Field&, uint, uint)> init_fcn);
 
         bool dump_data();
         void iterate();

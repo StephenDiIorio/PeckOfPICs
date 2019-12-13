@@ -1,0 +1,10 @@
+digraph "twoD_test"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="twoD_test",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Species::add_particle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_species.html#aaa36a207dd45987de754d6ca2674aade",tooltip="Adds a new particle to the species."];
+}

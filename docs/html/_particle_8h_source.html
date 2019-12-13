@@ -91,12 +91,12 @@ $(document).ready(function(){initNavTree('_particle_8h_source.html','');});
 <div class="title">Particle.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PARTICLE_H</span></div>
+<a href="_particle_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PARTICLE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PARTICLE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;ThreeVec.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_three_vec_8h.html">ThreeVec.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_particle.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_particle.html">Particle</a></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
@@ -134,7 +134,7 @@ $(document).ready(function(){initNavTree('_particle_8h_source.html','');});
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">return</span> this-&gt;pos;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_particle.html#a584b3a0b22fee5d672ee94b74dbda923">get_pos_comp</a>(uint i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_particle.html#a584b3a0b22fee5d672ee94b74dbda923">get_pos_comp</a>(<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">return</span> this-&gt;pos.<a class="code" href="class_three_vec.html#a74e3192c77a12957dd9145562712066a">get</a>(i);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
@@ -144,7 +144,7 @@ $(document).ready(function(){initNavTree('_particle_8h_source.html','');});
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">return</span> this-&gt;mom;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_particle.html#a8d3ce33754743e079c0824a54f165ca2">get_mom_comp</a>(uint i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_particle.html#a8d3ce33754743e079c0824a54f165ca2">get_mom_comp</a>(<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">return</span> this-&gt;mom.<a class="code" href="class_three_vec.html#a74e3192c77a12957dd9145562712066a">get</a>(i);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
@@ -159,7 +159,7 @@ $(document).ready(function(){initNavTree('_particle_8h_source.html','');});
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keywordflow">return</span> this-&gt;local_e_field;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_particle.html#added9d86ef04fb76718ffa405d9602d2">get_local_e_field_comp</a>(uint i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_particle.html#added9d86ef04fb76718ffa405d9602d2">get_local_e_field_comp</a>(<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keywordflow">return</span> this-&gt;local_e_field.<a class="code" href="class_three_vec.html#a74e3192c77a12957dd9145562712066a">get</a>(i);</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
@@ -169,7 +169,7 @@ $(document).ready(function(){initNavTree('_particle_8h_source.html','');});
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">return</span> this-&gt;local_b_field;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        }</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_particle.html#ab8be3cb58b905275e4220a6eb8fb192e">get_local_b_field_comp</a>(uint i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_particle.html#ab8be3cb58b905275e4220a6eb8fb192e">get_local_b_field_comp</a>(<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keywordflow">return</span> this-&gt;local_b_field.<a class="code" href="class_three_vec.html#a74e3192c77a12957dd9145562712066a">get</a>(i);</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        }</div>
@@ -181,7 +181,7 @@ $(document).ready(function(){initNavTree('_particle_8h_source.html','');});
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            this-&gt;<a class="code" href="class_particle.html#a1f3fa6cbe09290a7aad78d0563c37236">set_pos</a>(pos.<a class="code" href="class_three_vec.html#a9a8ceef102cfe8cd098b2f854a30dd98">get_x</a>(), pos.<a class="code" href="class_three_vec.html#a89146f64366afb4c7044507fedb82075">get_y</a>(), pos.<a class="code" href="class_three_vec.html#a7f17cdb916bfccfa23ebade7f76ef2c5">get_z</a>());</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a17553252c074c5fe864cc5fc4ec9a492">set_pos_comp</a>(uint i, <span class="keyword">const</span> <span class="keywordtype">double</span> val)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a17553252c074c5fe864cc5fc4ec9a492">set_pos_comp</a>(<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i, <span class="keyword">const</span> <span class="keywordtype">double</span> val)</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        {</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            this-&gt;pos.<a class="code" href="class_three_vec.html#aa6407f31a4075b0b0bd101c18592b8c4">set</a>(i, val);</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        }</div>
@@ -198,7 +198,7 @@ $(document).ready(function(){initNavTree('_particle_8h_source.html','');});
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            this-&gt;<a class="code" href="class_particle.html#a6eba3372263489c997f006e166b0c8b4">set_mom</a>(mom.<a class="code" href="class_three_vec.html#a9a8ceef102cfe8cd098b2f854a30dd98">get_x</a>(), mom.<a class="code" href="class_three_vec.html#a89146f64366afb4c7044507fedb82075">get_y</a>(), mom.<a class="code" href="class_three_vec.html#a7f17cdb916bfccfa23ebade7f76ef2c5">get_z</a>());</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        }</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a6c103d3d6292931785a3dce855337eda">set_mom_comp</a>(uint i, <span class="keyword">const</span> <span class="keywordtype">double</span> val)</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a6c103d3d6292931785a3dce855337eda">set_mom_comp</a>(<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i, <span class="keyword">const</span> <span class="keywordtype">double</span> val)</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        {</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            this-&gt;mom.<a class="code" href="class_three_vec.html#aa6407f31a4075b0b0bd101c18592b8c4">set</a>(i, val);</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        }</div>
@@ -222,7 +222,7 @@ $(document).ready(function(){initNavTree('_particle_8h_source.html','');});
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                                    field.<a class="code" href="class_three_vec.html#a7f17cdb916bfccfa23ebade7f76ef2c5">get_z</a>());</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        }</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a44208ba37e3f7604d9df20fa18d7e018">set_local_e_field_comp</a>(uint i, <span class="keyword">const</span> <span class="keywordtype">double</span> val)</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a44208ba37e3f7604d9df20fa18d7e018">set_local_e_field_comp</a>(<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i, <span class="keyword">const</span> <span class="keywordtype">double</span> val)</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        {</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            this-&gt;local_e_field.<a class="code" href="class_three_vec.html#aa6407f31a4075b0b0bd101c18592b8c4">set</a>(i, val);</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        }</div>
@@ -241,7 +241,7 @@ $(document).ready(function(){initNavTree('_particle_8h_source.html','');});
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                                    field.<a class="code" href="class_three_vec.html#a7f17cdb916bfccfa23ebade7f76ef2c5">get_z</a>());</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        }</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a4c91cb7eb76922e9a9ca71204fbce064">set_local_b_field_comp</a>(uint i, <span class="keyword">const</span> <span class="keywordtype">double</span> val)</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a4c91cb7eb76922e9a9ca71204fbce064">set_local_b_field_comp</a>(<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i, <span class="keyword">const</span> <span class="keywordtype">double</span> val)</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        {</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            this-&gt;local_b_field.<a class="code" href="class_three_vec.html#aa6407f31a4075b0b0bd101c18592b8c4">set</a>(i, val);</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        }</div>
@@ -256,18 +256,18 @@ $(document).ready(function(){initNavTree('_particle_8h_source.html','');});
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <span class="comment">// Print Functions</span></div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a7607fa59376dbbb68e10dd48d256a8c4">print_pos</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a5c529826775b28f312523d1db00517e0">print_pos_comp</a>(uint i) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a5c529826775b28f312523d1db00517e0">print_pos_comp</a>(<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_particle.html#abc033102a03154b7becf067fc0089a26">print_mom</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_particle.html#af097adc197777056c077a1bedbc9f4f5">print_mom_comp</a>(uint i) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_particle.html#af097adc197777056c077a1bedbc9f4f5">print_mom_comp</a>(<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_particle.html#ab5d4ed209640ff4b5ae2c2420239064e">print_weight</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_particle.html#ac92554380f588216b14af0fa67769561">print_local_e_field</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_particle.html#affd64f4fc0ab0862b124ca382f6442b8">print_local_e_field_comp</a>(uint i) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_particle.html#affd64f4fc0ab0862b124ca382f6442b8">print_local_e_field_comp</a>(<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a674069d45d3d90d2cab36ee135722f2a">print_local_b_field</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a24d76bd498d354701a16082aae7ea1ba">print_local_b_field_comp</a>(uint i) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a24d76bd498d354701a16082aae7ea1ba">print_local_b_field_comp</a>(<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        <span class="comment">//-----------------------------------------</span></div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;};</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
@@ -282,6 +282,7 @@ $(document).ready(function(){initNavTree('_particle_8h_source.html','');});
 <div class="ttc" id="aclass_particle_html_ac92554380f588216b14af0fa67769561"><div class="ttname"><a href="class_particle.html#ac92554380f588216b14af0fa67769561">Particle::print_local_e_field</a></div><div class="ttdeci">void print_local_e_field() const</div><div class="ttdoc">Print the local electric field the particle sees.</div><div class="ttdef"><b>Definition:</b> Particle.cpp:149</div></div>
 <div class="ttc" id="aclass_particle_html_a6eba3372263489c997f006e166b0c8b4"><div class="ttname"><a href="class_particle.html#a6eba3372263489c997f006e166b0c8b4">Particle::set_mom</a></div><div class="ttdeci">void set_mom(ThreeVec mom)</div><div class="ttdoc">Copy values from a vector to set the particle momentum.</div><div class="ttdef"><b>Definition:</b> Particle.h:181</div></div>
 <div class="ttc" id="aclass_particle_html_a6c103d3d6292931785a3dce855337eda"><div class="ttname"><a href="class_particle.html#a6c103d3d6292931785a3dce855337eda">Particle::set_mom_comp</a></div><div class="ttdeci">void set_mom_comp(uint i, const double val)</div><div class="ttdoc">Set a component of the particle momentum.</div><div class="ttdef"><b>Definition:</b> Particle.h:192</div></div>
+<div class="ttc" id="a_f_f_t_8h_html_a91ad9478d81a7aaf2593e8d9c3d06a14"><div class="ttname"><a href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a></div><div class="ttdeci">unsigned int uint</div><div class="ttdef"><b>Definition:</b> FFT.h:28</div></div>
 <div class="ttc" id="aclass_particle_html_a7607fa59376dbbb68e10dd48d256a8c4"><div class="ttname"><a href="class_particle.html#a7607fa59376dbbb68e10dd48d256a8c4">Particle::print_pos</a></div><div class="ttdeci">void print_pos() const</div><div class="ttdoc">Print the position of the particle.</div><div class="ttdef"><b>Definition:</b> Particle.cpp:102</div></div>
 <div class="ttc" id="aclass_particle_html_added9d86ef04fb76718ffa405d9602d2"><div class="ttname"><a href="class_particle.html#added9d86ef04fb76718ffa405d9602d2">Particle::get_local_e_field_comp</a></div><div class="ttdeci">double get_local_e_field_comp(uint i) const</div><div class="ttdoc">Get a component of the local electric field of the particle.</div><div class="ttdef"><b>Definition:</b> Particle.h:110</div></div>
 <div class="ttc" id="aclass_particle_html_adc5753b5e093d8307ee6bef942b1360f"><div class="ttname"><a href="class_particle.html#adc5753b5e093d8307ee6bef942b1360f">Particle::get_local_b_field</a></div><div class="ttdeci">ThreeVec get_local_b_field() const</div><div class="ttdoc">Get vector containing the local magnetic field the particle sees.</div><div class="ttdef"><b>Definition:</b> Particle.h:121</div></div>
@@ -289,6 +290,7 @@ $(document).ready(function(){initNavTree('_particle_8h_source.html','');});
 <div class="ttc" id="aclass_three_vec_html_a9a8ceef102cfe8cd098b2f854a30dd98"><div class="ttname"><a href="class_three_vec.html#a9a8ceef102cfe8cd098b2f854a30dd98">ThreeVec::get_x</a></div><div class="ttdeci">double get_x() const</div><div class="ttdoc">Access function for x coordinate.</div><div class="ttdef"><b>Definition:</b> ThreeVec.h:156</div></div>
 <div class="ttc" id="aclass_three_vec_html_a808b2174359cf8c16de3f2efa2f6af26"><div class="ttname"><a href="class_three_vec.html#a808b2174359cf8c16de3f2efa2f6af26">ThreeVec::set_all</a></div><div class="ttdeci">void set_all(double x, double y, double z)</div><div class="ttdoc">Modifier method for all coordinate.</div><div class="ttdef"><b>Definition:</b> ThreeVec.h:242</div></div>
 <div class="ttc" id="aclass_three_vec_html_aa6407f31a4075b0b0bd101c18592b8c4"><div class="ttname"><a href="class_three_vec.html#aa6407f31a4075b0b0bd101c18592b8c4">ThreeVec::set</a></div><div class="ttdeci">void set(int i, double value)</div><div class="ttdoc">Modifier method for ith coordinate -&gt; INSERT.</div><div class="ttdef"><b>Definition:</b> ThreeVec.h:230</div></div>
+<div class="ttc" id="a_three_vec_8h_html"><div class="ttname"><a href="_three_vec_8h.html">ThreeVec.h</a></div></div>
 <div class="ttc" id="aclass_particle_html_affd64f4fc0ab0862b124ca382f6442b8"><div class="ttname"><a href="class_particle.html#affd64f4fc0ab0862b124ca382f6442b8">Particle::print_local_e_field_comp</a></div><div class="ttdeci">void print_local_e_field_comp(uint i) const</div><div class="ttdoc">Print a coordinate of the local electric field the particle sees.</div><div class="ttdef"><b>Definition:</b> Particle.cpp:159</div></div>
 <div class="ttc" id="aclass_particle_html_a17553252c074c5fe864cc5fc4ec9a492"><div class="ttname"><a href="class_particle.html#a17553252c074c5fe864cc5fc4ec9a492">Particle::set_pos_comp</a></div><div class="ttdeci">void set_pos_comp(uint i, const double val)</div><div class="ttdoc">Set a component of the particle position.</div><div class="ttdef"><b>Definition:</b> Particle.h:156</div></div>
 <div class="ttc" id="aclass_particle_html_a1f3fa6cbe09290a7aad78d0563c37236"><div class="ttname"><a href="class_particle.html#a1f3fa6cbe09290a7aad78d0563c37236">Particle::set_pos</a></div><div class="ttdeci">void set_pos(ThreeVec pos)</div><div class="ttdoc">Copy values from a vector to set the particle position.</div><div class="ttdef"><b>Definition:</b> Particle.h:145</div></div>
@@ -314,7 +316,7 @@ $(document).ready(function(){initNavTree('_particle_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>Particle.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_particle_8h.html">Particle.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>

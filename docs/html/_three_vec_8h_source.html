@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('_three_vec_8h_source.html','');});
 <div class="title">ThreeVec.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef THREEVEC_H</span></div>
+<a href="_three_vec_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef THREEVEC_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define THREEVEC_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
@@ -100,10 +100,10 @@ $(document).ready(function(){initNavTree('_three_vec_8h_source.html','');});
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_three_vec.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_three_vec.html">ThreeVec</a></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint MAX_DIM = 3;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint X_IDX = 0;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint Y_IDX = 1;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint Z_IDX = 2;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> MAX_DIM = 3;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> X_IDX = 0;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Y_IDX = 1;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> Z_IDX = 2;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">double</span> coord_[MAX_DIM]; <span class="comment">// Private data members e.g. x,y,z</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
@@ -171,7 +171,7 @@ $(document).ready(function(){initNavTree('_three_vec_8h_source.html','');});
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_three_vec.html#a33143e8e73d34e8db9ef9c6804e69959">operator*</a>(<a class="code" href="class_three_vec.html">ThreeVec</a> vec)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="keywordtype">double</span> ans = 0.0;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keywordflow">for</span> (uint i = 0; i &lt; MAX_DIM; ++i)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i = 0; i &lt; MAX_DIM; ++i)</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            {</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                ans += coord_[i] * vec.<a class="code" href="class_three_vec.html#a74e3192c77a12957dd9145562712066a">get</a>(i);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            }</div>
@@ -251,7 +251,7 @@ $(document).ready(function(){initNavTree('_three_vec_8h_source.html','');});
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="comment">// Print Functions</span></div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_three_vec.html#a0aed9bf37d41ff8a909da723da5537e9">print</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_three_vec.html#aafbfe90c70943b22f194bce13e447213">print_comp</a>(uint i) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_three_vec.html#aafbfe90c70943b22f194bce13e447213">print_comp</a>(<a class="code" href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> i) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="comment">//-----------------------------------------</span></div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;};</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
@@ -259,6 +259,7 @@ $(document).ready(function(){initNavTree('_three_vec_8h_source.html','');});
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_three_vec_html_a7d8b1106324a9899895ae1aaa2aca3dd"><div class="ttname"><a href="class_three_vec.html#a7d8b1106324a9899895ae1aaa2aca3dd">ThreeVec::set_x</a></div><div class="ttdeci">void set_x(double value)</div><div class="ttdoc">Modifier method for x coordinate.</div><div class="ttdef"><b>Definition:</b> ThreeVec.h:199</div></div>
+<div class="ttc" id="a_f_f_t_8h_html_a91ad9478d81a7aaf2593e8d9c3d06a14"><div class="ttname"><a href="_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14">uint</a></div><div class="ttdeci">unsigned int uint</div><div class="ttdef"><b>Definition:</b> FFT.h:28</div></div>
 <div class="ttc" id="aclass_three_vec_html_aeea8db92c1468d428e9ce70062911816"><div class="ttname"><a href="class_three_vec.html#aeea8db92c1468d428e9ce70062911816">ThreeVec::operator^</a></div><div class="ttdeci">ThreeVec operator^(ThreeVec vec) const</div><div class="ttdoc">Overload the ^ operator to perform a vector cross product.</div><div class="ttdef"><b>Definition:</b> ThreeVec.h:138</div></div>
 <div class="ttc" id="aclass_three_vec_html_aebfc85441293df782fee0f7b275ad3cc"><div class="ttname"><a href="class_three_vec.html#aebfc85441293df782fee0f7b275ad3cc">ThreeVec::operator/</a></div><div class="ttdeci">ThreeVec operator/(double value) const</div><div class="ttdoc">Overload the / operator to perform scalar division.</div><div class="ttdef"><b>Definition:</b> ThreeVec.h:108</div></div>
 <div class="ttc" id="aclass_three_vec_html_a40e5b42f664ab0b0d4fb4f85b49b7565"><div class="ttname"><a href="class_three_vec.html#a40e5b42f664ab0b0d4fb4f85b49b7565">ThreeVec::operator-</a></div><div class="ttdeci">ThreeVec operator-(ThreeVec vec) const</div><div class="ttdoc">Overload the - operator for vector subtraction.</div><div class="ttdef"><b>Definition:</b> ThreeVec.h:52</div></div>
@@ -286,7 +287,7 @@ $(document).ready(function(){initNavTree('_three_vec_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>ThreeVec.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_three_vec_8h.html">ThreeVec.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
