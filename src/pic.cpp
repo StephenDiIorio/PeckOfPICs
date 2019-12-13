@@ -18,17 +18,17 @@ int main()
 
     Simulation sim(ndump, Nx, Ny, L_x, L_y, dt, tmax);
 
-    std::cout << "Made sim" << std::endl;
-    std::cout << sim.spec[0].density << std::endl;
-    std::cout << sim.spec[0].npar << std::endl;
-    std::cout << sim.spec[0].Qpar << std::endl;
-    sim.spec[0].print_pos();
-    sim.spec[0].print_weight();
+    // std::cout << "Made sim" << std::endl;
+    // std::cout << sim.spec[0].density << std::endl;
+    // std::cout << sim.spec[0].npar << std::endl;
+    // std::cout << sim.spec[0].Qpar << std::endl;
+    // sim.spec[0].print_pos();
+    // sim.spec[0].print_weight();
 
     double t;
     for (t = 0.0; t < sim.tmax; t += sim.dt)
     {
-        std::cout << t << std::endl;
+        std::cout << "t= \t" << t << std::endl;
 
         if (sim.dump_data())
         {
@@ -52,10 +52,10 @@ int main()
             spec_counter = 0;
             for (auto &s : sim.spec)
             {
-                // io.write_phase_to_HDF5("X", spec_counter, sim.n_iter, s.get_x_phasespace());
-                // io.write_phase_to_HDF5("Y", spec_counter, sim.n_iter, s.get_y_phasespace());
-                // io.write_phase_to_HDF5("PX", spec_counter, sim.n_iter, s.get_px_phasespace());
-                // io.write_phase_to_HDF5("PY", spec_counter, sim.n_iter, s.get_py_phasespace());
+                io.write_phase_to_HDF5("X", spec_counter, sim.n_iter, s.get_x_phasespace());
+                io.write_phase_to_HDF5("Y", spec_counter, sim.n_iter, s.get_y_phasespace());
+                io.write_phase_to_HDF5("PX", spec_counter, sim.n_iter, s.get_px_phasespace());
+                io.write_phase_to_HDF5("PY", spec_counter, sim.n_iter, s.get_py_phasespace());
                 ++spec_counter;
             }
 
