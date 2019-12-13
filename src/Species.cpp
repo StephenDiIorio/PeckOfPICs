@@ -332,7 +332,7 @@ int Species::push_particles(const double L_x, const double L_y,
         mom = p.get_mom();
 
         // minus instead of plus b/c of convention used in this program
-        mom -= p.get_local_e_field() * (this->Qpar * dt * 0.5);
+        mom += p.get_local_e_field() * (this->Qpar * dt * 0.5);
 
         mom2 = mom.square();
         gamma = 1. / sqrt(1. + mom2);
@@ -368,7 +368,7 @@ int Species::push_particles(const double L_x, const double L_y,
         // std::cout << "gamma " << gamma << std::endl;
         // // end prints
 
-        mom -= p.get_local_e_field() * (this->Qpar * dt * 0.5);
+        mom += p.get_local_e_field() * (this->Qpar * dt * 0.5);
         // //debugging prints
         // std::cout << "mom after step"<< std::endl;
         // mom.print();
