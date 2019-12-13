@@ -11,10 +11,10 @@
 class ThreeVec
 {
     private:
-        static const uint MAX_DIM = 3;
-        static const uint X_IDX = 0;
-        static const uint Y_IDX = 1;
-        static const uint Z_IDX = 2;
+        static const size_t MAX_DIM = 3;
+        static const size_t X_IDX = 0;
+        static const size_t Y_IDX = 1;
+        static const size_t Z_IDX = 2;
 
         double coord_[MAX_DIM]; // Private data members e.g. x,y,z
 
@@ -37,12 +37,9 @@ class ThreeVec
          * @param vec Vector to perform element-wise addition with
          * @return ThreeVec Resultant ThreeVec
          */
-        inline ThreeVec operator+(ThreeVec vec) const
+        friend ThreeVec operator+(ThreeVec vec1, const ThreeVec& vec2)
         {
-            ThreeVec ans(coord_[X_IDX] + vec.get_x(),
-                         coord_[Y_IDX] + vec.get_y(),
-                         coord_[Z_IDX] + vec.get_z());
-            return ans;
+            return vec1 += vec2;
         }
 
         /**
@@ -51,12 +48,9 @@ class ThreeVec
          * @param vec Vector to perform element-wise subtraction with
          * @return ThreeVec Resultant ThreeVec
          */
-        inline ThreeVec operator-(ThreeVec vec) const
+        friend ThreeVec operator-(ThreeVec vec1, const ThreeVec& vec2)
         {
-            ThreeVec ans(coord_[X_IDX] - vec.get_x(),
-                         coord_[Y_IDX] - vec.get_y(),
-                         coord_[Z_IDX] - vec.get_z());
-            return ans;
+            return vec1 -= vec2;
         }
 
         /**
@@ -65,7 +59,7 @@ class ThreeVec
          * @param vec Vector to perform in place element-wise addition with
          * @return ThreeVec Resultant ThreeVec
          */
-        inline ThreeVec operator+=(ThreeVec vec)
+        inline ThreeVec operator+=(const ThreeVec& vec)
         {
             coord_[X_IDX] += vec.get_x();
             coord_[Y_IDX] += vec.get_y();
@@ -79,7 +73,7 @@ class ThreeVec
          * @param vec Vector to perform in place element-wise subtraction with
          * @return ThreeVec Resultant ThreeVec
          */
-        inline ThreeVec operator-=(ThreeVec vec)
+        inline ThreeVec operator-=(const ThreeVec& vec)
         {
             coord_[X_IDX] -= vec.get_x();
             coord_[Y_IDX] -= vec.get_y();
@@ -93,7 +87,7 @@ class ThreeVec
          * @param value Scalar to multiply vector by
          * @return ThreeVec Resultant ThreeVec
          */
-        inline ThreeVec operator*(double value) const
+        inline ThreeVec operator*(const double value) const
         {
             ThreeVec ans(coord_[X_IDX] * value,
                          coord_[Y_IDX] * value,
@@ -107,7 +101,7 @@ class ThreeVec
          * @param value Scalar to divide vector by
          * @return ThreeVec Resultant ThreeVec
          */
-        inline ThreeVec operator/(double value) const
+        inline ThreeVec operator/(const double value) const
         {
             ThreeVec ans(coord_[X_IDX] / value,
                          coord_[Y_IDX] / value,
@@ -121,7 +115,7 @@ class ThreeVec
          * @param vec Vector to dot with
          * @return double Resultant dot product
          */
-        inline double operator*(ThreeVec vec) const
+        inline double operator*(const ThreeVec& vec) const
         {
             double ans = 0.0;
             for (uint i = 0; i < MAX_DIM; ++i)
@@ -254,7 +248,7 @@ class ThreeVec
         void inc(int i, double value);
         double square();
         double mag();
-        ThreeVec element_multiply(ThreeVec vec);
+        ThreeVec element_multiply(const ThreeVec& vec);
 
 
         // Print Functions

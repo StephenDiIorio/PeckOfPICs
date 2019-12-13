@@ -111,11 +111,11 @@ const uint ndump = 1;
 const uint Nx = 64; // number of grid points
 const uint Ny = 64; // number of grid points
 
-const uint Npar = Nx * 2;
+const uint Npar = Nx*2;
 const double L_x = 1.0;
 const double L_y = 1.0;
 
-const double tmax = 1.0;
+const double tmax = 3.0;
 const double dt = 0.01;
 
 const uint nspec = 1;

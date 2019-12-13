@@ -83,7 +83,7 @@ double ThreeVec::mag()
  * @param vec Vector to multiply element-wise with
  * @return ThreeVec Resultant ThreeVec
  */
-ThreeVec ThreeVec::element_multiply(ThreeVec vec)
+ThreeVec ThreeVec::element_multiply(const ThreeVec& vec)
 {
     ThreeVec ans(coord_[X_IDX] * vec.get_x(),
                  coord_[Y_IDX] * vec.get_y(),

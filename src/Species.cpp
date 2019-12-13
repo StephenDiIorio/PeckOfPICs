@@ -186,8 +186,8 @@ int Species::deposit_charge(const double dx, const double dy,
         // std::cout << "i+1, j+1 gets " << hx * hy * par_weight << std::endl;
 
         density_arr.comp_add_to(i,   j,   (1.-hx) * (1.-hy) * par_weight);
-        density_arr.comp_add_to(i+1, j,   (1.-hx) * hy      * par_weight);
-        density_arr.comp_add_to(i,   j+1, hx      * (1.-hy) * par_weight);
+        density_arr.comp_add_to(i+1, j,   hx      * (1.-hy) * par_weight);
+        density_arr.comp_add_to(i,   j+1, (1.-hx) * hy      * par_weight);
         density_arr.comp_add_to(i+1, j+1, hx      * hy      * par_weight);
         // print_num++;
     }
@@ -224,7 +224,7 @@ int Species::map_field_to_part(const Field& f, field_type field_to_map,
         double loc_f_x2 = 0.0;
         double loc_f_x3 = 0.0;
 
-        par_weight = p.get_weight() / dx / dy; // add normalization factor here
+        // par_weight = p.get_weight() / dx / dy; // add normalization factor here
         x_pos = p.get_pos().get_x();
         y_pos = p.get_pos().get_y();
 
@@ -332,7 +332,7 @@ int Species::push_particles(const double L_x, const double L_y,
         mom = p.get_mom();
 
         // minus instead of plus b/c of convention used in this program
-        mom += p.get_local_e_field() * (this->Qpar * dt * 0.5);
+        mom -= p.get_local_e_field() * (this->Qpar * dt * 0.5);
 
         mom2 = mom.square();
         gamma = 1. / sqrt(1. + mom2);
@@ -368,7 +368,7 @@ int Species::push_particles(const double L_x, const double L_y,
         // std::cout << "gamma " << gamma << std::endl;
         // // end prints
 
-        mom += p.get_local_e_field() * (this->Qpar * dt * 0.5);
+        mom -= p.get_local_e_field() * (this->Qpar * dt * 0.5);
         // //debugging prints
         // std::cout << "mom after step"<< std::endl;
         // mom.print();
