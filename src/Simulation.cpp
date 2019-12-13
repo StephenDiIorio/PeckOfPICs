@@ -190,6 +190,8 @@ void Simulation::solve_field()
     // std::vector<double> total_dens_im = std::vector<double>(this->Nx, 0.0);
 
     // this->e_field.solve_field(total_dens_re, total_dens_im); //TODO: having this function return a value and change state seems bad, maybe pass err as a parameter to also be changed?
+    GridObject density = get_total_density();
+    int err = this->e_field.solve_field(density);
 }
 
 /**
