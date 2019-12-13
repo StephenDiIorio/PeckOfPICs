@@ -156,8 +156,8 @@ int Species::deposit_charge(const double dx, const double dy,
         hy = fj - j;
 
         density_arr.comp_add_to(i,   j,   (1.-hx) * (1.-hy) * par_weight);
-        density_arr.comp_add_to(i+1, j,   (1.-hx) * hy      * par_weight);
-        density_arr.comp_add_to(i,   j+1, hx      * (1.-hy) * par_weight);
+        density_arr.comp_add_to(i+1, j,   hx      * (1.-hy) * par_weight);
+        density_arr.comp_add_to(i,   j+1, (1.-hx) * hy      * par_weight);
         density_arr.comp_add_to(i+1, j+1, hx      * hy      * par_weight);
     }
     return 0;
