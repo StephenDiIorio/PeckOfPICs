@@ -6,7 +6,7 @@ using namespace std;
 
 #include "FileIO.h"
 #include "Simulation.h"
-#include "two_stream.h"
+#include "two_part_test.h"
 
 int main()
 {
@@ -55,10 +55,10 @@ int main()
             spec_counter = 0;
             for (auto &s : sim.spec)
             {
-                io.write_phase_to_HDF5("X", spec_counter, sim.n_iter, s.get_x_phasespace());
-                io.write_phase_to_HDF5("Y", spec_counter, sim.n_iter, s.get_y_phasespace());
-                io.write_phase_to_HDF5("PX", spec_counter, sim.n_iter, s.get_px_phasespace());
-                io.write_phase_to_HDF5("PY", spec_counter, sim.n_iter, s.get_py_phasespace());
+                // io.write_phase_to_HDF5("X", spec_counter, sim.n_iter, s.get_x_phasespace());
+                // io.write_phase_to_HDF5("Y", spec_counter, sim.n_iter, s.get_y_phasespace());
+                // io.write_phase_to_HDF5("PX", spec_counter, sim.n_iter, s.get_px_phasespace());
+                // io.write_phase_to_HDF5("PY", spec_counter, sim.n_iter, s.get_py_phasespace());
                 ++spec_counter;
             }
 
