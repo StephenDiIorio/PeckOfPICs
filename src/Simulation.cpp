@@ -193,7 +193,7 @@ void Simulation::solve_field()
 {
     GridObject total_dens = get_total_density();
 
-    this->e_field.solve_field(total_dens); //TODO: having this function return a value and change state seems bad, maybe pass err as a parameter to also be changed?
+    err = this->e_field.solve_field(total_dens); //TODO: having this function return a value and change state seems bad, maybe pass err as a parameter to also be changed?
 }
 
 /**
