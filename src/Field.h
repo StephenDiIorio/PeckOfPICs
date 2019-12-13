@@ -50,7 +50,7 @@ class Field
 
         int solve_field_spectral(std::vector<double> re, std::vector<double> im);
         // solve_field_spectral may not currently work
-        int solve_field(GridObject &charge_density);
+        int solve_field(const GridObject &charge_density);
         int solve_field_fftw(GridObject &charge_density);
         void print_field();
 };

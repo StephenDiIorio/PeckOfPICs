@@ -173,16 +173,16 @@ PRIVATE CLASS METHODS
  */
 void Simulation::deposit_charge()
 {
-    std::cout << "Depositing charge" << std::endl;
-    spec[0].print_weight();
-    spec[0].print_density();
+    // std::cout << "Depositing charge" << std::endl;
+    // spec[0].print_weight();
+    // spec[0].print_density();
     for (auto &s : this->spec)
     {
         s.deposit_charge(this->dx, this->dy, this->L_x, this->L_y, this->Nx,
                          this->Ny);
     }
-    spec[0].print_weight();
-    spec[0].print_density();
+    // spec[0].print_weight();
+    // spec[0].print_density();
 }
 
 /**
@@ -191,7 +191,7 @@ void Simulation::deposit_charge()
  */
 void Simulation::solve_field()
 {
-    GridObject total_dens = get_total_density();
+    const GridObject total_dens = get_total_density();
 
     err = this->e_field.solve_field(total_dens); //TODO: having this function return a value and change state seems bad, maybe pass err as a parameter to also be changed?
 }
@@ -202,9 +202,9 @@ void Simulation::solve_field()
  */
 void Simulation::map_field_to_species()
 {
-    std::cout << "Mapping field to part" << std::endl;
-    std::cout << "Before: (local field and then total E)" << std::endl;
-    spec[0].print_local_e_field();
+    // std::cout << "Mapping field to part" << std::endl;
+    // std::cout << "Before: (local field and then total E)" << std::endl;
+    // spec[0].print_local_e_field();
     // e_field.print_field();
     for (auto &s : this->spec)
     {
@@ -213,8 +213,8 @@ void Simulation::map_field_to_species()
                             this->L_x, this->L_y,
                             this->Nx,  this->Ny);
     }
-    std::cout << "After: (local field and then total E)" << std::endl;
-    spec[0].print_local_e_field();
+    // std::cout << "After: (local field and then total E)" << std::endl;
+    // spec[0].print_local_e_field();
     // e_field.print_field();
 }
 

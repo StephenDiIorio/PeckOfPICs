@@ -138,7 +138,7 @@ int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
  * @param charge_density
  * @return int
  */
-int Field::solve_field(GridObject &charge_density)
+int Field::solve_field(const GridObject &charge_density)
 {
     int err = 0;
     const uint fft = 1;   // to perform fft
@@ -146,8 +146,6 @@ int Field::solve_field(GridObject &charge_density)
 
     phi_dens_re = GridObject(charge_density);
     phi_dens_im = GridObject(this->Nx, this->Ny);
-    Ex_im = GridObject(this->Nx, this->Ny);
-    Ey_im = GridObject(this->Nx, this->Ny);
 
     // A phi = density
     // 1 fourier transform density
@@ -194,14 +192,14 @@ int Field::solve_field(GridObject &charge_density)
 
     f1 = GridObject(phi_dens_im);
     GridObject Ex_im(phi_dens_re);
-    f2 = GridObject(phi_dens_im);
-    GridObject Ey_im(phi_dens_re);
+    f2 = phi_dens_im;
+    GridObject Ey_im = phi_dens_re;
 
     for (int xi =0; xi < this->Nx; ++xi)
     {
-        double kx = (2. * M_PI * xi) / (this->Nx * this->dx);
-        double sinckx = sinc(kx* this->dx);
-        double Ki = kx *sinckx;
+        double kappa_x = (2. * M_PI * xi) / (this->Nx * this->dx);
+        double sinc_kappa_x = sinc(kappa_x* this->dx);
+        double Kappa_i = kappa_x *sinc_kappa_x;
 
         for (int yj = 0; yj < this->Ny; ++yj)
         {
@@ -209,14 +207,15 @@ int Field::solve_field(GridObject &charge_density)
             {
                 continue;
             }
-            double ky = (2. * M_PI * yj) / (this->Ny * this->dy);
-            double sincky = sinc(ky* this->dy);
+            double kappa_y = (2. * M_PI * yj) / (this->Ny * this->dy);
+            double sinc_kappa_y = sinc(kappa_y* this->dy);
 
-            double Kj = ky * sincky;
-            f1.comp_multiply_by(xi,yj, Ki);
-            Ex_im.comp_multiply_by(xi,yj, -Ki);
-            f2.comp_multiply_by(xi,yj, Kj);
-            Ey_im.comp_multiply_by(xi,yj, -Kj);
+            double Kappa_j = kappa_y * sinc_kappa_y;
+            // is negative sign in the f_ or the E__im ? 
+            f1.comp_multiply_by(xi,yj, -Kappa_i);
+            Ex_im.comp_multiply_by(xi,yj, Kappa_i);
+            f2.comp_multiply_by(xi,yj, -Kappa_j);
+            Ey_im.comp_multiply_by(xi,yj, Kappa_j);
         }
     }
 
@@ -226,9 +225,6 @@ int Field::solve_field(GridObject &charge_density)
     // then inverse Fourier transform back each of Ex, Ey
     // for each row: collect data, Fourier transform, return, and store
 
-    //*** I am hacking right now!!! Don't let this be forgotten!!!
-    // f1.gridded_data *= 1/sqrt(this->Nx) * 1/sqrt(this->Ny);
-    // f2.gridded_data *= 1/sqrt(this->Nx) * 1/sqrt(this->Ny);
     // For total electrostatic energy diagnostic
     this->total_U *= 0.5;
 
