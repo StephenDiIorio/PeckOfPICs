@@ -65,10 +65,6 @@ Field::Field(uint Nx, uint Ny, double dx, double dy,
 
     this->total_U = 0.0;
 
-    // std::vector<double> k = get_k_vec(this->size, dx);
-    // this->K2 = get_K2_vec(k, this->size, dx);
-    // this->kappa = get_kappa_vec(k, this->size, dx);
-
     init_field(init_fcn);
 }
 
@@ -77,7 +73,14 @@ Field::~Field()
 }
 //-----------------------------------------
 
-
+/**
+ * @brief Home-made 2d dft used in the spectral field solve
+ * 
+ * @param real_part 
+ * @param imag_part 
+ * @param transform_direction 
+ * @return int 
+ */
 int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
                   const uint transform_direction)
 {
@@ -133,7 +136,7 @@ int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
 }
 
 /**
- * @brief solve_field solves Poisson equation with periodic BCs
+ * @brief solve_field is a spectral solver for the 2d Poisson equation with periodic BCs
  *
  * @param charge_density
  * @return int
@@ -234,7 +237,8 @@ int Field::solve_field(const GridObject &charge_density)
 }
 
 /**
- * @brief
+ * @brief !Not implemented yet! intended to be a spectral solver 
+ * for the 2d Poisson equation using the 2d dft of fftw
  *
  * @param charge_density
  * @return int
@@ -252,51 +256,6 @@ int solve_field_fftw(GridObject &charge_density)
     return 1;
 }
 
-int Field::solve_field_spectral(std::vector<double> re, std::vector<double> im)
-{
-    // For total electrostatic energy diagnostic
-    this->total_U = 0.0;
-
-    int err = 0;
-    const uint fft = 1;   // to perform fft
-    const uint ifft = -1; // to perform ifft
-
-    err = FFT(re, im, this->size, fft);
-    if (err)
-    {
-        return err;
-    }
-
-    re.at(0) = im.at(0) = 0.0; // set offset density pert to 0
-
-    for (uint i = 1; i < this->size; ++i) // avoid divide by 0, start at 1
-    {
-        // For total electrostatic energy diagnostic
-        // Can ignore at i=0 since the values are 0
-        this->total_U += ((re.at(i) * re.at(i)) + (im.at(i) * im.at(i))) / this->K2.at(i);
-
-        //calculate phi
-        re.at(i) /= this->K2.at(i);
-        im.at(i) /= this->K2.at(i);
-
-        //calculate E
-        re.at(i) *= -this->kappa.at(i);
-        im.at(i) *= this->kappa.at(i); //multiply i by i so get extra factor of -1
-    }
-    // By the end of this, the real part has become the imaginary part,
-    // and vice versa, so we switch the order in the inverse fft
-    err = FFT(im, re, this->size, ifft);
-    if (err)
-    {
-        return err;
-    }
-    this->f1 = GridObject(this->size, 0, im);
-
-    // For total electrostatic energy diagnostic
-    this->total_U *= 0.5;
-
-    return err;
-}
 
 void Field::print_field()
 {

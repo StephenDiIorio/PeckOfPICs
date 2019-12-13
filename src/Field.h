@@ -15,10 +15,7 @@ typedef unsigned int uint;
 class Field
 {
     private:
-        std::vector<double> K2;
-        std::vector<double> kappa;
         GridObject phi_dens_re, phi_dens_im, Ex_im, Ey_im;
-
 
         void init_field(std::function<void(Field &, uint, uint)> init_fcn);
         
@@ -48,10 +45,8 @@ class Field
         int FFT_2d(GridObject &real_part, GridObject &imag_part, 
                         const uint transform_direction);
 
-        int solve_field_spectral(std::vector<double> re, std::vector<double> im);
-        // solve_field_spectral may not currently work
         int solve_field(const GridObject &charge_density);
-        int solve_field_fftw(GridObject &charge_density);
+        int solve_field_fftw(const GridObject &charge_density);
         void print_field();
 };
 
