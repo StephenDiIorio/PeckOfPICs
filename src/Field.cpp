@@ -212,6 +212,8 @@ int Field::solve_field(const GridObject &charge_density)
 
             double Kappa_j = kappa_y * sinc_kappa_y;
             // is negative sign in the f_ or the E__im ? 
+            // the current ordering of signs is theoretically dubious
+            // but it gives the electric field the correct sign
             f1.comp_multiply_by(xi,yj, -Kappa_i);
             Ex_im.comp_multiply_by(xi,yj, Kappa_i);
             f2.comp_multiply_by(xi,yj, -Kappa_j);
