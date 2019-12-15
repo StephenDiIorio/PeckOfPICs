@@ -56,7 +56,7 @@ $(OBJDIR):
 
 
 # All the dependencies
-pic.o: pic.cpp two_stream.h gyro.h uh.h Simulation.h Species.h Particle.h ThreeVec.h Field.h FFT.h GridObject.h FileIO.h DataStorage.h DataStorage_1D.h DataStorage_2D.h
+pic.o: pic.cpp pic_tests.h two_stream.h cold_wave.h Simulation.h Species.h Particle.h ThreeVec.h Field.h FFT.h GridObject.h FileIO.h DataStorage.h DataStorage_1D.h DataStorage_2D.h
 	$(CXX) -c $(CXXFLAGS) -o $(OBJDIR)/$@ $< $(INCLUDE)
 
 Simulation.o: Simulation.cpp Simulation.h Species.h Particle.h ThreeVec.h Field.h FFT.h GridObject.h DataStorage_1D.h DataStorage_2D.h DataStorage.h

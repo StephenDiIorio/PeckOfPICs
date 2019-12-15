@@ -187,7 +187,7 @@ int FileIO::write_species_to_HDF5(const std::size_t spec_name, const std::size_t
  * @param data The DataStorage object to write to file
  * @return int An error code if something failed, otherwise 0
  */
-int FileIO::write_e_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const DataStorage &data)
+int FileIO::write_e_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const DataStorage& data)
 {
     H5::Group top_group;
     H5std_string f_gname("/E_FIELD/");
@@ -279,7 +279,7 @@ int FileIO::write_e_field_to_HDF5(const std::size_t field_comp, const std::size_
  * @param data The DataStorage object to write to file
  * @return int An error code if something failed, otherwise 0
  */
-int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const DataStorage &data)
+int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const DataStorage& data)
 {
     H5::Group top_group;
     H5std_string f_gname("/B_FIELD/");
@@ -357,7 +357,7 @@ int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_
  * @param data The GridObject object to write to file
  * @return int An error code if something failed, otherwise 0
  */
-int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const GridObject &data)
+int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const GridObject& data)
 {
     return write_b_field_to_HDF5(field_comp, itr_num, data.get_data());
 }
@@ -372,7 +372,7 @@ int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_
  * @param data The DataStorage object to write to file
  * @return int An error code if something failed, otherwise 0
  */
-int FileIO::write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const DataStorage &data)
+int FileIO::write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const DataStorage& data)
 {
     H5::Group top_group;
     H5std_string p_gname("/PHASE/");
@@ -463,7 +463,7 @@ int FileIO::write_phase_to_HDF5(const char phase_name[], const std::size_t spec_
  * @param data The GridObject object to write to file
  * @return int An error code if something failed, otherwise 0
  */
-int FileIO::write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const GridObject &data)
+int FileIO::write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const GridObject& data)
 {
     return write_phase_to_HDF5(phase_name, spec_name, itr_num, data.get_data());
 }

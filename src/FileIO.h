@@ -52,11 +52,11 @@ class FileIO
         int write_e_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const DataStorage& data);
         int write_e_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const GridObject& data);
 
-        int write_b_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const DataStorage &data);
-        int write_b_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const GridObject &data);
+        int write_b_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const DataStorage& data);
+        int write_b_field_to_HDF5(const std::size_t field_comp, const std::size_t itr_num, const GridObject& data);
 
-        int write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const DataStorage &data);
-        int write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const GridObject &data);
+        int write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const DataStorage& data);
+        int write_phase_to_HDF5(const char phase_name[], const std::size_t spec_name, const std::size_t itr_num, const GridObject& data);
         //-----------------------------------------
 };
 
