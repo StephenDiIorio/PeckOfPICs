@@ -1,0 +1,9 @@
+obj/*
+bin/*
+*.h5
+
+*.exe
+*.dSYM
+.vscode
+
+.gitignore

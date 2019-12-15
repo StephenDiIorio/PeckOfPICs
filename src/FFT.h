@@ -22,19 +22,33 @@
 #ifndef FFT_H
 #define FFT_H
 
-#include<vector>
+#include <vector>
 #include <cmath>
 
-typedef unsigned int uint;
+#include "GridObject.h"
 
-double sinc(const double x);
+namespace FFT
+{
+    enum FFT_Dir
+    {
+        FFT = 1,
+        iFFT = -1
+    };
 
-int FFT(std::vector<double> &data_re, std::vector<double> &data_im, const unsigned long NVALS, const int isign);
+    double sinc(const double x);
 
-std::vector<double> get_k_vec(const uint size, const double dx);
+    int FFT_1D(std::vector<double>& data_re, std::vector<double>& data_im,
+               FFT::FFT_Dir isign);
 
-std::vector<double> get_K2_vec(const std::vector<double> k, const uint size, const double dx);
+    int FFT_2D(GridObject& real_part, GridObject& imag_part,
+               FFT::FFT_Dir transform_dir);
 
-std::vector<double> get_kappa_vec(const std::vector<double> k, const uint size, const double dx);
+    std::vector<double> get_k_vec(const std::size_t size, const double dx);
+
+    std::vector<double> get_K2_vec(const std::vector<double>& k, const double dx);
+
+    std::vector<double> get_kappa_vec(const std::vector<double>& k, const double dx);
+
+}
 
 #endif

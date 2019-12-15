@@ -1,152 +1,118 @@
-/*
-  Three-vector class including mathematical operations and IO
-*/
-
 #include "ThreeVec.h"
 
+/**********************************************************
+CONSTRUCTORS/DESTRUCTORS
+***********************************************************/
+
+/**
+ * @brief Constructor for ThreeVec object
+ *
+ */
 ThreeVec::ThreeVec() : ThreeVec(0.0, 0.0, 0.0)
 {
 }
 
-// Cartesian constructor
+/**
+ * @brief Cartesian constructor for ThreeVec object
+ *
+ * @param x x coordinate
+ * @param y y coordinate
+ * @param z z coordinate
+ */
 ThreeVec::ThreeVec(double x, double y, double z)
 {
-    coord_[0] = x;
-    coord_[1] = y;
-    coord_[2] = z;
+    coord_[X_IDX] = x;
+    coord_[Y_IDX] = y;
+    coord_[Z_IDX] = z;
 }
 
-// Access function for x coordinate
-double ThreeVec::get_x() { return coord_[0]; }
-
-// Access function for y coordinate
-double ThreeVec::get_y() { return coord_[1]; }
-
-// Access function for z coordinate
-double ThreeVec::get_z() { return coord_[2]; }
-
-// Access function for ith coordinate
-double ThreeVec::get(int i) { return coord_[i]; }
-
-// Modifier method for x coordinate
-void ThreeVec::set_x(double value) { coord_[0] = value; }
-
-// Modifier method for y coordinate
-void ThreeVec::set_y(double value) { coord_[1] = value; }
-
-// Modifier method for z coordinate
-void ThreeVec::set_z(double value) { coord_[2] = value; }
-
-// Modifier method for ith coordinate -> INSERT
-void ThreeVec::set(int i, double value) { coord_[i] = value; }
-
-void ThreeVec::set_all(double x, double y, double z)
+/**
+ * @brief Destructor for ThreeVec object
+ *
+ */
+ThreeVec::~ThreeVec()
 {
-    coord_[0] = x;
-    coord_[1] = y;
-    coord_[2] = z;
+}
+//-----------------------------------------
+
+
+/**********************************************************
+CLASS METHODS
+***********************************************************/
+
+// Operations
+/**
+ * @brief Alternative modifier method for ith coordinate -> ADD
+ *
+ * @param i Index into the vector
+ * @param value Value to add to the ith element
+ */
+void ThreeVec::inc(int i, double value)
+{
+    coord_[i] += value;
 }
 
-// Alternative modifier method for ith coordinate -> ADD
-void ThreeVec::inc(int i, double value) { coord_[i] += value; }
-
-// Square the threevector
+/**
+ * @brief Square the ThreeVec
+ *
+ * @return double The sum of the squares of all components
+ */
 double ThreeVec::square()
 {
     double answer = 0.0;
-    for (int i = 0; i < 3; ++i)
+    for (uint i = 0; i < MAX_DIM; ++i)
     {
         answer += coord_[i] * coord_[i];
     }
     return answer;
 }
 
-// Magnitude of the threevector
-double ThreeVec::mag() { return sqrt(square()); }
-
-/*
-Overload the operators +,-,* and ^ to represent vector operations
-*/
-// Addition
-ThreeVec ThreeVec::operator+(ThreeVec vec)
+/**
+ * @brief Calculate the magnitude of the ThreeVec
+ *
+ * @return double Magnitude of the ThreeVec
+ */
+double ThreeVec::mag()
 {
-    ThreeVec ans(vec.get_x() + coord_[0],
-                 vec.get_y() + coord_[1],
-                 vec.get_z() + coord_[2]);
+    return sqrt(square());
+}
+
+/**
+ * @brief Perform element-wise multiplication
+ *
+ * @param vec Vector to multiply element-wise with
+ * @return ThreeVec Resultant ThreeVec
+ */
+ThreeVec ThreeVec::element_multiply(const ThreeVec& vec)
+{
+    ThreeVec ans(coord_[X_IDX] * vec.get_x(),
+                 coord_[Y_IDX] * vec.get_y(),
+                 coord_[Z_IDX] * vec.get_z());
     return ans;
 }
 
-// Subtraction
-ThreeVec ThreeVec::operator-(ThreeVec vec)
-{
-    ThreeVec ans(coord_[0] - vec.get_x(),
-                 coord_[1] - vec.get_y(),
-                 coord_[2] - vec.get_z());
-    return ans;
-}
 
-// Increment
-ThreeVec ThreeVec::operator+=(ThreeVec vec)
+// Print Functions
+/**
+ * @brief Prints all components of the vector
+ *
+ */
+void ThreeVec::print() const
 {
-    coord_[0] += vec.get_x();
-    coord_[1] += vec.get_y();
-    coord_[2] += vec.get_z();
-    return *(this); //not necessary but returns modified ThreeVec
-}
-
-// Decrement
-ThreeVec ThreeVec::operator-=(ThreeVec vec)
-{
-    coord_[0] -= vec.get_x();
-    coord_[1] -= vec.get_y();
-    coord_[2] -= vec.get_z();
-    return *(this); //not necessary but returns modified ThreeVec
-}
-
-// Scalar multiplication
-ThreeVec ThreeVec::operator*(double value)
-{
-    ThreeVec ans(coord_[0] * value,
-                 coord_[1] * value,
-                 coord_[2] * value);
-    return ans;
-}
-
-// Scalar division
-ThreeVec ThreeVec::operator/(double value)
-{
-    ThreeVec ans(coord_[0] / value,
-                 coord_[1] / value,
-                 coord_[2] / value);
-    return ans;
-}
-
-// Vector multiplication - dot product
-double ThreeVec::operator*(ThreeVec vec)
-{
-    double ans = 0.0;
-    for (int i = 0; i < 3; ++i)
+    for (uint i = 0; i < MAX_DIM; ++i)
     {
-        ans += coord_[i] * vec.get(i);
+        std::cout << coord_[i] << '\t';
     }
-    return ans;
+    std::cout << std::endl;
 }
 
-// Vector multiplication - cross product
-ThreeVec ThreeVec::operator^(ThreeVec vec)
+/**
+ * @brief Prints a single component of the vector
+ *
+ * @param i The index of the component to print
+ */
+void ThreeVec::print_comp(uint i) const
 {
-    ThreeVec ans(coord_[1] * vec.get_z() - coord_[2] * vec.get_y(),
-                 coord_[2] * vec.get_x() - coord_[0] * vec.get_z(),
-                 coord_[0] * vec.get_y() - coord_[1] * vec.get_x());
-    return ans;
+    std::cout << coord_[i] << std::endl;
 }
-
-// Friend function to e.g. print to screen via cout
-// std::ostream &operator<<(std::ostream &outstream, const ThreeVec &v)
-// {
-//     for (int i = 0; i < 3; ++i)
-//     {
-//         outstream << v.coord_[i] << '\t';
-//     }
-//     return outstream;
-// }
+//-----------------------------------------

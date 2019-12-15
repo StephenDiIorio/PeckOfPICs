@@ -27,7 +27,13 @@
     (b) = tempr
 //tempr is a variable from our FFT function
 
-double sinc(const double x)
+/**
+ * @brief Computes the value of sinc(x)
+ *
+ * @param x The position to evaluate the sinc function
+ * @return double The value of sinc(x)
+ */
+double FFT::sinc(const double x)
 {
     if (x != 0.0)
     {
@@ -39,31 +45,40 @@ double sinc(const double x)
     }
 }
 
-int FFT(std::vector<double> &data_re, std::vector<double> &data_im, const unsigned long NVALS, const int isign)
+/**
+ * @brief Performs a 1D (inverse) Fourier transform of a grid
+ *
+ * @param data_re The real part of the grid to (i)FFT
+ * @param data_im The imaginary part of the grid to (i)FFT
+ * @param isign Whether to perform an FFT or an IFFT
+ * @return int An error code or 0 if it worked correctly
+ */
+int FFT::FFT_1D(std::vector<double>& data_re, std::vector<double>& data_im,
+                FFT::FFT_Dir isign)
 {
+    // assumes real_part and im_part are the same size!
+    const std::size_t NVALS = data_re.size();
+
     // TEST THAT NVALS IS A POWER OF 2
     const int err = !(NVALS && !(NVALS & (NVALS - 1)));
     if (!err)
     {
-        //variables for trigonometric recurrences
-        unsigned long mmax, m, j, istep, i;
-        double wtemp, wr, wpr, wpi, wi, theta, tempr, tempi;
         /*
 	    the complex array is real+complex so the array
-	    as a size n = 2* number of samples
+	    as a size n = 2 * number of samples
 	    real part is data[index] and the complex part is data[index+1]
         */
-        const unsigned long n = NVALS << 1; // bitwise multiply by 2
+        const std::size_t n = NVALS << 1; // bitwise multiply by 2
 
         /*
 	    Pack components into double array of size n - the ordering
 	    is data[0]=real[0], data[1]=imag[0] .......
         */
         std::vector<double> data(n);
-        for (i = 0, j = 0; j < n; ++i, j += 2)
+        for (std::size_t i = 0, j = 0; j < n; ++i, j += 2)
         {
-            data.at(j) = data_re.at(i);
-            data.at(j + 1) = data_im.at(i);
+            data[j] = data_re[i];
+            data[j + 1] = data_im[i];
         }
         /*
 	    binary inversion (note that
@@ -72,30 +87,32 @@ int FFT(std::vector<double> &data_re, std::vector<double> &data_im, const unsign
 	    and the complex part is on the even-indexes
         */
 
-        j = 0;
-        for (i = 0; i < n / 2; i += 2)
+        std::size_t j = 0;
+        for (std::size_t i = 0; i < n / 2; i += 2)
         {
             if (j > i)
             {
+                double tempr; // for the SWAP macro
+
                 //swap the real part
-                SWAP(data.at(j), data.at(i));
+                SWAP(data[j], data[i]);
 
                 //swap the complex part
-                SWAP(data.at(j + 1), data.at(i + 1));
+                SWAP(data[j + 1], data[i + 1]);
 
                 // checks if the changes occurs in the first half
                 // and use the mirrored effect on the second half
                 if ((j / 2) < (n / 4))
                 {
                     //swap the real part
-                    SWAP(data.at((n - (i + 2))), data.at((n - (j + 2))));
+                    SWAP(data[(n - (i + 2))], data[(n - (j + 2))]);
 
                     //swap the complex part
-                    SWAP(data.at((n - (i + 2)) + 1), data.at((n - (j + 2)) + 1));
+                    SWAP(data[(n - (i + 2)) + 1], data[(n - (j + 2)) + 1]);
                 }
             }
 
-            m = NVALS;
+            std::size_t m = NVALS;
             while (m >= 2 && j >= m)
             {
                 j -= m;
@@ -105,29 +122,29 @@ int FFT(std::vector<double> &data_re, std::vector<double> &data_im, const unsign
         }
 
         //Danielson-Lanzcos routine
-        mmax = 2;
+        std::size_t mmax = 2;
         while (n > mmax)
         {
-            istep = mmax << 1;
-            theta = isign * (2.0 * M_PI / mmax);
-            wtemp = sin(0.5 * theta);
-            wpr = -2.0 * wtemp * wtemp;
-            wpi = sin(theta);
-            wr = 1.0;
-            wi = 0.0;
+            std::size_t istep = mmax << 1;
+            double theta = isign * (2.0 * M_PI / mmax);
+            double wtemp = sin(0.5 * theta);
+            double wpr = -2.0 * wtemp * wtemp;
+            double wpi = sin(theta);
+            double wr = 1.0;
+            double wi = 0.0;
             //internal loops
 
-            for (m = 1; m < mmax; m += 2)
+            for (std::size_t m = 1; m < mmax; m += 2)
             {
-                for (i = m; i <= n; i += istep)
+                for (std::size_t i = m; i <= n; i += istep)
                 {
-                    j = i + mmax;
-                    tempr = wr * data.at(j - 1) - wi * data.at(j);
-                    tempi = wr * data.at(j) + wi * data.at(j - 1);
-                    data.at(j - 1) = data.at(i - 1) - tempr;
-                    data.at(j) = data.at(i) - tempi;
-                    data.at(i - 1) += tempr;
-                    data.at(i) += tempi;
+                    std::size_t j = i + mmax;
+                    double tempr = wr * data[j - 1] - wi * data[j];
+                    double tempi = wr * data[j] + wi * data[j - 1];
+                    data[j - 1] = data[i - 1] - tempr;
+                    data[j] = data[i] - tempi;
+                    data[i - 1] += tempr;
+                    data[i] += tempi;
                 }
                 wr = (wtemp = wr) * wpr - wi * wpi + wr;
                 wi = wi * wpr + wtemp * wpi + wi;
@@ -137,65 +154,131 @@ int FFT(std::vector<double> &data_re, std::vector<double> &data_im, const unsign
         /*
 	    Return elements to real and complex components
         */
-        if (isign > 0)
+        switch (isign)
         {
-            for (i = 0, j = 0; j < n; ++i, j += 2)
-            {
-                data_re.at(i) = data.at(j);
-                data_im.at(i) = data.at(j + 1);
-            }
-        }
-        else
-        {
-            double invNVALs = 1.0 / NVALS;
-            for (i = 0, j = 0; j < n; ++i, j += 2)
-            {
-                data_re.at(i) = data.at(j) * invNVALs;
-                data_im.at(i) = data.at(j + 1) * invNVALs;
-            }
+            case FFT::FFT_Dir::FFT:
+                for (std::size_t i = 0, j = 0; j < n; ++i, j += 2)
+                {
+                    data_re[i] = data[j];
+                    data_im[i] = data[j + 1];
+                }
+                break;
+            case FFT::FFT_Dir::iFFT:
+                double invNVALs = 1.0 / NVALS;
+                for (std::size_t i = 0, j = 0; j < n; ++i, j += 2)
+                {
+                    data_re[i] = data[j] * invNVALs;
+                    data_im[i] = data[j + 1] * invNVALs;
+                }
+                break;
         }
     }
     return err;
 }
 
-std::vector<double> get_k_vec(const uint size, const double dx)
+/**
+ * @brief Performs a 2D (inverse) Fourier transform of a grid
+ *
+ * @param real_part The real part of the grid to (i)FFT
+ * @param imag_part The imaginary part of the grid to (i)FFT
+ * @param transform_dir Whether to perform an FFT or an IFFT
+ * @return int An error code or 0 if it worked correctly
+ */
+int FFT::FFT_2D(GridObject& real_part, GridObject& imag_part,
+                FFT::FFT_Dir transform_dir)
+{
+    int err = 0;
+
+    // assumes real_part and im_part are the same size!
+    const std::size_t Nx = real_part.get_Nx();
+    const std::size_t Ny = real_part.get_Ny();
+
+    // spectral solve: Fourier transform rows, then columns
+    // for each row: collect data, Fourier transform, return, and store
+    std::vector<double> xs_re(Ny), xs_im(Ny);
+
+    for (std::size_t xi = 0; xi < Nx; ++xi)
+    {
+        for (std::size_t yj = 0; yj < Ny; ++yj)
+        {
+            xs_re[yj] = real_part.get_comp(xi, yj);
+            xs_im[yj] = imag_part.get_comp(xi, yj);
+        }
+        err = FFT::FFT_1D(xs_re, xs_im, transform_dir);
+        if (err)
+        {
+            return err;
+        }
+        for (std::size_t yj = 0; yj < Ny; ++yj)
+        {
+            real_part.set_comp(xi, yj, xs_re[yj]);
+            imag_part.set_comp(xi, yj, xs_im[yj]);
+        }
+    }
+
+    // now columns
+    std::vector<double> ys_re(Nx), ys_im(Nx);
+    for (std::size_t yj = 0; yj < Ny; ++yj)
+    {
+        for (std::size_t xi = 0; xi < Nx; ++xi)
+        {
+            ys_re[xi] = real_part.get_comp(xi, yj);
+            ys_im[xi] = imag_part.get_comp(xi, yj);
+        }
+        err = FFT::FFT_1D(ys_re, ys_im, transform_dir);
+        if (err)
+        {
+            return err;
+        }
+        for (std::size_t xi = 0; xi < Nx; ++xi)
+        {
+            real_part.set_comp(xi, yj, ys_re[xi]);
+            imag_part.set_comp(xi, yj, ys_im[xi]);
+        }
+    }
+
+    return err;
+}
+
+std::vector<double> FFT::get_k_vec(const std::size_t size, const double dx)
 {
     std::vector<double> k = std::vector<double>(size);
     const double kmax = M_PI / dx;
 
-    for (uint i = 0; i < size / 2; ++i)
+    //TODO: verify divide by (size/2) and not just size
+    for (std::size_t i = 0; i < size / 2; ++i)
     {
-        k.at(i) = kmax * i / (size / 2);
+        k[i] = kmax * i / (size / 2);
     }
-    for (uint i = size / 2; i < size; ++i)
+    for (std::size_t i = size / 2; i < size; ++i)
     {
-        k.at(i) = kmax * i / (size / 2) - 2 * kmax;
+        k[i] = kmax * i / (size / 2) - 2 * kmax;
     }
 
     return k;
 }
 
-std::vector<double> get_K2_vec(const std::vector<double> k, const uint size, const double dx)
+std::vector<double> FFT::get_K2_vec(const std::vector<double>& k, const double dx)
 {
-    std::vector<double> K2 = std::vector<double>(size);
+    std::vector<double> K2 = std::vector<double>(k.size());
     double val;
 
-    for (uint i = 0; i < size; ++i)
+    for (std::size_t i = 0; i < k.size(); ++i)
     {
-        val = k.at(i) * sinc(k.at(i) * dx / 2.0);
-        K2.at(i) = val * val;
+        val = k[i] * FFT::sinc(k[i] * dx / 2.0);
+        K2[i] = val * val;
     }
 
     return K2;
 }
 
-std::vector<double> get_kappa_vec(const std::vector<double> k, const uint size, const double dx)
+std::vector<double> FFT::get_kappa_vec(const std::vector<double>& k, const double dx)
 {
-    std::vector<double> kappa = std::vector<double>(size);
+    std::vector<double> kappa = std::vector<double>(k.size());
 
-    for (uint i = 0; i < size; ++i)
+    for (std::size_t i = 0; i < k.size(); ++i)
     {
-        kappa.at(i) = k.at(i) * sinc(k.at(i) * dx);
+        kappa[i] = k[i] * FFT::sinc(k[i] * dx);
     }
 
     return kappa;

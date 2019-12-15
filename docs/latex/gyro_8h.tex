@@ -1,0 +1,81 @@
+\hypertarget{gyro_8h}{}\doxysection{src/gyro.h File Reference}
+\label{gyro_8h}\index{src/gyro.h@{src/gyro.h}}
+{\ttfamily \#include \char`\"{}Simulation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Species.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Field.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{gyro_8h_a94ef337e9e4123f522da797cd076e65b}{gyro}} (\mbox{\hyperlink{class_species}{Species}} \&spec, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Npar)
+\item 
+void \mbox{\hyperlink{gyro_8h_ab4908972b17888da64d7fdc2d2b47a90}{init\+\_\+e\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} size)
+\item 
+void \mbox{\hyperlink{gyro_8h_a55b85256031b377084391c3a14e42175}{init\+\_\+b\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{gyro_8h_a909b9f327fc67ca5ecf61e243a098db3}{ndump}} = 1
+\item 
+const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{gyro_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}} = 64
+\item 
+const double \mbox{\hyperlink{gyro_8h_a72cf8d5b890ce916d1ef3f13e4e10068}{L\+\_\+sys}} = 2.\+0 $\ast$ M\+\_\+\+PI
+\item 
+const double \mbox{\hyperlink{gyro_8h_acebd3f4d3a03bd5d4250087d3e45dc72}{tmax}} = 20.\+0 $\ast$ M\+\_\+\+PI
+\item 
+const double \mbox{\hyperlink{gyro_8h_a4d2852f394c94e7eaac02e3c5b393654}{dt}} = 0.\+025
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{gyro_8h_a94ef337e9e4123f522da797cd076e65b}\label{gyro_8h_a94ef337e9e4123f522da797cd076e65b}} 
+\index{gyro.h@{gyro.h}!gyro@{gyro}}
+\index{gyro@{gyro}!gyro.h@{gyro.h}}
+\doxysubsubsection{\texorpdfstring{gyro()}{gyro()}}
+{\footnotesize\ttfamily void gyro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Npar }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{gyro_8h_a55b85256031b377084391c3a14e42175}\label{gyro_8h_a55b85256031b377084391c3a14e42175}} 
+\index{gyro.h@{gyro.h}!init\_b\_field@{init\_b\_field}}
+\index{init\_b\_field@{init\_b\_field}!gyro.h@{gyro.h}}
+\doxysubsubsection{\texorpdfstring{init\_b\_field()}{init\_b\_field()}}
+{\footnotesize\ttfamily void init\+\_\+b\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{gyro_8h_ab4908972b17888da64d7fdc2d2b47a90}\label{gyro_8h_ab4908972b17888da64d7fdc2d2b47a90}} 
+\index{gyro.h@{gyro.h}!init\_e\_field@{init\_e\_field}}
+\index{init\_e\_field@{init\_e\_field}!gyro.h@{gyro.h}}
+\doxysubsubsection{\texorpdfstring{init\_e\_field()}{init\_e\_field()}}
+{\footnotesize\ttfamily void init\+\_\+e\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{size }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{gyro_8h_a4d2852f394c94e7eaac02e3c5b393654}\label{gyro_8h_a4d2852f394c94e7eaac02e3c5b393654}} 
+\index{gyro.h@{gyro.h}!dt@{dt}}
+\index{dt@{dt}!gyro.h@{gyro.h}}
+\doxysubsubsection{\texorpdfstring{dt}{dt}}
+{\footnotesize\ttfamily const double dt = 0.\+025}
+
+\mbox{\Hypertarget{gyro_8h_a72cf8d5b890ce916d1ef3f13e4e10068}\label{gyro_8h_a72cf8d5b890ce916d1ef3f13e4e10068}} 
+\index{gyro.h@{gyro.h}!L\_sys@{L\_sys}}
+\index{L\_sys@{L\_sys}!gyro.h@{gyro.h}}
+\doxysubsubsection{\texorpdfstring{L\_sys}{L\_sys}}
+{\footnotesize\ttfamily const double L\+\_\+sys = 2.\+0 $\ast$ M\+\_\+\+PI}
+
+\mbox{\Hypertarget{gyro_8h_a909b9f327fc67ca5ecf61e243a098db3}\label{gyro_8h_a909b9f327fc67ca5ecf61e243a098db3}} 
+\index{gyro.h@{gyro.h}!ndump@{ndump}}
+\index{ndump@{ndump}!gyro.h@{gyro.h}}
+\doxysubsubsection{\texorpdfstring{ndump}{ndump}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ndump = 1}
+
+\mbox{\Hypertarget{gyro_8h_a8dfb498413096d9fce8a7ed69cb41d16}\label{gyro_8h_a8dfb498413096d9fce8a7ed69cb41d16}} 
+\index{gyro.h@{gyro.h}!Nx@{Nx}}
+\index{Nx@{Nx}!gyro.h@{gyro.h}}
+\doxysubsubsection{\texorpdfstring{Nx}{Nx}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Nx = 64}
+
+\mbox{\Hypertarget{gyro_8h_acebd3f4d3a03bd5d4250087d3e45dc72}\label{gyro_8h_acebd3f4d3a03bd5d4250087d3e45dc72}} 
+\index{gyro.h@{gyro.h}!tmax@{tmax}}
+\index{tmax@{tmax}!gyro.h@{gyro.h}}
+\doxysubsubsection{\texorpdfstring{tmax}{tmax}}
+{\footnotesize\ttfamily const double tmax = 20.\+0 $\ast$ M\+\_\+\+PI}
+

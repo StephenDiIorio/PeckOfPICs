@@ -1,0 +1,26 @@
+var class_simulation =
+[
+    [ "Simulation", "class_simulation.html#a2484f7211804a2e186d5904e897fc0d2", null ],
+    [ "~Simulation", "class_simulation.html#a80fad3f57dfaf195a36f7bc49bc88279", null ],
+    [ "add_b_field", "class_simulation.html#aaf61c7fdc8f6fd1fb010990d562286ed", null ],
+    [ "add_e_field", "class_simulation.html#a7a315f38239d6d97eae73e7707485c38", null ],
+    [ "add_species", "class_simulation.html#a006d8e9b39a7917ee1034fb09bbb7ba1", null ],
+    [ "dump_data", "class_simulation.html#a60656250cb2b710d53f144329acaced4", null ],
+    [ "get_total_density", "class_simulation.html#a433f3a5bae5e4b322a7ff6443dc689c6", null ],
+    [ "iterate", "class_simulation.html#aeb608e82917947fa9e47117cf0400547", null ],
+    [ "print_spec_density", "class_simulation.html#a9c6fd84b153a79ac86c2d536b1171f02", null ],
+    [ "b_field", "class_simulation.html#adfbc2f698fa481f5a70c82d53a7a3dde", null ],
+    [ "dt", "class_simulation.html#af43e498bfc83c777db5f5ac4025ff923", null ],
+    [ "dx", "class_simulation.html#a26f1d3168ba61738b6539537fa95fe3b", null ],
+    [ "dy", "class_simulation.html#a017c4acf95956529b20748374c29fe08", null ],
+    [ "e_field", "class_simulation.html#a8ef307ef9538f944222e19480e162244", null ],
+    [ "L_x", "class_simulation.html#a063b57900a629484597552fb17f859d2", null ],
+    [ "L_y", "class_simulation.html#a198b2d992121658d3859e0e3b6915073", null ],
+    [ "n_iter", "class_simulation.html#ae9857994eaec37fe68f216b359e86345", null ],
+    [ "ndump", "class_simulation.html#a4cc0fc0267217ef98e4ddcfdf246d04d", null ],
+    [ "nspec", "class_simulation.html#a26d59e578eba80371a14e9f2dfcb3da9", null ],
+    [ "Nx", "class_simulation.html#a224efdc1a4abfa0610279e0bcf975cdb", null ],
+    [ "Ny", "class_simulation.html#a7c4be6147d821d48725cc21088361821", null ],
+    [ "spec", "class_simulation.html#ad9ca2fc6beb253e8e0baada14aac90ab", null ],
+    [ "tmax", "class_simulation.html#afa0838d9f8a03416d8ee0d3a0fe2b347", null ]
+];

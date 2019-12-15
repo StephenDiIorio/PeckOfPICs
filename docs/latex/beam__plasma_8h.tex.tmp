@@ -1,0 +1,123 @@
+\hypertarget{beam__plasma_8h}{}\doxysection{src/beam\+\_\+plasma.h File Reference}
+\label{beam__plasma_8h}\index{src/beam\_plasma.h@{src/beam\_plasma.h}}
+{\ttfamily \#include \char`\"{}Simulation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Species.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Field.\+h\char`\"{}}\newline
+Include dependency graph for beam\+\_\+plasma.\+h\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{beam__plasma_8h_aa67fedc876a0c37754c45c405699c0d6}{gaussian}} ()
+\item 
+void \mbox{\hyperlink{beam__plasma_8h_a224c24bcb46e67c959621b1352702e37}{beam}} (\mbox{\hyperlink{class_species}{Species}} \&spec, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Npar)
+\item 
+void \mbox{\hyperlink{beam__plasma_8h_a23d0ff0d90ac7834dc53fef93285f02e}{plasma}} (\mbox{\hyperlink{class_species}{Species}} \&spec, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Npar)
+\item 
+void \mbox{\hyperlink{beam__plasma_8h_a471b3be541f04a04a69cb2de235cb8d5}{single\+\_\+plasma}} (\mbox{\hyperlink{class_species}{Species}} \&spec, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Npar)
+\item 
+void \mbox{\hyperlink{beam__plasma_8h_ab4908972b17888da64d7fdc2d2b47a90}{init\+\_\+e\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} size)
+\item 
+void \mbox{\hyperlink{beam__plasma_8h_a55b85256031b377084391c3a14e42175}{init\+\_\+b\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{beam__plasma_8h_a909b9f327fc67ca5ecf61e243a098db3}{ndump}} = 25
+\item 
+const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{beam__plasma_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}} = 64
+\item 
+const double \mbox{\hyperlink{beam__plasma_8h_a72cf8d5b890ce916d1ef3f13e4e10068}{L\+\_\+sys}} = 8.\+0 $\ast$ M\+\_\+\+PI $\ast$ sqrt(3.\+0)
+\item 
+const double \mbox{\hyperlink{beam__plasma_8h_acebd3f4d3a03bd5d4250087d3e45dc72}{tmax}} = 30.\+0 $\ast$ M\+\_\+\+PI
+\item 
+const double \mbox{\hyperlink{beam__plasma_8h_a4d2852f394c94e7eaac02e3c5b393654}{dt}} = 0.\+025
+\item 
+const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{beam__plasma_8h_ab8aad333299221f97399a7290e821569}{nspec}} = 2
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{beam__plasma_8h_a224c24bcb46e67c959621b1352702e37}\label{beam__plasma_8h_a224c24bcb46e67c959621b1352702e37}} 
+\index{beam\_plasma.h@{beam\_plasma.h}!beam@{beam}}
+\index{beam@{beam}!beam\_plasma.h@{beam\_plasma.h}}
+\doxysubsubsection{\texorpdfstring{beam()}{beam()}}
+{\footnotesize\ttfamily void beam (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Npar }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{beam__plasma_8h_aa67fedc876a0c37754c45c405699c0d6}\label{beam__plasma_8h_aa67fedc876a0c37754c45c405699c0d6}} 
+\index{beam\_plasma.h@{beam\_plasma.h}!gaussian@{gaussian}}
+\index{gaussian@{gaussian}!beam\_plasma.h@{beam\_plasma.h}}
+\doxysubsubsection{\texorpdfstring{gaussian()}{gaussian()}}
+{\footnotesize\ttfamily double gaussian (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{beam__plasma_8h_a55b85256031b377084391c3a14e42175}\label{beam__plasma_8h_a55b85256031b377084391c3a14e42175}} 
+\index{beam\_plasma.h@{beam\_plasma.h}!init\_b\_field@{init\_b\_field}}
+\index{init\_b\_field@{init\_b\_field}!beam\_plasma.h@{beam\_plasma.h}}
+\doxysubsubsection{\texorpdfstring{init\_b\_field()}{init\_b\_field()}}
+{\footnotesize\ttfamily void init\+\_\+b\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{beam__plasma_8h_ab4908972b17888da64d7fdc2d2b47a90}\label{beam__plasma_8h_ab4908972b17888da64d7fdc2d2b47a90}} 
+\index{beam\_plasma.h@{beam\_plasma.h}!init\_e\_field@{init\_e\_field}}
+\index{init\_e\_field@{init\_e\_field}!beam\_plasma.h@{beam\_plasma.h}}
+\doxysubsubsection{\texorpdfstring{init\_e\_field()}{init\_e\_field()}}
+{\footnotesize\ttfamily void init\+\_\+e\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{beam__plasma_8h_a23d0ff0d90ac7834dc53fef93285f02e}\label{beam__plasma_8h_a23d0ff0d90ac7834dc53fef93285f02e}} 
+\index{beam\_plasma.h@{beam\_plasma.h}!plasma@{plasma}}
+\index{plasma@{plasma}!beam\_plasma.h@{beam\_plasma.h}}
+\doxysubsubsection{\texorpdfstring{plasma()}{plasma()}}
+{\footnotesize\ttfamily void plasma (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Npar }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{beam__plasma_8h_a471b3be541f04a04a69cb2de235cb8d5}\label{beam__plasma_8h_a471b3be541f04a04a69cb2de235cb8d5}} 
+\index{beam\_plasma.h@{beam\_plasma.h}!single\_plasma@{single\_plasma}}
+\index{single\_plasma@{single\_plasma}!beam\_plasma.h@{beam\_plasma.h}}
+\doxysubsubsection{\texorpdfstring{single\_plasma()}{single\_plasma()}}
+{\footnotesize\ttfamily void single\+\_\+plasma (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Npar }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 4
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{beam__plasma_8h_a4d2852f394c94e7eaac02e3c5b393654}\label{beam__plasma_8h_a4d2852f394c94e7eaac02e3c5b393654}} 
+\index{beam\_plasma.h@{beam\_plasma.h}!dt@{dt}}
+\index{dt@{dt}!beam\_plasma.h@{beam\_plasma.h}}
+\doxysubsubsection{\texorpdfstring{dt}{dt}}
+{\footnotesize\ttfamily const double dt = 0.\+025}
+
+\mbox{\Hypertarget{beam__plasma_8h_a72cf8d5b890ce916d1ef3f13e4e10068}\label{beam__plasma_8h_a72cf8d5b890ce916d1ef3f13e4e10068}} 
+\index{beam\_plasma.h@{beam\_plasma.h}!L\_sys@{L\_sys}}
+\index{L\_sys@{L\_sys}!beam\_plasma.h@{beam\_plasma.h}}
+\doxysubsubsection{\texorpdfstring{L\_sys}{L\_sys}}
+{\footnotesize\ttfamily const double L\+\_\+sys = 8.\+0 $\ast$ M\+\_\+\+PI $\ast$ sqrt(3.\+0)}
+
+\mbox{\Hypertarget{beam__plasma_8h_a909b9f327fc67ca5ecf61e243a098db3}\label{beam__plasma_8h_a909b9f327fc67ca5ecf61e243a098db3}} 
+\index{beam\_plasma.h@{beam\_plasma.h}!ndump@{ndump}}
+\index{ndump@{ndump}!beam\_plasma.h@{beam\_plasma.h}}
+\doxysubsubsection{\texorpdfstring{ndump}{ndump}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ndump = 25}
+
+\mbox{\Hypertarget{beam__plasma_8h_ab8aad333299221f97399a7290e821569}\label{beam__plasma_8h_ab8aad333299221f97399a7290e821569}} 
+\index{beam\_plasma.h@{beam\_plasma.h}!nspec@{nspec}}
+\index{nspec@{nspec}!beam\_plasma.h@{beam\_plasma.h}}
+\doxysubsubsection{\texorpdfstring{nspec}{nspec}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} nspec = 2}
+
+\mbox{\Hypertarget{beam__plasma_8h_a8dfb498413096d9fce8a7ed69cb41d16}\label{beam__plasma_8h_a8dfb498413096d9fce8a7ed69cb41d16}} 
+\index{beam\_plasma.h@{beam\_plasma.h}!Nx@{Nx}}
+\index{Nx@{Nx}!beam\_plasma.h@{beam\_plasma.h}}
+\doxysubsubsection{\texorpdfstring{Nx}{Nx}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Nx = 64}
+
+\mbox{\Hypertarget{beam__plasma_8h_acebd3f4d3a03bd5d4250087d3e45dc72}\label{beam__plasma_8h_acebd3f4d3a03bd5d4250087d3e45dc72}} 
+\index{beam\_plasma.h@{beam\_plasma.h}!tmax@{tmax}}
+\index{tmax@{tmax}!beam\_plasma.h@{beam\_plasma.h}}
+\doxysubsubsection{\texorpdfstring{tmax}{tmax}}
+{\footnotesize\ttfamily const double tmax = 30.\+0 $\ast$ M\+\_\+\+PI}
+

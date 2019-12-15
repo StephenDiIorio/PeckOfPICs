@@ -1,88 +1,260 @@
-/*
-  Three-vector class including mathematical operations and IO
-*/
-
 #ifndef THREEVEC_H
 #define THREEVEC_H
 
 #include <cmath>
 #include <iostream>
 
+/**
+ * @brief Three-vector class including mathematical operations
+ *
+ */
 class ThreeVec
 {
     private:
-        double coord_[3]; // Private data members e.g. x,y,z
+        static const size_t MAX_DIM = 3;
+        static const size_t X_IDX = 0;
+        static const size_t Y_IDX = 1;
+        static const size_t Z_IDX = 2;
+
+        double coord_[MAX_DIM]; // Private data members e.g. x,y,z
 
     public:
-        // Default constructor
-        ThreeVec();
+        /**********************************************************
+        CONSTRUCTORS/DESTRUCTORS
+        ***********************************************************/
+        ThreeVec(); // Default constructor
+        ThreeVec(double x, double y, double z); // Cartesian constructor
+        ~ThreeVec();
+        //-----------------------------------------
 
-        // Cartesian constructor
-        ThreeVec(double x, double y, double z);
 
-        // Access function for x coordinate
-        double get_x();
+        /**********************************************************
+        OPERATOR FUNCTIONS
+        ***********************************************************/
+        /**
+         * @brief Overload the + operator for vector addition
+         *
+         * @param vec Vector to perform element-wise addition with
+         * @return ThreeVec Resultant ThreeVec
+         */
+        friend ThreeVec operator+(ThreeVec vec1, const ThreeVec& vec2)
+        {
+            return vec1 += vec2;
+        }
 
-        // Access function for y coordinate
-        double get_y();
+        /**
+         * @brief Overload the - operator for vector subtraction
+         *
+         * @param vec Vector to perform element-wise subtraction with
+         * @return ThreeVec Resultant ThreeVec
+         */
+        friend ThreeVec operator-(ThreeVec vec1, const ThreeVec& vec2)
+        {
+            return vec1 -= vec2;
+        }
 
-        // Access function for z coordinate
-        double get_z();
+        /**
+         * @brief Overload the += operator to increment current ThreeVec
+         *
+         * @param vec Vector to perform in place element-wise addition with
+         * @return ThreeVec Resultant ThreeVec
+         */
+        inline ThreeVec operator+=(const ThreeVec& vec)
+        {
+            coord_[X_IDX] += vec.get_x();
+            coord_[Y_IDX] += vec.get_y();
+            coord_[Z_IDX] += vec.get_z();
+            return *(this);
+        }
 
-        // Access function for ith coordinate
-        double get(int i);
+        /**
+         * @brief Overload the -= operator to decrement current ThreeVec
+         *
+         * @param vec Vector to perform in place element-wise subtraction with
+         * @return ThreeVec Resultant ThreeVec
+         */
+        inline ThreeVec operator-=(const ThreeVec& vec)
+        {
+            coord_[X_IDX] -= vec.get_x();
+            coord_[Y_IDX] -= vec.get_y();
+            coord_[Z_IDX] -= vec.get_z();
+            return *(this);
+        }
 
-        // Modifier method for x coordinate
-        void set_x(double value);
+        /**
+         * @brief Overload the * operator to perform scalar multiplication
+         *
+         * @param value Scalar to multiply vector by
+         * @return ThreeVec Resultant ThreeVec
+         */
+        inline ThreeVec operator*(const double value) const
+        {
+            ThreeVec ans(coord_[X_IDX] * value,
+                         coord_[Y_IDX] * value,
+                         coord_[Z_IDX] * value);
+            return ans;
+        }
 
-        // Modifier method for y coordinate
-        void set_y(double value);
+        /**
+         * @brief Overload the / operator to perform scalar division
+         *
+         * @param value Scalar to divide vector by
+         * @return ThreeVec Resultant ThreeVec
+         */
+        inline ThreeVec operator/(const double value) const
+        {
+            ThreeVec ans(coord_[X_IDX] / value,
+                         coord_[Y_IDX] / value,
+                         coord_[Z_IDX] / value);
+            return ans;
+        }
 
-        // Modifier method for z coordinate
-        void set_z(double value);
+        /**
+         * @brief Overload the * operator to perform a vector dot product
+         *
+         * @param vec Vector to dot with
+         * @return double Resultant dot product
+         */
+        inline double operator*(const ThreeVec& vec) const
+        {
+            double ans = 0.0;
+            for (uint i = 0; i < MAX_DIM; ++i)
+            {
+                ans += coord_[i] * vec.get(i);
+            }
+            return ans;
+        }
 
-        // Modifier method for ith coordinate -> INSERT
-        void set(int i, double value);
+        /**
+         * @brief Overload the ^ operator to perform a vector cross product
+         *
+         * @param vec Vector to cross with
+         * @return ThreeVec Resultant cross product
+         */
+        inline ThreeVec operator^(ThreeVec vec) const
+        {
+            ThreeVec ans(coord_[Y_IDX] * vec.get_z() - coord_[Z_IDX] * vec.get_y(),
+                         coord_[Z_IDX] * vec.get_x() - coord_[X_IDX] * vec.get_z(),
+                         coord_[X_IDX] * vec.get_y() - coord_[Y_IDX] * vec.get_x());
+            return ans;
+        }
+        //-----------------------------------------
 
-        void set_all(double x, double y, double z);
 
-        // Alternative modifier method for ith coordinate -> ADD
+        /**********************************************************
+        CLASS METHODS
+        ***********************************************************/
+        // Getter Functions
+        /**
+         * @brief Access function for x coordinate
+         *
+         * @return double x coordinate
+         */
+        inline double get_x() const
+        {
+            return coord_[X_IDX];
+        }
+
+        /**
+         * @brief Access function for y coordinate
+         *
+         * @return double y coordinate
+         */
+        inline double get_y() const
+        {
+            return coord_[Y_IDX];
+        }
+
+        /**
+         * @brief Access function for z coordinate
+         *
+         * @return double z coordinate
+         */
+        inline double get_z() const
+        {
+            return coord_[Z_IDX];
+        }
+
+        /**
+         * @brief Access function for ith coordinate
+         *
+         * @param i Index into the vector
+         * @return double Value at ith coordinate
+         */
+        inline double get(int i) const
+        {
+            return coord_[i];
+        }
+
+
+        // Setter Functions
+        /**
+         * @brief Modifier method for x coordinate
+         *
+         * @param value Value to set x coorindate to
+         */
+        inline void set_x(double value)
+        {
+            coord_[X_IDX] = value;
+        }
+
+        /**
+         * @brief Modifier method for y coordinate
+         *
+         * @param value Value to set y coorindate to
+         */
+        inline void set_y(double value)
+        {
+            coord_[Y_IDX] = value;
+        }
+
+        /**
+         * @brief Modifier method for z coordinate
+         *
+         * @param value Value to set z coorindate to
+         */
+        inline void set_z(double value)
+        {
+            coord_[Z_IDX] = value;
+        }
+
+        /**
+         * @brief Modifier method for ith coordinate -> INSERT
+         *
+         * @param i Index into the vector
+         * @param value Value to set ith coorindate to
+         */
+        inline void set(int i, double value)
+        {
+            coord_[i] = value;
+        }
+
+        /**
+         * @brief Modifier method for all coordinate
+         *
+         * @param x New x coordinate
+         * @param y New y coordinate
+         * @param z New z coordinate
+         */
+        inline void set_all(double x, double y, double z)
+        {
+            coord_[X_IDX] = x;
+            coord_[Y_IDX] = y;
+            coord_[Z_IDX] = z;
+        }
+
+
+        // Operations
         void inc(int i, double value);
-
-        // Square the threevector
         double square();
-
-        // Magnitude of the threevector
         double mag();
+        ThreeVec element_multiply(const ThreeVec& vec);
 
-        /*
-        Overload the operators +,-,* and ^ to represent vector operations
-        */
-        // Addition
-        ThreeVec operator+(ThreeVec vec);
 
-        // Subtraction
-        ThreeVec operator-(ThreeVec vec);
-
-        // Increment
-        ThreeVec operator+=(ThreeVec vec);
-
-        // Decrement
-        ThreeVec operator-=(ThreeVec vec);
-
-        // Scalar multiplication
-        ThreeVec operator*(double value);
-
-        // Scalar division
-        ThreeVec operator/(double value);
-
-        // Vector multiplication - dot product
-        double operator*(ThreeVec vec);
-
-        // Vector multiplication - cross product
-        ThreeVec operator^(ThreeVec vec);
-
-        // friend std::ostream &operator<<(std::ostream &outstream, const ThreeVec &v);
+        // Print Functions
+        void print() const;
+        void print_comp(uint i) const;
+        //-----------------------------------------
 };
 
 #endif

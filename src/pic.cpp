@@ -1,105 +1,60 @@
-#include <cmath>
-#include <iostream>
-#include <fstream>
-using namespace std;
+#include <string>
 
+#include "FileIO.h"
 #include "Simulation.h"
 #include "two_stream.h"
 
 int main()
 {
-    ofstream x_dom, t_dom, dens_out, dens_out_b, dens_out_p, field_out, KE_out, U_out, totE_out, part_x, part_px, part_py;
+    FileIO io;
+    std::string fname = "output.h5";
+    io.open_hdf5_files(fname);
 
-    x_dom.open("x_domain.txt");
-    t_dom.open("t_domain.txt");
-    dens_out.open("dens.txt");
-    field_out.open("field.txt");
+    // double ke = 0.0, u = 0.0, tote = 0.0;
 
-    double ke = 0.0, u = 0.0, tote = 0.0;
-    KE_out.open("KE.txt");
-    U_out.open("U.txt");
-    totE_out.open("totE.txt");
-
-    std::vector<double> phase;
-    part_x.open("part_x.txt");
-    part_px.open("part_px.txt");
-    part_py.open("part_py.txt");
-
-    Simulation sim(ndump, Nx, L_sys, dt, tmax);
+    Simulation sim(ndump, nspec, Nx, Ny, L_x, L_y, dt, tmax);
 
     double t;
     for (t = 0.0; t < sim.tmax; t += sim.dt)
     {
+        std::cout << "t= \t" << t << std::endl;
+
         if (sim.dump_data())
         {
-            for (auto &d : sim.spec.at(0).density_arr)
+            std::size_t spec_counter = 0;
+            for (auto &s : sim.spec)
             {
-                dens_out << d << '\t';
+                io.write_species_to_HDF5(spec_counter, sim.n_iter, s.density_arr);
+                ++spec_counter;
             }
-            dens_out << '\n';
 
-            for (auto &f : sim.e_field.f1)
+            io.write_e_field_to_HDF5(1, sim.n_iter, sim.e_field.f1);
+            io.write_e_field_to_HDF5(2, sim.n_iter, sim.e_field.f2);
+            io.write_e_field_to_HDF5(3, sim.n_iter, sim.e_field.f3);
+
+            io.write_b_field_to_HDF5(1, sim.n_iter, sim.b_field.f1);
+            io.write_b_field_to_HDF5(2, sim.n_iter, sim.b_field.f2);
+            io.write_b_field_to_HDF5(3, sim.n_iter, sim.b_field.f3);
+
+            //TODO: energy calculations and output
+
+            spec_counter = 0;
+            for (auto &s : sim.spec)
             {
-                field_out << f << '\t';
+                io.write_phase_to_HDF5("X", spec_counter, sim.n_iter, s.get_x_phasespace());
+                io.write_phase_to_HDF5("Y", spec_counter, sim.n_iter, s.get_y_phasespace());
+                io.write_phase_to_HDF5("PX", spec_counter, sim.n_iter, s.get_px_phasespace());
+                io.write_phase_to_HDF5("PY", spec_counter, sim.n_iter, s.get_py_phasespace());
+                ++spec_counter;
             }
-            field_out << '\n';
 
-            ke = sim.spec.at(0).total_KE;
-            u = sim.e_field.total_U;
-            tote = ke + u;
-            KE_out << ke << '\t';
-            U_out << u << '\t';
-            totE_out << tote << '\t';
-
-            for (uint i = 0; i < sim.nspec; ++i)
-            {
-                phase = sim.spec.at(i).get_x_phasespace();
-                for (uint j = 0; j < sim.spec.at(i).npar; ++j)
-                {
-                    part_x << phase[j] << '\t';
-                }
-                phase = sim.spec.at(i).get_px_phasespace();
-                for (uint j = 0; j < sim.spec.at(i).npar; ++j)
-                {
-                    part_px << phase[j] << '\t';
-                }
-                phase = sim.spec.at(i).get_py_phasespace();
-                for (uint j = 0; j < sim.spec.at(i).npar; ++j)
-                {
-                    part_py << phase[j] << '\t';
-                }
-            }
-            part_x << '\n';
-            part_px << '\n';
-            part_py << '\n';
-
-            t_dom << t << '\t';
+            //TODO: output time data as attribute or its own thing?
         }
 
         sim.iterate();
     }
-    t_dom << '\n';
-    KE_out << '\n';
-    U_out << '\n';
-    totE_out << '\n';
 
-
-    for (uint i = 0; i < sim.Nx; ++i)
-    {
-        x_dom << sim.grid.at(i) << '\t';
-    }
-    x_dom << '\n';
-
-    x_dom.close();
-    t_dom.close();
-    dens_out.close();
-    field_out.close();
-    KE_out.close();
-    U_out.close();
-    totE_out.close();
-    part_x.close();
-    part_px.close();
-    part_py.close();
+    io.close_hdf5_files();
 
     return 0;
 }

@@ -1,0 +1,121 @@
+\hypertarget{two__stream_8h}{}\doxysection{src/two\+\_\+stream.h File Reference}
+\label{two__stream_8h}\index{src/two\_stream.h@{src/two\_stream.h}}
+{\ttfamily \#include \char`\"{}Simulation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Species.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Field.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{two__stream_8h_a7599c215e775b32e8f7e8e92687117b0}{two\+\_\+stream\+\_\+plus}} (\mbox{\hyperlink{class_species}{Species}} \&spec, uint \mbox{\hyperlink{two__stream_8h_a3ec98e9ffa9165115420ddf5b2f7816d}{Npar}})
+\item 
+void \mbox{\hyperlink{two__stream_8h_a5890d9f7091ea697adf479fd1d5e7972}{two\+\_\+stream\+\_\+minus}} (\mbox{\hyperlink{class_species}{Species}} \&spec, uint \mbox{\hyperlink{two__stream_8h_a3ec98e9ffa9165115420ddf5b2f7816d}{Npar}})
+\item 
+void \mbox{\hyperlink{two__stream_8h_a2274ef8fdaf4984c0eeaafa59c84e4ce}{init\+\_\+e\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, uint \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, uint \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}})
+\item 
+void \mbox{\hyperlink{two__stream_8h_af33bf84a7bbc7f7673d7fc107f4183a9}{init\+\_\+b\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, uint \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, uint \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint \mbox{\hyperlink{two__stream_8h_a909b9f327fc67ca5ecf61e243a098db3}{ndump}} = 1
+\item 
+const uint \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}} = 64
+\item 
+const uint \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}} = 64
+\item 
+const uint \mbox{\hyperlink{two__stream_8h_a3ec98e9ffa9165115420ddf5b2f7816d}{Npar}} = 4 $\ast$ \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}} $\ast$ \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}}
+\item 
+const double \mbox{\hyperlink{two__stream_8h_a2e8eb03d046a5f97ec1919e1bc542783}{L\+\_\+x}} = 8.\+0 $\ast$ M\+\_\+\+PI $\ast$ sqrt(3.\+0)
+\item 
+const double \mbox{\hyperlink{two__stream_8h_aa644a4467c696359ea672282c0c84705}{L\+\_\+y}} = 8.\+0 $\ast$ M\+\_\+\+PI $\ast$ sqrt(3.\+0)
+\item 
+const double \mbox{\hyperlink{two__stream_8h_acebd3f4d3a03bd5d4250087d3e45dc72}{tmax}} = 10.\+0 $\ast$ M\+\_\+\+PI
+\item 
+const double \mbox{\hyperlink{two__stream_8h_a4d2852f394c94e7eaac02e3c5b393654}{dt}} = 0.\+025
+\item 
+const uint \mbox{\hyperlink{two__stream_8h_ab8aad333299221f97399a7290e821569}{nspec}} = 2
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{two__stream_8h_af33bf84a7bbc7f7673d7fc107f4183a9}\label{two__stream_8h_af33bf84a7bbc7f7673d7fc107f4183a9}} 
+\index{two\_stream.h@{two\_stream.h}!init\_b\_field@{init\_b\_field}}
+\index{init\_b\_field@{init\_b\_field}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{init\_b\_field()}{init\_b\_field()}}
+{\footnotesize\ttfamily void init\+\_\+b\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{uint}]{Nx,  }\item[{uint}]{Ny }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{two__stream_8h_a2274ef8fdaf4984c0eeaafa59c84e4ce}\label{two__stream_8h_a2274ef8fdaf4984c0eeaafa59c84e4ce}} 
+\index{two\_stream.h@{two\_stream.h}!init\_e\_field@{init\_e\_field}}
+\index{init\_e\_field@{init\_e\_field}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{init\_e\_field()}{init\_e\_field()}}
+{\footnotesize\ttfamily void init\+\_\+e\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{uint}]{Nx,  }\item[{uint}]{Ny }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{two__stream_8h_a5890d9f7091ea697adf479fd1d5e7972}\label{two__stream_8h_a5890d9f7091ea697adf479fd1d5e7972}} 
+\index{two\_stream.h@{two\_stream.h}!two\_stream\_minus@{two\_stream\_minus}}
+\index{two\_stream\_minus@{two\_stream\_minus}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{two\_stream\_minus()}{two\_stream\_minus()}}
+{\footnotesize\ttfamily void two\+\_\+stream\+\_\+minus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{uint}]{Npar }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{two__stream_8h_a7599c215e775b32e8f7e8e92687117b0}\label{two__stream_8h_a7599c215e775b32e8f7e8e92687117b0}} 
+\index{two\_stream.h@{two\_stream.h}!two\_stream\_plus@{two\_stream\_plus}}
+\index{two\_stream\_plus@{two\_stream\_plus}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{two\_stream\_plus()}{two\_stream\_plus()}}
+{\footnotesize\ttfamily void two\+\_\+stream\+\_\+plus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{uint}]{Npar }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{two__stream_8h_a4d2852f394c94e7eaac02e3c5b393654}\label{two__stream_8h_a4d2852f394c94e7eaac02e3c5b393654}} 
+\index{two\_stream.h@{two\_stream.h}!dt@{dt}}
+\index{dt@{dt}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{dt}{dt}}
+{\footnotesize\ttfamily const double dt = 0.\+025}
+
+\mbox{\Hypertarget{two__stream_8h_a2e8eb03d046a5f97ec1919e1bc542783}\label{two__stream_8h_a2e8eb03d046a5f97ec1919e1bc542783}} 
+\index{two\_stream.h@{two\_stream.h}!L\_x@{L\_x}}
+\index{L\_x@{L\_x}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{L\_x}{L\_x}}
+{\footnotesize\ttfamily const double L\+\_\+x = 8.\+0 $\ast$ M\+\_\+\+PI $\ast$ sqrt(3.\+0)}
+
+\mbox{\Hypertarget{two__stream_8h_aa644a4467c696359ea672282c0c84705}\label{two__stream_8h_aa644a4467c696359ea672282c0c84705}} 
+\index{two\_stream.h@{two\_stream.h}!L\_y@{L\_y}}
+\index{L\_y@{L\_y}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{L\_y}{L\_y}}
+{\footnotesize\ttfamily const double L\+\_\+y = 8.\+0 $\ast$ M\+\_\+\+PI $\ast$ sqrt(3.\+0)}
+
+\mbox{\Hypertarget{two__stream_8h_a909b9f327fc67ca5ecf61e243a098db3}\label{two__stream_8h_a909b9f327fc67ca5ecf61e243a098db3}} 
+\index{two\_stream.h@{two\_stream.h}!ndump@{ndump}}
+\index{ndump@{ndump}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{ndump}{ndump}}
+{\footnotesize\ttfamily const uint ndump = 1}
+
+\mbox{\Hypertarget{two__stream_8h_a3ec98e9ffa9165115420ddf5b2f7816d}\label{two__stream_8h_a3ec98e9ffa9165115420ddf5b2f7816d}} 
+\index{two\_stream.h@{two\_stream.h}!Npar@{Npar}}
+\index{Npar@{Npar}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{Npar}{Npar}}
+{\footnotesize\ttfamily const uint Npar = 4 $\ast$ \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}} $\ast$ \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}}}
+
+\mbox{\Hypertarget{two__stream_8h_ab8aad333299221f97399a7290e821569}\label{two__stream_8h_ab8aad333299221f97399a7290e821569}} 
+\index{two\_stream.h@{two\_stream.h}!nspec@{nspec}}
+\index{nspec@{nspec}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{nspec}{nspec}}
+{\footnotesize\ttfamily const uint nspec = 2}
+
+\mbox{\Hypertarget{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}\label{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}} 
+\index{two\_stream.h@{two\_stream.h}!Nx@{Nx}}
+\index{Nx@{Nx}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{Nx}{Nx}}
+{\footnotesize\ttfamily const uint Nx = 64}
+
+\mbox{\Hypertarget{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}\label{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}} 
+\index{two\_stream.h@{two\_stream.h}!Ny@{Ny}}
+\index{Ny@{Ny}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{Ny}{Ny}}
+{\footnotesize\ttfamily const uint Ny = 64}
+
+\mbox{\Hypertarget{two__stream_8h_acebd3f4d3a03bd5d4250087d3e45dc72}\label{two__stream_8h_acebd3f4d3a03bd5d4250087d3e45dc72}} 
+\index{two\_stream.h@{two\_stream.h}!tmax@{tmax}}
+\index{tmax@{tmax}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{tmax}{tmax}}
+{\footnotesize\ttfamily const double tmax = 10.\+0 $\ast$ M\+\_\+\+PI}
+

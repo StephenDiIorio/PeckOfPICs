@@ -1,0 +1,194 @@
+\hypertarget{class_field}{}\doxysection{Field Class Reference}
+\label{class_field}\index{Field@{Field}}
+
+
+{\ttfamily \#include $<$Field.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_field_a3e804c92273d9159f413f227b535c672}{Field}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_field}{Field}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_field_a0bd7e8d281e89dc725003c79d4c29e1a}{Field}} (const std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, const std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}}, const double dx, const double dy)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_field}{Field}} object -\/ sets all values to 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_field_af7096a7003a96d44339d945828a57f04}{Field}} (const std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, const std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}}, const double dx, const double dy, std\+::size\+\_\+t component, double value)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_field}{Field}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_field_ae5782102fe976cfd78102f55f9f6170a}{Field}} (const std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, const std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}}, const double dx, const double dy, std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, std\+::size\+\_\+t, std\+::size\+\_\+t)$>$ init\+\_\+fcn)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_field}{Field}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_field_a45d6e6d09b8f8e46de62b40119d62c60}{$\sim$\+Field}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_field}{Field}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_field_ab5334d33c9f37194a3dcc4ac38e59aaf}{solve\+\_\+field}} (const \mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&charge\+\_\+density, const double dx, const double dy)
+\begin{DoxyCompactList}\small\item\em Solves Poisson equation with periodic B\+Cs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_field_ae06a91c2b487401f8ff6391cb42f1808}{print\+\_\+field}} ()
+\begin{DoxyCompactList}\small\item\em Prints all of the components of the field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \mbox{\hyperlink{class_field_af6c2708431321fc7516aa341135c94d8}{f1}}
+\item 
+\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \mbox{\hyperlink{class_field_a7bf089d1beeecd3a149ee77d935ca94a}{f2}}
+\item 
+\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \mbox{\hyperlink{class_field_a836cfe4c741941c9db9381e5fcf87bdf}{f3}}
+\item 
+double \mbox{\hyperlink{class_field_a83fef6278e2b6cb3681cf3dfa6db78d9}{total\+\_\+U}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_field_a3e804c92273d9159f413f227b535c672}\label{class_field_a3e804c92273d9159f413f227b535c672}} 
+\index{Field@{Field}!Field@{Field}}
+\index{Field@{Field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{Field()}{Field()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Field\+::\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_field}{Field}} object. 
+
+\mbox{\Hypertarget{class_field_a0bd7e8d281e89dc725003c79d4c29e1a}\label{class_field_a0bd7e8d281e89dc725003c79d4c29e1a}} 
+\index{Field@{Field}!Field@{Field}}
+\index{Field@{Field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{Field()}{Field()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Field\+::\+Field (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{Nx,  }\item[{const std\+::size\+\_\+t}]{Ny,  }\item[{const double}]{dx,  }\item[{const double}]{dy }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_field}{Field}} object -\/ sets all values to 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nx} & Number of grid spaces in x direction \\
+\hline
+{\em Ny} & Number of grid spaces in y direction \\
+\hline
+{\em dx} & Spatial grid step in x direction \\
+\hline
+{\em dy} & Spatial grid step in y direction \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_field_af7096a7003a96d44339d945828a57f04}\label{class_field_af7096a7003a96d44339d945828a57f04}} 
+\index{Field@{Field}!Field@{Field}}
+\index{Field@{Field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{Field()}{Field()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Field\+::\+Field (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{Nx,  }\item[{const std\+::size\+\_\+t}]{Ny,  }\item[{const double}]{dx,  }\item[{const double}]{dy,  }\item[{std\+::size\+\_\+t}]{component,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_field}{Field}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nx} & Number of grid spaces in x direction \\
+\hline
+{\em Ny} & Number of grid spaces in y direction \\
+\hline
+{\em dx} & Spatial grid step in x direction \\
+\hline
+{\em dy} & Spatial grid step in y direction \\
+\hline
+{\em component} & Which field component to initialize \\
+\hline
+{\em value} & The value to initialize the field component to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_field_ae5782102fe976cfd78102f55f9f6170a}\label{class_field_ae5782102fe976cfd78102f55f9f6170a}} 
+\index{Field@{Field}!Field@{Field}}
+\index{Field@{Field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{Field()}{Field()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Field\+::\+Field (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{Nx,  }\item[{const std\+::size\+\_\+t}]{Ny,  }\item[{const double}]{dx,  }\item[{const double}]{dy,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, std\+::size\+\_\+t, std\+::size\+\_\+t)$>$}]{init\+\_\+fcn }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_field}{Field}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nx} & Number of grid spaces in x direction \\
+\hline
+{\em Ny} & Number of grid spaces in y direction \\
+\hline
+{\em dx} & Spatial grid step in x direction \\
+\hline
+{\em dy} & Spatial grid step in y direction \\
+\hline
+{\em init\+\_\+fcn} & User provided function which initializes the field to the user\textquotesingle{}s specification \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_field_a45d6e6d09b8f8e46de62b40119d62c60}\label{class_field_a45d6e6d09b8f8e46de62b40119d62c60}} 
+\index{Field@{Field}!````~Field@{$\sim$Field}}
+\index{````~Field@{$\sim$Field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{$\sim$Field()}{~Field()}}
+{\footnotesize\ttfamily Field\+::$\sim$\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \mbox{\hyperlink{class_field}{Field}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_field_ae06a91c2b487401f8ff6391cb42f1808}\label{class_field_ae06a91c2b487401f8ff6391cb42f1808}} 
+\index{Field@{Field}!print\_field@{print\_field}}
+\index{print\_field@{print\_field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{print\_field()}{print\_field()}}
+{\footnotesize\ttfamily void Field\+::print\+\_\+field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints all of the components of the field. 
+
+\mbox{\Hypertarget{class_field_ab5334d33c9f37194a3dcc4ac38e59aaf}\label{class_field_ab5334d33c9f37194a3dcc4ac38e59aaf}} 
+\index{Field@{Field}!solve\_field@{solve\_field}}
+\index{solve\_field@{solve\_field}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{solve\_field()}{solve\_field()}}
+{\footnotesize\ttfamily int Field\+::solve\+\_\+field (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&}]{charge\+\_\+density,  }\item[{const double}]{dx,  }\item[{const double}]{dy }\end{DoxyParamCaption})}
+
+
+
+Solves Poisson equation with periodic B\+Cs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em charge\+\_\+density} & The charge densitt distribution to calculate the resulting field of \\
+\hline
+{\em dx} & Spatial grid step in x direction \\
+\hline
+{\em dy} & Spatial grid step in y direction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int An error code or 0 if it worked correctly 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_field_af6c2708431321fc7516aa341135c94d8}\label{class_field_af6c2708431321fc7516aa341135c94d8}} 
+\index{Field@{Field}!f1@{f1}}
+\index{f1@{f1}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{f1}{f1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_grid_object}{Grid\+Object}} Field\+::f1}
+
+\mbox{\Hypertarget{class_field_a7bf089d1beeecd3a149ee77d935ca94a}\label{class_field_a7bf089d1beeecd3a149ee77d935ca94a}} 
+\index{Field@{Field}!f2@{f2}}
+\index{f2@{f2}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{f2}{f2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_grid_object}{Grid\+Object}} Field\+::f2}
+
+\mbox{\Hypertarget{class_field_a836cfe4c741941c9db9381e5fcf87bdf}\label{class_field_a836cfe4c741941c9db9381e5fcf87bdf}} 
+\index{Field@{Field}!f3@{f3}}
+\index{f3@{f3}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{f3}{f3}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_grid_object}{Grid\+Object}} Field\+::f3}
+
+\mbox{\Hypertarget{class_field_a83fef6278e2b6cb3681cf3dfa6db78d9}\label{class_field_a83fef6278e2b6cb3681cf3dfa6db78d9}} 
+\index{Field@{Field}!total\_U@{total\_U}}
+\index{total\_U@{total\_U}!Field@{Field}}
+\doxysubsubsection{\texorpdfstring{total\_U}{total\_U}}
+{\footnotesize\ttfamily double Field\+::total\+\_\+U}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_field_8h}{Field.\+h}}\item 
+src/\mbox{\hyperlink{_field_8cpp}{Field.\+cpp}}\end{DoxyCompactItemize}

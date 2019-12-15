@@ -1,0 +1,12 @@
+var searchData=
+[
+  ['n_5fiter_396',['n_iter',['../class_simulation.html#ae9857994eaec37fe68f216b359e86345',1,'Simulation']]],
+  ['ndump_397',['ndump',['../class_simulation.html#a4cc0fc0267217ef98e4ddcfdf246d04d',1,'Simulation::ndump()'],['../cold__wave_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;cold_wave.h'],['../pic__tests_8h.html#a2c6fa525792cfc11885051af7754e72c',1,'ndump():&#160;pic_tests.h'],['../two__stream_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;two_stream.h']]],
+  ['no_5fdimension_5ferr_398',['no_dimension_err',['../class_data_storage.html#a850608ca2a666e57a5b810dc3f220f8d',1,'DataStorage']]],
+  ['npar_399',['Npar',['../class_species.html#a99dd2d67c9c618cc2a0eab278e6a0fe5',1,'Species::Npar()'],['../cold__wave_8h.html#a78dd320dc35960c9d2ea161d753275bd',1,'npar():&#160;cold_wave.h'],['../pic__tests_8h.html#a40513801698202724d172cd51d90ce47',1,'Npar():&#160;pic_tests.h'],['../two__stream_8h.html#a3ec98e9ffa9165115420ddf5b2f7816d',1,'Npar():&#160;two_stream.h']]],
+  ['npx_400',['Npx',['../cold__wave_8h.html#a19e77a52c2a7978e92e93f629bc02a13',1,'cold_wave.h']]],
+  ['npy_401',['Npy',['../cold__wave_8h.html#aa8a8313beadb3e054cba7f7a0b28b0ab',1,'cold_wave.h']]],
+  ['nspec_402',['nspec',['../class_simulation.html#a26d59e578eba80371a14e9f2dfcb3da9',1,'Simulation::nspec()'],['../cold__wave_8h.html#ab8aad333299221f97399a7290e821569',1,'nspec():&#160;cold_wave.h'],['../pic__tests_8h.html#af485e2c81c1ca88a6914f4dcd59dab5e',1,'nspec():&#160;pic_tests.h'],['../two__stream_8h.html#ab8aad333299221f97399a7290e821569',1,'nspec():&#160;two_stream.h']]],
+  ['nx_403',['Nx',['../class_grid_object.html#a6844fcd614aa7e10faa039a7bff6a2f9',1,'GridObject::Nx()'],['../class_simulation.html#a224efdc1a4abfa0610279e0bcf975cdb',1,'Simulation::Nx()'],['../cold__wave_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;cold_wave.h'],['../pic__tests_8h.html#aadcd62be024e55861735d2fb4d62acfd',1,'Nx():&#160;pic_tests.h'],['../two__stream_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;two_stream.h']]],
+  ['ny_404',['Ny',['../class_grid_object.html#affa5fba2697c22e0618539f3c0941a74',1,'GridObject::Ny()'],['../class_simulation.html#a7c4be6147d821d48725cc21088361821',1,'Simulation::Ny()'],['../cold__wave_8h.html#a276dfd99384a9c735597add8d0b07b3d',1,'Ny():&#160;cold_wave.h'],['../pic__tests_8h.html#a52d6a776247feaf198276eb5e63ca12c',1,'Ny():&#160;pic_tests.h'],['../two__stream_8h.html#a276dfd99384a9c735597add8d0b07b3d',1,'Ny():&#160;two_stream.h']]]
+];

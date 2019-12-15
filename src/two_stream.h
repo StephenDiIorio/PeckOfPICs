@@ -2,159 +2,98 @@
 #include "Species.h"
 #include "Field.h"
 
+
+// two stream functions
 const uint ndump = 1;
-const uint Nx = 256;           // number of grid points
-const double L_sys = 8.0 * M_PI * sqrt(3.0);//2.0 * M_PI; // system length
+const uint Nx = 64;
+const uint Ny = 64; // number of grid points
+
+const uint Npar = 4 * Nx * Ny;
+const double L_x = 8.0 * M_PI * sqrt(3.0); // system length
+const double L_y = 8.0 * M_PI * sqrt(3.0);
 const double tmax = 10.0 * M_PI;
 const double dt = 0.025;
 
 const uint nspec = 2;
 
-// Gaussian random distribution function
-double gaussian()
+void two_stream_plus(Species& spec, uint Npar)
 {
-    double gaussian_width = 2.0; // +/-2 sigma range
-    double x, y;
-
-    do
-    {
-        x = (2.0 * rand() / RAND_MAX - 1.0) * gaussian_width;
-        y = exp(-x * x * 0.5);
-    } while (1.0 * rand() / RAND_MAX > y);
-
-    return x;
-}
-
-void two_stream(Species &spec, uint Npar)
-{
-    const double Wpar = spec.Qpar / (double(Npar) / double(Nx)); //double(spec.ppc); // weighting (should be / NPPC)
-    double x_pos, x_pert, x_tot, x_mom;
+    const double dx = double(L_x) / double(Nx);
+    const double dy = double(L_y) / double(Ny);
+    const double Wpar = spec.Qpar * double(dx) * double(dy);
+    double x_pos, x_pert, x_tot, x_mom, y_pos;
     double pert = 0.001;
-    double k = 1.0 / (2.0 * sqrt(3.0));//2.0 * 2.0 * M_PI / L_sys;
-    double dx = L_sys / double(Npar);
+    double k = 1.0 / (2.0 * sqrt(3.0));
+    double _dx = L_x / double(2*Nx);
+    double _dy = L_y / double(2*Ny);
 
-    for (uint i = 0; i < Npar; ++i)
+    for (uint i = 0; i < 2 * Nx; ++i)
     {
-        x_pos = ((L_sys / double(Npar)) * double(i));
+        x_pos = double(i) * _dx;
         x_pert = (pert / (spec.Qpar * k)) * sin(k * x_pos);
-        x_tot = x_pos + x_pert + 0.01; //TODO: do I need to account for Kaiser-Wilhelm effect here? pg 91 B-L. Dependent on ppc and Nx
-        if (x_tot < -dx / 2.0)
+        x_tot = x_pos + x_pert + 0.037;
+        for (uint j = 0; j < 2 * Ny; ++j)
         {
-            x_tot += L_sys;
-        }
-        else if (x_tot >= (L_sys - (dx / 2.0)))
-        {
-            x_tot -= L_sys;
-        }
-
-        if (i % 2 == 0)
-        {
+            y_pos = double(j) * _dy;
             x_mom = 3.0;
+            spec.add_particle(x_tot, y_pos, 0.0, x_mom, 0.0, 0.0, Wpar);
         }
-        else
-        {
-            x_mom = -3.0;
-        }
-
-        spec.add_particle(x_tot, 0.0, 0.0, x_mom, 0.0, 0.0, Wpar);
     }
-    //TODO: call species BC here?
-}
 
-void two_stream_plus(Species &spec, uint Npar)
-{
-    const double Wpar = spec.Qpar / (double(Npar) / double(Nx)); //double(spec.ppc); // weighting (should be / NPPC)
-    double x_pos, x_pert, x_tot, x_mom;
-    double pert = 0.001;
-    double k = 1.0 / (2.0 * sqrt(3.0)); //2.0 * 2.0 * M_PI / L_sys;
-    double dx = L_sys / double(Npar);
-
-    for (uint i = 0; i < Npar; ++i)
-    {
-        x_pos = ((L_sys / double(Npar)) * double(i));
-        x_pert = (pert / (spec.Qpar * k)) * sin(k * x_pos);
-        x_tot = x_pos + x_pert + 0.01; //TODO: do I need to account for Kaiser-Wilhelm effect here? pg 91 B-L. Dependent on ppc and Nx
-        if (x_tot < -dx / 2.0)
-        {
-            x_tot += L_sys;
-        }
-        else if (x_tot >= (L_sys - (dx / 2.0)))
-        {
-            x_tot -= L_sys;
-        }
-
-        x_mom = 3.0;
-
-        spec.add_particle(x_tot, 0.0, 0.0, x_mom, 0.0, 0.0, Wpar);
-    }
-    //TODO: call species BC here?
+    spec.apply_bc(L_x, L_y, dx, dy);
 }
 
 void two_stream_minus(Species &spec, uint Npar)
 {
-    const double Wpar = spec.Qpar / (double(Npar) / double(Nx)); //double(spec.ppc); // weighting (should be / NPPC)
-    double x_pos, x_pert, x_tot, x_mom;
+    const double dx = double(L_x) / double(Nx);
+    const double dy = double(L_y) / double(Ny);
+    const double Wpar = spec.Qpar * double(dx) * double(dy);
+    double x_pos, x_pert, x_tot, x_mom, y_pos;
     double pert = 0.001;
-    double k = 1.0 / (2.0 * sqrt(3.0)); //2.0 * 2.0 * M_PI / L_sys;
-    double dx = L_sys / double(Npar);
+    double k = 1.0 / (2.0 * sqrt(3.0));
+    double _dx = L_x / double(2 * Nx);
+    double _dy = L_y / double(2 * Ny);
 
-    for (uint i = 0; i < Npar; ++i)
+    for (uint i = 0; i < 2 * Nx; ++i)
     {
-        x_pos = ((L_sys / double(Npar)) * double(i));
+        x_pos = double(i) * _dx;
         x_pert = (pert / (spec.Qpar * k)) * sin(k * x_pos);
-        x_tot = x_pos + x_pert + 0.01; //TODO: do I need to account for Kaiser-Wilhelm effect here? pg 91 B-L. Dependent on ppc and Nx
-        if (x_tot < -dx / 2.0)
+        x_tot = x_pos + x_pert + 0.037;
+        for (uint j = 0; j < 2 * Ny; ++j)
         {
-            x_tot += L_sys;
+            y_pos = double(j) * _dy;
+            x_mom = -3.0;
+            spec.add_particle(x_tot, y_pos, 0.0, x_mom, 0.0, 0.0, Wpar);
         }
-        else if (x_tot >= (L_sys - (dx / 2.0)))
-        {
-            x_tot -= L_sys;
-        }
-
-        x_mom = -3.0;
-
-        spec.add_particle(x_tot, 0.0, 0.0, x_mom, 0.0, 0.0, Wpar);
     }
-    //TODO: call species BC here?
+
+    spec.apply_bc(L_x, L_y, dx, dy);
 }
 
-void init_e_field(Field &f, uint size)
+
+void init_e_field(Field& f, uint Nx, uint Ny)
 {
-    f.f1 = std::vector<double>(size, 0.0);
-    f.f2 = std::vector<double>(size, 0.0);
-    f.f3 = std::vector<double>(size, 0.0);
+    f.f1 = GridObject(Nx, Ny, 0.0);
+    f.f2 = GridObject(Nx, Ny, 0.0);
+    f.f3 = GridObject(Nx, Ny, 0.0);
 }
 
-void init_b_field(Field &f, uint size)
+void init_b_field(Field& f, uint Nx, uint Ny)
 {
-    f.f1 = std::vector<double>(size, 0.0);
-    f.f2 = std::vector<double>(size, 0.0);
-    f.f3 = std::vector<double>(size, 0.0);
+    f.f1 = GridObject(Nx, Ny, 0.0);
+    f.f2 = GridObject(Nx, Ny, 0.0);
+    f.f3 = GridObject(Nx, Ny, 0.0);
 }
 
 void Simulation::init_simulation()
 {
-    // Attributes for species
-    // const double Qpar = 2.0;   // charge of particle
-    // const uint ppc = 16;
-    // const uint npar = ppc * Nx;
-    // const double density = 2.0;
-    // this->spec.push_back(Species(npar, this->Nx, Qpar, density, two_stream));
-
     // Attributes for species 1
     const double Qpar1 = 1.0; // charge of particle
-    const uint ppc1 = 64;
-    const uint npar1 = ppc1 * Nx;
-    const double density1 = 1.0;
-    this->add_species(npar1, Qpar1, density1, two_stream_plus);
+    this->add_species(Npar, Qpar1, two_stream_plus);
 
     // Attributes for species 2
     const double Qpar2 = 1.0; // charge of particle
-    const uint ppc2 = 64;
-    const uint npar2 = ppc2 * Nx;
-    const double density2 = 1.0;
-    this->add_species(npar2, Qpar2, density2, two_stream_minus);
+    this->add_species(Npar, Qpar2, two_stream_minus);
 
     // Initialize fields
     this->add_e_field(init_e_field);

@@ -1,0 +1,304 @@
+\hypertarget{class_file_i_o}{}\doxysection{File\+IO Class Reference}
+\label{class_file_i_o}\index{FileIO@{FileIO}}
+
+
+This is meant to deal with file IO in various formats. In particular, this handles writing the data of the simulation to H\+D\+F5 files, and is the only interface necessary to interact with the H\+D\+F5 system.  
+
+
+
+
+{\ttfamily \#include $<$File\+I\+O.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_file_i_o_a8b0d602c3461181e12c05f655dea5018}{File\+IO}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{class_file_i_o}{File\+IO}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_file_i_o_adc3caa8f1e5d76274d8ffb8b5c17288b}{$\sim$\+File\+IO}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_file_i_o}{File\+IO}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_i_o_aa1790415f2129feaaf9f0fa556034e42}{open\+\_\+txt\+\_\+files}} ()
+\begin{DoxyCompactList}\small\item\em Opens all of the necessary text files to write data in .txt format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_i_o_ad50ab267f7290caff5b932b5cdfb5ef1}{open\+\_\+hdf5\+\_\+files}} (std\+::string fname)
+\begin{DoxyCompactList}\small\item\em Opens the H\+D\+F5 file to write the data to. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_i_o_a51619d5a81e74626bee05f8f1b3e55fb}{close\+\_\+txt\+\_\+files}} ()
+\begin{DoxyCompactList}\small\item\em Closes all of the .txt files that were opened. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_i_o_a2ea8ff246c4688eab6c29bf0ec74d9ea}{close\+\_\+hdf5\+\_\+files}} ()
+\begin{DoxyCompactList}\small\item\em Closes the .hdf5 files that were opened. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_file_i_o_a1931c669432007a94660213294966066}{write\+\_\+species\+\_\+to\+\_\+\+H\+D\+F5}} (const std\+::size\+\_\+t spec\+\_\+name, const std\+::size\+\_\+t itr\+\_\+num, const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&data)
+\begin{DoxyCompactList}\small\item\em Writes a \mbox{\hyperlink{class_species}{Species}}\textquotesingle{}s density to an H\+D\+F5 file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_file_i_o_af5d88919b95e3297a77b2b731282ce10}{write\+\_\+species\+\_\+to\+\_\+\+H\+D\+F5}} (const std\+::size\+\_\+t spec\+\_\+name, const std\+::size\+\_\+t itr\+\_\+num, const \mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&data)
+\begin{DoxyCompactList}\small\item\em Writes a \mbox{\hyperlink{class_species}{Species}}\textquotesingle{}s density to an H\+D\+F5 file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_file_i_o_af64baa6140c2fa225384cab5d03898a1}{write\+\_\+e\+\_\+field\+\_\+to\+\_\+\+H\+D\+F5}} (const std\+::size\+\_\+t field\+\_\+comp, const std\+::size\+\_\+t itr\+\_\+num, const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&data)
+\begin{DoxyCompactList}\small\item\em Writes a Electric \mbox{\hyperlink{class_field}{Field}} components to file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_file_i_o_a2804e359a43451c7a7a8c295a3977d05}{write\+\_\+e\+\_\+field\+\_\+to\+\_\+\+H\+D\+F5}} (const std\+::size\+\_\+t field\+\_\+comp, const std\+::size\+\_\+t itr\+\_\+num, const \mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&data)
+\begin{DoxyCompactList}\small\item\em Writes a Electric \mbox{\hyperlink{class_field}{Field}} components to file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_file_i_o_a0c8562d97b03eac8c2d34b1d16e58afe}{write\+\_\+b\+\_\+field\+\_\+to\+\_\+\+H\+D\+F5}} (const std\+::size\+\_\+t field\+\_\+comp, const std\+::size\+\_\+t itr\+\_\+num, const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&data)
+\begin{DoxyCompactList}\small\item\em Writes a Magnetic \mbox{\hyperlink{class_field}{Field}} components to file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_file_i_o_a4f962084d588a8fe47b423a0421550f1}{write\+\_\+b\+\_\+field\+\_\+to\+\_\+\+H\+D\+F5}} (const std\+::size\+\_\+t field\+\_\+comp, const std\+::size\+\_\+t itr\+\_\+num, const \mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&data)
+\begin{DoxyCompactList}\small\item\em Writes a Magnetic \mbox{\hyperlink{class_field}{Field}} components to file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_file_i_o_a1c768a863ee2c006320debf5a61f0b69}{write\+\_\+phase\+\_\+to\+\_\+\+H\+D\+F5}} (const char phase\+\_\+name\mbox{[}$\,$\mbox{]}, const std\+::size\+\_\+t spec\+\_\+name, const std\+::size\+\_\+t itr\+\_\+num, const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&data)
+\begin{DoxyCompactList}\small\item\em Writes a species phase space to file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_file_i_o_a1522e8f89d06c941ec9326d69aad7452}{write\+\_\+phase\+\_\+to\+\_\+\+H\+D\+F5}} (const char phase\+\_\+name\mbox{[}$\,$\mbox{]}, const std\+::size\+\_\+t spec\+\_\+name, const std\+::size\+\_\+t itr\+\_\+num, const \mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&data)
+\begin{DoxyCompactList}\small\item\em Writes a species phase space to file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is meant to deal with file IO in various formats. In particular, this handles writing the data of the simulation to H\+D\+F5 files, and is the only interface necessary to interact with the H\+D\+F5 system. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_file_i_o_a8b0d602c3461181e12c05f655dea5018}\label{class_file_i_o_a8b0d602c3461181e12c05f655dea5018}} 
+\index{FileIO@{FileIO}!FileIO@{FileIO}}
+\index{FileIO@{FileIO}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{FileIO()}{FileIO()}}
+{\footnotesize\ttfamily File\+I\+O\+::\+File\+IO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \mbox{\hyperlink{class_file_i_o}{File\+IO}} object. 
+
+\mbox{\Hypertarget{class_file_i_o_adc3caa8f1e5d76274d8ffb8b5c17288b}\label{class_file_i_o_adc3caa8f1e5d76274d8ffb8b5c17288b}} 
+\index{FileIO@{FileIO}!````~FileIO@{$\sim$FileIO}}
+\index{````~FileIO@{$\sim$FileIO}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{$\sim$FileIO()}{~FileIO()}}
+{\footnotesize\ttfamily File\+I\+O\+::$\sim$\+File\+IO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \mbox{\hyperlink{class_file_i_o}{File\+IO}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_file_i_o_a2ea8ff246c4688eab6c29bf0ec74d9ea}\label{class_file_i_o_a2ea8ff246c4688eab6c29bf0ec74d9ea}} 
+\index{FileIO@{FileIO}!close\_hdf5\_files@{close\_hdf5\_files}}
+\index{close\_hdf5\_files@{close\_hdf5\_files}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{close\_hdf5\_files()}{close\_hdf5\_files()}}
+{\footnotesize\ttfamily void File\+I\+O\+::close\+\_\+hdf5\+\_\+files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Closes the .hdf5 files that were opened. 
+
+\mbox{\Hypertarget{class_file_i_o_a51619d5a81e74626bee05f8f1b3e55fb}\label{class_file_i_o_a51619d5a81e74626bee05f8f1b3e55fb}} 
+\index{FileIO@{FileIO}!close\_txt\_files@{close\_txt\_files}}
+\index{close\_txt\_files@{close\_txt\_files}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{close\_txt\_files()}{close\_txt\_files()}}
+{\footnotesize\ttfamily void File\+I\+O\+::close\+\_\+txt\+\_\+files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Closes all of the .txt files that were opened. 
+
+\mbox{\Hypertarget{class_file_i_o_ad50ab267f7290caff5b932b5cdfb5ef1}\label{class_file_i_o_ad50ab267f7290caff5b932b5cdfb5ef1}} 
+\index{FileIO@{FileIO}!open\_hdf5\_files@{open\_hdf5\_files}}
+\index{open\_hdf5\_files@{open\_hdf5\_files}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{open\_hdf5\_files()}{open\_hdf5\_files()}}
+{\footnotesize\ttfamily void File\+I\+O\+::open\+\_\+hdf5\+\_\+files (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})}
+
+
+
+Opens the H\+D\+F5 file to write the data to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & The string containing the name to call the output file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_file_i_o_aa1790415f2129feaaf9f0fa556034e42}\label{class_file_i_o_aa1790415f2129feaaf9f0fa556034e42}} 
+\index{FileIO@{FileIO}!open\_txt\_files@{open\_txt\_files}}
+\index{open\_txt\_files@{open\_txt\_files}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{open\_txt\_files()}{open\_txt\_files()}}
+{\footnotesize\ttfamily void File\+I\+O\+::open\+\_\+txt\+\_\+files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Opens all of the necessary text files to write data in .txt format. 
+
+\mbox{\Hypertarget{class_file_i_o_a0c8562d97b03eac8c2d34b1d16e58afe}\label{class_file_i_o_a0c8562d97b03eac8c2d34b1d16e58afe}} 
+\index{FileIO@{FileIO}!write\_b\_field\_to\_HDF5@{write\_b\_field\_to\_HDF5}}
+\index{write\_b\_field\_to\_HDF5@{write\_b\_field\_to\_HDF5}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{write\_b\_field\_to\_HDF5()}{write\_b\_field\_to\_HDF5()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int File\+I\+O\+::write\+\_\+b\+\_\+field\+\_\+to\+\_\+\+H\+D\+F5 (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{field\+\_\+comp,  }\item[{const std\+::size\+\_\+t}]{itr\+\_\+num,  }\item[{const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Writes a Magnetic \mbox{\hyperlink{class_field}{Field}} components to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field\+\_\+comp} & The identifier for the component of the field \\
+\hline
+{\em itr\+\_\+num} & The simulation iteration number \\
+\hline
+{\em data} & The \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int An error code if something failed, otherwise 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_i_o_a4f962084d588a8fe47b423a0421550f1}\label{class_file_i_o_a4f962084d588a8fe47b423a0421550f1}} 
+\index{FileIO@{FileIO}!write\_b\_field\_to\_HDF5@{write\_b\_field\_to\_HDF5}}
+\index{write\_b\_field\_to\_HDF5@{write\_b\_field\_to\_HDF5}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{write\_b\_field\_to\_HDF5()}{write\_b\_field\_to\_HDF5()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int File\+I\+O\+::write\+\_\+b\+\_\+field\+\_\+to\+\_\+\+H\+D\+F5 (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{field\+\_\+comp,  }\item[{const std\+::size\+\_\+t}]{itr\+\_\+num,  }\item[{const \mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Writes a Magnetic \mbox{\hyperlink{class_field}{Field}} components to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field\+\_\+comp} & The identifier for the component of the field \\
+\hline
+{\em itr\+\_\+num} & The simulation iteration number \\
+\hline
+{\em data} & The \mbox{\hyperlink{class_grid_object}{Grid\+Object}} object to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int An error code if something failed, otherwise 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_i_o_af64baa6140c2fa225384cab5d03898a1}\label{class_file_i_o_af64baa6140c2fa225384cab5d03898a1}} 
+\index{FileIO@{FileIO}!write\_e\_field\_to\_HDF5@{write\_e\_field\_to\_HDF5}}
+\index{write\_e\_field\_to\_HDF5@{write\_e\_field\_to\_HDF5}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{write\_e\_field\_to\_HDF5()}{write\_e\_field\_to\_HDF5()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int File\+I\+O\+::write\+\_\+e\+\_\+field\+\_\+to\+\_\+\+H\+D\+F5 (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{field\+\_\+comp,  }\item[{const std\+::size\+\_\+t}]{itr\+\_\+num,  }\item[{const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Writes a Electric \mbox{\hyperlink{class_field}{Field}} components to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field\+\_\+comp} & The identifier for the component of the field \\
+\hline
+{\em itr\+\_\+num} & The simulation iteration number \\
+\hline
+{\em data} & The \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int An error code if something failed, otherwise 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_i_o_a2804e359a43451c7a7a8c295a3977d05}\label{class_file_i_o_a2804e359a43451c7a7a8c295a3977d05}} 
+\index{FileIO@{FileIO}!write\_e\_field\_to\_HDF5@{write\_e\_field\_to\_HDF5}}
+\index{write\_e\_field\_to\_HDF5@{write\_e\_field\_to\_HDF5}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{write\_e\_field\_to\_HDF5()}{write\_e\_field\_to\_HDF5()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int File\+I\+O\+::write\+\_\+e\+\_\+field\+\_\+to\+\_\+\+H\+D\+F5 (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{field\+\_\+comp,  }\item[{const std\+::size\+\_\+t}]{itr\+\_\+num,  }\item[{const \mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Writes a Electric \mbox{\hyperlink{class_field}{Field}} components to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field\+\_\+comp} & The identifier for the component of the field \\
+\hline
+{\em itr\+\_\+num} & The simulation iteration number \\
+\hline
+{\em data} & The \mbox{\hyperlink{class_grid_object}{Grid\+Object}} object to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int An error code if something failed, otherwise 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_i_o_a1c768a863ee2c006320debf5a61f0b69}\label{class_file_i_o_a1c768a863ee2c006320debf5a61f0b69}} 
+\index{FileIO@{FileIO}!write\_phase\_to\_HDF5@{write\_phase\_to\_HDF5}}
+\index{write\_phase\_to\_HDF5@{write\_phase\_to\_HDF5}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{write\_phase\_to\_HDF5()}{write\_phase\_to\_HDF5()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int File\+I\+O\+::write\+\_\+phase\+\_\+to\+\_\+\+H\+D\+F5 (\begin{DoxyParamCaption}\item[{const char}]{phase\+\_\+name\mbox{[}$\,$\mbox{]},  }\item[{const std\+::size\+\_\+t}]{spec\+\_\+name,  }\item[{const std\+::size\+\_\+t}]{itr\+\_\+num,  }\item[{const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Writes a species phase space to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phase\+\_\+name} & The name of the phase space being written \\
+\hline
+{\em spec\+\_\+name} & The name/identifier of the species \\
+\hline
+{\em itr\+\_\+num} & itr\+\_\+num The simulation iteration number \\
+\hline
+{\em data} & The \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int An error code if something failed, otherwise 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_i_o_a1522e8f89d06c941ec9326d69aad7452}\label{class_file_i_o_a1522e8f89d06c941ec9326d69aad7452}} 
+\index{FileIO@{FileIO}!write\_phase\_to\_HDF5@{write\_phase\_to\_HDF5}}
+\index{write\_phase\_to\_HDF5@{write\_phase\_to\_HDF5}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{write\_phase\_to\_HDF5()}{write\_phase\_to\_HDF5()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int File\+I\+O\+::write\+\_\+phase\+\_\+to\+\_\+\+H\+D\+F5 (\begin{DoxyParamCaption}\item[{const char}]{phase\+\_\+name\mbox{[}$\,$\mbox{]},  }\item[{const std\+::size\+\_\+t}]{spec\+\_\+name,  }\item[{const std\+::size\+\_\+t}]{itr\+\_\+num,  }\item[{const \mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Writes a species phase space to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phase\+\_\+name} & The name of the phase space being written \\
+\hline
+{\em spec\+\_\+name} & The name/identifier of the species \\
+\hline
+{\em itr\+\_\+num} & itr\+\_\+num The simulation iteration number \\
+\hline
+{\em data} & The \mbox{\hyperlink{class_grid_object}{Grid\+Object}} object to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int An error code if something failed, otherwise 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_i_o_a1931c669432007a94660213294966066}\label{class_file_i_o_a1931c669432007a94660213294966066}} 
+\index{FileIO@{FileIO}!write\_species\_to\_HDF5@{write\_species\_to\_HDF5}}
+\index{write\_species\_to\_HDF5@{write\_species\_to\_HDF5}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{write\_species\_to\_HDF5()}{write\_species\_to\_HDF5()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int File\+I\+O\+::write\+\_\+species\+\_\+to\+\_\+\+H\+D\+F5 (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{spec\+\_\+name,  }\item[{const std\+::size\+\_\+t}]{itr\+\_\+num,  }\item[{const \mbox{\hyperlink{class_data_storage}{Data\+Storage}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Writes a \mbox{\hyperlink{class_species}{Species}}\textquotesingle{}s density to an H\+D\+F5 file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spec\+\_\+name} & The name/identifier of the species \\
+\hline
+{\em itr\+\_\+num} & The simulation iteration number \\
+\hline
+{\em data} & The \mbox{\hyperlink{class_data_storage}{Data\+Storage}} object to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int An error code if something failed, otherwise 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_i_o_af5d88919b95e3297a77b2b731282ce10}\label{class_file_i_o_af5d88919b95e3297a77b2b731282ce10}} 
+\index{FileIO@{FileIO}!write\_species\_to\_HDF5@{write\_species\_to\_HDF5}}
+\index{write\_species\_to\_HDF5@{write\_species\_to\_HDF5}!FileIO@{FileIO}}
+\doxysubsubsection{\texorpdfstring{write\_species\_to\_HDF5()}{write\_species\_to\_HDF5()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int File\+I\+O\+::write\+\_\+species\+\_\+to\+\_\+\+H\+D\+F5 (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{spec\+\_\+name,  }\item[{const std\+::size\+\_\+t}]{itr\+\_\+num,  }\item[{const \mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Writes a \mbox{\hyperlink{class_species}{Species}}\textquotesingle{}s density to an H\+D\+F5 file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spec\+\_\+name} & The name/identifier of the species \\
+\hline
+{\em itr\+\_\+num} & The simulation iteration number \\
+\hline
+{\em data} & The \mbox{\hyperlink{class_grid_object}{Grid\+Object}} object to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int An error code if something failed, otherwise 0 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_file_i_o_8h}{File\+I\+O.\+h}}\item 
+src/\mbox{\hyperlink{_file_i_o_8cpp}{File\+I\+O.\+cpp}}\end{DoxyCompactItemize}

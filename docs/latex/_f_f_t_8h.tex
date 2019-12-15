@@ -1,0 +1,32 @@
+\hypertarget{_f_f_t_8h}{}\doxysection{src/\+F\+FT.h File Reference}
+\label{_f_f_t_8h}\index{src/FFT.h@{src/FFT.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include \char`\"{}Grid\+Object.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_f_f_t}{F\+FT}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_f_f_t_ae72c867bc360050e784b653aecec8bdc}{F\+F\+T\+::\+F\+F\+T\+\_\+\+Dir}} \{ \mbox{\hyperlink{namespace_f_f_t_ae72c867bc360050e784b653aecec8bdca4d265dc5db9016664edb3e6d930fc51c}{F\+F\+T\+::\+F\+FT}} = 1, 
+\mbox{\hyperlink{namespace_f_f_t_ae72c867bc360050e784b653aecec8bdca0d85d7affbdd0ab93c8c6efbb8099edc}{F\+F\+T\+::i\+F\+FT}} = -\/1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{namespace_f_f_t_aebb61cfb159a550d37984e02c8770ad6}{F\+F\+T\+::sinc}} (const double x)
+\begin{DoxyCompactList}\small\item\em Computes the value of sinc(x) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_f_f_t_abe6a84282045e3dc5c26ccaf478c49b7}{F\+F\+T\+::\+F\+F\+T\+\_\+1D}} (std\+::vector$<$ double $>$ \&data\+\_\+re, std\+::vector$<$ double $>$ \&data\+\_\+im, \mbox{\hyperlink{namespace_f_f_t_ae72c867bc360050e784b653aecec8bdc}{F\+F\+T\+::\+F\+F\+T\+\_\+\+Dir}} isign)
+\begin{DoxyCompactList}\small\item\em Performs a 1D (inverse) Fourier transform of a grid. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_f_f_t_abc192251eecad865420c7ca9d5074e17}{F\+F\+T\+::\+F\+F\+T\+\_\+2D}} (\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&real\+\_\+part, \mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&imag\+\_\+part, \mbox{\hyperlink{namespace_f_f_t_ae72c867bc360050e784b653aecec8bdc}{F\+F\+T\+::\+F\+F\+T\+\_\+\+Dir}} transform\+\_\+dir)
+\begin{DoxyCompactList}\small\item\em Performs a 2D (inverse) Fourier transform of a grid. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{namespace_f_f_t_a4e6ee9e3d13c7a9b686aaee596a913bc}{F\+F\+T\+::get\+\_\+k\+\_\+vec}} (const std\+::size\+\_\+t size, const double dx)
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{namespace_f_f_t_abf84bc388d951fa35798e6db87f1ad8c}{F\+F\+T\+::get\+\_\+\+K2\+\_\+vec}} (const std\+::vector$<$ double $>$ \&k, const double dx)
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{namespace_f_f_t_a9d4dd7f5bcc74303fdac73e3c8ab434a}{F\+F\+T\+::get\+\_\+kappa\+\_\+vec}} (const std\+::vector$<$ double $>$ \&k, const double dx)
+\end{DoxyCompactItemize}

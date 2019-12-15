@@ -1,0 +1,97 @@
+\hypertarget{landau_8h}{}\doxysection{src/landau.h File Reference}
+\label{landau_8h}\index{src/landau.h@{src/landau.h}}
+{\ttfamily \#include \char`\"{}Simulation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Species.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Field.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{landau_8h_aa67fedc876a0c37754c45c405699c0d6}{gaussian}} ()
+\item 
+void \mbox{\hyperlink{landau_8h_a0330542d88e97da697e3cc903c16922d}{landau}} (\mbox{\hyperlink{class_species}{Species}} \&spec, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Npar)
+\item 
+void \mbox{\hyperlink{landau_8h_ab4908972b17888da64d7fdc2d2b47a90}{init\+\_\+e\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} size)
+\item 
+void \mbox{\hyperlink{landau_8h_a55b85256031b377084391c3a14e42175}{init\+\_\+b\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{landau_8h_a909b9f327fc67ca5ecf61e243a098db3}{ndump}} = 25
+\item 
+const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{landau_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}} = 2048
+\item 
+const double \mbox{\hyperlink{landau_8h_a72cf8d5b890ce916d1ef3f13e4e10068}{L\+\_\+sys}} = (1.\+0/30.\+0) $\ast$ M\+\_\+\+PI
+\item 
+const double \mbox{\hyperlink{landau_8h_acebd3f4d3a03bd5d4250087d3e45dc72}{tmax}} = 4.\+0 $\ast$ M\+\_\+\+PI
+\item 
+const double \mbox{\hyperlink{landau_8h_a4d2852f394c94e7eaac02e3c5b393654}{dt}} = 0.\+01
+\item 
+const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{landau_8h_ab8aad333299221f97399a7290e821569}{nspec}} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{landau_8h_aa67fedc876a0c37754c45c405699c0d6}\label{landau_8h_aa67fedc876a0c37754c45c405699c0d6}} 
+\index{landau.h@{landau.h}!gaussian@{gaussian}}
+\index{gaussian@{gaussian}!landau.h@{landau.h}}
+\doxysubsubsection{\texorpdfstring{gaussian()}{gaussian()}}
+{\footnotesize\ttfamily double gaussian (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{landau_8h_a55b85256031b377084391c3a14e42175}\label{landau_8h_a55b85256031b377084391c3a14e42175}} 
+\index{landau.h@{landau.h}!init\_b\_field@{init\_b\_field}}
+\index{init\_b\_field@{init\_b\_field}!landau.h@{landau.h}}
+\doxysubsubsection{\texorpdfstring{init\_b\_field()}{init\_b\_field()}}
+{\footnotesize\ttfamily void init\+\_\+b\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{landau_8h_ab4908972b17888da64d7fdc2d2b47a90}\label{landau_8h_ab4908972b17888da64d7fdc2d2b47a90}} 
+\index{landau.h@{landau.h}!init\_e\_field@{init\_e\_field}}
+\index{init\_e\_field@{init\_e\_field}!landau.h@{landau.h}}
+\doxysubsubsection{\texorpdfstring{init\_e\_field()}{init\_e\_field()}}
+{\footnotesize\ttfamily void init\+\_\+e\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{landau_8h_a0330542d88e97da697e3cc903c16922d}\label{landau_8h_a0330542d88e97da697e3cc903c16922d}} 
+\index{landau.h@{landau.h}!landau@{landau}}
+\index{landau@{landau}!landau.h@{landau.h}}
+\doxysubsubsection{\texorpdfstring{landau()}{landau()}}
+{\footnotesize\ttfamily void landau (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Npar }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{landau_8h_a4d2852f394c94e7eaac02e3c5b393654}\label{landau_8h_a4d2852f394c94e7eaac02e3c5b393654}} 
+\index{landau.h@{landau.h}!dt@{dt}}
+\index{dt@{dt}!landau.h@{landau.h}}
+\doxysubsubsection{\texorpdfstring{dt}{dt}}
+{\footnotesize\ttfamily const double dt = 0.\+01}
+
+\mbox{\Hypertarget{landau_8h_a72cf8d5b890ce916d1ef3f13e4e10068}\label{landau_8h_a72cf8d5b890ce916d1ef3f13e4e10068}} 
+\index{landau.h@{landau.h}!L\_sys@{L\_sys}}
+\index{L\_sys@{L\_sys}!landau.h@{landau.h}}
+\doxysubsubsection{\texorpdfstring{L\_sys}{L\_sys}}
+{\footnotesize\ttfamily const double L\+\_\+sys = (1.\+0/30.\+0) $\ast$ M\+\_\+\+PI}
+
+\mbox{\Hypertarget{landau_8h_a909b9f327fc67ca5ecf61e243a098db3}\label{landau_8h_a909b9f327fc67ca5ecf61e243a098db3}} 
+\index{landau.h@{landau.h}!ndump@{ndump}}
+\index{ndump@{ndump}!landau.h@{landau.h}}
+\doxysubsubsection{\texorpdfstring{ndump}{ndump}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ndump = 25}
+
+\mbox{\Hypertarget{landau_8h_ab8aad333299221f97399a7290e821569}\label{landau_8h_ab8aad333299221f97399a7290e821569}} 
+\index{landau.h@{landau.h}!nspec@{nspec}}
+\index{nspec@{nspec}!landau.h@{landau.h}}
+\doxysubsubsection{\texorpdfstring{nspec}{nspec}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} nspec = 1}
+
+\mbox{\Hypertarget{landau_8h_a8dfb498413096d9fce8a7ed69cb41d16}\label{landau_8h_a8dfb498413096d9fce8a7ed69cb41d16}} 
+\index{landau.h@{landau.h}!Nx@{Nx}}
+\index{Nx@{Nx}!landau.h@{landau.h}}
+\doxysubsubsection{\texorpdfstring{Nx}{Nx}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Nx = 2048}
+
+\mbox{\Hypertarget{landau_8h_acebd3f4d3a03bd5d4250087d3e45dc72}\label{landau_8h_acebd3f4d3a03bd5d4250087d3e45dc72}} 
+\index{landau.h@{landau.h}!tmax@{tmax}}
+\index{tmax@{tmax}!landau.h@{landau.h}}
+\doxysubsubsection{\texorpdfstring{tmax}{tmax}}
+{\footnotesize\ttfamily const double tmax = 4.\+0 $\ast$ M\+\_\+\+PI}
+
