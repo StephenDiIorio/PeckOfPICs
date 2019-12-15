@@ -15,47 +15,44 @@ Species::Species()
 /**
  * @brief Constructor for Species object - inits density to 0.0 everywhere
  *
- * @param npar Total number of particles in the species
- * @param nx Number of grid spaces in x direction
- * @param ny Number of grid spaces in y direction
+ * @param Npar Total number of particles in the species
+ * @param Nx Number of grid spaces in x direction
+ * @param Ny Number of grid spaces in y direction
  * @param Qpar Charge of particle in units of fundamental charge
  */
-Species::Species(uint npar, uint nx, uint ny, double Qpar)
+Species::Species(std::size_t Npar, std::size_t Nx, std::size_t Ny, double Qpar)
 {
-    this->npar = npar;
-    this->parts.reserve(npar);
+    this->Npar = Npar;
+    this->parts.reserve(Npar);
 
-    this->density = 0.0;
-    this->density_arr = GridObject(nx, ny);
+    this->density_arr = GridObject(Nx, Ny);
 
     this->Qpar = Qpar;
 
-    this->total_KE = 0.0;
+    // this->total_KE = 0.0;
 }
 
 /**
  * @brief Constructor for Species object
  *
- * @param npar Total number of particles in the species
+ * @param Npar Total number of particles in the species
  * @param Nx Number of grid spaces in x direction
  * @param Ny Number of grid spaces in y direction
  * @param Qpar Charge of particle in units of fundamental charge
- * @param density
  * @param init_fcn User provided function which initializes the density of the
  *                 species to the user's specification
  */
-Species::Species(uint npar, uint Nx, uint Ny, double Qpar, double density,
-                 std::function<void(Species &, uint)> init_fcn)
+Species::Species(std::size_t Npar, std::size_t Nx, std::size_t Ny, double Qpar,
+                 std::function<void(Species &, std::size_t)> init_fcn)
 {
-    this->npar = npar;
-    this->parts.reserve(npar);
+    this->Npar = Npar;
+    this->parts.reserve(Npar);
 
-    this->density = density;
     this->density_arr = GridObject(Nx, Ny);
 
     this->Qpar = Qpar;
 
-    this->total_KE = 0.0;
+    // this->total_KE = 0.0;
 
     init_species(init_fcn);
 }
@@ -101,7 +98,7 @@ void Species::add_particle(double x_pos, double y_pos, double z_pos,
  * @param mom A vector containing all momentum components of the particle
  * @param Wpar The weight of the particle
  */
-void Species::add_particle(ThreeVec pos, ThreeVec mom, double Wpar)
+void Species::add_particle(const ThreeVec& pos, const ThreeVec& mom, double Wpar)
 {
     this->add_particle(Particle(pos, mom, Wpar));
 }
@@ -111,7 +108,7 @@ void Species::add_particle(ThreeVec pos, ThreeVec mom, double Wpar)
  *
  * @param p A particle object to add to the species
  */
-void Species::add_particle(Particle p)
+void Species::add_particle(const Particle& p)
 {
     this->parts.push_back(p);
 }
@@ -131,30 +128,18 @@ void Species::add_particle(Particle p)
  */
 int Species::deposit_charge(const double dx, const double dy,
                             const double L_x, const double L_y,
-                            const uint Nx, const uint Ny)
+                            const std::size_t Nx, const std::size_t Ny)
 {
     // Initialize
-    for (auto &d : this->density_arr)
-    {
-        d = 0.0;
-    }
+    this->density_arr.zero();
 
-    double x_pos, y_pos, par_weight;
-    double fi, fj, hx, hy;
-    double x_min = 0.0, y_min = 0.0;
-    std::size_t i, j;
+    const double x_min = 0.0, y_min = 0.0;
 
-    // uint print_num = 0;
     for (const auto &p : this->parts)
     {
-        // std::cout << "Printing info for part " << print_num << std::endl;
-        par_weight = p.get_weight() / dx / dy; // add normalization factor here
-        x_pos = p.get_pos().get_x();
-        y_pos = p.get_pos().get_y();
-
-        // std::cout << "weight " << par_weight << std::endl;
-        // std::cout << "x pos " << x_pos << std::endl;
-        // std::cout << "y pos " << y_pos << std::endl;
+        double par_weight = p.get_weight() / dx / dy; // normalization factor
+        double x_pos = p.get_pos().get_x();
+        double y_pos = p.get_pos().get_y();
 
         // This is because I have chosen to start my boundary at -dx/2
         if (x_pos < 0.0)
@@ -166,30 +151,18 @@ int Species::deposit_charge(const double dx, const double dy,
             y_pos += L_y;
         }
 
-        fi = (x_pos - x_min) / dx; // shape function normalization here
-        i  = fi;
-        hx = fi - i;
+        double fi = (x_pos - x_min) / dx; // shape function normalization here
+        std::size_t i = fi;
+        double hx = fi - double(i);
 
-        fj = (y_pos - y_min) / dy; // shape function normalization here
-        j  = fj;
-        hy = fj - j;
-
-        // std::cout << "fi=" << fi << std::endl;
-        // std::cout << "i=" << i << std::endl;
-        // std::cout << "hx=" << hx << std::endl;
-        // std::cout << "fj=" << fj << std::endl;
-        // std::cout << "j=" << j << std::endl;
-        // std::cout << "hy=" << hy << std::endl;
-        // std::cout << "i, j gets " << (1.-hx) * (1.-hy) * par_weight << std::endl;
-        // std::cout << "i+1, j gets " << (1. - hx) * hy * par_weight << std::endl;
-        // std::cout << "i, j+1 gets " << hx * (1. - hy) * par_weight << std::endl;
-        // std::cout << "i+1, j+1 gets " << hx * hy * par_weight << std::endl;
+        double fj = (y_pos - y_min) / dy; // shape function normalization here
+        std::size_t j  = fj;
+        double hy = fj - double(j);
 
         density_arr.comp_add_to(i,   j,   (1.-hx) * (1.-hy) * par_weight);
         density_arr.comp_add_to(i+1, j,   hx      * (1.-hy) * par_weight);
         density_arr.comp_add_to(i,   j+1, (1.-hx) * hy      * par_weight);
         density_arr.comp_add_to(i+1, j+1, hx      * hy      * par_weight);
-        // print_num++;
     }
     return 0;
 }
@@ -199,6 +172,7 @@ int Species::deposit_charge(const double dx, const double dy,
  * @brief Interpolates the field values from the grid to the particle position
  *
  * @param f Field to interpolate to particle position
+ * @param field_to_map Type of field to map to particles
  * @param dx Spatial grid step in x direction
  * @param dy Spatial grid step in y direction
  * @param L_x Physical length of system in x direction
@@ -207,16 +181,13 @@ int Species::deposit_charge(const double dx, const double dy,
  * @param Ny Number of grid spaces in y direction
  * @return int Returns an error code or 0 if successful
  */
-int Species::map_field_to_part(const Field& f, field_type field_to_map,
+int Species::map_field_to_part(const Field& f,
+                               const Field_Type field_to_map,
                                const double dx, const double dy,
                                const double L_x, const double L_y,
-                               const uint Nx, const uint Ny)
+                               const std::size_t Nx, const std::size_t Ny)
 {
-    double x_pos, y_pos, par_weight;
-    double fi, fj, hx, hy;
-    double x_min = 0.0, y_min = 0.0;
-    uint i, j;
-
+    const double x_min = 0.0, y_min = 0.0;
 
     for (auto &p : this->parts)
     {
@@ -224,9 +195,8 @@ int Species::map_field_to_part(const Field& f, field_type field_to_map,
         double loc_f_x2 = 0.0;
         double loc_f_x3 = 0.0;
 
-        // par_weight = p.get_weight() / dx / dy; // add normalization factor here
-        x_pos = p.get_pos().get_x();
-        y_pos = p.get_pos().get_y();
+        double x_pos = p.get_pos().get_x();
+        double y_pos = p.get_pos().get_y();
 
         // This is because I have chosen to start my boundary at -dx/2
         if (x_pos < 0.0)
@@ -238,65 +208,43 @@ int Species::map_field_to_part(const Field& f, field_type field_to_map,
             y_pos += L_y;
         }
 
-        fi = (x_pos - x_min) / dx;
-        i = fi;
-        hx = fi - i;
+        double fi = (x_pos - x_min) / dx; // shape function normalization here
+        std::size_t i = fi;
+        double hx = fi - double(i);
 
-        fj = (y_pos - y_min) / dy;
-        j = fj;
-        hy = fj - j;
+        double fj = (y_pos - y_min) / dy; // shape function normalization here
+        std::size_t j = fj;
+        double hy = fj - double(j);
 
-// added a print statement here for debuggin purposes
-        // std::cout << "i " << i << ", j " << j << std::endl;
-        // std::cout << "hx " << hx << ", hy " << hy << std::endl;
-        // std::cout << "weight " << par_weight << std::endl;
-        // std::cout << "Qpar " << this->Qpar << std::endl;
-        // std::cout << "Eij " << f.f1.get_comp(i,j) << std::endl;
-        // std::cout << "Ei+1,j " << f.f1.get_comp(i+1,j) << std::endl;
-        // std::cout << "Ei,j+1 " << f.f1.get_comp(i,j+1) << std::endl;
-        // std::cout << "Ei+1,j+1 " << f.f1.get_comp(i+1,j+1) << std::endl;
+        loc_f_x1 += (1.-hx) * (1.-hy) * f.f1.get_comp(i, j);
+        loc_f_x1 += hx      * (1.-hy) * f.f1.get_comp(i+1, j);
+        loc_f_x1 += (1.-hx) * hy      * f.f1.get_comp(i, j+1);
+        loc_f_x1 += hx      * hy      * f.f1.get_comp(i+1, j+1);
 
-        loc_f_x1 += (1.-hx) * (1.-hy)  \
-                    * f.f1.get_comp(i, j);
-        loc_f_x1 += hx * (1.-hy) \
-                    * f.f1.get_comp(i+1, j);
-        loc_f_x1 += (1.-hx) * hy \
-                    * f.f1.get_comp(i, j+1);
-        loc_f_x1 += hx      * hy \
-                    * f.f1.get_comp(i+1, j+1);
+        loc_f_x2 += (1.-hx) * (1.-hy) * f.f2.get_comp(i, j);
+        loc_f_x2 += hx      * (1.-hy) * f.f2.get_comp(i+1, j);
+        loc_f_x2 += (1.-hx) * hy      * f.f2.get_comp(i, j+1);
+        loc_f_x2 += hx      * hy      * f.f2.get_comp(i+1, j+1);
 
-        loc_f_x2 += (1.-hx) * (1.-hy) \
-                    * f.f2.get_comp(i, j);
-        loc_f_x2 += hx * (1.-hy)  \
-                    * f.f2.get_comp(i+1, j);
-        loc_f_x2 += (1.-hx) * hy  \
-                    * f.f2.get_comp(i, j+1);
-        loc_f_x2 += hx      * hy  \
-                    * f.f2.get_comp(i+1, j+1);
+        loc_f_x3 += (1.-hx) * (1.-hy) * f.f3.get_comp(i, j);
+        loc_f_x3 += hx      * (1.-hy) * f.f3.get_comp(i+1, j);
+        loc_f_x3 += (1.-hx) * hy      * f.f3.get_comp(i, j+1);
+        loc_f_x3 += hx      * hy      * f.f3.get_comp(i+1, j+1);
 
-        loc_f_x3 += (1.-hx) * (1.-hy)  \
-                    * f.f3.get_comp(i, j);
-        loc_f_x3 += hx * (1.-hy)  \
-                    * f.f3.get_comp(i+1, j);
-        loc_f_x3 += (1.-hx)   * hy  \
-                    * f.f3.get_comp(i, j+1);
-        loc_f_x3 += hx      * hy    \
-                    * f.f3.get_comp(i+1, j+1);
-
-        // std::cout << "loc_f_x1 " << loc_f_x1 << ", loc_f_x2 " << loc_f_x2 \
-        //     << ", loc_f_x3 " << loc_f_x3 << std::endl;
-
-        // p.set_local_e_field(loc_f_x1, loc_f_x2, loc_f_x3);
-        if (field_to_map == electric)
+        switch (field_to_map)
         {
-            p.set_local_e_field(loc_f_x1, loc_f_x2, loc_f_x3);
+            case Electric:
+                p.set_local_e_field(loc_f_x1, loc_f_x2, loc_f_x3);
+                break;
+            case Magnetic:
+                p.set_local_b_field(loc_f_x1, loc_f_x2, loc_f_x3);
+                break;
+            default:
+                throw std::runtime_error(Field_T_err);
+                break;
         }
-        else
-        {
-            p.set_local_b_field(loc_f_x1, loc_f_x2, loc_f_x3);
-        }
-
     }
+
     return 0;
 }
 
@@ -316,75 +264,37 @@ int Species::push_particles(const double L_x, const double L_y,
                             const double dx, const double dy)
 {
     // For total kinetic energy diagnostic
-    double KE = 0.0;
-    this->total_KE = 0.0;
-
-    // double B0 = sqrt(3.0);//1.0;
-    double b2, mom2, gamma;
-    ThreeVec t, s, pos, mom;
-    // ThreeVec t = ThreeVec(0.0, 0.0, B0 * dt / 2);
-    // ThreeVec s = t * (2 / (1 + t.square()));
-    ThreeVec vstar, vperp;
+    // double KE = 0.0;
+    // this->total_KE = 0.0;
 
     for (auto &p : this->parts)
     {
-        pos = p.get_pos();
-        mom = p.get_mom();
+        ThreeVec pos = p.get_pos();
+        ThreeVec mom = p.get_mom();
 
-        // minus instead of plus b/c of convention used in this program
         mom += p.get_local_e_field() * (this->Qpar * dt * 0.5);
 
-        mom2 = mom.square();
-        gamma = 1. / sqrt(1. + mom2);
+        double mom2 = mom.square();
+        double gamma = 1. / sqrt(1. + mom2);
 
-        b2 = p.get_local_b_field().square();
-        // debug print statement
-        // std::cout << "local b" << std::endl;
-        // p.print_local_b_field();
-        // std::cout << "local e" << std::endl;
-        // p.print_local_e_field();
-        // end print
+        double b2 = p.get_local_b_field().square();
 
         if (b2) // test if non-zero
         {
-            t = p.get_local_b_field() * this->Qpar * dt * 0.5;
-            s = t * (2. / (1. + t.square()));
+            ThreeVec t = p.get_local_b_field() * this->Qpar * dt * 0.5;
+            ThreeVec s = t * (2. / (1. + t.square()));
 
-            vperp = mom - ((mom.element_multiply(p.get_local_b_field()))
-                           / sqrt(b2));
-            vstar = vperp + (vperp^t);
+            ThreeVec vperp = mom - ((mom.element_multiply(p.get_local_b_field())) / sqrt(b2));
+            ThreeVec vstar = vperp + (vperp^t);
 
             mom += vstar^s;
         }
 
-        // something's wrong with position part of pusher
-        // std::cout << "in pusher:" << std::endl;
-        // std::cout << "pos " << std::endl;
-        // pos.print();
-        // std::cout << "halfstep E + B mom " << std::endl;
-        // mom.print();
-        // std::cout << "local e " << std::endl;
-        // p.print_local_e_field();
-        // std::cout << "gamma " << gamma << std::endl;
-        // // end prints
-
         mom += p.get_local_e_field() * (this->Qpar * dt * 0.5);
-        // //debugging prints
-        // std::cout << "mom after step"<< std::endl;
-        // mom.print();
-        // //end prints
 
         pos += mom * (dt / gamma);
-        // //debugging prints
-        // std::cout << "pos after step" <<  std::endl;
-        // pos.print();
-        // //end prints
 
-        this->apply_bc(pos, L_x, L_y, dx, dy);
-        // // debugging prints
-        // std::cout << "pos after mod " << std::endl;
-        // pos.print();
-        // // end prints
+        this->_apply_bc(pos, L_x, L_y, dx, dy);
 
         p.set_mom(mom);
         p.set_pos(pos);
@@ -401,6 +311,25 @@ int Species::push_particles(const double L_x, const double L_y,
 }
 
 /**
+ * @brief Applies the boundary condition for every particle in the species
+ *
+ * @param L_x Physical length of system in x direction
+ * @param L_y Physical length of system in y direction
+ * @param dx Spatial grid step in x direction
+ * @param dy Spatial grid step in y direction
+ */
+void Species::apply_bc(const double L_x, const double L_y,
+                       const double dx, const double dy)
+{
+    for (auto &p : this->parts)
+    {
+        ThreeVec pos = p.get_pos();
+        this->_apply_bc(pos, L_x, L_y, dx, dy);
+        p.set_pos(pos);
+    }
+}
+
+/**
  * @brief Returns all of the particles' x positions
  *
  * @return std::vector<double> Vector containing the x positions of all
@@ -408,9 +337,9 @@ int Species::push_particles(const double L_x, const double L_y,
  */
 DataStorage_1D Species::get_x_phasespace()
 {
-    DataStorage_1D to_ret(this->npar);
+    DataStorage_1D to_ret(this->Npar);
 
-    for (int i = 0; i < this->npar; ++i)
+    for (std::size_t i = 0; i < this->Npar; ++i)
     {
         to_ret[i] = this->parts[i].get_pos().get_x();
     }
@@ -426,9 +355,9 @@ DataStorage_1D Species::get_x_phasespace()
  */
 DataStorage_1D Species::get_y_phasespace()
 {
-    DataStorage_1D to_ret(this->npar);
+    DataStorage_1D to_ret(this->Npar);
 
-    for (int i = 0; i < this->npar; ++i)
+    for (std::size_t i = 0; i < this->Npar; ++i)
     {
         to_ret[i] = this->parts[i].get_pos().get_y();
     }
@@ -444,9 +373,9 @@ DataStorage_1D Species::get_y_phasespace()
  */
 DataStorage_1D Species::get_px_phasespace()
 {
-    DataStorage_1D to_ret(this->npar);
+    DataStorage_1D to_ret(this->Npar);
 
-    for (int i = 0; i < this->npar; ++i)
+    for (std::size_t i = 0; i < this->Npar; ++i)
     {
         to_ret[i] = this->parts[i].get_mom().get_x();
     }
@@ -462,9 +391,9 @@ DataStorage_1D Species::get_px_phasespace()
  */
 DataStorage_1D Species::get_py_phasespace()
 {
-    DataStorage_1D to_ret(this->npar);
+    DataStorage_1D to_ret(this->Npar);
 
-    for (int i = 0; i < this->npar; ++i)
+    for (std::size_t i = 0; i < this->Npar; ++i)
     {
         to_ret[i] = this->parts[i].get_mom().get_y();
     }
@@ -473,11 +402,11 @@ DataStorage_1D Species::get_py_phasespace()
 }
 
 
-std::vector<double> Species::get_local_E(int i)
+std::vector<double> Species::get_local_E(std::size_t i)
 {
-    std::vector<double> to_ret = std::vector<double>(this->npar);
+    std::vector<double> to_ret = std::vector<double>(this->Npar);
 
-    for (int i = 0; i < this->npar; ++i)
+    for (std::size_t i = 0; i < this->Npar; ++i)
     {
         to_ret[i] = this->parts[i].get_local_e_field().get(i);
     }
@@ -485,97 +414,18 @@ std::vector<double> Species::get_local_E(int i)
     return to_ret;
 }
 
-std::vector<double> Species::get_local_E_x()
+std::vector<double> Species::get_local_B(std::size_t i)
 {
-    std::vector<double> to_ret = std::vector<double>(this->npar);
+    std::vector<double> to_ret = std::vector<double>(this->Npar);
 
-    for (int i = 0; i < this->npar; ++i)
-    {
-        to_ret[i] = (this->parts[i].get_local_e_field()).get_x();
-    }
-
-    return to_ret;
-}
-
-std::vector<double> Species::get_local_E_y()
-{
-    std::vector<double> to_ret = std::vector<double>(this->npar);
-
-    for (int i = 0; i < this->npar; ++i)
-    {
-        to_ret[i] = (this->parts[i].get_local_e_field()).get_y();
-    }
-
-    return to_ret;
-}
-
-std::vector<double> Species::get_local_E_z()
-{
-
-    std::vector<double> to_ret = std::vector<double>(this->npar);
-
-    for (int i = 0; i < this->npar; ++i)
-    {
-        to_ret[i] = (this->parts[i].get_local_e_field()).get_z();
-    }
-
-    return to_ret;
-}
-
-std::vector<double> Species::get_local_B(int i)
-{
-    std::vector<double> to_ret = std::vector<double>(this->npar);
-
-    for (int i = 0; i < this->npar; ++i)
+    for (int i = 0; i < this->Npar; ++i)
     {
         to_ret[i] = (this->parts[i].get_local_b_field()).get(i);
     }
 
     return to_ret;
 }
-std::vector<double> Species::get_local_B_x()
-{
 
-    std::vector<double> to_ret = std::vector<double>(this->npar);
-
-    for (int i = 0; i < this->npar; ++i)
-    {
-        to_ret[i] = (this->parts[i].get_local_e_field()).get_x();
-    }
-
-    return to_ret;
-}
-std::vector<double> Species::get_local_B_y()
-{
-    std::vector<double> to_ret = std::vector<double>(this->npar);
-
-    for (int i = 0; i < this->npar; ++i)
-    {
-        to_ret[i] = (this->parts[i].get_local_e_field()).get_y();
-    }
-
-    return to_ret;
-}
-std::vector<double> Species::get_local_B_z()
-{
-    std::vector<double> to_ret = std::vector<double>(this->npar);
-
-    for (int i = 0; i < this->npar; ++i)
-    {
-        to_ret[i] = (this->parts[i].get_local_e_field()).get_z();
-    }
-
-    return to_ret;
-}
-/*
-void Species::print_part_v_coord() const
-{
-    for (auto &p : this->parts)
-    {
-        p.print_mom();
-    }
-}
-*/
 /**
  * @brief Prints the positions of all the particles in the species
  *
@@ -594,7 +444,7 @@ void Species::print_pos() const
  *
  * @param i The index of the component to print
  */
-void Species::print_pos_comp(uint i) const
+void Species::print_pos_comp(std::size_t i) const
 {
     for (auto &p : this->parts)
     {
@@ -620,7 +470,7 @@ void Species::print_mom() const
  *
  * @param i The index of the component to print
  */
-void Species::print_mom_comp(uint i) const
+void Species::print_mom_comp(std::size_t i) const
 {
     for (auto &p : this->parts)
     {
@@ -658,7 +508,7 @@ void Species::print_local_e_field() const
  *
  * @param i The index of the component to print
  */
-void Species::print_local_e_field_comp(uint i) const
+void Species::print_local_e_field_comp(std::size_t i) const
 {
     for (auto &p : this->parts)
     {
@@ -684,7 +534,7 @@ void Species::print_local_b_field() const
  *
  * @param i The index of the component to print
  */
-void Species::print_local_b_field_comp(uint i) const
+void Species::print_local_b_field_comp(std::size_t i) const
 {
     for (auto &p : this->parts)
     {
@@ -707,9 +557,9 @@ void Species::print_density() const
 PRIVATE CLASS METHODS
 ***********************************************************/
 
-void Species::init_species(std::function<void(Species &, uint)> init_fcn)
+void Species::init_species(std::function<void(Species &, std::size_t)> init_fcn)
 {
-    init_fcn(*this, this->npar);
+    init_fcn(*this, this->Npar);
 }
 
 /**
@@ -722,7 +572,7 @@ void Species::init_species(std::function<void(Species &, uint)> init_fcn)
  * @param dx Spatial grid step in x direction
  * @param dy Spatial grid step in y direction
  */
-void Species::apply_bc(ThreeVec &pos,
+void Species::_apply_bc(ThreeVec& pos,
                        const double L_x, const double L_y,
                        const double dx, const double dy)
 {
@@ -732,32 +582,24 @@ void Species::apply_bc(ThreeVec &pos,
     // Periodic x boundaries
     while (x1 < -dx / 2.0)
     {
-        // std::cout << "x pos too small: before=" << x1 << std::endl;
         x1 += L_x;
-        // std::cout << "x pos too small: after=" << x1 << std::endl;
         pos.set_x(x1);
     }
     while (x1 >= (L_x - (dx / 2.0)))
     {
-        // std::cout << "x pos too large: before=" << x1 << std::endl;
         x1 -= L_x;
-        // std::cout << "x pos too large: after=" << x1 << std::endl;
         pos.set_x(x1);
     }
 
     // Periodic y boundaries
     while (y1 < -dy / 2.0)
     {
-        // std::cout << "y pos too small: before=" << y1 << std::endl;
         y1 += L_y;
-        // std::cout << "y pos too small: after=" << y1 << std::endl;
         pos.set_y(y1);
     }
     while (y1 >= (L_y - (dy / 2.0)))
     {
-        // std::cout << "y pos too large: before=" << y1 << std::endl;
         y1 -= L_y;
-        // std::cout << "y pos too large: before=" << y1 << std::endl;
         pos.set_y(y1);
     }
 }
