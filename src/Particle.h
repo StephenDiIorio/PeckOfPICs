@@ -30,8 +30,8 @@ class Particle
         Particle(double pos_x, double pos_y, double pos_z,
                  double mom_x, double mom_y, double mom_z,
                  double weight);
-        Particle(ThreeVec pos, ThreeVec mom);
-        Particle(ThreeVec pos, ThreeVec mom, double weight);
+        Particle(const ThreeVec& pos, const ThreeVec& mom);
+        Particle(const ThreeVec& pos, const ThreeVec& mom, double weight);
         ~Particle();
         //-----------------------------------------
 
@@ -56,7 +56,7 @@ class Particle
          * @param i Index to component to retrieve
          * @return double The desired component
          */
-        inline double get_pos_comp(uint i) const
+        inline double get_pos_comp(std::size_t i) const
         {
             return this->pos.get(i);
         }
@@ -77,7 +77,7 @@ class Particle
          * @param i Index to component to retrieve
          * @return double The desired component
          */
-        inline double get_mom_comp(uint i) const
+        inline double get_mom_comp(std::size_t i) const
         {
             return this->mom.get(i);
         }
@@ -109,7 +109,7 @@ class Particle
          * @param i Index to component to retrieve
          * @return double The desired component
          */
-        inline double get_local_e_field_comp(uint i) const
+        inline double get_local_e_field_comp(std::size_t i) const
         {
             return this->local_e_field.get(i);
         }
@@ -131,7 +131,7 @@ class Particle
          * @param i Index to component to retrieve
          * @return double The desired component
          */
-        inline double get_local_b_field_comp(uint i) const
+        inline double get_local_b_field_comp(std::size_t i) const
         {
             return this->local_b_field.get(i);
         }
@@ -144,7 +144,7 @@ class Particle
          * @param pos The ThreeVec with position values to copy to current
          *            particle
          */
-        inline void set_pos(ThreeVec pos)
+        inline void set_pos(const ThreeVec& pos)
         {
             this->set_pos(pos.get_x(), pos.get_y(), pos.get_z());
         }
@@ -155,7 +155,7 @@ class Particle
          * @param i Index to component to set
          * @param val Value to set component
          */
-        inline void set_pos_comp(uint i, const double val)
+        inline void set_pos_comp(std::size_t i, const double val)
         {
             this->pos.set(i, val);
         }
@@ -180,7 +180,7 @@ class Particle
          * @param mom The ThreeVec with momentum values to copy to current
          *            particle
          */
-        inline void set_mom(ThreeVec mom)
+        inline void set_mom(const ThreeVec& mom)
         {
             this->set_mom(mom.get_x(), mom.get_y(), mom.get_z());
         }
@@ -191,7 +191,7 @@ class Particle
          * @param i Index to component to set
          * @param val Value to set component
          */
-        inline void set_mom_comp(uint i, const double val)
+        inline void set_mom_comp(std::size_t i, const double val)
         {
             this->mom.set(i, val);
         }
@@ -227,7 +227,7 @@ class Particle
          * @param field The ThreeVec with electric field vaules to copy to the
          *              local copy
          */
-        inline void set_local_e_field(ThreeVec field)
+        inline void set_local_e_field(const ThreeVec& field)
         {
             this->set_local_e_field(field.get_x(),
                                     field.get_y(),
@@ -240,7 +240,7 @@ class Particle
          * @param i Index to component to set
          * @param val Value to set component
          */
-        inline void set_local_e_field_comp(uint i, const double val)
+        inline void set_local_e_field_comp(std::size_t i, const double val)
         {
             this->local_e_field.set(i, val);
         }
@@ -267,7 +267,7 @@ class Particle
          * @param field The ThreeVec with electric field vaules to copy to the
          *              local copy
          */
-        inline void set_local_b_field(ThreeVec field)
+        inline void set_local_b_field(const ThreeVec& field)
         {
             this->set_local_b_field(field.get_x(),
                                     field.get_y(),
@@ -280,7 +280,7 @@ class Particle
          * @param i Index to component to set
          * @param val Value to set component
          */
-        inline void set_local_b_field_comp(uint i, const double val)
+        inline void set_local_b_field_comp(std::size_t i, const double val)
         {
             this->local_b_field.set(i, val);
         }
@@ -303,18 +303,18 @@ class Particle
 
         // Print Functions
         void print_pos() const;
-        void print_pos_comp(uint i) const;
+        void print_pos_comp(std::size_t i) const;
 
         void print_mom() const;
-        void print_mom_comp(uint i) const;
+        void print_mom_comp(std::size_t i) const;
 
         void print_weight() const;
 
         void print_local_e_field() const;
-        void print_local_e_field_comp(uint i) const;
+        void print_local_e_field_comp(std::size_t i) const;
 
         void print_local_b_field() const;
-        void print_local_b_field_comp(uint i) const;
+        void print_local_b_field_comp(std::size_t i) const;
         //-----------------------------------------
 };
 

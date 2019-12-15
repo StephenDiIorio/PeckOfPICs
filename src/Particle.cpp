@@ -66,7 +66,7 @@ Particle::Particle(double pos_x, double pos_y, double pos_z, double mom_x, doubl
  * @param pos ThreeVec with position values to copy
  * @param mom ThreeVec with momentum values to copy
  */
-Particle::Particle(ThreeVec pos, ThreeVec mom) : Particle(pos.get_x(), pos.get_y(), pos.get_z(), mom.get_x(), mom.get_y(), mom.get_z(), 1.0)
+Particle::Particle(const ThreeVec& pos, const ThreeVec& mom) : Particle(pos.get_x(), pos.get_y(), pos.get_z(), mom.get_x(), mom.get_y(), mom.get_z(), 1.0)
 {
 }
 
@@ -78,7 +78,7 @@ Particle::Particle(ThreeVec pos, ThreeVec mom) : Particle(pos.get_x(), pos.get_y
  * @param mom ThreeVec with momentum values to copy
  * @param weight The weight to assign the particle
  */
-Particle::Particle(ThreeVec pos, ThreeVec mom, double weight) : Particle(pos.get_x(), pos.get_y(), pos.get_z(), mom.get_x(), mom.get_y(), mom.get_z(), weight)
+Particle::Particle(const ThreeVec& pos, const ThreeVec& mom, double weight) : Particle(pos.get_x(), pos.get_y(), pos.get_z(), mom.get_x(), mom.get_y(), mom.get_z(), weight)
 {
 }
 
@@ -111,7 +111,7 @@ void Particle::print_pos() const
  *
  * @param i The index to the coordinate to print
  */
-void Particle::print_pos_comp(uint i) const
+void Particle::print_pos_comp(std::size_t i) const
 {
     this->get_pos().print_comp(i);
 }
@@ -130,7 +130,7 @@ void Particle::print_mom() const
  *
  * @param i The index to the coordinate to print
  */
-void Particle::print_mom_comp(uint i) const
+void Particle::print_mom_comp(std::size_t i) const
 {
     this->get_mom().print_comp(i);
 }
@@ -158,7 +158,7 @@ void Particle::print_local_e_field() const
  *
  * @param i The index to the coordinate to print
  */
-void Particle::print_local_e_field_comp(uint i) const
+void Particle::print_local_e_field_comp(std::size_t i) const
 {
     this->get_local_e_field().print_comp(i);
 }
@@ -177,7 +177,7 @@ void Particle::print_local_b_field() const
  *
  * @param i The index to the coordinate to print
  */
-void Particle::print_local_b_field_comp(uint i) const
+void Particle::print_local_b_field_comp(std::size_t i) const
 {
     this->get_local_b_field().print_comp(i);
 }
