@@ -4,183 +4,188 @@
 /**********************************************************
 CONSTRUCTORS/DESTRUCTORS
 ***********************************************************/
+
+/**
+ * @brief Constructor for Field object
+ *
+ */
 Field::Field() //TODO: See if this can be removed
 {
 }
 
-Field::Field(uint Nx, uint Ny, double dx, double dy)
+/**
+ * @brief Constructor for Field object - sets all values to 0
+ *
+ * @param Nx Number of grid spaces in x direction
+ * @param Ny Number of grid spaces in y direction
+ * @param dx Spatial grid step in x direction
+ * @param dy Spatial grid step in y direction
+ */
+Field::Field(const std::size_t Nx, const std::size_t Ny,
+             const double dx, const double dy)
 {
-    this->size = Nx * Ny;
-    this->Nx = Nx;
-    this->Ny = Ny;
-    this->dx = dx;
-    this->dy = dy;
-
     this->total_U = 0.0;
 
-    this->f1 = GridObject(this->Nx, this->Ny);
-    this->f2 = GridObject(this->Nx, this->Ny);
-    this->f3 = GridObject(this->Nx, this->Ny);
+    std::vector<double> k_x = get_k_vec(Nx, dx);
+    std::vector<double> k_y = get_k_vec(Ny, dy);
+
+    this->K_x2 = get_K2_vec(k_x, dx);
+    this->K_y2 = get_K2_vec(k_y, dy);
+    this->Kappa_x = get_kappa_vec(k_x, dx);
+    this->Kappa_y = get_kappa_vec(k_y, dy);
+
+    this->f1 = GridObject(Nx, Ny);
+    this->f2 = GridObject(Nx, Ny);
+    this->f3 = GridObject(Nx, Ny);
 }
 
-Field::Field(uint Nx, uint Ny, double dx, double dy,\
-            uint component, double value)
+/**
+ * @brief Constructor for Field object
+ *
+ * @param Nx Number of grid spaces in x direction
+ * @param Ny Number of grid spaces in y direction
+ * @param dx Spatial grid step in x direction
+ * @param dy Spatial grid step in y direction
+ * @param component Which field component to initialize
+ * @param value The value to initialize the field component to
+ */
+Field::Field(const std::size_t Nx, const std::size_t Ny,
+             const double dx, const double dy,
+             std::size_t component, double value)
 {
-    this->size = Nx * Ny;
-    this->Nx = Nx;
-    this->Ny = Ny;
-    this->dx = dx;
-    this->dy = dy;
-
     this->total_U = 0.0;
+
+    std::vector<double> k_x = get_k_vec(Nx, dx);
+    std::vector<double> k_y = get_k_vec(Ny, dy);
+
+    this->K_x2 = get_K2_vec(k_x, dx);
+    this->K_y2 = get_K2_vec(k_y, dy);
+    this->Kappa_x = get_kappa_vec(k_x, dx);
+    this->Kappa_y = get_kappa_vec(k_y, dy);
 
     switch(component)
     {
-        case 1:
-            this->f1 = GridObject(this->Nx, this->Ny);
-            this->f2 = GridObject(this->Nx, this->Ny, value);
-            this->f3 = GridObject(this->Nx, this->Ny);
+        case x1_accessor:
+            this->f1 = GridObject(Nx, Ny, value);
+            this->f2 = GridObject(Nx, Ny);
+            this->f3 = GridObject(Nx, Ny);
             break;
-        case 2:
-            this->f1 = GridObject(this->Nx, this->Ny);
-            this->f2 = GridObject(this->Nx, this->Ny);
-            this->f3 = GridObject(this->Nx, this->Ny, value);
+        case x2_accessor:
+            this->f1 = GridObject(Nx, Ny);
+            this->f2 = GridObject(Nx, Ny, value);
+            this->f3 = GridObject(Nx, Ny);
+            break;
+        case x3_accessor:
+            this->f1 = GridObject(Nx, Ny);
+            this->f2 = GridObject(Nx, Ny);
+            this->f3 = GridObject(Nx, Ny, value);
             break;
         default:
-            this->f1 = GridObject(this->Nx, this->Ny, value);
-            this->f2 = GridObject(this->Nx, this->Ny);
-            this->f3 = GridObject(this->Nx, this->Ny);
+            throw std::runtime_error(no_dimension_err);
             break;
     }
 }
 
-Field::Field(uint Nx, uint Ny, double dx, double dy,
-    std::function<void(Field &, uint, uint)> init_fcn)
+/**
+ * @brief Constructor for Field object
+ *
+ * @param Nx Number of grid spaces in x direction
+ * @param Ny Number of grid spaces in y direction
+ * @param dx Spatial grid step in x direction
+ * @param dy Spatial grid step in y direction
+ * @param init_fcn User provided function which initializes the field to the
+ *                 user's specification
+ */
+Field::Field(const std::size_t Nx,const  std::size_t Ny,
+             const double dx, const double dy,
+             std::function<void(Field &, std::size_t, std::size_t)> init_fcn)
 {
-    this->size = Nx * Ny;
-    this->Nx = Nx;
-    this->Ny = Ny;
-    this->dx = dx;
-    this->dy = dy;
-
     this->total_U = 0.0;
 
-    // std::vector<double> k = get_k_vec(this->size, dx);
-    // this->K2 = get_K2_vec(k, this->size, dx);
-    // this->kappa = get_kappa_vec(k, this->size, dx);
+    std::vector<double> k_x = get_k_vec(Nx, dx);
+    std::vector<double> k_y = get_k_vec(Ny, dy);
 
-    init_field(init_fcn);
+    this->K_x2 = get_K2_vec(k_x, dx);
+    this->K_y2 = get_K2_vec(k_y, dy);
+    this->Kappa_x = get_kappa_vec(k_x, dx);
+    this->Kappa_y = get_kappa_vec(k_y, dy);
+
+    init_field(init_fcn, Nx, Ny);
 }
 
+/**
+ * @brief Destructor for Field object
+ *
+ */
 Field::~Field()
 {
 }
 //-----------------------------------------
 
 
-int Field::FFT_2d(GridObject &real_part, GridObject &imag_part,
-                  const uint transform_direction)
-{
-    int err = 0;
-    // const uint fft = 1;   // to perform fft
-    // const uint ifft = -1; // to perform ifft
-
-    // assumes real_part and im_part are the same size!
-
-    // spectral solve: Fourier transform rows, then columns
-    // for each row: collect data, Fourier transform, return, and store
-    std::vector<double> xs_re(this->Ny), xs_im(this->Ny);
-    for (int xi = 0; xi < this->Nx; ++xi)
-    {
-        for (int yj = 0; yj < this->Ny; ++yj)
-        {
-            xs_re.at(yj) = real_part.get_comp(xi,yj);
-            xs_im.at(yj) = imag_part.get_comp(xi,yj);
-        }
-        err = FFT(xs_re, xs_im, this->Ny, transform_direction);
-        if (err)
-        {
-            return err;
-        }
-        for (int yj = 0; yj < this->Ny; ++yj)
-        {
-            real_part.set_comp(xi,yj,xs_re.at(yj));
-            imag_part.set_comp(xi,yj,xs_im.at(yj));
-        }
-    }
-    // now columns
-    std::vector<double> ys_re(this->Nx), ys_im(this->Nx);
-    for (int yj = 0; yj < this->Ny; ++yj)
-    {
-        for (int xi = 0; xi < this->Nx; ++xi)
-        {
-            ys_re.at(xi) = real_part.get_comp(xi,yj);
-            ys_im.at(xi) = imag_part.get_comp(xi,yj);
-        }
-        err = FFT(ys_re, ys_im, this->Nx, transform_direction);
-        if (err)
-        {
-            return err;
-        }
-        for (int xi = 0; xi < this->Nx; ++xi)
-        {
-            real_part.set_comp(xi,yj,ys_re.at(xi));
-            imag_part.set_comp(xi,yj,ys_im.at(xi));
-        }
-    }
-
-    return 0;
-}
+/**********************************************************
+CLASS METHODS
+***********************************************************/
 
 /**
- * @brief solve_field solves Poisson equation with periodic BCs
- *
- * @param charge_density
- * @return int
+ * @brief Solves Poisson equation with periodic BCs
+ * @param charge_density The charge densitt distribution to calculate the
+ *                       resulting field of
+ * @param dx Spatial grid step in x direction
+ * @param dy Spatial grid step in y direction
+ * @return int An error code or 0 if it worked correctly
  */
-int Field::solve_field(const GridObject &charge_density)
+int Field::solve_field(const GridObject& charge_density,
+                       const double dx, const double dy)
 {
     int err = 0;
-    const uint fft = 1;   // to perform fft
-    const uint ifft = -1; // to perform ifft
+
+    const std::size_t Nx = charge_density.get_Nx();
+    const std::size_t Ny = charge_density.get_Ny();
 
     phi_dens_re = GridObject(charge_density);
-    phi_dens_im = GridObject(this->Nx, this->Ny);
+    phi_dens_im = GridObject(Nx, Ny);
 
     // A phi = density
     // 1 fourier transform density
-    err = FFT_2d(phi_dens_re, phi_dens_im, fft);
+    err = FFT_2D(phi_dens_re, phi_dens_im, FFT_Dir::FFT);
 
-    // set some values of phi to 0.  phi[0,0]?
-    phi_dens_re.set_comp(0,0,0);
-    phi_dens_im.set_comp(0,0,0);
+    // Set k=0 mode to zero
+    phi_dens_re.set_comp(0, 0, 0);
+    phi_dens_im.set_comp(0, 0, 0);
 
 
-    for (int xi =0; xi < this->Nx; ++xi)
+    for (std::size_t xi = 0; xi < Nx; ++xi)
     {
-        double kx = (2. * M_PI * xi) / (this->Nx * this->dx);
-        double sinckx2 = sinc(kx* this->dx / 2.);
-        double Klsq = kx*kx *sinckx2 * sinckx2;
+        // double kx = (2. * M_PI * xi) / (Nx * dx);
+        // double sinckx2 = sinc(kx * dx / 2.);
+        // double Klsq = kx*kx * sinckx2*sinckx2;
 
-        for (int yj = 0; yj < this->Ny; ++yj)
+        for (std::size_t yj = 0; yj < Ny; ++yj)
         {
+            // Don't overwrite the k=0 mode
             if (xi == 0 and yj == 0)
             {
                 continue;
             }
-            double ky = (2. * M_PI * yj) / (this->Ny * this->dy);
-            double sincky2 = sinc(ky* this->dy / 2.);
 
-            double Klmsq_ij = Klsq + (ky*ky * sincky2*sincky2);
+            // double ky = (2. * M_PI * yj) / (Ny * dy);
+            // double sincky2 = sinc(ky * dy / 2.);
+
+            // double Klmsq_ij = Klsq + (ky*ky * sincky2*sincky2);
+            double Klmsq_ij = this->K_x2[xi] + this->K_y2[yj];
+
             // energy is rhobar * phibar conj = |rhobar|^2 / Klm^2
             this->total_U += (phi_dens_re.get_comp(xi,yj) *
-                phi_dens_re.get_comp(xi,yj) +
-                phi_dens_im.get_comp(xi,yj) *
-                phi_dens_im.get_comp(xi,yj) ) / Klmsq_ij;
-            phi_dens_re.comp_multiply_by(xi,yj, 1./Klmsq_ij);
-            phi_dens_im.comp_multiply_by(xi,yj, 1./Klmsq_ij);
+                              phi_dens_re.get_comp(xi,yj) +
+                              phi_dens_im.get_comp(xi,yj) *
+                              phi_dens_im.get_comp(xi,yj) ) / Klmsq_ij;
+
+            phi_dens_re.comp_multiply_by(xi, yj, 1./Klmsq_ij);
+            phi_dens_im.comp_multiply_by(xi, yj, 1./Klmsq_ij);
         }
     }
+
     // then Ex, Ey are phi times appropriate value
     // Ex(l,m) = -i kl sinc(kl dx) phi(l,m)
     // Ey(l,m) = -i km sinc(km dy) phi(l,m)
@@ -189,47 +194,79 @@ int Field::solve_field(const GridObject &charge_density)
     // Ex_im(l,m) = - kl sinc(kl dx) phi_re
     // Ey_re(l,m) = km sinc(km dy) phi_im
     // Ey_im(l,m) = - km sinc(km dy) phi_re
-
     f1 = GridObject(phi_dens_im);
     GridObject Ex_im(phi_dens_re);
     f2 = phi_dens_im;
     GridObject Ey_im = phi_dens_re;
 
-    for (int xi =0; xi < this->Nx; ++xi)
+    for (std::size_t xi = 0; xi < Nx; ++xi)
     {
-        double kappa_x = (2. * M_PI * xi) / (this->Nx * this->dx);
-        double sinc_kappa_x = sinc(kappa_x* this->dx);
-        double Kappa_i = kappa_x *sinc_kappa_x;
+        // double kappa_x = (2. * M_PI * xi) / (Nx * dx);
+        // double sinc_kappa_x = sinc(kappa_x * dx);
+        // double Kappa_i = kappa_x * sinc_kappa_x;
 
-        for (int yj = 0; yj < this->Ny; ++yj)
+        for (std::size_t yj = 0; yj < Ny; ++yj)
         {
+            // Don't overwrite the k=0 mode
             if (xi == 0 and yj == 0)
             {
                 continue;
             }
-            double kappa_y = (2. * M_PI * yj) / (this->Ny * this->dy);
-            double sinc_kappa_y = sinc(kappa_y* this->dy);
 
-            double Kappa_j = kappa_y * sinc_kappa_y;
-            // is negative sign in the f_ or the E__im ? 
-            f1.comp_multiply_by(xi,yj, -Kappa_i);
-            Ex_im.comp_multiply_by(xi,yj, Kappa_i);
-            f2.comp_multiply_by(xi,yj, -Kappa_j);
-            Ey_im.comp_multiply_by(xi,yj, Kappa_j);
+            // double kappa_y = (2. * M_PI * yj) / (Ny * dy);
+            // double sinc_kappa_y = sinc(kappa_y * dy);
+
+            // double Kappa_j = kappa_y * sinc_kappa_y;
+            double Kappa_i = Kappa_x[xi];
+            double Kappa_j = Kappa_y[yj];
+
+            // TODO: is negative sign in the f_ or the E__im ?
+            f1.comp_multiply_by(xi, yj, -Kappa_i);
+            Ex_im.comp_multiply_by(xi, yj, Kappa_i);
+            f2.comp_multiply_by(xi, yj, -Kappa_j);
+            Ey_im.comp_multiply_by(xi, yj, Kappa_j);
         }
     }
 
     // then Ex, Ey are inverse Fourier transformed.
-    err = FFT_2d(f1, Ex_im, ifft);
-    err = FFT_2d(f2, Ey_im, ifft);
-    // then inverse Fourier transform back each of Ex, Ey
-    // for each row: collect data, Fourier transform, return, and store
+    err = FFT_2D(f1, Ex_im, FFT_Dir::iFFT);
+    err = FFT_2D(f2, Ey_im, FFT_Dir::iFFT);
 
     // For total electrostatic energy diagnostic
     this->total_U *= 0.5;
 
     return err;
 }
+
+/**
+ * @brief Prints all of the components of the field
+ *
+ */
+void Field::print_field()
+{
+    std::cout << "F1:" << std::endl;
+	f1.print();
+    std::cout << "F2:" << std::endl;
+	f2.print();
+    std::cout << "F3:" << std::endl;
+	f3.print();
+}
+//-----------------------------------------
+
+
+/**********************************************************
+PRIVATE FUNCTIONS
+***********************************************************/
+void Field::init_field(std::function<void(Field &, std::size_t, std::size_t)> init_fcn, std::size_t Nx, std::size_t Ny)
+{
+    init_fcn(*this, Nx, Ny);
+}
+//-----------------------------------------
+
+
+/**********************************************************
+TO BE IMPLEMENTED
+***********************************************************/
 
 /**
  * @brief
@@ -252,66 +289,48 @@ int solve_field_fftw(GridObject &charge_density)
 
 int Field::solve_field_spectral(std::vector<double> re, std::vector<double> im)
 {
-    // For total electrostatic energy diagnostic
-    this->total_U = 0.0;
-
     int err = 0;
-    const uint fft = 1;   // to perform fft
-    const uint ifft = -1; // to perform ifft
 
-    err = FFT(re, im, this->size, fft);
-    if (err)
-    {
-        return err;
-    }
+    // // For total electrostatic energy diagnostic
+    // this->total_U = 0.0;
 
-    re.at(0) = im.at(0) = 0.0; // set offset density pert to 0
+    // const uint fft = 1;   // to perform fft
+    // const uint ifft = -1; // to perform ifft
 
-    for (uint i = 1; i < this->size; ++i) // avoid divide by 0, start at 1
-    {
-        // For total electrostatic energy diagnostic
-        // Can ignore at i=0 since the values are 0
-        this->total_U += ((re.at(i) * re.at(i)) + (im.at(i) * im.at(i))) / this->K2.at(i);
+    // err = FFT(re, im, this->size, fft);
+    // if (err)
+    // {
+    //     return err;
+    // }
 
-        //calculate phi
-        re.at(i) /= this->K2.at(i);
-        im.at(i) /= this->K2.at(i);
+    // re.at(0) = im.at(0) = 0.0; // set offset density pert to 0
 
-        //calculate E
-        re.at(i) *= -this->kappa.at(i);
-        im.at(i) *= this->kappa.at(i); //multiply i by i so get extra factor of -1
-    }
-    // By the end of this, the real part has become the imaginary part,
-    // and vice versa, so we switch the order in the inverse fft
-    err = FFT(im, re, this->size, ifft);
-    if (err)
-    {
-        return err;
-    }
-    this->f1 = GridObject(this->size, 0, im);
+    // for (uint i = 1; i < this->size; ++i) // avoid divide by 0, start at 1
+    // {
+    //     // For total electrostatic energy diagnostic
+    //     // Can ignore at i=0 since the values are 0
+    //     this->total_U += ((re.at(i) * re.at(i)) + (im.at(i) * im.at(i))) / this->K2.at(i);
 
-    // For total electrostatic energy diagnostic
-    this->total_U *= 0.5;
+    //     //calculate phi
+    //     re.at(i) /= this->K2.at(i);
+    //     im.at(i) /= this->K2.at(i);
+
+    //     //calculate E
+    //     re.at(i) *= -this->kappa.at(i);
+    //     im.at(i) *= this->kappa.at(i); //multiply i by i so get extra factor of -1
+    // }
+    // // By the end of this, the real part has become the imaginary part,
+    // // and vice versa, so we switch the order in the inverse fft
+    // err = FFT(im, re, this->size, ifft);
+    // if (err)
+    // {
+    //     return err;
+    // }
+    // this->f1 = GridObject(this->size, 0, im);
+
+    // // For total electrostatic energy diagnostic
+    // this->total_U *= 0.5;
 
     return err;
 }
-
-void Field::print_field()
-{
-    std::cout << "F1:" << std::endl;
-	f1.print();
-    std::cout << "F2:" << std::endl;
-	f2.print();
-    std::cout << "F3:" << std::endl;
-	f3.print();
-}
-
-/**********************************************************
-PRIVATE FUNCTIONS
-***********************************************************/
-void Field::init_field(std::function<void(Field &, uint, uint)> init_fcn)
-{
-    init_fcn(*this, this->Nx, this->Ny);
-}
-
-
+//-----------------------------------------
