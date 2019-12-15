@@ -29,4 +29,16 @@ const double& DataStorage::at(const std::size_t idx) const
 {
     return this->data.at(idx);
 }
+
+/**
+ * @brief Zeros out all of the data stored in the object
+ *
+ */
+void DataStorage::zero()
+{
+    for (std::size_t i = 0; i < this->size; ++i)
+    {
+        this->data[i] = 0.0;
+    }
+}
 //-----------------------------------------

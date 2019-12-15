@@ -131,6 +131,8 @@ class DataStorage
 
         virtual inline std::size_t get_ndims() const = 0;
         virtual inline std::size_t get_Ni_size(std::size_t i) const = 0;
+
+        void zero();
         //-----------------------------------------
 };
 
