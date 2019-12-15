@@ -57,7 +57,7 @@ class Simulation
         /**********************************************************
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
-        Simulation(std::size_t ndump,
+        Simulation(std::size_t ndump, std::size_t nspec,
                    std::size_t Nx, std::size_t Ny,
                    double L_x, double L_y,
                    double dt, double tmax);

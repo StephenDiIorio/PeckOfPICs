@@ -15,12 +15,11 @@ CONSTRUCTORS/DESTRUCTORS
  * @param dt Timestep
  * @param tmax Max simulation runtime
  */
-Simulation::Simulation(std::size_t ndump,
+Simulation::Simulation(std::size_t ndump, std::size_t nspec,
                        std::size_t Nx, std::size_t Ny,
                        double L_x, double L_y,
                        double dt, double tmax)
 {
-    std::cout << "in sim" << std::endl;
     this->err = 0;
 
     this->n_iter = 0;
@@ -37,23 +36,15 @@ Simulation::Simulation(std::size_t ndump,
     this->dt = dt;
     this->tmax = tmax;
 
-    std::cout << "before res" << std::endl;
-    std::cout << nspec << std::endl;
-    // nspec = 1;
-    std::cout << nspec << std::endl;
     this->spec.reserve(nspec);
-    std::cout << "after res" << std::endl;
 
-    std::cout << "before init" << std::endl;
     init_simulation();
-    std::cout << "after init" << std::endl;
 
     this->nspec = this->spec.size();
 
     // Initialize densities and fields after instantiation
     _deposit_charge();
     _solve_field();
-    std::cout << "finished init" << std::endl;
 }
 
 /**
@@ -134,13 +125,9 @@ void Simulation::iterate()
 {
     // Already deposited charge and fields on creation, so can immediately push
     _map_field_to_species();
-    std::cout << "finished map" << std::endl;
     _push_species();
-    std::cout << "finished push" << std::endl;
     _deposit_charge();
-    std::cout << "finished depo" << std::endl;
     _solve_field();
-    std::cout << "finished solve" << std::endl;
 
     ++(this->n_iter);
 }

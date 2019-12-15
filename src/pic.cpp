@@ -9,13 +9,10 @@ int main()
     FileIO io;
     std::string fname = "output.h5";
     io.open_hdf5_files(fname);
-    std::cout << "open file" << std::endl;
 
     // double ke = 0.0, u = 0.0, tote = 0.0;
 
-    std::cout << "before sim" << std::endl;
-    Simulation sim(ndump, Nx, Ny, L_x, L_y, dt, tmax);
-    std::cout << "after sim" << std::endl;
+    Simulation sim(ndump, nspec, Nx, Ny, L_x, L_y, dt, tmax);
 
     double t;
     for (t = 0.0; t < sim.tmax; t += sim.dt)
@@ -58,7 +55,6 @@ int main()
     }
 
     io.close_hdf5_files();
-    std::cout << "closed and exiting" << std::endl;
 
     return 0;
 }

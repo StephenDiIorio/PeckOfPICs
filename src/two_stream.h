@@ -1,5 +1,3 @@
-// #include <ostream>
-
 #include "Simulation.h"
 #include "Species.h"
 #include "Field.h"
@@ -121,10 +119,9 @@ const double tmax = 3.0;
 const double dt = 0.01;
 
 const std::size_t nspec = 1;
-std::cout << nspec << std::endl;
+
 void test_pusher_3(Species &spec, uint Npar)
 {
-    std::cout << "in func" << std::endl;
     const double dx = double(L_x) / double(Nx);
     const double dy = double(L_y) / double(Ny);
     const double Wpar = spec.Qpar * double(dx) * double(dy); // weighting (should be / NPPC)
@@ -133,14 +130,12 @@ void test_pusher_3(Species &spec, uint Npar)
     {
         x_pos = i * dx;
         y_pos = (26. * L_y / 64.0);
-        std::cout << "adding part" << std::endl;
         spec.add_particle(Particle(x_pos, y_pos, 0.0, 0.0, 0.0, 0.0, Wpar));
     }
     for (uint i = 0; i < Npar / 2; ++i)
     {
         x_pos = i * dx;
         y_pos = (38. * L_y / 64.0);
-        std::cout << "adding part 2" << std::endl;
         spec.add_particle(Particle(x_pos, y_pos, 0.0, 0.0, 0.0, 0.0, Wpar));
     }
 }
@@ -248,12 +243,7 @@ void Simulation::init_simulation()
     // this->add_b_field(init_b_field);
 
     const double Qpar = -10.0; // charge of particle
-    std::cout << "before add" << std::endl;
-    std::cout << nspec << std::endl;
     this->add_species(Npar, Qpar, test_pusher_3);
-    std::cout << "finished spec" << std::endl;
     this->add_e_field(init_e_field);
-    std::cout << "finished e field" << std::endl;
     this->add_b_field(init_b_field);
-    std::cout << "finished b field" << std::endl;
 }
