@@ -156,9 +156,46 @@ class GridObject
             return gridded_data.at(index_x, index_y);
         }
 
+        /**
+         * @brief Get the data object
+         *
+         * @return const DataStorage_2D&
+         */
         inline const DataStorage_2D& get_data() const
         {
             return this->gridded_data;
+        }
+
+        /**
+         * @brief Get the number of Nx points in DataStorage object
+         *
+         * @return std::size_t Number of Nx points in DataStorage
+         */
+        inline double get_Nx() const
+        {
+            return gridded_data.get_Nx();
+        }
+
+        /**
+         * @brief Get the number of Ny points in DataStorage object
+         *
+         * @return std::size_t Number of Ny points in DataStorage
+         */
+        inline double get_Ny() const
+        {
+            return gridded_data.get_Ny();
+        }
+
+        /**
+         * @brief Get the number of elements in the ith component of the data
+         *        structure
+         *
+         * @param i The ith component to retrieve
+         * @return std::size_t The number of elements in the ith component
+         */
+        inline double get_Ni_size(std::size_t i) const
+        {
+            return gridded_data.get_Ni_size(i);
         }
 
 
@@ -166,6 +203,8 @@ class GridObject
         void print_comp(uint xi, uint yj) const;
 
         bool equals(const GridObject &other_obj, const double TOL) const;
+
+        void zero();
         //-----------------------------------------
 };
 

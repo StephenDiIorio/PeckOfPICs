@@ -140,6 +140,15 @@ bool GridObject::equals(const GridObject &other_obj, const double TOL) const
         return gridded_data.equals(other_obj.gridded_data, TOL);
     }
 }
+
+/**
+ * @brief Zeros out all of the data stored in the object
+ *
+ */
+void GridObject::zero()
+{
+    this->gridded_data.zero();
+}
 //-----------------------------------------
 
 
