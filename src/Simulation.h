@@ -23,19 +23,19 @@ class Simulation
         ***********************************************************/
         void init_simulation();
 
-        void deposit_charge();
-        void solve_field();
-        void map_field_to_species();
-        void push_species();
+        void _deposit_charge();
+        void _solve_field();
+        void _map_field_to_species();
+        void _push_species();
         //-----------------------------------------
 
     public:
-        unsigned long n_iter;
-        uint ndump;
+        std::size_t n_iter;
+        std::size_t ndump;
 
         // Grid information
-        uint Nx;     // number of grid points in x
-        uint Ny;     // number of grid points in y
+        std::size_t Nx;     // number of grid points in x
+        std::size_t Ny;     // number of grid points in y
         double L_x;  // system length in x
         double L_y;  // system length in y
         double dx;   // grid spacing in x
@@ -46,7 +46,7 @@ class Simulation
         double tmax;  // max time
 
         // Species information
-        uint nspec;  // number of species
+        std::size_t nspec;  // number of species
         std::vector<Species> spec;
 
         // Field information
@@ -57,8 +57,8 @@ class Simulation
         /**********************************************************
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
-        Simulation(uint ndump,
-                   uint Nx, uint Ny,
+        Simulation(std::size_t ndump,
+                   std::size_t Nx, std::size_t Ny,
                    double L_x, double L_y,
                    double dt, double tmax);
         ~Simulation();
@@ -68,10 +68,10 @@ class Simulation
         /**********************************************************
         CLASS METHODS
         ***********************************************************/
-        void add_species(uint npar, double Qpar, double density,
-                         std::function<void(Species&, uint)> init_fcn);
-        void add_e_field(std::function<void(Field&, uint, uint)> init_fcn);
-        void add_b_field(std::function<void(Field&, uint, uint)> init_fcn);
+        void add_species(std::size_t npar, double Qpar,
+                         std::function<void(Species&, std::size_t)> init_fcn);
+        void add_e_field(std::function<void(Field&, std::size_t, std::size_t)> init_fcn);
+        void add_b_field(std::function<void(Field&, std::size_t, std::size_t)> init_fcn);
 
         bool dump_data();
         void iterate();

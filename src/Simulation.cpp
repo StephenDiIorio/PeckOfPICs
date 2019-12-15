@@ -15,11 +15,12 @@ CONSTRUCTORS/DESTRUCTORS
  * @param dt Timestep
  * @param tmax Max simulation runtime
  */
-Simulation::Simulation(uint ndump,
-                       uint Nx, uint Ny,
+Simulation::Simulation(std::size_t ndump,
+                       std::size_t Nx, std::size_t Ny,
                        double L_x, double L_y,
                        double dt, double tmax)
 {
+    std::cout << "in sim" << std::endl;
     this->err = 0;
 
     this->n_iter = 0;
@@ -33,18 +34,26 @@ Simulation::Simulation(uint ndump,
     this->dy = L_y / double(Ny);
 
 
-    this->dt = dt;//0.99 * this->dx;
+    this->dt = dt;
     this->tmax = tmax;
 
+    std::cout << "before res" << std::endl;
+    std::cout << nspec << std::endl;
+    // nspec = 1;
+    std::cout << nspec << std::endl;
     this->spec.reserve(nspec);
+    std::cout << "after res" << std::endl;
 
+    std::cout << "before init" << std::endl;
     init_simulation();
+    std::cout << "after init" << std::endl;
 
     this->nspec = this->spec.size();
 
     // Initialize densities and fields after instantiation
-    deposit_charge();
-    solve_field();
+    _deposit_charge();
+    _solve_field();
+    std::cout << "finished init" << std::endl;
 }
 
 /**
@@ -66,14 +75,13 @@ CLASS METHODS
  *
  * @param npar Total number of particles in the species
  * @param Qpar Charge of species
- * @param density Base density of the species
  * @param init_fcn User provided function which initializes the density of the
  *                 species to the user's specification
  */
-void Simulation::add_species(uint npar, double Qpar, double density,
-                             std::function<void(Species &, uint)> init_fcn)
+void Simulation::add_species(std::size_t npar, double Qpar,
+                             std::function<void(Species &, std::size_t)> init_fcn)
 {
-    this->spec.push_back(Species(npar, this->Nx, this->Ny, Qpar, density,
+    this->spec.push_back(Species(npar, this->Nx, this->Ny, Qpar,
                                  init_fcn));
 }
 
@@ -83,7 +91,7 @@ void Simulation::add_species(uint npar, double Qpar, double density,
  * @param init_fcn User provided function which initializes the field to the
  *                 user's specification
  */
-void Simulation::add_e_field(std::function<void(Field &, uint, uint)> init_fcn)
+void Simulation::add_e_field(std::function<void(Field &, std::size_t, std::size_t)> init_fcn)
 {
     this->e_field = Field(this->Nx, this->Ny, this->dx, this->dy, init_fcn);
 }
@@ -94,7 +102,7 @@ void Simulation::add_e_field(std::function<void(Field &, uint, uint)> init_fcn)
  * @param init_fcn User provided function which initializes the field to the
  *                 user's specification
  */
-void Simulation::add_b_field(std::function<void(Field &, uint, uint)> init_fcn)
+void Simulation::add_b_field(std::function<void(Field &, std::size_t, std::size_t)> init_fcn)
 {
     this->b_field = Field(this->Nx, this->Ny, this->dx, this->dy, init_fcn);
 }
@@ -125,10 +133,14 @@ bool Simulation::dump_data()
 void Simulation::iterate()
 {
     // Already deposited charge and fields on creation, so can immediately push
-    map_field_to_species();
-    push_species();
-    deposit_charge();
-    solve_field();
+    _map_field_to_species();
+    std::cout << "finished map" << std::endl;
+    _push_species();
+    std::cout << "finished push" << std::endl;
+    _deposit_charge();
+    std::cout << "finished depo" << std::endl;
+    _solve_field();
+    std::cout << "finished solve" << std::endl;
 
     ++(this->n_iter);
 }
@@ -171,58 +183,47 @@ PRIVATE CLASS METHODS
  * @brief Deposits all species' particle charge onto grid
  *
  */
-void Simulation::deposit_charge()
+void Simulation::_deposit_charge()
 {
-    // std::cout << "Depositing charge" << std::endl;
-    // spec[0].print_weight();
-    // spec[0].print_density();
     for (auto &s : this->spec)
     {
-        s.deposit_charge(this->dx, this->dy, this->L_x, this->L_y, this->Nx,
-                         this->Ny);
+        s.deposit_charge(this->dx, this->dy,
+                         this->L_x, this->L_y,
+                         this->Nx, this->Ny);
     }
-    // spec[0].print_weight();
-    // spec[0].print_density();
 }
 
 /**
  * @brief Updates the fields in the simulation based on current distribution
  *
  */
-void Simulation::solve_field()
+void Simulation::_solve_field()
 {
     const GridObject total_dens = get_total_density();
 
-    err = this->e_field.solve_field(total_dens); //TODO: having this function return a value and change state seems bad, maybe pass err as a parameter to also be changed?
+    this->err = this->e_field.solve_field(total_dens, this->dx, this->dy);
 }
 
 /**
  * @brief Weights the current fields to the particles for all species
  *
  */
-void Simulation::map_field_to_species()
+void Simulation::_map_field_to_species()
 {
-    // std::cout << "Mapping field to part" << std::endl;
-    // std::cout << "Before: (local field and then total E)" << std::endl;
-    // spec[0].print_local_e_field();
-    // e_field.print_field();
     for (auto &s : this->spec)
     {
-        s.map_field_to_part(this->e_field, electric,
+        s.map_field_to_part(this->e_field, Electric,
                             this->dx,  this->dy,
                             this->L_x, this->L_y,
                             this->Nx,  this->Ny);
     }
-    // std::cout << "After: (local field and then total E)" << std::endl;
-    // spec[0].print_local_e_field();
-    // e_field.print_field();
 }
 
 /**
  * @brief Performs the particle push for all species
  *
  */
-void Simulation::push_species()
+void Simulation::_push_species()
 {
     for (auto &s : this->spec)
     {
