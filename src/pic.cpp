@@ -1,29 +1,21 @@
-// #include <cmath>
-// #include <iostream>
-// #include <fstream>
 #include <string>
-using namespace std;
 
 #include "FileIO.h"
 #include "Simulation.h"
-#include "two_part_test.h"
+#include "two_stream.h"
 
 int main()
 {
     FileIO io;
     std::string fname = "output.h5";
     io.open_hdf5_files(fname);
+    std::cout << "open file" << std::endl;
 
     // double ke = 0.0, u = 0.0, tote = 0.0;
 
+    std::cout << "before sim" << std::endl;
     Simulation sim(ndump, Nx, Ny, L_x, L_y, dt, tmax);
-
-    // std::cout << "Made sim" << std::endl;
-    // std::cout << sim.spec[0].density << std::endl;
-    // std::cout << sim.spec[0].npar << std::endl;
-    // std::cout << sim.spec[0].Qpar << std::endl;
-    // sim.spec[0].print_pos();
-    // sim.spec[0].print_weight();
+    std::cout << "after sim" << std::endl;
 
     double t;
     for (t = 0.0; t < sim.tmax; t += sim.dt)
