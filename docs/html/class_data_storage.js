@@ -21,6 +21,7 @@ var class_data_storage =
     [ "operator[]", "class_data_storage.html#a1e59974201b9e506d2448c227898fd9b", null ],
     [ "print", "class_data_storage.html#a1615220a9c7e39d2d8643640b663be38", null ],
     [ "print", "class_data_storage.html#a97f6356641ae855e40d1be2510abdb4c", null ],
+    [ "zero", "class_data_storage.html#a3c50b4cb52c98ba3cd83bbdbe336cd85", null ],
     [ "operator<<", "class_data_storage.html#a4347b2e9cf825c51021eb8a6277da2f3", null ],
     [ "print", "class_data_storage.html#ae9b682caff16617cc24c66c4eba59b8e", null ],
     [ "data", "class_data_storage.html#ae317b0de769982e5286e3e2d9301aa25", null ],

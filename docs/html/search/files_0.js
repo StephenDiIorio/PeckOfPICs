@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['beam_5fplasma_2eh_226',['beam_plasma.h',['../beam__plasma_8h.html',1,'']]]
+  ['cold_5fwave_2eh_222',['cold_wave.h',['../cold__wave_8h.html',1,'']]]
 ];

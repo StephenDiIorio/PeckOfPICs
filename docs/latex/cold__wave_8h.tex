@@ -1,0 +1,185 @@
+\hypertarget{cold__wave_8h}{}\doxysection{src/cold\+\_\+wave.h File Reference}
+\label{cold__wave_8h}\index{src/cold\_wave.h@{src/cold\_wave.h}}
+{\ttfamily \#include \char`\"{}Simulation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Species.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Field.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{cold__wave_8h_ab368f47f38ee07c73fa574a0c5103bbc}{cold\+\_\+wave\+\_\+test}} (\mbox{\hyperlink{class_species}{Species}} \&spec, uint \mbox{\hyperlink{two__stream_8h_a3ec98e9ffa9165115420ddf5b2f7816d}{Npar}})
+\item 
+void \mbox{\hyperlink{cold__wave_8h_abbe79c21aedea143f93f63b13b998b1e}{init\+\_\+e\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, uint N\+\_\+x, uint N\+\_\+y)
+\item 
+void \mbox{\hyperlink{cold__wave_8h_aeaf5b2466fb708fe18c2762eebcf94fd}{init\+\_\+b\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, uint N\+\_\+x, uint N\+\_\+y)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint \mbox{\hyperlink{cold__wave_8h_a909b9f327fc67ca5ecf61e243a098db3}{ndump}} = 1
+\item 
+const uint \mbox{\hyperlink{cold__wave_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}} = 64
+\item 
+const uint \mbox{\hyperlink{cold__wave_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}} = 64
+\item 
+const double \mbox{\hyperlink{cold__wave_8h_a2e8eb03d046a5f97ec1919e1bc542783}{L\+\_\+x}} = 1.\+0
+\item 
+const double \mbox{\hyperlink{cold__wave_8h_aa644a4467c696359ea672282c0c84705}{L\+\_\+y}} = 1.\+0
+\item 
+const double \mbox{\hyperlink{cold__wave_8h_acebd3f4d3a03bd5d4250087d3e45dc72}{tmax}} = 2 $\ast$ M\+\_\+\+PI
+\item 
+const double \mbox{\hyperlink{cold__wave_8h_a4d2852f394c94e7eaac02e3c5b393654}{dt}} = 0.\+1
+\item 
+double \mbox{\hyperlink{cold__wave_8h_a7b7210bd39de797467ce65f50a522dd6}{Qpar}} = 1.\+0
+\item 
+const uint \mbox{\hyperlink{cold__wave_8h_a77a4aeb061b9fda4774f079cf8002127}{ppcx}} = 4
+\item 
+const uint \mbox{\hyperlink{cold__wave_8h_a424c6749551b43de5340090670ba646e}{ppcy}} = 4
+\item 
+const uint \mbox{\hyperlink{cold__wave_8h_a19e77a52c2a7978e92e93f629bc02a13}{Npx}} = \mbox{\hyperlink{cold__wave_8h_a77a4aeb061b9fda4774f079cf8002127}{ppcx}} $\ast$ \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}
+\item 
+const uint \mbox{\hyperlink{cold__wave_8h_aa8a8313beadb3e054cba7f7a0b28b0ab}{Npy}} = \mbox{\hyperlink{cold__wave_8h_a424c6749551b43de5340090670ba646e}{ppcy}} $\ast$ \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}}
+\item 
+const uint \mbox{\hyperlink{cold__wave_8h_a78dd320dc35960c9d2ea161d753275bd}{npar}} = \mbox{\hyperlink{cold__wave_8h_a19e77a52c2a7978e92e93f629bc02a13}{Npx}} $\ast$ \mbox{\hyperlink{cold__wave_8h_aa8a8313beadb3e054cba7f7a0b28b0ab}{Npy}}
+\item 
+const double \mbox{\hyperlink{cold__wave_8h_a7ca618f60710cf8a23f5c3f0a98899d1}{kx}} = 2 $\ast$ M\+\_\+\+PI / \mbox{\hyperlink{two__stream_8h_a2e8eb03d046a5f97ec1919e1bc542783}{L\+\_\+x}}
+\item 
+const double \mbox{\hyperlink{cold__wave_8h_a10a60e581873f02f020d5c812e0743cd}{ky}} = 1 $\ast$ (2 $\ast$ M\+\_\+\+PI / \mbox{\hyperlink{two__stream_8h_aa644a4467c696359ea672282c0c84705}{L\+\_\+y}})
+\item 
+const double \mbox{\hyperlink{cold__wave_8h_aed5c05cb4f10085f635353148d55a97a}{ampx}} = .\+01
+\item 
+const double \mbox{\hyperlink{cold__wave_8h_a00d0e23e90a29f8f88076a56d6410044}{ampy}} = .\+01
+\item 
+const uint \mbox{\hyperlink{cold__wave_8h_ab8aad333299221f97399a7290e821569}{nspec}} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cold__wave_8h_ab368f47f38ee07c73fa574a0c5103bbc}\label{cold__wave_8h_ab368f47f38ee07c73fa574a0c5103bbc}} 
+\index{cold\_wave.h@{cold\_wave.h}!cold\_wave\_test@{cold\_wave\_test}}
+\index{cold\_wave\_test@{cold\_wave\_test}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{cold\_wave\_test()}{cold\_wave\_test()}}
+{\footnotesize\ttfamily void cold\+\_\+wave\+\_\+test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{uint}]{Npar }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cold__wave_8h_aeaf5b2466fb708fe18c2762eebcf94fd}\label{cold__wave_8h_aeaf5b2466fb708fe18c2762eebcf94fd}} 
+\index{cold\_wave.h@{cold\_wave.h}!init\_b\_field@{init\_b\_field}}
+\index{init\_b\_field@{init\_b\_field}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{init\_b\_field()}{init\_b\_field()}}
+{\footnotesize\ttfamily void init\+\_\+b\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{uint}]{N\+\_\+x,  }\item[{uint}]{N\+\_\+y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cold__wave_8h_abbe79c21aedea143f93f63b13b998b1e}\label{cold__wave_8h_abbe79c21aedea143f93f63b13b998b1e}} 
+\index{cold\_wave.h@{cold\_wave.h}!init\_e\_field@{init\_e\_field}}
+\index{init\_e\_field@{init\_e\_field}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{init\_e\_field()}{init\_e\_field()}}
+{\footnotesize\ttfamily void init\+\_\+e\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{uint}]{N\+\_\+x,  }\item[{uint}]{N\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{cold__wave_8h_aed5c05cb4f10085f635353148d55a97a}\label{cold__wave_8h_aed5c05cb4f10085f635353148d55a97a}} 
+\index{cold\_wave.h@{cold\_wave.h}!ampx@{ampx}}
+\index{ampx@{ampx}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{ampx}{ampx}}
+{\footnotesize\ttfamily const double ampx = .\+01}
+
+\mbox{\Hypertarget{cold__wave_8h_a00d0e23e90a29f8f88076a56d6410044}\label{cold__wave_8h_a00d0e23e90a29f8f88076a56d6410044}} 
+\index{cold\_wave.h@{cold\_wave.h}!ampy@{ampy}}
+\index{ampy@{ampy}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{ampy}{ampy}}
+{\footnotesize\ttfamily const double ampy = .\+01}
+
+\mbox{\Hypertarget{cold__wave_8h_a4d2852f394c94e7eaac02e3c5b393654}\label{cold__wave_8h_a4d2852f394c94e7eaac02e3c5b393654}} 
+\index{cold\_wave.h@{cold\_wave.h}!dt@{dt}}
+\index{dt@{dt}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{dt}{dt}}
+{\footnotesize\ttfamily const double dt = 0.\+1}
+
+\mbox{\Hypertarget{cold__wave_8h_a7ca618f60710cf8a23f5c3f0a98899d1}\label{cold__wave_8h_a7ca618f60710cf8a23f5c3f0a98899d1}} 
+\index{cold\_wave.h@{cold\_wave.h}!kx@{kx}}
+\index{kx@{kx}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{kx}{kx}}
+{\footnotesize\ttfamily const double kx = 2 $\ast$ M\+\_\+\+PI / \mbox{\hyperlink{two__stream_8h_a2e8eb03d046a5f97ec1919e1bc542783}{L\+\_\+x}}}
+
+\mbox{\Hypertarget{cold__wave_8h_a10a60e581873f02f020d5c812e0743cd}\label{cold__wave_8h_a10a60e581873f02f020d5c812e0743cd}} 
+\index{cold\_wave.h@{cold\_wave.h}!ky@{ky}}
+\index{ky@{ky}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{ky}{ky}}
+{\footnotesize\ttfamily const double ky = 1 $\ast$ (2 $\ast$ M\+\_\+\+PI / \mbox{\hyperlink{two__stream_8h_aa644a4467c696359ea672282c0c84705}{L\+\_\+y}})}
+
+\mbox{\Hypertarget{cold__wave_8h_a2e8eb03d046a5f97ec1919e1bc542783}\label{cold__wave_8h_a2e8eb03d046a5f97ec1919e1bc542783}} 
+\index{cold\_wave.h@{cold\_wave.h}!L\_x@{L\_x}}
+\index{L\_x@{L\_x}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{L\_x}{L\_x}}
+{\footnotesize\ttfamily const double L\+\_\+x = 1.\+0}
+
+\mbox{\Hypertarget{cold__wave_8h_aa644a4467c696359ea672282c0c84705}\label{cold__wave_8h_aa644a4467c696359ea672282c0c84705}} 
+\index{cold\_wave.h@{cold\_wave.h}!L\_y@{L\_y}}
+\index{L\_y@{L\_y}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{L\_y}{L\_y}}
+{\footnotesize\ttfamily const double L\+\_\+y = 1.\+0}
+
+\mbox{\Hypertarget{cold__wave_8h_a909b9f327fc67ca5ecf61e243a098db3}\label{cold__wave_8h_a909b9f327fc67ca5ecf61e243a098db3}} 
+\index{cold\_wave.h@{cold\_wave.h}!ndump@{ndump}}
+\index{ndump@{ndump}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{ndump}{ndump}}
+{\footnotesize\ttfamily const uint ndump = 1}
+
+\mbox{\Hypertarget{cold__wave_8h_a78dd320dc35960c9d2ea161d753275bd}\label{cold__wave_8h_a78dd320dc35960c9d2ea161d753275bd}} 
+\index{cold\_wave.h@{cold\_wave.h}!npar@{npar}}
+\index{npar@{npar}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{npar}{npar}}
+{\footnotesize\ttfamily const uint npar = \mbox{\hyperlink{cold__wave_8h_a19e77a52c2a7978e92e93f629bc02a13}{Npx}} $\ast$ \mbox{\hyperlink{cold__wave_8h_aa8a8313beadb3e054cba7f7a0b28b0ab}{Npy}}}
+
+\mbox{\Hypertarget{cold__wave_8h_a19e77a52c2a7978e92e93f629bc02a13}\label{cold__wave_8h_a19e77a52c2a7978e92e93f629bc02a13}} 
+\index{cold\_wave.h@{cold\_wave.h}!Npx@{Npx}}
+\index{Npx@{Npx}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{Npx}{Npx}}
+{\footnotesize\ttfamily const uint Npx = \mbox{\hyperlink{cold__wave_8h_a77a4aeb061b9fda4774f079cf8002127}{ppcx}} $\ast$ \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}}
+
+\mbox{\Hypertarget{cold__wave_8h_aa8a8313beadb3e054cba7f7a0b28b0ab}\label{cold__wave_8h_aa8a8313beadb3e054cba7f7a0b28b0ab}} 
+\index{cold\_wave.h@{cold\_wave.h}!Npy@{Npy}}
+\index{Npy@{Npy}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{Npy}{Npy}}
+{\footnotesize\ttfamily const uint Npy = \mbox{\hyperlink{cold__wave_8h_a424c6749551b43de5340090670ba646e}{ppcy}} $\ast$ \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}}}
+
+\mbox{\Hypertarget{cold__wave_8h_ab8aad333299221f97399a7290e821569}\label{cold__wave_8h_ab8aad333299221f97399a7290e821569}} 
+\index{cold\_wave.h@{cold\_wave.h}!nspec@{nspec}}
+\index{nspec@{nspec}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{nspec}{nspec}}
+{\footnotesize\ttfamily const uint nspec = 1}
+
+\mbox{\Hypertarget{cold__wave_8h_a8dfb498413096d9fce8a7ed69cb41d16}\label{cold__wave_8h_a8dfb498413096d9fce8a7ed69cb41d16}} 
+\index{cold\_wave.h@{cold\_wave.h}!Nx@{Nx}}
+\index{Nx@{Nx}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{Nx}{Nx}}
+{\footnotesize\ttfamily const uint Nx = 64}
+
+\mbox{\Hypertarget{cold__wave_8h_a276dfd99384a9c735597add8d0b07b3d}\label{cold__wave_8h_a276dfd99384a9c735597add8d0b07b3d}} 
+\index{cold\_wave.h@{cold\_wave.h}!Ny@{Ny}}
+\index{Ny@{Ny}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{Ny}{Ny}}
+{\footnotesize\ttfamily const uint Ny = 64}
+
+\mbox{\Hypertarget{cold__wave_8h_a77a4aeb061b9fda4774f079cf8002127}\label{cold__wave_8h_a77a4aeb061b9fda4774f079cf8002127}} 
+\index{cold\_wave.h@{cold\_wave.h}!ppcx@{ppcx}}
+\index{ppcx@{ppcx}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{ppcx}{ppcx}}
+{\footnotesize\ttfamily const uint ppcx = 4}
+
+\mbox{\Hypertarget{cold__wave_8h_a424c6749551b43de5340090670ba646e}\label{cold__wave_8h_a424c6749551b43de5340090670ba646e}} 
+\index{cold\_wave.h@{cold\_wave.h}!ppcy@{ppcy}}
+\index{ppcy@{ppcy}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{ppcy}{ppcy}}
+{\footnotesize\ttfamily const uint ppcy = 4}
+
+\mbox{\Hypertarget{cold__wave_8h_a7b7210bd39de797467ce65f50a522dd6}\label{cold__wave_8h_a7b7210bd39de797467ce65f50a522dd6}} 
+\index{cold\_wave.h@{cold\_wave.h}!Qpar@{Qpar}}
+\index{Qpar@{Qpar}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{Qpar}{Qpar}}
+{\footnotesize\ttfamily double Qpar = 1.\+0}
+
+\mbox{\Hypertarget{cold__wave_8h_acebd3f4d3a03bd5d4250087d3e45dc72}\label{cold__wave_8h_acebd3f4d3a03bd5d4250087d3e45dc72}} 
+\index{cold\_wave.h@{cold\_wave.h}!tmax@{tmax}}
+\index{tmax@{tmax}!cold\_wave.h@{cold\_wave.h}}
+\doxysubsubsection{\texorpdfstring{tmax}{tmax}}
+{\footnotesize\ttfamily const double tmax = 2 $\ast$ M\+\_\+\+PI}
+

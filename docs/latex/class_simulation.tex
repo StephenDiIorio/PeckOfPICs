@@ -7,15 +7,15 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_simulation_a903351886cff6b2ce683d4c828771927}{Simulation}} (\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_simulation_a53dfedd2e31bdc7488d84f60196e9268}{ndump}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_simulation_affdeb381435d460ddab2c509c8a318b4}{Nx}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_simulation_ab346f153460df80e73384db8420a2e69}{Ny}}, double \mbox{\hyperlink{class_simulation_a063b57900a629484597552fb17f859d2}{L\+\_\+x}}, double \mbox{\hyperlink{class_simulation_a198b2d992121658d3859e0e3b6915073}{L\+\_\+y}}, double \mbox{\hyperlink{class_simulation_af43e498bfc83c777db5f5ac4025ff923}{dt}}, double \mbox{\hyperlink{class_simulation_afa0838d9f8a03416d8ee0d3a0fe2b347}{tmax}})
+\mbox{\hyperlink{class_simulation_a2484f7211804a2e186d5904e897fc0d2}{Simulation}} (std\+::size\+\_\+t \mbox{\hyperlink{class_simulation_a4cc0fc0267217ef98e4ddcfdf246d04d}{ndump}}, std\+::size\+\_\+t \mbox{\hyperlink{class_simulation_a26d59e578eba80371a14e9f2dfcb3da9}{nspec}}, std\+::size\+\_\+t \mbox{\hyperlink{class_simulation_a224efdc1a4abfa0610279e0bcf975cdb}{Nx}}, std\+::size\+\_\+t \mbox{\hyperlink{class_simulation_a7c4be6147d821d48725cc21088361821}{Ny}}, double \mbox{\hyperlink{class_simulation_a063b57900a629484597552fb17f859d2}{L\+\_\+x}}, double \mbox{\hyperlink{class_simulation_a198b2d992121658d3859e0e3b6915073}{L\+\_\+y}}, double \mbox{\hyperlink{class_simulation_af43e498bfc83c777db5f5ac4025ff923}{dt}}, double \mbox{\hyperlink{class_simulation_afa0838d9f8a03416d8ee0d3a0fe2b347}{tmax}})
 \begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_simulation}{Simulation}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_simulation_a80fad3f57dfaf195a36f7bc49bc88279}{$\sim$\+Simulation}} ()
 \begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_simulation}{Simulation}} object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_simulation_a160ea91c95613451f128ddbb66680bb2}{add\+\_\+species}} (\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} npar, double Qpar, double density, std\+::function$<$ void(\mbox{\hyperlink{class_species}{Species}} \&, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})$>$ init\+\_\+fcn)
+void \mbox{\hyperlink{class_simulation_a006d8e9b39a7917ee1034fb09bbb7ba1}{add\+\_\+species}} (std\+::size\+\_\+t \mbox{\hyperlink{cold__wave_8h_a78dd320dc35960c9d2ea161d753275bd}{npar}}, double \mbox{\hyperlink{cold__wave_8h_a7b7210bd39de797467ce65f50a522dd6}{Qpar}}, std\+::function$<$ void(\mbox{\hyperlink{class_species}{Species}} \&, std\+::size\+\_\+t)$>$ init\+\_\+fcn)
 \begin{DoxyCompactList}\small\item\em Add a new species object to the simulation. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_simulation_a13970235afbcef60d9b7d71000537c38}{add\+\_\+e\+\_\+field}} (std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})$>$ init\+\_\+fcn)
+void \mbox{\hyperlink{class_simulation_a7a315f38239d6d97eae73e7707485c38}{add\+\_\+e\+\_\+field}} (std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, std\+::size\+\_\+t, std\+::size\+\_\+t)$>$ init\+\_\+fcn)
 \begin{DoxyCompactList}\small\item\em Add a new electric field to the simulation. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_simulation_a60286cd89e16402b3fcc5300123edc22}{add\+\_\+b\+\_\+field}} (std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})$>$ init\+\_\+fcn)
+void \mbox{\hyperlink{class_simulation_aaf61c7fdc8f6fd1fb010990d562286ed}{add\+\_\+b\+\_\+field}} (std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, std\+::size\+\_\+t, std\+::size\+\_\+t)$>$ init\+\_\+fcn)
 \begin{DoxyCompactList}\small\item\em Add a new magnetic field to the simulation. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_simulation_a60656250cb2b710d53f144329acaced4}{dump\+\_\+data}} ()
 \begin{DoxyCompactList}\small\item\em Determine whether or not to dump simulation data. \end{DoxyCompactList}\item 
@@ -28,13 +28,13 @@ void \mbox{\hyperlink{class_simulation_a9c6fd84b153a79ac86c2d536b1171f02}{print\
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-unsigned long \mbox{\hyperlink{class_simulation_aedda8aa9a13c3d9302750715d83c38e0}{n\+\_\+iter}}
+std\+::size\+\_\+t \mbox{\hyperlink{class_simulation_ae9857994eaec37fe68f216b359e86345}{n\+\_\+iter}}
 \item 
-\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_simulation_a53dfedd2e31bdc7488d84f60196e9268}{ndump}}
+std\+::size\+\_\+t \mbox{\hyperlink{class_simulation_a4cc0fc0267217ef98e4ddcfdf246d04d}{ndump}}
 \item 
-\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_simulation_affdeb381435d460ddab2c509c8a318b4}{Nx}}
+std\+::size\+\_\+t \mbox{\hyperlink{class_simulation_a224efdc1a4abfa0610279e0bcf975cdb}{Nx}}
 \item 
-\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_simulation_ab346f153460df80e73384db8420a2e69}{Ny}}
+std\+::size\+\_\+t \mbox{\hyperlink{class_simulation_a7c4be6147d821d48725cc21088361821}{Ny}}
 \item 
 double \mbox{\hyperlink{class_simulation_a063b57900a629484597552fb17f859d2}{L\+\_\+x}}
 \item 
@@ -48,7 +48,7 @@ double \mbox{\hyperlink{class_simulation_af43e498bfc83c777db5f5ac4025ff923}{dt}}
 \item 
 double \mbox{\hyperlink{class_simulation_afa0838d9f8a03416d8ee0d3a0fe2b347}{tmax}}
 \item 
-\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_simulation_ae7b2d3fca98b94c5d7249ae3bb44c8fc}{nspec}}
+std\+::size\+\_\+t \mbox{\hyperlink{class_simulation_a26d59e578eba80371a14e9f2dfcb3da9}{nspec}}
 \item 
 std\+::vector$<$ \mbox{\hyperlink{class_species}{Species}} $>$ \mbox{\hyperlink{class_simulation_ad9ca2fc6beb253e8e0baada14aac90ab}{spec}}
 \item 
@@ -59,11 +59,11 @@ std\+::vector$<$ \mbox{\hyperlink{class_species}{Species}} $>$ \mbox{\hyperlink{
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_simulation_a903351886cff6b2ce683d4c828771927}\label{class_simulation_a903351886cff6b2ce683d4c828771927}} 
+\mbox{\Hypertarget{class_simulation_a2484f7211804a2e186d5904e897fc0d2}\label{class_simulation_a2484f7211804a2e186d5904e897fc0d2}} 
 \index{Simulation@{Simulation}!Simulation@{Simulation}}
 \index{Simulation@{Simulation}!Simulation@{Simulation}}
 \doxysubsubsection{\texorpdfstring{Simulation()}{Simulation()}}
-{\footnotesize\ttfamily Simulation\+::\+Simulation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{ndump,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Nx,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Ny,  }\item[{double}]{L\+\_\+x,  }\item[{double}]{L\+\_\+y,  }\item[{double}]{dt,  }\item[{double}]{tmax }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Simulation\+::\+Simulation (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{ndump,  }\item[{std\+::size\+\_\+t}]{nspec,  }\item[{std\+::size\+\_\+t}]{Nx,  }\item[{std\+::size\+\_\+t}]{Ny,  }\item[{double}]{L\+\_\+x,  }\item[{double}]{L\+\_\+y,  }\item[{double}]{dt,  }\item[{double}]{tmax }\end{DoxyParamCaption})}
 
 
 
@@ -99,11 +99,11 @@ Destructor for \mbox{\hyperlink{class_simulation}{Simulation}} object.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_simulation_a60286cd89e16402b3fcc5300123edc22}\label{class_simulation_a60286cd89e16402b3fcc5300123edc22}} 
+\mbox{\Hypertarget{class_simulation_aaf61c7fdc8f6fd1fb010990d562286ed}\label{class_simulation_aaf61c7fdc8f6fd1fb010990d562286ed}} 
 \index{Simulation@{Simulation}!add\_b\_field@{add\_b\_field}}
 \index{add\_b\_field@{add\_b\_field}!Simulation@{Simulation}}
 \doxysubsubsection{\texorpdfstring{add\_b\_field()}{add\_b\_field()}}
-{\footnotesize\ttfamily void Simulation\+::add\+\_\+b\+\_\+field (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})$>$}]{init\+\_\+fcn }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Simulation\+::add\+\_\+b\+\_\+field (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, std\+::size\+\_\+t, std\+::size\+\_\+t)$>$}]{init\+\_\+fcn }\end{DoxyParamCaption})}
 
 
 
@@ -114,11 +114,11 @@ Add a new magnetic field to the simulation.
 {\em init\+\_\+fcn} & User provided function which initializes the field to the user\textquotesingle{}s specification \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_simulation_a13970235afbcef60d9b7d71000537c38}\label{class_simulation_a13970235afbcef60d9b7d71000537c38}} 
+\mbox{\Hypertarget{class_simulation_a7a315f38239d6d97eae73e7707485c38}\label{class_simulation_a7a315f38239d6d97eae73e7707485c38}} 
 \index{Simulation@{Simulation}!add\_e\_field@{add\_e\_field}}
 \index{add\_e\_field@{add\_e\_field}!Simulation@{Simulation}}
 \doxysubsubsection{\texorpdfstring{add\_e\_field()}{add\_e\_field()}}
-{\footnotesize\ttfamily void Simulation\+::add\+\_\+e\+\_\+field (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})$>$}]{init\+\_\+fcn }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Simulation\+::add\+\_\+e\+\_\+field (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(\mbox{\hyperlink{class_field}{Field}} \&, std\+::size\+\_\+t, std\+::size\+\_\+t)$>$}]{init\+\_\+fcn }\end{DoxyParamCaption})}
 
 
 
@@ -129,11 +129,11 @@ Add a new electric field to the simulation.
 {\em init\+\_\+fcn} & User provided function which initializes the field to the user\textquotesingle{}s specification \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_simulation_a160ea91c95613451f128ddbb66680bb2}\label{class_simulation_a160ea91c95613451f128ddbb66680bb2}} 
+\mbox{\Hypertarget{class_simulation_a006d8e9b39a7917ee1034fb09bbb7ba1}\label{class_simulation_a006d8e9b39a7917ee1034fb09bbb7ba1}} 
 \index{Simulation@{Simulation}!add\_species@{add\_species}}
 \index{add\_species@{add\_species}!Simulation@{Simulation}}
 \doxysubsubsection{\texorpdfstring{add\_species()}{add\_species()}}
-{\footnotesize\ttfamily void Simulation\+::add\+\_\+species (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{npar,  }\item[{double}]{Qpar,  }\item[{double}]{density,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{class_species}{Species}} \&, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})$>$}]{init\+\_\+fcn }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Simulation\+::add\+\_\+species (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{npar,  }\item[{double}]{Qpar,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{class_species}{Species}} \&, std\+::size\+\_\+t)$>$}]{init\+\_\+fcn }\end{DoxyParamCaption})}
 
 
 
@@ -144,8 +144,6 @@ Add a new species object to the simulation.
 {\em npar} & Total number of particles in the species \\
 \hline
 {\em Qpar} & Charge of species \\
-\hline
-{\em density} & Base density of the species \\
 \hline
 {\em init\+\_\+fcn} & User provided function which initializes the density of the species to the user\textquotesingle{}s specification \\
 \hline
@@ -248,35 +246,35 @@ Prints the density of the \textquotesingle{}ith\textquotesingle{} species in sim
 \doxysubsubsection{\texorpdfstring{L\_y}{L\_y}}
 {\footnotesize\ttfamily double Simulation\+::\+L\+\_\+y}
 
-\mbox{\Hypertarget{class_simulation_aedda8aa9a13c3d9302750715d83c38e0}\label{class_simulation_aedda8aa9a13c3d9302750715d83c38e0}} 
+\mbox{\Hypertarget{class_simulation_ae9857994eaec37fe68f216b359e86345}\label{class_simulation_ae9857994eaec37fe68f216b359e86345}} 
 \index{Simulation@{Simulation}!n\_iter@{n\_iter}}
 \index{n\_iter@{n\_iter}!Simulation@{Simulation}}
 \doxysubsubsection{\texorpdfstring{n\_iter}{n\_iter}}
-{\footnotesize\ttfamily unsigned long Simulation\+::n\+\_\+iter}
+{\footnotesize\ttfamily std\+::size\+\_\+t Simulation\+::n\+\_\+iter}
 
-\mbox{\Hypertarget{class_simulation_a53dfedd2e31bdc7488d84f60196e9268}\label{class_simulation_a53dfedd2e31bdc7488d84f60196e9268}} 
+\mbox{\Hypertarget{class_simulation_a4cc0fc0267217ef98e4ddcfdf246d04d}\label{class_simulation_a4cc0fc0267217ef98e4ddcfdf246d04d}} 
 \index{Simulation@{Simulation}!ndump@{ndump}}
 \index{ndump@{ndump}!Simulation@{Simulation}}
 \doxysubsubsection{\texorpdfstring{ndump}{ndump}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Simulation\+::ndump}
+{\footnotesize\ttfamily std\+::size\+\_\+t Simulation\+::ndump}
 
-\mbox{\Hypertarget{class_simulation_ae7b2d3fca98b94c5d7249ae3bb44c8fc}\label{class_simulation_ae7b2d3fca98b94c5d7249ae3bb44c8fc}} 
+\mbox{\Hypertarget{class_simulation_a26d59e578eba80371a14e9f2dfcb3da9}\label{class_simulation_a26d59e578eba80371a14e9f2dfcb3da9}} 
 \index{Simulation@{Simulation}!nspec@{nspec}}
 \index{nspec@{nspec}!Simulation@{Simulation}}
 \doxysubsubsection{\texorpdfstring{nspec}{nspec}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Simulation\+::nspec}
+{\footnotesize\ttfamily std\+::size\+\_\+t Simulation\+::nspec}
 
-\mbox{\Hypertarget{class_simulation_affdeb381435d460ddab2c509c8a318b4}\label{class_simulation_affdeb381435d460ddab2c509c8a318b4}} 
+\mbox{\Hypertarget{class_simulation_a224efdc1a4abfa0610279e0bcf975cdb}\label{class_simulation_a224efdc1a4abfa0610279e0bcf975cdb}} 
 \index{Simulation@{Simulation}!Nx@{Nx}}
 \index{Nx@{Nx}!Simulation@{Simulation}}
 \doxysubsubsection{\texorpdfstring{Nx}{Nx}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Simulation\+::\+Nx}
+{\footnotesize\ttfamily std\+::size\+\_\+t Simulation\+::\+Nx}
 
-\mbox{\Hypertarget{class_simulation_ab346f153460df80e73384db8420a2e69}\label{class_simulation_ab346f153460df80e73384db8420a2e69}} 
+\mbox{\Hypertarget{class_simulation_a7c4be6147d821d48725cc21088361821}\label{class_simulation_a7c4be6147d821d48725cc21088361821}} 
 \index{Simulation@{Simulation}!Ny@{Ny}}
 \index{Ny@{Ny}!Simulation@{Simulation}}
 \doxysubsubsection{\texorpdfstring{Ny}{Ny}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Simulation\+::\+Ny}
+{\footnotesize\ttfamily std\+::size\+\_\+t Simulation\+::\+Ny}
 
 \mbox{\Hypertarget{class_simulation_ad9ca2fc6beb253e8e0baada14aac90ab}\label{class_simulation_ad9ca2fc6beb253e8e0baada14aac90ab}} 
 \index{Simulation@{Simulation}!spec@{spec}}
@@ -295,10 +293,7 @@ Prints the density of the \textquotesingle{}ith\textquotesingle{} species in sim
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 src/\mbox{\hyperlink{_simulation_8h}{Simulation.\+h}}\item 
-src/\mbox{\hyperlink{beam__plasma_8h}{beam\+\_\+plasma.\+h}}\item 
-src/\mbox{\hyperlink{gyro_8h}{gyro.\+h}}\item 
-src/\mbox{\hyperlink{landau_8h}{landau.\+h}}\item 
+src/\mbox{\hyperlink{cold__wave_8h}{cold\+\_\+wave.\+h}}\item 
+src/\mbox{\hyperlink{pic__tests_8h}{pic\+\_\+tests.\+h}}\item 
 src/\mbox{\hyperlink{_simulation_8cpp}{Simulation.\+cpp}}\item 
-src/\mbox{\hyperlink{two__stream_8h}{two\+\_\+stream.\+h}}\item 
-src/\mbox{\hyperlink{two_d__test_8h}{two\+D\+\_\+test.\+h}}\item 
-src/\mbox{\hyperlink{uh_8h}{uh.\+h}}\end{DoxyCompactItemize}
+src/\mbox{\hyperlink{two__stream_8h}{two\+\_\+stream.\+h}}\end{DoxyCompactItemize}

@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['mag_105',['mag',['../class_three_vec.html#a191f3e647dc51311857fb30f82f608d7',1,'ThreeVec']]],
-  ['magnetic_106',['magnetic',['../_species_8h.html#af4e6ca114114786cc23f3d5a1f8d14bfa0891717be7423c5e036873e3a4d07720',1,'Species.h']]],
-  ['main_107',['main',['../pic_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'pic.cpp']]],
-  ['map_5ffield_5fto_5fpart_108',['map_field_to_part',['../class_species.html#a077d22fb70ac63cc4ab026bea719ea2f',1,'Species']]],
-  ['modulo_109',['MODULO',['../_grid_object_8h.html#a2e023ca1e7224b1df618c23b18b75fed',1,'GridObject.h']]]
+  ['l_5fx_101',['L_x',['../class_simulation.html#a063b57900a629484597552fb17f859d2',1,'Simulation::L_x()'],['../cold__wave_8h.html#a2e8eb03d046a5f97ec1919e1bc542783',1,'L_x():&#160;cold_wave.h'],['../pic__tests_8h.html#a2e8eb03d046a5f97ec1919e1bc542783',1,'L_x():&#160;pic_tests.h'],['../two__stream_8h.html#a2e8eb03d046a5f97ec1919e1bc542783',1,'L_x():&#160;two_stream.h']]],
+  ['l_5fy_102',['L_y',['../class_simulation.html#a198b2d992121658d3859e0e3b6915073',1,'Simulation::L_y()'],['../cold__wave_8h.html#aa644a4467c696359ea672282c0c84705',1,'L_y():&#160;cold_wave.h'],['../pic__tests_8h.html#aa644a4467c696359ea672282c0c84705',1,'L_y():&#160;pic_tests.h'],['../two__stream_8h.html#aa644a4467c696359ea672282c0c84705',1,'L_y():&#160;two_stream.h']]]
 ];

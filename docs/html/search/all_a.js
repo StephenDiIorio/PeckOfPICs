@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['n_5fiter_110',['n_iter',['../class_simulation.html#aedda8aa9a13c3d9302750715d83c38e0',1,'Simulation']]],
-  ['ndump_111',['ndump',['../class_simulation.html#a53dfedd2e31bdc7488d84f60196e9268',1,'Simulation::ndump()'],['../beam__plasma_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;beam_plasma.h'],['../gyro_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;gyro.h'],['../landau_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;landau.h'],['../two__stream_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;two_stream.h'],['../two_d__test_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;twoD_test.h'],['../uh_8h.html#a909b9f327fc67ca5ecf61e243a098db3',1,'ndump():&#160;uh.h']]],
-  ['no_5fdimension_5ferr_112',['no_dimension_err',['../class_data_storage.html#a850608ca2a666e57a5b810dc3f220f8d',1,'DataStorage']]],
-  ['npar_113',['npar',['../class_species.html#a6bf69a894875766344521c8af7a38f71',1,'Species']]],
-  ['nspec_114',['nspec',['../class_simulation.html#ae7b2d3fca98b94c5d7249ae3bb44c8fc',1,'Simulation::nspec()'],['../beam__plasma_8h.html#ab8aad333299221f97399a7290e821569',1,'nspec():&#160;beam_plasma.h'],['../landau_8h.html#ab8aad333299221f97399a7290e821569',1,'nspec():&#160;landau.h'],['../two__stream_8h.html#ab8aad333299221f97399a7290e821569',1,'nspec():&#160;two_stream.h'],['../two_d__test_8h.html#ab8aad333299221f97399a7290e821569',1,'nspec():&#160;twoD_test.h']]],
-  ['nx_115',['Nx',['../class_field.html#af32cf46b6c5f730a5ea6cd4d2df4694d',1,'Field::Nx()'],['../class_grid_object.html#a6844fcd614aa7e10faa039a7bff6a2f9',1,'GridObject::Nx()'],['../class_simulation.html#affdeb381435d460ddab2c509c8a318b4',1,'Simulation::Nx()'],['../beam__plasma_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;beam_plasma.h'],['../gyro_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;gyro.h'],['../landau_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;landau.h'],['../two__stream_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;two_stream.h'],['../two_d__test_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;twoD_test.h'],['../uh_8h.html#a8dfb498413096d9fce8a7ed69cb41d16',1,'Nx():&#160;uh.h']]],
-  ['ny_116',['Ny',['../class_field.html#a9d392f35b2827303a5453bfe4ba17353',1,'Field::Ny()'],['../class_grid_object.html#affa5fba2697c22e0618539f3c0941a74',1,'GridObject::Ny()'],['../class_simulation.html#ab346f153460df80e73384db8420a2e69',1,'Simulation::Ny()'],['../two__stream_8h.html#a276dfd99384a9c735597add8d0b07b3d',1,'Ny():&#160;two_stream.h']]]
+  ['mag_103',['mag',['../class_three_vec.html#a191f3e647dc51311857fb30f82f608d7',1,'ThreeVec']]],
+  ['magnetic_104',['Magnetic',['../namespace_field___t.html#a0aac038e593d9258f1448b75c2f7b0ecac29921cc2498550f86a50259ec647f89',1,'Field_T']]],
+  ['main_105',['main',['../pic_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'pic.cpp']]],
+  ['map_5ffield_5fto_5fpart_106',['map_field_to_part',['../class_species.html#a90b4480b5964dba31312382576b746bc',1,'Species']]],
+  ['modulo_107',['MODULO',['../_grid_object_8h.html#a2e023ca1e7224b1df618c23b18b75fed',1,'GridObject.h']]]
 ];

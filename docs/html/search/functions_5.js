@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['fft_275',['FFT',['../_f_f_t_8cpp.html#ad9da065eaf32ebe46821f84844511530',1,'FFT(std::vector&lt; double &gt; &amp;data_re, std::vector&lt; double &gt; &amp;data_im, const unsigned long NVALS, const int isign):&#160;FFT.cpp'],['../_f_f_t_8h.html#ad9da065eaf32ebe46821f84844511530',1,'FFT(std::vector&lt; double &gt; &amp;data_re, std::vector&lt; double &gt; &amp;data_im, const unsigned long NVALS, const int isign):&#160;FFT.cpp']]],
-  ['field_276',['Field',['../class_field.html#a3e804c92273d9159f413f227b535c672',1,'Field::Field()'],['../class_field.html#ad5696f2169994d70722bce531e00c7bf',1,'Field::Field(uint Nx, uint Ny, double dx, double dy)'],['../class_field.html#ab4bdade90e8f70a9198f184b51ff8cb5',1,'Field::Field(uint Nx, uint Ny, double dx, double dy, uint component, double value)'],['../class_field.html#a9c359505ce106cade49c960b64acf560',1,'Field::Field(uint Nx, uint Ny, double dx, double dy, std::function&lt; void(Field &amp;, uint, uint)&gt; init_fcn)']]],
-  ['fileio_277',['FileIO',['../class_file_i_o.html#a8b0d602c3461181e12c05f655dea5018',1,'FileIO']]]
+  ['fft_5f1d_269',['FFT_1D',['../namespace_f_f_t.html#abe6a84282045e3dc5c26ccaf478c49b7',1,'FFT']]],
+  ['fft_5f2d_270',['FFT_2D',['../namespace_f_f_t.html#abc192251eecad865420c7ca9d5074e17',1,'FFT']]],
+  ['field_271',['Field',['../class_field.html#a3e804c92273d9159f413f227b535c672',1,'Field::Field()'],['../class_field.html#a0bd7e8d281e89dc725003c79d4c29e1a',1,'Field::Field(const std::size_t Nx, const std::size_t Ny, const double dx, const double dy)'],['../class_field.html#af7096a7003a96d44339d945828a57f04',1,'Field::Field(const std::size_t Nx, const std::size_t Ny, const double dx, const double dy, std::size_t component, double value)'],['../class_field.html#ae5782102fe976cfd78102f55f9f6170a',1,'Field::Field(const std::size_t Nx, const std::size_t Ny, const double dx, const double dy, std::function&lt; void(Field &amp;, std::size_t, std::size_t)&gt; init_fcn)']]],
+  ['fileio_272',['FileIO',['../class_file_i_o.html#a8b0d602c3461181e12c05f655dea5018',1,'FileIO']]]
 ];

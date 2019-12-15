@@ -1,10 +1,10 @@
 var class_simulation =
 [
-    [ "Simulation", "class_simulation.html#a903351886cff6b2ce683d4c828771927", null ],
+    [ "Simulation", "class_simulation.html#a2484f7211804a2e186d5904e897fc0d2", null ],
     [ "~Simulation", "class_simulation.html#a80fad3f57dfaf195a36f7bc49bc88279", null ],
-    [ "add_b_field", "class_simulation.html#a60286cd89e16402b3fcc5300123edc22", null ],
-    [ "add_e_field", "class_simulation.html#a13970235afbcef60d9b7d71000537c38", null ],
-    [ "add_species", "class_simulation.html#a160ea91c95613451f128ddbb66680bb2", null ],
+    [ "add_b_field", "class_simulation.html#aaf61c7fdc8f6fd1fb010990d562286ed", null ],
+    [ "add_e_field", "class_simulation.html#a7a315f38239d6d97eae73e7707485c38", null ],
+    [ "add_species", "class_simulation.html#a006d8e9b39a7917ee1034fb09bbb7ba1", null ],
     [ "dump_data", "class_simulation.html#a60656250cb2b710d53f144329acaced4", null ],
     [ "get_total_density", "class_simulation.html#a433f3a5bae5e4b322a7ff6443dc689c6", null ],
     [ "iterate", "class_simulation.html#aeb608e82917947fa9e47117cf0400547", null ],
@@ -16,11 +16,11 @@ var class_simulation =
     [ "e_field", "class_simulation.html#a8ef307ef9538f944222e19480e162244", null ],
     [ "L_x", "class_simulation.html#a063b57900a629484597552fb17f859d2", null ],
     [ "L_y", "class_simulation.html#a198b2d992121658d3859e0e3b6915073", null ],
-    [ "n_iter", "class_simulation.html#aedda8aa9a13c3d9302750715d83c38e0", null ],
-    [ "ndump", "class_simulation.html#a53dfedd2e31bdc7488d84f60196e9268", null ],
-    [ "nspec", "class_simulation.html#ae7b2d3fca98b94c5d7249ae3bb44c8fc", null ],
-    [ "Nx", "class_simulation.html#affdeb381435d460ddab2c509c8a318b4", null ],
-    [ "Ny", "class_simulation.html#ab346f153460df80e73384db8420a2e69", null ],
+    [ "n_iter", "class_simulation.html#ae9857994eaec37fe68f216b359e86345", null ],
+    [ "ndump", "class_simulation.html#a4cc0fc0267217ef98e4ddcfdf246d04d", null ],
+    [ "nspec", "class_simulation.html#a26d59e578eba80371a14e9f2dfcb3da9", null ],
+    [ "Nx", "class_simulation.html#a224efdc1a4abfa0610279e0bcf975cdb", null ],
+    [ "Ny", "class_simulation.html#a7c4be6147d821d48725cc21088361821", null ],
     [ "spec", "class_simulation.html#ad9ca2fc6beb253e8e0baada14aac90ab", null ],
     [ "tmax", "class_simulation.html#afa0838d9f8a03416d8ee0d3a0fe2b347", null ]
 ];

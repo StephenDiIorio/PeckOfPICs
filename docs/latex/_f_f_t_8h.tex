@@ -2,63 +2,31 @@
 \label{_f_f_t_8h}\index{src/FFT.h@{src/FFT.h}}
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$cmath$>$}\newline
-\doxysubsection*{Typedefs}
+{\ttfamily \#include \char`\"{}Grid\+Object.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
-typedef unsigned int \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}
+ \mbox{\hyperlink{namespace_f_f_t}{F\+FT}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_f_f_t_ae72c867bc360050e784b653aecec8bdc}{F\+F\+T\+::\+F\+F\+T\+\_\+\+Dir}} \{ \mbox{\hyperlink{namespace_f_f_t_ae72c867bc360050e784b653aecec8bdca4d265dc5db9016664edb3e6d930fc51c}{F\+F\+T\+::\+F\+FT}} = 1, 
+\mbox{\hyperlink{namespace_f_f_t_ae72c867bc360050e784b653aecec8bdca0d85d7affbdd0ab93c8c6efbb8099edc}{F\+F\+T\+::i\+F\+FT}} = -\/1
+ \}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \mbox{\hyperlink{_f_f_t_8h_afe17515bb800483d081a6dddf52e9a80}{sinc}} (const double x)
+double \mbox{\hyperlink{namespace_f_f_t_aebb61cfb159a550d37984e02c8770ad6}{F\+F\+T\+::sinc}} (const double x)
+\begin{DoxyCompactList}\small\item\em Computes the value of sinc(x) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_f_f_t_abe6a84282045e3dc5c26ccaf478c49b7}{F\+F\+T\+::\+F\+F\+T\+\_\+1D}} (std\+::vector$<$ double $>$ \&data\+\_\+re, std\+::vector$<$ double $>$ \&data\+\_\+im, \mbox{\hyperlink{namespace_f_f_t_ae72c867bc360050e784b653aecec8bdc}{F\+F\+T\+::\+F\+F\+T\+\_\+\+Dir}} isign)
+\begin{DoxyCompactList}\small\item\em Performs a 1D (inverse) Fourier transform of a grid. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_f_f_t_abc192251eecad865420c7ca9d5074e17}{F\+F\+T\+::\+F\+F\+T\+\_\+2D}} (\mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&real\+\_\+part, \mbox{\hyperlink{class_grid_object}{Grid\+Object}} \&imag\+\_\+part, \mbox{\hyperlink{namespace_f_f_t_ae72c867bc360050e784b653aecec8bdc}{F\+F\+T\+::\+F\+F\+T\+\_\+\+Dir}} transform\+\_\+dir)
+\begin{DoxyCompactList}\small\item\em Performs a 2D (inverse) Fourier transform of a grid. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{namespace_f_f_t_a4e6ee9e3d13c7a9b686aaee596a913bc}{F\+F\+T\+::get\+\_\+k\+\_\+vec}} (const std\+::size\+\_\+t size, const double dx)
 \item 
-int \mbox{\hyperlink{_f_f_t_8h_ad9da065eaf32ebe46821f84844511530}{F\+FT}} (std\+::vector$<$ double $>$ \&data\+\_\+re, std\+::vector$<$ double $>$ \&data\+\_\+im, const unsigned long N\+V\+A\+LS, const int isign)
+std\+::vector$<$ double $>$ \mbox{\hyperlink{namespace_f_f_t_abf84bc388d951fa35798e6db87f1ad8c}{F\+F\+T\+::get\+\_\+\+K2\+\_\+vec}} (const std\+::vector$<$ double $>$ \&k, const double dx)
 \item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{_f_f_t_8h_a77a9ec8ae5778f42f2de8a2436b4fa4f}{get\+\_\+k\+\_\+vec}} (const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} size, const double dx)
-\item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{_f_f_t_8h_a110ee0a07ccf8ac7fe39a5b8d24b1da1}{get\+\_\+\+K2\+\_\+vec}} (const std\+::vector$<$ double $>$ k, const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} size, const double dx)
-\item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{_f_f_t_8h_af3cea07f24f004d510b214db62ff7de1}{get\+\_\+kappa\+\_\+vec}} (const std\+::vector$<$ double $>$ k, const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} size, const double dx)
+std\+::vector$<$ double $>$ \mbox{\hyperlink{namespace_f_f_t_a9d4dd7f5bcc74303fdac73e3c8ab434a}{F\+F\+T\+::get\+\_\+kappa\+\_\+vec}} (const std\+::vector$<$ double $>$ \&k, const double dx)
 \end{DoxyCompactItemize}
-
-
-\doxysubsection{Typedef Documentation}
-\mbox{\Hypertarget{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}\label{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}} 
-\index{FFT.h@{FFT.h}!uint@{uint}}
-\index{uint@{uint}!FFT.h@{FFT.h}}
-\doxysubsubsection{\texorpdfstring{uint}{uint}}
-{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}
-
-
-
-\doxysubsection{Function Documentation}
-\mbox{\Hypertarget{_f_f_t_8h_ad9da065eaf32ebe46821f84844511530}\label{_f_f_t_8h_ad9da065eaf32ebe46821f84844511530}} 
-\index{FFT.h@{FFT.h}!FFT@{FFT}}
-\index{FFT@{FFT}!FFT.h@{FFT.h}}
-\doxysubsubsection{\texorpdfstring{FFT()}{FFT()}}
-{\footnotesize\ttfamily int F\+FT (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{data\+\_\+re,  }\item[{std\+::vector$<$ double $>$ \&}]{data\+\_\+im,  }\item[{const unsigned long}]{N\+V\+A\+LS,  }\item[{const int}]{isign }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{_f_f_t_8h_a110ee0a07ccf8ac7fe39a5b8d24b1da1}\label{_f_f_t_8h_a110ee0a07ccf8ac7fe39a5b8d24b1da1}} 
-\index{FFT.h@{FFT.h}!get\_K2\_vec@{get\_K2\_vec}}
-\index{get\_K2\_vec@{get\_K2\_vec}!FFT.h@{FFT.h}}
-\doxysubsubsection{\texorpdfstring{get\_K2\_vec()}{get\_K2\_vec()}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ get\+\_\+\+K2\+\_\+vec (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$}]{k,  }\item[{const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{size,  }\item[{const double}]{dx }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{_f_f_t_8h_a77a9ec8ae5778f42f2de8a2436b4fa4f}\label{_f_f_t_8h_a77a9ec8ae5778f42f2de8a2436b4fa4f}} 
-\index{FFT.h@{FFT.h}!get\_k\_vec@{get\_k\_vec}}
-\index{get\_k\_vec@{get\_k\_vec}!FFT.h@{FFT.h}}
-\doxysubsubsection{\texorpdfstring{get\_k\_vec()}{get\_k\_vec()}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ get\+\_\+k\+\_\+vec (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{size,  }\item[{const double}]{dx }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{_f_f_t_8h_af3cea07f24f004d510b214db62ff7de1}\label{_f_f_t_8h_af3cea07f24f004d510b214db62ff7de1}} 
-\index{FFT.h@{FFT.h}!get\_kappa\_vec@{get\_kappa\_vec}}
-\index{get\_kappa\_vec@{get\_kappa\_vec}!FFT.h@{FFT.h}}
-\doxysubsubsection{\texorpdfstring{get\_kappa\_vec()}{get\_kappa\_vec()}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ get\+\_\+kappa\+\_\+vec (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$}]{k,  }\item[{const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{size,  }\item[{const double}]{dx }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{_f_f_t_8h_afe17515bb800483d081a6dddf52e9a80}\label{_f_f_t_8h_afe17515bb800483d081a6dddf52e9a80}} 
-\index{FFT.h@{FFT.h}!sinc@{sinc}}
-\index{sinc@{sinc}!FFT.h@{FFT.h}}
-\doxysubsubsection{\texorpdfstring{sinc()}{sinc()}}
-{\footnotesize\ttfamily double sinc (\begin{DoxyParamCaption}\item[{const double}]{x }\end{DoxyParamCaption})}
-

@@ -18,19 +18,15 @@ Three-\/vector class including mathematical operations.
 \begin{DoxyCompactList}\small\item\em Cartesian constructor for \mbox{\hyperlink{class_three_vec}{Three\+Vec}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_three_vec_a69d885c14327b03b7f96fe06d71e4a75}{$\sim$\+Three\+Vec}} ()
 \begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_three_vec}{Three\+Vec}} object. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_a2e83bfc2bf5e2488d34a1ff97379ec7c}{operator+}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec) const
-\begin{DoxyCompactList}\small\item\em Overload the + operator for vector addition. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_a40e5b42f664ab0b0d4fb4f85b49b7565}{operator-\/}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec) const
-\begin{DoxyCompactList}\small\item\em Overload the -\/ operator for vector subtraction. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_ac0279ca6f321cf23308861c99cb92236}{operator+=}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec)
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_a50bb71adc9a4ed372d6fb0567b1fc5b0}{operator+=}} (const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&vec)
 \begin{DoxyCompactList}\small\item\em Overload the += operator to increment current \mbox{\hyperlink{class_three_vec}{Three\+Vec}}. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_a09aded16a95c71fe2c3554a742fe2c97}{operator-\/=}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec)
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_ac1ece592c9b3b36519882f30de10b544}{operator-\/=}} (const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&vec)
 \begin{DoxyCompactList}\small\item\em Overload the -\/= operator to decrement current \mbox{\hyperlink{class_three_vec}{Three\+Vec}}. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_a33143e8e73d34e8db9ef9c6804e69959}{operator$\ast$}} (double value) const
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_af96edeeecb7ffbc411ae6509fb1ff856}{operator$\ast$}} (const double value) const
 \begin{DoxyCompactList}\small\item\em Overload the $\ast$ operator to perform scalar multiplication. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_aebfc85441293df782fee0f7b275ad3cc}{operator/}} (double value) const
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_a9e16f691a0dd7f3a4436ab88ac3ed6ae}{operator/}} (const double value) const
 \begin{DoxyCompactList}\small\item\em Overload the / operator to perform scalar division. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_three_vec_ad94c4bbb725ada5fdb344f876ee02377}{operator$\ast$}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec) const
+double \mbox{\hyperlink{class_three_vec_a46edefd8eaa8d182e0035061aed6f4a1}{operator$\ast$}} (const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&vec) const
 \begin{DoxyCompactList}\small\item\em Overload the $\ast$ operator to perform a vector dot product. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_aeea8db92c1468d428e9ce70062911816}{operator$^\wedge$}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec) const
 \begin{DoxyCompactList}\small\item\em Overload the $^\wedge$ operator to perform a vector cross product. \end{DoxyCompactList}\item 
@@ -58,12 +54,19 @@ double \mbox{\hyperlink{class_three_vec_a075e3da82b4393d3ea6193f7414f6349}{squar
 \begin{DoxyCompactList}\small\item\em Square the \mbox{\hyperlink{class_three_vec}{Three\+Vec}}. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_three_vec_a191f3e647dc51311857fb30f82f608d7}{mag}} ()
 \begin{DoxyCompactList}\small\item\em Calculate the magnitude of the \mbox{\hyperlink{class_three_vec}{Three\+Vec}}. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_a87d3cacc8732e262b9553b772a8b6803}{element\+\_\+multiply}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec)
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_aae5d6601a043c980c609d0f85fc6f9c4}{element\+\_\+multiply}} (const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&vec)
 \begin{DoxyCompactList}\small\item\em Perform element-\/wise multiplication. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_three_vec_a0aed9bf37d41ff8a909da723da5537e9}{print}} () const
 \begin{DoxyCompactList}\small\item\em Prints all components of the vector. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_three_vec_aafbfe90c70943b22f194bce13e447213}{print\+\_\+comp}} (\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} i) const
+void \mbox{\hyperlink{class_three_vec_aafbfe90c70943b22f194bce13e447213}{print\+\_\+comp}} (uint i) const
 \begin{DoxyCompactList}\small\item\em Prints a single component of the vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_adf66a4841c829a706ef3db04e4e14657}{operator+}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec1, const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&vec2)
+\begin{DoxyCompactList}\small\item\em Overload the + operator for vector addition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} \mbox{\hyperlink{class_three_vec_a27d9c0e4db2a53c0e35fe2b3391f0f41}{operator-\/}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} vec1, const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&vec2)
+\begin{DoxyCompactList}\small\item\em Overload the -\/ operator for vector subtraction. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -114,11 +117,11 @@ Destructor for \mbox{\hyperlink{class_three_vec}{Three\+Vec}} object.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_three_vec_a87d3cacc8732e262b9553b772a8b6803}\label{class_three_vec_a87d3cacc8732e262b9553b772a8b6803}} 
+\mbox{\Hypertarget{class_three_vec_aae5d6601a043c980c609d0f85fc6f9c4}\label{class_three_vec_aae5d6601a043c980c609d0f85fc6f9c4}} 
 \index{ThreeVec@{ThreeVec}!element\_multiply@{element\_multiply}}
 \index{element\_multiply@{element\_multiply}!ThreeVec@{ThreeVec}}
 \doxysubsubsection{\texorpdfstring{element\_multiply()}{element\_multiply()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::element\+\_\+multiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::element\+\_\+multiply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&}]{vec }\end{DoxyParamCaption})}
 
 
 
@@ -219,11 +222,11 @@ Calculate the magnitude of the \mbox{\hyperlink{class_three_vec}{Three\+Vec}}.
 \begin{DoxyReturn}{Returns}
 double Magnitude of the \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_three_vec_a33143e8e73d34e8db9ef9c6804e69959}\label{class_three_vec_a33143e8e73d34e8db9ef9c6804e69959}} 
+\mbox{\Hypertarget{class_three_vec_af96edeeecb7ffbc411ae6509fb1ff856}\label{class_three_vec_af96edeeecb7ffbc411ae6509fb1ff856}} 
 \index{ThreeVec@{ThreeVec}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!ThreeVec@{ThreeVec}}
 \doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const double}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -237,11 +240,11 @@ Overload the $\ast$ operator to perform scalar multiplication.
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_three_vec_ad94c4bbb725ada5fdb344f876ee02377}\label{class_three_vec_ad94c4bbb725ada5fdb344f876ee02377}} 
+\mbox{\Hypertarget{class_three_vec_a46edefd8eaa8d182e0035061aed6f4a1}\label{class_three_vec_a46edefd8eaa8d182e0035061aed6f4a1}} 
 \index{ThreeVec@{ThreeVec}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!ThreeVec@{ThreeVec}}
 \doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily double Three\+Vec\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily double Three\+Vec\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&}]{vec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -255,29 +258,11 @@ Overload the $\ast$ operator to perform a vector dot product.
 \begin{DoxyReturn}{Returns}
 double Resultant dot product 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_three_vec_a2e83bfc2bf5e2488d34a1ff97379ec7c}\label{class_three_vec_a2e83bfc2bf5e2488d34a1ff97379ec7c}} 
-\index{ThreeVec@{ThreeVec}!operator+@{operator+}}
-\index{operator+@{operator+}!ThreeVec@{ThreeVec}}
-\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Overload the + operator for vector addition. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em vec} & Vector to perform element-\/wise addition with \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-\mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
-\end{DoxyReturn}
-\mbox{\Hypertarget{class_three_vec_ac0279ca6f321cf23308861c99cb92236}\label{class_three_vec_ac0279ca6f321cf23308861c99cb92236}} 
+\mbox{\Hypertarget{class_three_vec_a50bb71adc9a4ed372d6fb0567b1fc5b0}\label{class_three_vec_a50bb71adc9a4ed372d6fb0567b1fc5b0}} 
 \index{ThreeVec@{ThreeVec}!operator+=@{operator+=}}
 \index{operator+=@{operator+=}!ThreeVec@{ThreeVec}}
 \doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -291,29 +276,11 @@ Overload the += operator to increment current \mbox{\hyperlink{class_three_vec}{
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_three_vec_a40e5b42f664ab0b0d4fb4f85b49b7565}\label{class_three_vec_a40e5b42f664ab0b0d4fb4f85b49b7565}} 
-\index{ThreeVec@{ThreeVec}!operator-\/@{operator-\/}}
-\index{operator-\/@{operator-\/}!ThreeVec@{ThreeVec}}
-\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Overload the -\/ operator for vector subtraction. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em vec} & Vector to perform element-\/wise subtraction with \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-\mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
-\end{DoxyReturn}
-\mbox{\Hypertarget{class_three_vec_a09aded16a95c71fe2c3554a742fe2c97}\label{class_three_vec_a09aded16a95c71fe2c3554a742fe2c97}} 
+\mbox{\Hypertarget{class_three_vec_ac1ece592c9b3b36519882f30de10b544}\label{class_three_vec_ac1ece592c9b3b36519882f30de10b544}} 
 \index{ThreeVec@{ThreeVec}!operator-\/=@{operator-\/=}}
 \index{operator-\/=@{operator-\/=}!ThreeVec@{ThreeVec}}
 \doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator-\/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -327,11 +294,11 @@ Overload the -\/= operator to decrement current \mbox{\hyperlink{class_three_vec
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_three_vec_aebfc85441293df782fee0f7b275ad3cc}\label{class_three_vec_aebfc85441293df782fee0f7b275ad3cc}} 
+\mbox{\Hypertarget{class_three_vec_a9e16f691a0dd7f3a4436ab88ac3ed6ae}\label{class_three_vec_a9e16f691a0dd7f3a4436ab88ac3ed6ae}} 
 \index{ThreeVec@{ThreeVec}!operator/@{operator/}}
 \index{operator/@{operator/}!ThreeVec@{ThreeVec}}
 \doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator/ (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} Three\+Vec\+::operator/ (\begin{DoxyParamCaption}\item[{const double}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -377,7 +344,7 @@ Prints all components of the vector.
 \index{ThreeVec@{ThreeVec}!print\_comp@{print\_comp}}
 \index{print\_comp@{print\_comp}!ThreeVec@{ThreeVec}}
 \doxysubsubsection{\texorpdfstring{print\_comp()}{print\_comp()}}
-{\footnotesize\ttfamily void Three\+Vec\+::print\+\_\+comp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{i }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily void Three\+Vec\+::print\+\_\+comp (\begin{DoxyParamCaption}\item[{uint}]{i }\end{DoxyParamCaption}) const}
 
 
 
@@ -481,6 +448,45 @@ Square the \mbox{\hyperlink{class_three_vec}{Three\+Vec}}.
 
 \begin{DoxyReturn}{Returns}
 double The sum of the squares of all components 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_three_vec_adf66a4841c829a706ef3db04e4e14657}\label{class_three_vec_adf66a4841c829a706ef3db04e4e14657}} 
+\index{ThreeVec@{ThreeVec}!operator+@{operator+}}
+\index{operator+@{operator+}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec1,  }\item[{const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&}]{vec2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Overload the + operator for vector addition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Vector to perform element-\/wise addition with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_three_vec_a27d9c0e4db2a53c0e35fe2b3391f0f41}\label{class_three_vec_a27d9c0e4db2a53c0e35fe2b3391f0f41}} 
+\index{ThreeVec@{ThreeVec}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!ThreeVec@{ThreeVec}}
+\doxysubsubsection{\texorpdfstring{operator-\/}{operator-}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_three_vec}{Three\+Vec}} operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{vec1,  }\item[{const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&}]{vec2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Overload the -\/ operator for vector subtraction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Vector to perform element-\/wise subtraction with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_three_vec}{Three\+Vec}} Resultant \mbox{\hyperlink{class_three_vec}{Three\+Vec}} 
 \end{DoxyReturn}
 
 

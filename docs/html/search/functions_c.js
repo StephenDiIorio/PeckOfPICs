@@ -1,26 +1,7 @@
 var searchData=
 [
-  ['set_356',['set',['../class_three_vec.html#aa6407f31a4075b0b0bd101c18592b8c4',1,'ThreeVec']]],
-  ['set_5fall_357',['set_all',['../class_three_vec.html#a808b2174359cf8c16de3f2efa2f6af26',1,'ThreeVec']]],
-  ['set_5fcomp_358',['set_comp',['../class_grid_object.html#a02b6805710ee1340e7febb80abdb16dd',1,'GridObject']]],
-  ['set_5flocal_5fb_5ffield_359',['set_local_b_field',['../class_particle.html#a2b5a741f3cc4b622ecd21fe8d4756008',1,'Particle::set_local_b_field(ThreeVec field)'],['../class_particle.html#a90a26efe3960cf3859a0c61886fea809',1,'Particle::set_local_b_field(const double x1, const double x2, const double x3)']]],
-  ['set_5flocal_5fb_5ffield_5fcomp_360',['set_local_b_field_comp',['../class_particle.html#a4c91cb7eb76922e9a9ca71204fbce064',1,'Particle']]],
-  ['set_5flocal_5fe_5ffield_361',['set_local_e_field',['../class_particle.html#a6adfde8ce5120f88c274d183b83ed646',1,'Particle::set_local_e_field(ThreeVec field)'],['../class_particle.html#aa1748578be3456e3e1805c94c350c756',1,'Particle::set_local_e_field(const double x1, const double x2, const double x3)']]],
-  ['set_5flocal_5fe_5ffield_5fcomp_362',['set_local_e_field_comp',['../class_particle.html#a44208ba37e3f7604d9df20fa18d7e018',1,'Particle']]],
-  ['set_5fmom_363',['set_mom',['../class_particle.html#a6eba3372263489c997f006e166b0c8b4',1,'Particle::set_mom(ThreeVec mom)'],['../class_particle.html#ab93fe71b619087f8eebb9d04abd362ba',1,'Particle::set_mom(const double mom_x, const double mom_y, const double mom_z)']]],
-  ['set_5fmom_5fcomp_364',['set_mom_comp',['../class_particle.html#a6c103d3d6292931785a3dce855337eda',1,'Particle']]],
-  ['set_5fpos_365',['set_pos',['../class_particle.html#a1f3fa6cbe09290a7aad78d0563c37236',1,'Particle::set_pos(ThreeVec pos)'],['../class_particle.html#a724b701a20f8579d8052e4ce627d5562',1,'Particle::set_pos(const double pos_x, const double pos_y, const double pos_z)']]],
-  ['set_5fpos_5fcomp_366',['set_pos_comp',['../class_particle.html#a17553252c074c5fe864cc5fc4ec9a492',1,'Particle']]],
-  ['set_5fweight_367',['set_weight',['../class_particle.html#af4213954302789663b779fde6d9d0bd5',1,'Particle']]],
-  ['set_5fx_368',['set_x',['../class_three_vec.html#a7d8b1106324a9899895ae1aaa2aca3dd',1,'ThreeVec']]],
-  ['set_5fy_369',['set_y',['../class_three_vec.html#a3db3771030a5a8b696a90197bbc271f4',1,'ThreeVec']]],
-  ['set_5fz_370',['set_z',['../class_three_vec.html#a31a8a5ab6ea005fefb3d3020155aff02',1,'ThreeVec']]],
-  ['simulation_371',['Simulation',['../class_simulation.html#a903351886cff6b2ce683d4c828771927',1,'Simulation']]],
-  ['sinc_372',['sinc',['../_f_f_t_8cpp.html#afe17515bb800483d081a6dddf52e9a80',1,'sinc(const double x):&#160;FFT.cpp'],['../_f_f_t_8h.html#afe17515bb800483d081a6dddf52e9a80',1,'sinc(const double x):&#160;FFT.cpp']]],
-  ['single_5fplasma_373',['single_plasma',['../beam__plasma_8h.html#a471b3be541f04a04a69cb2de235cb8d5',1,'beam_plasma.h']]],
-  ['solve_5ffield_374',['solve_field',['../class_field.html#a002c050a341e860932f736823e97cf3b',1,'Field']]],
-  ['solve_5ffield_5ffftw_375',['solve_field_fftw',['../class_field.html#a7d0329754ae9820356282cbff6382009',1,'Field::solve_field_fftw()'],['../_field_8cpp.html#a5fd0b5a1f1e63de7f8461fa6e6c2bead',1,'solve_field_fftw():&#160;Field.cpp']]],
-  ['solve_5ffield_5fspectral_376',['solve_field_spectral',['../class_field.html#a8f76af79491c8ccf55bd9383310cb1b6',1,'Field']]],
-  ['species_377',['Species',['../class_species.html#abb0f8e3208b0cc676157b7dff837c0be',1,'Species::Species()'],['../class_species.html#a76a2908586b969b1585176b967a45fec',1,'Species::Species(uint npar, uint nx, uint ny, double Qpar)'],['../class_species.html#a729663d289f79b4124637462df56ea74',1,'Species::Species(uint npar, uint nx, uint ny, double Qpar, double density, std::function&lt; void(Species &amp;, uint)&gt; init_fcn)']]],
-  ['square_378',['square',['../class_three_vec.html#a075e3da82b4393d3ea6193f7414f6349',1,'ThreeVec']]]
+  ['threevec_360',['ThreeVec',['../class_three_vec.html#ab32ea4b7408b929e9127056463204675',1,'ThreeVec::ThreeVec()'],['../class_three_vec.html#ab061c0776c444d1d4c701315eada67d0',1,'ThreeVec::ThreeVec(double x, double y, double z)']]],
+  ['two_5fline_5ftest_361',['two_line_test',['../pic__tests_8h.html#a649b11d27e2ec2fef614d006afd250ce',1,'pic_tests.h']]],
+  ['two_5fstream_5fminus_362',['two_stream_minus',['../two__stream_8h.html#a5890d9f7091ea697adf479fd1d5e7972',1,'two_stream.h']]],
+  ['two_5fstream_5fplus_363',['two_stream_plus',['../two__stream_8h.html#a7599c215e775b32e8f7e8e92687117b0',1,'two_stream.h']]]
 ];

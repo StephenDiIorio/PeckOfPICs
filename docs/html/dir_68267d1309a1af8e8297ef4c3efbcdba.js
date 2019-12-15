@@ -1,6 +1,6 @@
 var dir_68267d1309a1af8e8297ef4c3efbcdba =
 [
-    [ "beam_plasma.h", "beam__plasma_8h.html", "beam__plasma_8h" ],
+    [ "cold_wave.h", "cold__wave_8h.html", "cold__wave_8h" ],
     [ "DataStorage.cpp", "_data_storage_8cpp.html", null ],
     [ "DataStorage.h", "_data_storage_8h.html", [
       [ "DataStorage", "class_data_storage.html", "class_data_storage" ]
@@ -23,24 +23,23 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     ] ],
     [ "GridObject.cpp", "_grid_object_8cpp.html", null ],
     [ "GridObject.h", "_grid_object_8h.html", "_grid_object_8h" ],
-    [ "gyro.h", "gyro_8h.html", "gyro_8h" ],
-    [ "landau.h", "landau_8h.html", "landau_8h" ],
     [ "Particle.cpp", "_particle_8cpp.html", null ],
     [ "Particle.h", "_particle_8h.html", [
       [ "Particle", "class_particle.html", "class_particle" ]
     ] ],
     [ "pic.cpp", "pic_8cpp.html", "pic_8cpp" ],
+    [ "pic_tests.h", "pic__tests_8h.html", "pic__tests_8h" ],
     [ "Simulation.cpp", "_simulation_8cpp.html", null ],
     [ "Simulation.h", "_simulation_8h.html", [
       [ "Simulation", "class_simulation.html", "class_simulation" ]
     ] ],
     [ "Species.cpp", "_species_8cpp.html", null ],
-    [ "Species.h", "_species_8h.html", "_species_8h" ],
+    [ "Species.h", "_species_8h.html", [
+      [ "Species", "class_species.html", "class_species" ]
+    ] ],
     [ "ThreeVec.cpp", "_three_vec_8cpp.html", null ],
     [ "ThreeVec.h", "_three_vec_8h.html", [
       [ "ThreeVec", "class_three_vec.html", "class_three_vec" ]
     ] ],
-    [ "two_stream.h", "two__stream_8h.html", "two__stream_8h" ],
-    [ "twoD_test.h", "two_d__test_8h.html", "two_d__test_8h" ],
-    [ "uh.h", "uh_8h.html", "uh_8h" ]
+    [ "two_stream.h", "two__stream_8h.html", "two__stream_8h" ]
 ];

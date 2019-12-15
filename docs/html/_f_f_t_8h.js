@@ -1,9 +1,13 @@
 var _f_f_t_8h =
 [
-    [ "uint", "_f_f_t_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14", null ],
-    [ "FFT", "_f_f_t_8h.html#ad9da065eaf32ebe46821f84844511530", null ],
-    [ "get_K2_vec", "_f_f_t_8h.html#a110ee0a07ccf8ac7fe39a5b8d24b1da1", null ],
-    [ "get_k_vec", "_f_f_t_8h.html#a77a9ec8ae5778f42f2de8a2436b4fa4f", null ],
-    [ "get_kappa_vec", "_f_f_t_8h.html#af3cea07f24f004d510b214db62ff7de1", null ],
-    [ "sinc", "_f_f_t_8h.html#afe17515bb800483d081a6dddf52e9a80", null ]
+    [ "FFT_Dir", "_f_f_t_8h.html#ae72c867bc360050e784b653aecec8bdc", [
+      [ "FFT", "_f_f_t_8h.html#ae72c867bc360050e784b653aecec8bdca4d265dc5db9016664edb3e6d930fc51c", null ],
+      [ "iFFT", "_f_f_t_8h.html#ae72c867bc360050e784b653aecec8bdca0d85d7affbdd0ab93c8c6efbb8099edc", null ]
+    ] ],
+    [ "FFT_1D", "_f_f_t_8h.html#abe6a84282045e3dc5c26ccaf478c49b7", null ],
+    [ "FFT_2D", "_f_f_t_8h.html#abc192251eecad865420c7ca9d5074e17", null ],
+    [ "get_K2_vec", "_f_f_t_8h.html#abf84bc388d951fa35798e6db87f1ad8c", null ],
+    [ "get_k_vec", "_f_f_t_8h.html#a4e6ee9e3d13c7a9b686aaee596a913bc", null ],
+    [ "get_kappa_vec", "_f_f_t_8h.html#a9d4dd7f5bcc74303fdac73e3c8ab434a", null ],
+    [ "sinc", "_f_f_t_8h.html#aebb61cfb159a550d37984e02c8770ad6", null ]
 ];

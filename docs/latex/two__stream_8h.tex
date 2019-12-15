@@ -6,22 +6,24 @@
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \mbox{\hyperlink{two__stream_8h_aa67fedc876a0c37754c45c405699c0d6}{gaussian}} ()
+void \mbox{\hyperlink{two__stream_8h_a7599c215e775b32e8f7e8e92687117b0}{two\+\_\+stream\+\_\+plus}} (\mbox{\hyperlink{class_species}{Species}} \&spec, uint \mbox{\hyperlink{two__stream_8h_a3ec98e9ffa9165115420ddf5b2f7816d}{Npar}})
 \item 
-void \mbox{\hyperlink{two__stream_8h_a7599c215e775b32e8f7e8e92687117b0}{two\+\_\+stream\+\_\+plus}} (\mbox{\hyperlink{class_species}{Species}} \&spec, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Npar)
+void \mbox{\hyperlink{two__stream_8h_a5890d9f7091ea697adf479fd1d5e7972}{two\+\_\+stream\+\_\+minus}} (\mbox{\hyperlink{class_species}{Species}} \&spec, uint \mbox{\hyperlink{two__stream_8h_a3ec98e9ffa9165115420ddf5b2f7816d}{Npar}})
 \item 
-void \mbox{\hyperlink{two__stream_8h_a2274ef8fdaf4984c0eeaafa59c84e4ce}{init\+\_\+e\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{uh_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}})
+void \mbox{\hyperlink{two__stream_8h_a2274ef8fdaf4984c0eeaafa59c84e4ce}{init\+\_\+e\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, uint \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, uint \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}})
 \item 
-void \mbox{\hyperlink{two__stream_8h_af33bf84a7bbc7f7673d7fc107f4183a9}{init\+\_\+b\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{uh_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}})
+void \mbox{\hyperlink{two__stream_8h_af33bf84a7bbc7f7673d7fc107f4183a9}{init\+\_\+b\+\_\+field}} (\mbox{\hyperlink{class_field}{Field}} \&f, uint \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, uint \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}})
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{two__stream_8h_a909b9f327fc67ca5ecf61e243a098db3}{ndump}} = 1
+const uint \mbox{\hyperlink{two__stream_8h_a909b9f327fc67ca5ecf61e243a098db3}{ndump}} = 1
 \item 
-const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}} = 64
+const uint \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}} = 64
 \item 
-const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}} = 64
+const uint \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}} = 64
+\item 
+const uint \mbox{\hyperlink{two__stream_8h_a3ec98e9ffa9165115420ddf5b2f7816d}{Npar}} = 4 $\ast$ \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}} $\ast$ \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}}
 \item 
 const double \mbox{\hyperlink{two__stream_8h_a2e8eb03d046a5f97ec1919e1bc542783}{L\+\_\+x}} = 8.\+0 $\ast$ M\+\_\+\+PI $\ast$ sqrt(3.\+0)
 \item 
@@ -31,34 +33,34 @@ const double \mbox{\hyperlink{two__stream_8h_acebd3f4d3a03bd5d4250087d3e45dc72}{
 \item 
 const double \mbox{\hyperlink{two__stream_8h_a4d2852f394c94e7eaac02e3c5b393654}{dt}} = 0.\+025
 \item 
-const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{two__stream_8h_ab8aad333299221f97399a7290e821569}{nspec}} = 1
+const uint \mbox{\hyperlink{two__stream_8h_ab8aad333299221f97399a7290e821569}{nspec}} = 2
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{two__stream_8h_aa67fedc876a0c37754c45c405699c0d6}\label{two__stream_8h_aa67fedc876a0c37754c45c405699c0d6}} 
-\index{two\_stream.h@{two\_stream.h}!gaussian@{gaussian}}
-\index{gaussian@{gaussian}!two\_stream.h@{two\_stream.h}}
-\doxysubsubsection{\texorpdfstring{gaussian()}{gaussian()}}
-{\footnotesize\ttfamily double gaussian (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{two__stream_8h_af33bf84a7bbc7f7673d7fc107f4183a9}\label{two__stream_8h_af33bf84a7bbc7f7673d7fc107f4183a9}} 
 \index{two\_stream.h@{two\_stream.h}!init\_b\_field@{init\_b\_field}}
 \index{init\_b\_field@{init\_b\_field}!two\_stream.h@{two\_stream.h}}
 \doxysubsubsection{\texorpdfstring{init\_b\_field()}{init\_b\_field()}}
-{\footnotesize\ttfamily void init\+\_\+b\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Nx,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Ny }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void init\+\_\+b\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{uint}]{Nx,  }\item[{uint}]{Ny }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{two__stream_8h_a2274ef8fdaf4984c0eeaafa59c84e4ce}\label{two__stream_8h_a2274ef8fdaf4984c0eeaafa59c84e4ce}} 
 \index{two\_stream.h@{two\_stream.h}!init\_e\_field@{init\_e\_field}}
 \index{init\_e\_field@{init\_e\_field}!two\_stream.h@{two\_stream.h}}
 \doxysubsubsection{\texorpdfstring{init\_e\_field()}{init\_e\_field()}}
-{\footnotesize\ttfamily void init\+\_\+e\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Nx,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Ny }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void init\+\_\+e\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{uint}]{Nx,  }\item[{uint}]{Ny }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{two__stream_8h_a5890d9f7091ea697adf479fd1d5e7972}\label{two__stream_8h_a5890d9f7091ea697adf479fd1d5e7972}} 
+\index{two\_stream.h@{two\_stream.h}!two\_stream\_minus@{two\_stream\_minus}}
+\index{two\_stream\_minus@{two\_stream\_minus}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{two\_stream\_minus()}{two\_stream\_minus()}}
+{\footnotesize\ttfamily void two\+\_\+stream\+\_\+minus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{uint}]{Npar }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{two__stream_8h_a7599c215e775b32e8f7e8e92687117b0}\label{two__stream_8h_a7599c215e775b32e8f7e8e92687117b0}} 
 \index{two\_stream.h@{two\_stream.h}!two\_stream\_plus@{two\_stream\_plus}}
 \index{two\_stream\_plus@{two\_stream\_plus}!two\_stream.h@{two\_stream.h}}
 \doxysubsubsection{\texorpdfstring{two\_stream\_plus()}{two\_stream\_plus()}}
-{\footnotesize\ttfamily void two\+\_\+stream\+\_\+plus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Npar }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void two\+\_\+stream\+\_\+plus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_species}{Species}} \&}]{spec,  }\item[{uint}]{Npar }\end{DoxyParamCaption})}
 
 
 
@@ -85,25 +87,31 @@ const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox
 \index{two\_stream.h@{two\_stream.h}!ndump@{ndump}}
 \index{ndump@{ndump}!two\_stream.h@{two\_stream.h}}
 \doxysubsubsection{\texorpdfstring{ndump}{ndump}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ndump = 1}
+{\footnotesize\ttfamily const uint ndump = 1}
+
+\mbox{\Hypertarget{two__stream_8h_a3ec98e9ffa9165115420ddf5b2f7816d}\label{two__stream_8h_a3ec98e9ffa9165115420ddf5b2f7816d}} 
+\index{two\_stream.h@{two\_stream.h}!Npar@{Npar}}
+\index{Npar@{Npar}!two\_stream.h@{two\_stream.h}}
+\doxysubsubsection{\texorpdfstring{Npar}{Npar}}
+{\footnotesize\ttfamily const uint Npar = 4 $\ast$ \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}} $\ast$ \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}}}
 
 \mbox{\Hypertarget{two__stream_8h_ab8aad333299221f97399a7290e821569}\label{two__stream_8h_ab8aad333299221f97399a7290e821569}} 
 \index{two\_stream.h@{two\_stream.h}!nspec@{nspec}}
 \index{nspec@{nspec}!two\_stream.h@{two\_stream.h}}
 \doxysubsubsection{\texorpdfstring{nspec}{nspec}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} nspec = 1}
+{\footnotesize\ttfamily const uint nspec = 2}
 
 \mbox{\Hypertarget{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}\label{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}} 
 \index{two\_stream.h@{two\_stream.h}!Nx@{Nx}}
 \index{Nx@{Nx}!two\_stream.h@{two\_stream.h}}
 \doxysubsubsection{\texorpdfstring{Nx}{Nx}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Nx = 64}
+{\footnotesize\ttfamily const uint Nx = 64}
 
 \mbox{\Hypertarget{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}\label{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}} 
 \index{two\_stream.h@{two\_stream.h}!Ny@{Ny}}
 \index{Ny@{Ny}!two\_stream.h@{two\_stream.h}}
 \doxysubsubsection{\texorpdfstring{Ny}{Ny}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Ny = 64}
+{\footnotesize\ttfamily const uint Ny = 64}
 
 \mbox{\Hypertarget{two__stream_8h_acebd3f4d3a03bd5d4250087d3e45dc72}\label{two__stream_8h_acebd3f4d3a03bd5d4250087d3e45dc72}} 
 \index{two\_stream.h@{two\_stream.h}!tmax@{tmax}}

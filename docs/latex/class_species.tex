@@ -9,24 +9,26 @@
 \item 
 \mbox{\hyperlink{class_species_abb0f8e3208b0cc676157b7dff837c0be}{Species}} ()
 \begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_species}{Species}} object. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_species_a76a2908586b969b1585176b967a45fec}{Species}} (\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_species_a6bf69a894875766344521c8af7a38f71}{npar}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} nx, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ny, double \mbox{\hyperlink{class_species_a00d753deafbf628c1822a11904c827b9}{Qpar}})
-\item 
-\mbox{\hyperlink{class_species_a729663d289f79b4124637462df56ea74}{Species}} (\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_species_a6bf69a894875766344521c8af7a38f71}{npar}}, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} nx, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ny, double \mbox{\hyperlink{class_species_a00d753deafbf628c1822a11904c827b9}{Qpar}}, double \mbox{\hyperlink{class_species_a2d5f0b6b799578963257416fa5ad0630}{density}}, std\+::function$<$ void(\mbox{\hyperlink{class_species}{Species}} \&, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})$>$ init\+\_\+fcn)
-\item 
+\mbox{\hyperlink{class_species_a3c361f85092462a507cec5163a3dfb23}{Species}} (std\+::size\+\_\+t \mbox{\hyperlink{class_species_a99dd2d67c9c618cc2a0eab278e6a0fe5}{Npar}}, std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}}, double \mbox{\hyperlink{class_species_a00d753deafbf628c1822a11904c827b9}{Qpar}})
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_species}{Species}} object -\/ inits density to 0.\+0 everywhere. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_species_a216318318dcaaff35809f1cde45b0491}{Species}} (std\+::size\+\_\+t \mbox{\hyperlink{class_species_a99dd2d67c9c618cc2a0eab278e6a0fe5}{Npar}}, std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}}, double \mbox{\hyperlink{class_species_a00d753deafbf628c1822a11904c827b9}{Qpar}}, std\+::function$<$ void(\mbox{\hyperlink{class_species}{Species}} \&, std\+::size\+\_\+t)$>$ init\+\_\+fcn)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_species}{Species}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_species_af36f93648e2dedc2f05b6fb0c067f35e}{$\sim$\+Species}} ()
 \begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_species}{Species}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_species_aaa36a207dd45987de754d6ca2674aade}{add\+\_\+particle}} (double x\+\_\+pos, double y\+\_\+pos, double z\+\_\+pos, double x\+\_\+mom, double y\+\_\+mom, double z\+\_\+mom, double Wpar)
 \begin{DoxyCompactList}\small\item\em Adds a new particle to the species. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_species_ae73e48f387f786a32882b451b72acfc9}{add\+\_\+particle}} (\mbox{\hyperlink{class_three_vec}{Three\+Vec}} pos, \mbox{\hyperlink{class_three_vec}{Three\+Vec}} mom, double Wpar)
+void \mbox{\hyperlink{class_species_a591c13a14c5a9adcd8512ec3381b278a}{add\+\_\+particle}} (const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&pos, const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&mom, double Wpar)
 \begin{DoxyCompactList}\small\item\em Adds a new particle to the species. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_species_ae44bc9ff0888f909a93a6ca2232b43f2}{add\+\_\+particle}} (\mbox{\hyperlink{class_particle}{Particle}} p)
+void \mbox{\hyperlink{class_species_ab6fbc3950ca154af46659be08c5fa3b7}{add\+\_\+particle}} (const \mbox{\hyperlink{class_particle}{Particle}} \&p)
 \begin{DoxyCompactList}\small\item\em Adds a new particle to the species. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_species_a1d8369aea7ba3f40b29d30078e29a412}{deposit\+\_\+charge}} (const double dx, const double dy, const double \mbox{\hyperlink{two__stream_8h_a2e8eb03d046a5f97ec1919e1bc542783}{L\+\_\+x}}, const double \mbox{\hyperlink{two__stream_8h_aa644a4467c696359ea672282c0c84705}{L\+\_\+y}}, const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{uh_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}})
+int \mbox{\hyperlink{class_species_ab0018dd59b01b3cc9ed71263531ea248}{deposit\+\_\+charge}} (const double dx, const double dy, const double \mbox{\hyperlink{two__stream_8h_a2e8eb03d046a5f97ec1919e1bc542783}{L\+\_\+x}}, const double \mbox{\hyperlink{two__stream_8h_aa644a4467c696359ea672282c0c84705}{L\+\_\+y}}, const std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, const std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}})
 \begin{DoxyCompactList}\small\item\em Deposits and interpolates the species charge onto the grid. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_species_a077d22fb70ac63cc4ab026bea719ea2f}{map\+\_\+field\+\_\+to\+\_\+part}} (const \mbox{\hyperlink{class_field}{Field}} \&f, \mbox{\hyperlink{_species_8h_af4e6ca114114786cc23f3d5a1f8d14bf}{field\+\_\+type}} field\+\_\+to\+\_\+map, const double dx, const double dy, const double \mbox{\hyperlink{two__stream_8h_a2e8eb03d046a5f97ec1919e1bc542783}{L\+\_\+x}}, const double \mbox{\hyperlink{two__stream_8h_aa644a4467c696359ea672282c0c84705}{L\+\_\+y}}, const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{uh_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}})
+int \mbox{\hyperlink{class_species_a90b4480b5964dba31312382576b746bc}{map\+\_\+field\+\_\+to\+\_\+part}} (const \mbox{\hyperlink{class_field}{Field}} \&f, const \mbox{\hyperlink{namespace_field___t_a0aac038e593d9258f1448b75c2f7b0ec}{Field\+\_\+\+T\+::\+Field\+\_\+\+Type}} field\+\_\+to\+\_\+map, const double dx, const double dy, const double \mbox{\hyperlink{two__stream_8h_a2e8eb03d046a5f97ec1919e1bc542783}{L\+\_\+x}}, const double \mbox{\hyperlink{two__stream_8h_aa644a4467c696359ea672282c0c84705}{L\+\_\+y}}, const std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a8dfb498413096d9fce8a7ed69cb41d16}{Nx}}, const std\+::size\+\_\+t \mbox{\hyperlink{two__stream_8h_a276dfd99384a9c735597add8d0b07b3d}{Ny}})
 \begin{DoxyCompactList}\small\item\em Interpolates the field values from the grid to the particle position. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_species_a1b2843f90ec94c88b59bd02e30c9623e}{push\+\_\+particles}} (const double \mbox{\hyperlink{two__stream_8h_a2e8eb03d046a5f97ec1919e1bc542783}{L\+\_\+x}}, const double \mbox{\hyperlink{two__stream_8h_aa644a4467c696359ea672282c0c84705}{L\+\_\+y}}, const double \mbox{\hyperlink{uh_8h_a4d2852f394c94e7eaac02e3c5b393654}{dt}}, const double dx, const double dy)
+int \mbox{\hyperlink{class_species_a1b2843f90ec94c88b59bd02e30c9623e}{push\+\_\+particles}} (const double \mbox{\hyperlink{two__stream_8h_a2e8eb03d046a5f97ec1919e1bc542783}{L\+\_\+x}}, const double \mbox{\hyperlink{two__stream_8h_aa644a4467c696359ea672282c0c84705}{L\+\_\+y}}, const double \mbox{\hyperlink{two__stream_8h_a4d2852f394c94e7eaac02e3c5b393654}{dt}}, const double dx, const double dy)
 \begin{DoxyCompactList}\small\item\em Performs a Boris push on all of the particles in the species. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_species_ab7b66d974a9d5e0b1ea69d724f933d3d}{apply\+\_\+bc}} (const double \mbox{\hyperlink{two__stream_8h_a2e8eb03d046a5f97ec1919e1bc542783}{L\+\_\+x}}, const double \mbox{\hyperlink{two__stream_8h_aa644a4467c696359ea672282c0c84705}{L\+\_\+y}}, const double dx, const double dy)
+\begin{DoxyCompactList}\small\item\em Applies the boundary condition for every particle in the species. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_data_storage__1_d}{Data\+Storage\+\_\+1D}} \mbox{\hyperlink{class_species_a04df397fbb36f23c9f573ad82e931946}{get\+\_\+x\+\_\+phasespace}} ()
 \begin{DoxyCompactList}\small\item\em Returns all of the particles\textquotesingle{} x positions. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_data_storage__1_d}{Data\+Storage\+\_\+1D}} \mbox{\hyperlink{class_species_ab1b9d008b4c1fff97b39d09709fc36dd}{get\+\_\+y\+\_\+phasespace}} ()
@@ -35,54 +37,38 @@ int \mbox{\hyperlink{class_species_a1b2843f90ec94c88b59bd02e30c9623e}{push\+\_\+
 \begin{DoxyCompactList}\small\item\em Returns all of the particles\textquotesingle{} x momenta. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_data_storage__1_d}{Data\+Storage\+\_\+1D}} \mbox{\hyperlink{class_species_a5ad2b8a64d76504097b8af4e1ffafac4}{get\+\_\+py\+\_\+phasespace}} ()
 \begin{DoxyCompactList}\small\item\em Returns all of the particles\textquotesingle{} y momenta. \end{DoxyCompactList}\item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_species_ac9d1f9ab9c44589190c3e6e6d14f4b30}{get\+\_\+local\+\_\+E}} (int i)
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_species_aa635dd0c476305db2d1457d9dd5d31d5}{get\+\_\+local\+\_\+E}} (std\+::size\+\_\+t i)
 \item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_species_a503c12cbb3879381a8460d41e22fddf5}{get\+\_\+local\+\_\+\+E\+\_\+x}} ()
-\item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_species_acc39c9effdcf7c75935e235bbb01b221}{get\+\_\+local\+\_\+\+E\+\_\+y}} ()
-\item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_species_a3390072d00a9e3d38ce075672d4cc6e4}{get\+\_\+local\+\_\+\+E\+\_\+z}} ()
-\item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_species_a22a995317b9d377e0a4166f99102d2b7}{get\+\_\+local\+\_\+B}} (int i)
-\item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_species_aed3dacf8889628b9b76863f52c72c67e}{get\+\_\+local\+\_\+\+B\+\_\+x}} ()
-\item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_species_a12080caec6ec1b8e74ba0f0ee9aa12f0}{get\+\_\+local\+\_\+\+B\+\_\+y}} ()
-\item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_species_aafb0d8396ab912548e7f64238e68dcc3}{get\+\_\+local\+\_\+\+B\+\_\+z}} ()
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_species_ad797cb25089e7a4a7e36850d52b8d970}{get\+\_\+local\+\_\+B}} (std\+::size\+\_\+t i)
 \item 
 void \mbox{\hyperlink{class_species_a5eee4f101900af933e971b61a5bb2034}{print\+\_\+pos}} () const
 \begin{DoxyCompactList}\small\item\em Prints the positions of all the particles in the species. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_species_a668e499ba7a774e10a2d8438bccec37b}{print\+\_\+pos\+\_\+comp}} (\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} i) const
+void \mbox{\hyperlink{class_species_ac81a3c4408f625bbd31f4112e00a8329}{print\+\_\+pos\+\_\+comp}} (std\+::size\+\_\+t i) const
 \begin{DoxyCompactList}\small\item\em Prints the component of the position of all the particles in the species. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_species_a36252cd0db016ce017bff9453ab4d152}{print\+\_\+mom}} () const
 \begin{DoxyCompactList}\small\item\em Prints the momentum of all the particles in the species. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_species_a207c86236c2d746b279191ef90c3467d}{print\+\_\+mom\+\_\+comp}} (\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} i) const
+void \mbox{\hyperlink{class_species_a204496b91c9e3157503453f96b1b1d64}{print\+\_\+mom\+\_\+comp}} (std\+::size\+\_\+t i) const
 \begin{DoxyCompactList}\small\item\em Prints the component of the momentum of all the particles in the species. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_species_aabc4aa9df4e9bcbb6d9f6ad0f458c8dc}{print\+\_\+weight}} () const
 \begin{DoxyCompactList}\small\item\em Prints the weights of all the particles in the species. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_species_a3bb46eca1c4f43e5db3c7c3f4677de49}{print\+\_\+local\+\_\+e\+\_\+field}} () const
 \begin{DoxyCompactList}\small\item\em Prints the local electric field for all the particles in the species. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_species_a4d54c1b75fc0c922de4e37012ad66e75}{print\+\_\+local\+\_\+e\+\_\+field\+\_\+comp}} (\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} i) const
+void \mbox{\hyperlink{class_species_a81ad034a50227fb032b0c672e575b3a9}{print\+\_\+local\+\_\+e\+\_\+field\+\_\+comp}} (std\+::size\+\_\+t i) const
 \begin{DoxyCompactList}\small\item\em Prints the component of the local electric field for all the particles in the species. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_species_aee8ddd16c44c95a3f4f2c2914af75763}{print\+\_\+local\+\_\+b\+\_\+field}} () const
 \begin{DoxyCompactList}\small\item\em Prints the local magnetic field for all the particles in the species. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_species_a3d478505ef730c7c9bb64b84fdb7f423}{print\+\_\+local\+\_\+b\+\_\+field\+\_\+comp}} (\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} i) const
+void \mbox{\hyperlink{class_species_a2e6424d4cc1834753def862334fa7a14}{print\+\_\+local\+\_\+b\+\_\+field\+\_\+comp}} (std\+::size\+\_\+t i) const
 \begin{DoxyCompactList}\small\item\em Prints the component of the local magnetic field for all the particles in the species. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_species_a9437dbbd089711220316a336bfdef445}{print\+\_\+density}} () const
 \begin{DoxyCompactList}\small\item\em Prints the density distribution for this species. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{class_species_a6bf69a894875766344521c8af7a38f71}{npar}}
-\item 
-double \mbox{\hyperlink{class_species_a2d5f0b6b799578963257416fa5ad0630}{density}}
+std\+::size\+\_\+t \mbox{\hyperlink{class_species_a99dd2d67c9c618cc2a0eab278e6a0fe5}{Npar}}
 \item 
 \mbox{\hyperlink{class_grid_object}{Grid\+Object}} \mbox{\hyperlink{class_species_af0ebb300b3d00e9311dec2611cc2bf79}{density\+\_\+arr}}
 \item 
 double \mbox{\hyperlink{class_species_a00d753deafbf628c1822a11904c827b9}{Qpar}}
-\item 
-double \mbox{\hyperlink{class_species_aa990e5d82ba0f86e0a1ee7f694f6022f}{total\+\_\+\+KE}}
 \end{DoxyCompactItemize}
 
 
@@ -97,33 +83,50 @@ double \mbox{\hyperlink{class_species_aa990e5d82ba0f86e0a1ee7f694f6022f}{total\+
 
 Constructor for \mbox{\hyperlink{class_species}{Species}} object. 
 
+\mbox{\Hypertarget{class_species_a3c361f85092462a507cec5163a3dfb23}\label{class_species_a3c361f85092462a507cec5163a3dfb23}} 
+\index{Species@{Species}!Species@{Species}}
+\index{Species@{Species}!Species@{Species}}
+\doxysubsubsection{\texorpdfstring{Species()}{Species()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Species\+::\+Species (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{Npar,  }\item[{std\+::size\+\_\+t}]{Nx,  }\item[{std\+::size\+\_\+t}]{Ny,  }\item[{double}]{Qpar }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_species}{Species}} object -\/ inits density to 0.\+0 everywhere. 
+
 
 \begin{DoxyParams}{Parameters}
-{\em npar} & Total number of particles in the species \\
+{\em Npar} & Total number of particles in the species \\
 \hline
-{\em nx} & Number of grid spaces in x direction \\
+{\em Nx} & Number of grid spaces in x direction \\
 \hline
-{\em ny} & Number of grid spaces in y direction \\
+{\em Ny} & Number of grid spaces in y direction \\
 \hline
-{\em Qpar} & Charge of species \\
+{\em Qpar} & Charge of particle in units of fundamental charge \\
 \hline
-{\em density} & Base density of the species \\
+\end{DoxyParams}
+\mbox{\Hypertarget{class_species_a216318318dcaaff35809f1cde45b0491}\label{class_species_a216318318dcaaff35809f1cde45b0491}} 
+\index{Species@{Species}!Species@{Species}}
+\index{Species@{Species}!Species@{Species}}
+\doxysubsubsection{\texorpdfstring{Species()}{Species()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Species\+::\+Species (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{Npar,  }\item[{std\+::size\+\_\+t}]{Nx,  }\item[{std\+::size\+\_\+t}]{Ny,  }\item[{double}]{Qpar,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{class_species}{Species}} \&, std\+::size\+\_\+t)$>$}]{init\+\_\+fcn }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_species}{Species}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Npar} & Total number of particles in the species \\
+\hline
+{\em Nx} & Number of grid spaces in x direction \\
+\hline
+{\em Ny} & Number of grid spaces in y direction \\
+\hline
+{\em Qpar} & Charge of particle in units of fundamental charge \\
 \hline
 {\em init\+\_\+fcn} & User provided function which initializes the density of the species to the user\textquotesingle{}s specification \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_species_a76a2908586b969b1585176b967a45fec}\label{class_species_a76a2908586b969b1585176b967a45fec}} 
-\index{Species@{Species}!Species@{Species}}
-\index{Species@{Species}!Species@{Species}}
-\doxysubsubsection{\texorpdfstring{Species()}{Species()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily Species\+::\+Species (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{npar,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{nx,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{ny,  }\item[{double}]{Qpar }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{class_species_a729663d289f79b4124637462df56ea74}\label{class_species_a729663d289f79b4124637462df56ea74}} 
-\index{Species@{Species}!Species@{Species}}
-\index{Species@{Species}!Species@{Species}}
-\doxysubsubsection{\texorpdfstring{Species()}{Species()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily Species\+::\+Species (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{npar,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{nx,  }\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{ny,  }\item[{double}]{Qpar,  }\item[{double}]{density,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{class_species}{Species}} \&, \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})$>$}]{init\+\_\+fcn }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{class_species_af36f93648e2dedc2f05b6fb0c067f35e}\label{class_species_af36f93648e2dedc2f05b6fb0c067f35e}} 
 \index{Species@{Species}!````~Species@{$\sim$Species}}
 \index{````~Species@{$\sim$Species}!Species@{Species}}
@@ -137,10 +140,44 @@ Destructor for \mbox{\hyperlink{class_species}{Species}} object.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_species_aaa36a207dd45987de754d6ca2674aade}\label{class_species_aaa36a207dd45987de754d6ca2674aade}} 
+\mbox{\Hypertarget{class_species_ab6fbc3950ca154af46659be08c5fa3b7}\label{class_species_ab6fbc3950ca154af46659be08c5fa3b7}} 
 \index{Species@{Species}!add\_particle@{add\_particle}}
 \index{add\_particle@{add\_particle}!Species@{Species}}
 \doxysubsubsection{\texorpdfstring{add\_particle()}{add\_particle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Species\+::add\+\_\+particle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_particle}{Particle}} \&}]{p }\end{DoxyParamCaption})}
+
+
+
+Adds a new particle to the species. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A particle object to add to the species \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_species_a591c13a14c5a9adcd8512ec3381b278a}\label{class_species_a591c13a14c5a9adcd8512ec3381b278a}} 
+\index{Species@{Species}!add\_particle@{add\_particle}}
+\index{add\_particle@{add\_particle}!Species@{Species}}
+\doxysubsubsection{\texorpdfstring{add\_particle()}{add\_particle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Species\+::add\+\_\+particle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&}]{pos,  }\item[{const \mbox{\hyperlink{class_three_vec}{Three\+Vec}} \&}]{mom,  }\item[{double}]{Wpar }\end{DoxyParamCaption})}
+
+
+
+Adds a new particle to the species. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & A vector containing all position components of the particle \\
+\hline
+{\em mom} & A vector containing all momentum components of the particle \\
+\hline
+{\em Wpar} & The weight of the particle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_species_aaa36a207dd45987de754d6ca2674aade}\label{class_species_aaa36a207dd45987de754d6ca2674aade}} 
+\index{Species@{Species}!add\_particle@{add\_particle}}
+\index{add\_particle@{add\_particle}!Species@{Species}}
+\doxysubsubsection{\texorpdfstring{add\_particle()}{add\_particle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily void Species\+::add\+\_\+particle (\begin{DoxyParamCaption}\item[{double}]{x\+\_\+pos,  }\item[{double}]{y\+\_\+pos,  }\item[{double}]{z\+\_\+pos,  }\item[{double}]{x\+\_\+mom,  }\item[{double}]{y\+\_\+mom,  }\item[{double}]{z\+\_\+mom,  }\item[{double}]{Wpar }\end{DoxyParamCaption})}
 
 
@@ -164,45 +201,32 @@ Adds a new particle to the species.
 {\em Wpar} & The weight of the particle \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_species_ae44bc9ff0888f909a93a6ca2232b43f2}\label{class_species_ae44bc9ff0888f909a93a6ca2232b43f2}} 
-\index{Species@{Species}!add\_particle@{add\_particle}}
-\index{add\_particle@{add\_particle}!Species@{Species}}
-\doxysubsubsection{\texorpdfstring{add\_particle()}{add\_particle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily void Species\+::add\+\_\+particle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle}{Particle}}}]{p }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_species_ab7b66d974a9d5e0b1ea69d724f933d3d}\label{class_species_ab7b66d974a9d5e0b1ea69d724f933d3d}} 
+\index{Species@{Species}!apply\_bc@{apply\_bc}}
+\index{apply\_bc@{apply\_bc}!Species@{Species}}
+\doxysubsubsection{\texorpdfstring{apply\_bc()}{apply\_bc()}}
+{\footnotesize\ttfamily void Species\+::apply\+\_\+bc (\begin{DoxyParamCaption}\item[{const double}]{L\+\_\+x,  }\item[{const double}]{L\+\_\+y,  }\item[{const double}]{dx,  }\item[{const double}]{dy }\end{DoxyParamCaption})}
 
 
 
-Adds a new particle to the species. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em p} & A particle object to add to the species \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_species_ae73e48f387f786a32882b451b72acfc9}\label{class_species_ae73e48f387f786a32882b451b72acfc9}} 
-\index{Species@{Species}!add\_particle@{add\_particle}}
-\index{add\_particle@{add\_particle}!Species@{Species}}
-\doxysubsubsection{\texorpdfstring{add\_particle()}{add\_particle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily void Species\+::add\+\_\+particle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{pos,  }\item[{\mbox{\hyperlink{class_three_vec}{Three\+Vec}}}]{mom,  }\item[{double}]{Wpar }\end{DoxyParamCaption})}
-
-
-
-Adds a new particle to the species. 
+Applies the boundary condition for every particle in the species. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em pos} & A vector containing all position components of the particle \\
+{\em L\+\_\+x} & Physical length of system in x direction \\
 \hline
-{\em mom} & A vector containing all momentum components of the particle \\
+{\em L\+\_\+y} & Physical length of system in y direction \\
 \hline
-{\em Wpar} & The weight of the particle \\
+{\em dx} & Spatial grid step in x direction \\
+\hline
+{\em dy} & Spatial grid step in y direction \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_species_a1d8369aea7ba3f40b29d30078e29a412}\label{class_species_a1d8369aea7ba3f40b29d30078e29a412}} 
+\mbox{\Hypertarget{class_species_ab0018dd59b01b3cc9ed71263531ea248}\label{class_species_ab0018dd59b01b3cc9ed71263531ea248}} 
 \index{Species@{Species}!deposit\_charge@{deposit\_charge}}
 \index{deposit\_charge@{deposit\_charge}!Species@{Species}}
 \doxysubsubsection{\texorpdfstring{deposit\_charge()}{deposit\_charge()}}
-{\footnotesize\ttfamily int Species\+::deposit\+\_\+charge (\begin{DoxyParamCaption}\item[{const double}]{dx,  }\item[{const double}]{dy,  }\item[{const double}]{L\+\_\+x,  }\item[{const double}]{L\+\_\+y,  }\item[{const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Nx,  }\item[{const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Ny }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int Species\+::deposit\+\_\+charge (\begin{DoxyParamCaption}\item[{const double}]{dx,  }\item[{const double}]{dy,  }\item[{const double}]{L\+\_\+x,  }\item[{const double}]{L\+\_\+y,  }\item[{const std\+::size\+\_\+t}]{Nx,  }\item[{const std\+::size\+\_\+t}]{Ny }\end{DoxyParamCaption})}
 
 
 
@@ -226,53 +250,17 @@ Deposits and interpolates the species charge onto the grid.
 \begin{DoxyReturn}{Returns}
 int Returns an error code or 0 if successful 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_species_a22a995317b9d377e0a4166f99102d2b7}\label{class_species_a22a995317b9d377e0a4166f99102d2b7}} 
+\mbox{\Hypertarget{class_species_ad797cb25089e7a4a7e36850d52b8d970}\label{class_species_ad797cb25089e7a4a7e36850d52b8d970}} 
 \index{Species@{Species}!get\_local\_B@{get\_local\_B}}
 \index{get\_local\_B@{get\_local\_B}!Species@{Species}}
 \doxysubsubsection{\texorpdfstring{get\_local\_B()}{get\_local\_B()}}
-{\footnotesize\ttfamily std\+::vector$<$ double $>$ Species\+::get\+\_\+local\+\_\+B (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Species\+::get\+\_\+local\+\_\+B (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_species_aed3dacf8889628b9b76863f52c72c67e}\label{class_species_aed3dacf8889628b9b76863f52c72c67e}} 
-\index{Species@{Species}!get\_local\_B\_x@{get\_local\_B\_x}}
-\index{get\_local\_B\_x@{get\_local\_B\_x}!Species@{Species}}
-\doxysubsubsection{\texorpdfstring{get\_local\_B\_x()}{get\_local\_B\_x()}}
-{\footnotesize\ttfamily std\+::vector$<$ double $>$ Species\+::get\+\_\+local\+\_\+\+B\+\_\+x (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{class_species_a12080caec6ec1b8e74ba0f0ee9aa12f0}\label{class_species_a12080caec6ec1b8e74ba0f0ee9aa12f0}} 
-\index{Species@{Species}!get\_local\_B\_y@{get\_local\_B\_y}}
-\index{get\_local\_B\_y@{get\_local\_B\_y}!Species@{Species}}
-\doxysubsubsection{\texorpdfstring{get\_local\_B\_y()}{get\_local\_B\_y()}}
-{\footnotesize\ttfamily std\+::vector$<$ double $>$ Species\+::get\+\_\+local\+\_\+\+B\+\_\+y (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{class_species_aafb0d8396ab912548e7f64238e68dcc3}\label{class_species_aafb0d8396ab912548e7f64238e68dcc3}} 
-\index{Species@{Species}!get\_local\_B\_z@{get\_local\_B\_z}}
-\index{get\_local\_B\_z@{get\_local\_B\_z}!Species@{Species}}
-\doxysubsubsection{\texorpdfstring{get\_local\_B\_z()}{get\_local\_B\_z()}}
-{\footnotesize\ttfamily std\+::vector$<$ double $>$ Species\+::get\+\_\+local\+\_\+\+B\+\_\+z (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{class_species_ac9d1f9ab9c44589190c3e6e6d14f4b30}\label{class_species_ac9d1f9ab9c44589190c3e6e6d14f4b30}} 
+\mbox{\Hypertarget{class_species_aa635dd0c476305db2d1457d9dd5d31d5}\label{class_species_aa635dd0c476305db2d1457d9dd5d31d5}} 
 \index{Species@{Species}!get\_local\_E@{get\_local\_E}}
 \index{get\_local\_E@{get\_local\_E}!Species@{Species}}
 \doxysubsubsection{\texorpdfstring{get\_local\_E()}{get\_local\_E()}}
-{\footnotesize\ttfamily std\+::vector$<$ double $>$ Species\+::get\+\_\+local\+\_\+E (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{class_species_a503c12cbb3879381a8460d41e22fddf5}\label{class_species_a503c12cbb3879381a8460d41e22fddf5}} 
-\index{Species@{Species}!get\_local\_E\_x@{get\_local\_E\_x}}
-\index{get\_local\_E\_x@{get\_local\_E\_x}!Species@{Species}}
-\doxysubsubsection{\texorpdfstring{get\_local\_E\_x()}{get\_local\_E\_x()}}
-{\footnotesize\ttfamily std\+::vector$<$ double $>$ Species\+::get\+\_\+local\+\_\+\+E\+\_\+x (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{class_species_acc39c9effdcf7c75935e235bbb01b221}\label{class_species_acc39c9effdcf7c75935e235bbb01b221}} 
-\index{Species@{Species}!get\_local\_E\_y@{get\_local\_E\_y}}
-\index{get\_local\_E\_y@{get\_local\_E\_y}!Species@{Species}}
-\doxysubsubsection{\texorpdfstring{get\_local\_E\_y()}{get\_local\_E\_y()}}
-{\footnotesize\ttfamily std\+::vector$<$ double $>$ Species\+::get\+\_\+local\+\_\+\+E\+\_\+y (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{class_species_a3390072d00a9e3d38ce075672d4cc6e4}\label{class_species_a3390072d00a9e3d38ce075672d4cc6e4}} 
-\index{Species@{Species}!get\_local\_E\_z@{get\_local\_E\_z}}
-\index{get\_local\_E\_z@{get\_local\_E\_z}!Species@{Species}}
-\doxysubsubsection{\texorpdfstring{get\_local\_E\_z()}{get\_local\_E\_z()}}
-{\footnotesize\ttfamily std\+::vector$<$ double $>$ Species\+::get\+\_\+local\+\_\+\+E\+\_\+z (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ Species\+::get\+\_\+local\+\_\+E (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_species_a214c696b4875fd2cea679c15a9c63cdf}\label{class_species_a214c696b4875fd2cea679c15a9c63cdf}} 
 \index{Species@{Species}!get\_px\_phasespace@{get\_px\_phasespace}}
@@ -326,11 +314,11 @@ Returns all of the particles\textquotesingle{} y positions.
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$double$>$ Vector containing the y positions of all particles in species 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_species_a077d22fb70ac63cc4ab026bea719ea2f}\label{class_species_a077d22fb70ac63cc4ab026bea719ea2f}} 
+\mbox{\Hypertarget{class_species_a90b4480b5964dba31312382576b746bc}\label{class_species_a90b4480b5964dba31312382576b746bc}} 
 \index{Species@{Species}!map\_field\_to\_part@{map\_field\_to\_part}}
 \index{map\_field\_to\_part@{map\_field\_to\_part}!Species@{Species}}
 \doxysubsubsection{\texorpdfstring{map\_field\_to\_part()}{map\_field\_to\_part()}}
-{\footnotesize\ttfamily int Species\+::map\+\_\+field\+\_\+to\+\_\+part (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{\mbox{\hyperlink{_species_8h_af4e6ca114114786cc23f3d5a1f8d14bf}{field\+\_\+type}}}]{field\+\_\+to\+\_\+map,  }\item[{const double}]{dx,  }\item[{const double}]{dy,  }\item[{const double}]{L\+\_\+x,  }\item[{const double}]{L\+\_\+y,  }\item[{const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Nx,  }\item[{const \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{Ny }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int Species\+::map\+\_\+field\+\_\+to\+\_\+part (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_field}{Field}} \&}]{f,  }\item[{const \mbox{\hyperlink{namespace_field___t_a0aac038e593d9258f1448b75c2f7b0ec}{Field\+\_\+\+T\+::\+Field\+\_\+\+Type}}}]{field\+\_\+to\+\_\+map,  }\item[{const double}]{dx,  }\item[{const double}]{dy,  }\item[{const double}]{L\+\_\+x,  }\item[{const double}]{L\+\_\+y,  }\item[{const std\+::size\+\_\+t}]{Nx,  }\item[{const std\+::size\+\_\+t}]{Ny }\end{DoxyParamCaption})}
 
 
 
@@ -339,6 +327,8 @@ Interpolates the field values from the grid to the particle position.
 
 \begin{DoxyParams}{Parameters}
 {\em f} & \mbox{\hyperlink{class_field}{Field}} to interpolate to particle position \\
+\hline
+{\em field\+\_\+to\+\_\+map} & Type of field to map to particles \\
 \hline
 {\em dx} & Spatial grid step in x direction \\
 \hline
@@ -376,11 +366,11 @@ Prints the density distribution for this species.
 
 Prints the local magnetic field for all the particles in the species. 
 
-\mbox{\Hypertarget{class_species_a3d478505ef730c7c9bb64b84fdb7f423}\label{class_species_a3d478505ef730c7c9bb64b84fdb7f423}} 
+\mbox{\Hypertarget{class_species_a2e6424d4cc1834753def862334fa7a14}\label{class_species_a2e6424d4cc1834753def862334fa7a14}} 
 \index{Species@{Species}!print\_local\_b\_field\_comp@{print\_local\_b\_field\_comp}}
 \index{print\_local\_b\_field\_comp@{print\_local\_b\_field\_comp}!Species@{Species}}
 \doxysubsubsection{\texorpdfstring{print\_local\_b\_field\_comp()}{print\_local\_b\_field\_comp()}}
-{\footnotesize\ttfamily void Species\+::print\+\_\+local\+\_\+b\+\_\+field\+\_\+comp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{i }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily void Species\+::print\+\_\+local\+\_\+b\+\_\+field\+\_\+comp (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
 
 
 
@@ -401,11 +391,11 @@ Prints the component of the local magnetic field for all the particles in the sp
 
 Prints the local electric field for all the particles in the species. 
 
-\mbox{\Hypertarget{class_species_a4d54c1b75fc0c922de4e37012ad66e75}\label{class_species_a4d54c1b75fc0c922de4e37012ad66e75}} 
+\mbox{\Hypertarget{class_species_a81ad034a50227fb032b0c672e575b3a9}\label{class_species_a81ad034a50227fb032b0c672e575b3a9}} 
 \index{Species@{Species}!print\_local\_e\_field\_comp@{print\_local\_e\_field\_comp}}
 \index{print\_local\_e\_field\_comp@{print\_local\_e\_field\_comp}!Species@{Species}}
 \doxysubsubsection{\texorpdfstring{print\_local\_e\_field\_comp()}{print\_local\_e\_field\_comp()}}
-{\footnotesize\ttfamily void Species\+::print\+\_\+local\+\_\+e\+\_\+field\+\_\+comp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{i }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily void Species\+::print\+\_\+local\+\_\+e\+\_\+field\+\_\+comp (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
 
 
 
@@ -426,11 +416,11 @@ Prints the component of the local electric field for all the particles in the sp
 
 Prints the momentum of all the particles in the species. 
 
-\mbox{\Hypertarget{class_species_a207c86236c2d746b279191ef90c3467d}\label{class_species_a207c86236c2d746b279191ef90c3467d}} 
+\mbox{\Hypertarget{class_species_a204496b91c9e3157503453f96b1b1d64}\label{class_species_a204496b91c9e3157503453f96b1b1d64}} 
 \index{Species@{Species}!print\_mom\_comp@{print\_mom\_comp}}
 \index{print\_mom\_comp@{print\_mom\_comp}!Species@{Species}}
 \doxysubsubsection{\texorpdfstring{print\_mom\_comp()}{print\_mom\_comp()}}
-{\footnotesize\ttfamily void Species\+::print\+\_\+mom\+\_\+comp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{i }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily void Species\+::print\+\_\+mom\+\_\+comp (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
 
 
 
@@ -451,11 +441,11 @@ Prints the component of the momentum of all the particles in the species.
 
 Prints the positions of all the particles in the species. 
 
-\mbox{\Hypertarget{class_species_a668e499ba7a774e10a2d8438bccec37b}\label{class_species_a668e499ba7a774e10a2d8438bccec37b}} 
+\mbox{\Hypertarget{class_species_ac81a3c4408f625bbd31f4112e00a8329}\label{class_species_ac81a3c4408f625bbd31f4112e00a8329}} 
 \index{Species@{Species}!print\_pos\_comp@{print\_pos\_comp}}
 \index{print\_pos\_comp@{print\_pos\_comp}!Species@{Species}}
 \doxysubsubsection{\texorpdfstring{print\_pos\_comp()}{print\_pos\_comp()}}
-{\footnotesize\ttfamily void Species\+::print\+\_\+pos\+\_\+comp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{i }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily void Species\+::print\+\_\+pos\+\_\+comp (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i }\end{DoxyParamCaption}) const}
 
 
 
@@ -505,35 +495,23 @@ int Returns an error code or 0 if successful
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_species_a2d5f0b6b799578963257416fa5ad0630}\label{class_species_a2d5f0b6b799578963257416fa5ad0630}} 
-\index{Species@{Species}!density@{density}}
-\index{density@{density}!Species@{Species}}
-\doxysubsubsection{\texorpdfstring{density}{density}}
-{\footnotesize\ttfamily double Species\+::density}
-
 \mbox{\Hypertarget{class_species_af0ebb300b3d00e9311dec2611cc2bf79}\label{class_species_af0ebb300b3d00e9311dec2611cc2bf79}} 
 \index{Species@{Species}!density\_arr@{density\_arr}}
 \index{density\_arr@{density\_arr}!Species@{Species}}
 \doxysubsubsection{\texorpdfstring{density\_arr}{density\_arr}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_grid_object}{Grid\+Object}} Species\+::density\+\_\+arr}
 
-\mbox{\Hypertarget{class_species_a6bf69a894875766344521c8af7a38f71}\label{class_species_a6bf69a894875766344521c8af7a38f71}} 
-\index{Species@{Species}!npar@{npar}}
-\index{npar@{npar}!Species@{Species}}
-\doxysubsubsection{\texorpdfstring{npar}{npar}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_f_f_t_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} Species\+::npar}
+\mbox{\Hypertarget{class_species_a99dd2d67c9c618cc2a0eab278e6a0fe5}\label{class_species_a99dd2d67c9c618cc2a0eab278e6a0fe5}} 
+\index{Species@{Species}!Npar@{Npar}}
+\index{Npar@{Npar}!Species@{Species}}
+\doxysubsubsection{\texorpdfstring{Npar}{Npar}}
+{\footnotesize\ttfamily std\+::size\+\_\+t Species\+::\+Npar}
 
 \mbox{\Hypertarget{class_species_a00d753deafbf628c1822a11904c827b9}\label{class_species_a00d753deafbf628c1822a11904c827b9}} 
 \index{Species@{Species}!Qpar@{Qpar}}
 \index{Qpar@{Qpar}!Species@{Species}}
 \doxysubsubsection{\texorpdfstring{Qpar}{Qpar}}
 {\footnotesize\ttfamily double Species\+::\+Qpar}
-
-\mbox{\Hypertarget{class_species_aa990e5d82ba0f86e0a1ee7f694f6022f}\label{class_species_aa990e5d82ba0f86e0a1ee7f694f6022f}} 
-\index{Species@{Species}!total\_KE@{total\_KE}}
-\index{total\_KE@{total\_KE}!Species@{Species}}
-\doxysubsubsection{\texorpdfstring{total\_KE}{total\_KE}}
-{\footnotesize\ttfamily double Species\+::total\+\_\+\+KE}
 
 
 

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['b_5ffield_399',['b_field',['../class_simulation.html#adfbc2f698fa481f5a70c82d53a7a3dde',1,'Simulation']]]
+  ['ampx_378',['ampx',['../cold__wave_8h.html#aed5c05cb4f10085f635353148d55a97a',1,'cold_wave.h']]],
+  ['ampy_379',['ampy',['../cold__wave_8h.html#a00d0e23e90a29f8f88076a56d6410044',1,'cold_wave.h']]]
 ];

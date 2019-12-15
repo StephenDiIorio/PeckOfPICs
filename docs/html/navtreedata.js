@@ -23,6 +23,16 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "PeckOfPICs", "index.html", [
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ],
+        [ "Enumerator", "namespacemembers_eval.html", null ]
+      ] ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -43,9 +53,6 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
-        [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -55,7 +62,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_data_storage_8cpp.html",
-"class_particle.html#ac27f3c3684e763606ddec400d46ec877"
+"class_simulation.html#a2484f7211804a2e186d5904e897fc0d2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
