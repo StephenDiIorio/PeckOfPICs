@@ -27,8 +27,8 @@
 
 #include "GridObject.h"
 
-// namespace FFT
-// {
+namespace FFT
+{
     enum FFT_Dir
     {
         FFT = 1,
@@ -38,10 +38,10 @@
     double sinc(const double x);
 
     int FFT_1D(std::vector<double>& data_re, std::vector<double>& data_im,
-               FFT_Dir isign);
+               FFT::FFT_Dir isign);
 
     int FFT_2D(GridObject& real_part, GridObject& imag_part,
-               FFT_Dir transform_dir);
+               FFT::FFT_Dir transform_dir);
 
     std::vector<double> get_k_vec(const std::size_t size, const double dx);
 
@@ -49,6 +49,6 @@
 
     std::vector<double> get_kappa_vec(const std::vector<double>& k, const double dx);
 
-// }
+}
 
 #endif

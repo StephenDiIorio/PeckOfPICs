@@ -182,7 +182,7 @@ int Species::deposit_charge(const double dx, const double dy,
  * @return int Returns an error code or 0 if successful
  */
 int Species::map_field_to_part(const Field& f,
-                               const Field_Type field_to_map,
+                               const Field_T::Field_Type field_to_map,
                                const double dx, const double dy,
                                const double L_x, const double L_y,
                                const std::size_t Nx, const std::size_t Ny)
@@ -233,14 +233,14 @@ int Species::map_field_to_part(const Field& f,
 
         switch (field_to_map)
         {
-            case Electric:
+            case Field_T::Electric:
                 p.set_local_e_field(loc_f_x1, loc_f_x2, loc_f_x3);
                 break;
-            case Magnetic:
+            case Field_T::Magnetic:
                 p.set_local_b_field(loc_f_x1, loc_f_x2, loc_f_x3);
                 break;
             default:
-                throw std::runtime_error(Field_T_err);
+                throw std::runtime_error(Field_T::Field_T_err);
                 break;
         }
     }

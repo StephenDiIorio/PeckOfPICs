@@ -33,7 +33,7 @@
  * @param x The position to evaluate the sinc function
  * @return double The value of sinc(x)
  */
-double sinc(const double x)
+double FFT::sinc(const double x)
 {
     if (x != 0.0)
     {
@@ -53,8 +53,8 @@ double sinc(const double x)
  * @param isign Whether to perform an FFT or an IFFT
  * @return int An error code or 0 if it worked correctly
  */
-int FFT_1D(std::vector<double>& data_re, std::vector<double>& data_im,
-                FFT_Dir isign)
+int FFT::FFT_1D(std::vector<double>& data_re, std::vector<double>& data_im,
+                FFT::FFT_Dir isign)
 {
     // assumes real_part and im_part are the same size!
     const std::size_t NVALS = data_re.size();
@@ -156,14 +156,14 @@ int FFT_1D(std::vector<double>& data_re, std::vector<double>& data_im,
         */
         switch (isign)
         {
-            case FFT_Dir::FFT:
+            case FFT::FFT_Dir::FFT:
                 for (std::size_t i = 0, j = 0; j < n; ++i, j += 2)
                 {
                     data_re[i] = data[j];
                     data_im[i] = data[j + 1];
                 }
                 break;
-            case FFT_Dir::iFFT:
+            case FFT::FFT_Dir::iFFT:
                 double invNVALs = 1.0 / NVALS;
                 for (std::size_t i = 0, j = 0; j < n; ++i, j += 2)
                 {
@@ -184,8 +184,8 @@ int FFT_1D(std::vector<double>& data_re, std::vector<double>& data_im,
  * @param transform_dir Whether to perform an FFT or an IFFT
  * @return int An error code or 0 if it worked correctly
  */
-int FFT_2D(GridObject& real_part, GridObject& imag_part,
-                FFT_Dir transform_dir)
+int FFT::FFT_2D(GridObject& real_part, GridObject& imag_part,
+                FFT::FFT_Dir transform_dir)
 {
     int err = 0;
 
@@ -204,7 +204,7 @@ int FFT_2D(GridObject& real_part, GridObject& imag_part,
             xs_re[yj] = real_part.get_comp(xi, yj);
             xs_im[yj] = imag_part.get_comp(xi, yj);
         }
-        err = FFT_1D(xs_re, xs_im, transform_dir);
+        err = FFT::FFT_1D(xs_re, xs_im, transform_dir);
         if (err)
         {
             return err;
@@ -225,7 +225,7 @@ int FFT_2D(GridObject& real_part, GridObject& imag_part,
             ys_re[xi] = real_part.get_comp(xi, yj);
             ys_im[xi] = imag_part.get_comp(xi, yj);
         }
-        err = FFT_1D(ys_re, ys_im, transform_dir);
+        err = FFT::FFT_1D(ys_re, ys_im, transform_dir);
         if (err)
         {
             return err;
@@ -240,7 +240,7 @@ int FFT_2D(GridObject& real_part, GridObject& imag_part,
     return err;
 }
 
-std::vector<double> get_k_vec(const std::size_t size, const double dx)
+std::vector<double> FFT::get_k_vec(const std::size_t size, const double dx)
 {
     std::vector<double> k = std::vector<double>(size);
     const double kmax = M_PI / dx;
@@ -258,27 +258,27 @@ std::vector<double> get_k_vec(const std::size_t size, const double dx)
     return k;
 }
 
-std::vector<double> get_K2_vec(const std::vector<double>& k, const double dx)
+std::vector<double> FFT::get_K2_vec(const std::vector<double>& k, const double dx)
 {
     std::vector<double> K2 = std::vector<double>(k.size());
     double val;
 
     for (std::size_t i = 0; i < k.size(); ++i)
     {
-        val = k[i] * sinc(k[i] * dx / 2.0);
+        val = k[i] * FFT::sinc(k[i] * dx / 2.0);
         K2[i] = val * val;
     }
 
     return K2;
 }
 
-std::vector<double> get_kappa_vec(const std::vector<double>& k, const double dx)
+std::vector<double> FFT::get_kappa_vec(const std::vector<double>& k, const double dx)
 {
     std::vector<double> kappa = std::vector<double>(k.size());
 
     for (std::size_t i = 0; i < k.size(); ++i)
     {
-        kappa[i] = k[i] * sinc(k[i] * dx);
+        kappa[i] = k[i] * FFT::sinc(k[i] * dx);
     }
 
     return kappa;

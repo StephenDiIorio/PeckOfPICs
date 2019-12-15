@@ -64,7 +64,7 @@ class Species
                            const std::size_t Nx, const std::size_t Ny);
 
         int map_field_to_part(const Field& f,
-                              const Field_Type field_to_map,
+                              const Field_T::Field_Type field_to_map,
                               const double dx, const double dy,
                               const double L_x, const double L_y,
                               const std::size_t Nx, const std::size_t Ny);

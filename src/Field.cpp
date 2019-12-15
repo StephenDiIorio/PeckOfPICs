@@ -26,13 +26,13 @@ Field::Field(const std::size_t Nx, const std::size_t Ny,
 {
     this->total_U = 0.0;
 
-    std::vector<double> k_x = get_k_vec(Nx, dx);
-    std::vector<double> k_y = get_k_vec(Ny, dy);
+    std::vector<double> k_x = FFT::get_k_vec(Nx, dx);
+    std::vector<double> k_y = FFT::get_k_vec(Ny, dy);
 
-    this->K_x2 = get_K2_vec(k_x, dx);
-    this->K_y2 = get_K2_vec(k_y, dy);
-    this->Kappa_x = get_kappa_vec(k_x, dx);
-    this->Kappa_y = get_kappa_vec(k_y, dy);
+    this->K_x2 = FFT::get_K2_vec(k_x, dx);
+    this->K_y2 = FFT::get_K2_vec(k_y, dy);
+    this->Kappa_x = FFT::get_kappa_vec(k_x, dx);
+    this->Kappa_y = FFT::get_kappa_vec(k_y, dy);
 
     this->f1 = GridObject(Nx, Ny);
     this->f2 = GridObject(Nx, Ny);
@@ -55,13 +55,13 @@ Field::Field(const std::size_t Nx, const std::size_t Ny,
 {
     this->total_U = 0.0;
 
-    std::vector<double> k_x = get_k_vec(Nx, dx);
-    std::vector<double> k_y = get_k_vec(Ny, dy);
+    std::vector<double> k_x = FFT::get_k_vec(Nx, dx);
+    std::vector<double> k_y = FFT::get_k_vec(Ny, dy);
 
-    this->K_x2 = get_K2_vec(k_x, dx);
-    this->K_y2 = get_K2_vec(k_y, dy);
-    this->Kappa_x = get_kappa_vec(k_x, dx);
-    this->Kappa_y = get_kappa_vec(k_y, dy);
+    this->K_x2 = FFT::get_K2_vec(k_x, dx);
+    this->K_y2 = FFT::get_K2_vec(k_y, dy);
+    this->Kappa_x = FFT::get_kappa_vec(k_x, dx);
+    this->Kappa_y = FFT::get_kappa_vec(k_y, dy);
 
     switch(component)
     {
@@ -102,13 +102,13 @@ Field::Field(const std::size_t Nx,const  std::size_t Ny,
 {
     this->total_U = 0.0;
 
-    std::vector<double> k_x = get_k_vec(Nx, dx);
-    std::vector<double> k_y = get_k_vec(Ny, dy);
+    std::vector<double> k_x = FFT::get_k_vec(Nx, dx);
+    std::vector<double> k_y = FFT::get_k_vec(Ny, dy);
 
-    this->K_x2 = get_K2_vec(k_x, dx);
-    this->K_y2 = get_K2_vec(k_y, dy);
-    this->Kappa_x = get_kappa_vec(k_x, dx);
-    this->Kappa_y = get_kappa_vec(k_y, dy);
+    this->K_x2 = FFT::get_K2_vec(k_x, dx);
+    this->K_y2 = FFT::get_K2_vec(k_y, dy);
+    this->Kappa_x = FFT::get_kappa_vec(k_x, dx);
+    this->Kappa_y = FFT::get_kappa_vec(k_y, dy);
 
     init_field(init_fcn, Nx, Ny);
 }
@@ -148,7 +148,7 @@ int Field::solve_field(const GridObject& charge_density,
 
     // A phi = density
     // 1 fourier transform density
-    err = FFT_2D(phi_dens_re, phi_dens_im, FFT_Dir::FFT);
+    err = FFT::FFT_2D(phi_dens_re, phi_dens_im, FFT::FFT_Dir::FFT);
 
     // Set k=0 mode to zero
     phi_dens_re.set_comp(0, 0, 0);
@@ -229,8 +229,8 @@ int Field::solve_field(const GridObject& charge_density,
     }
 
     // then Ex, Ey are inverse Fourier transformed.
-    err = FFT_2D(f1, Ex_im, FFT_Dir::iFFT);
-    err = FFT_2D(f2, Ey_im, FFT_Dir::iFFT);
+    err = FFT::FFT_2D(f1, Ex_im, FFT::FFT_Dir::iFFT);
+    err = FFT::FFT_2D(f2, Ey_im, FFT::FFT_Dir::iFFT);
 
     // For total electrostatic energy diagnostic
     this->total_U *= 0.5;

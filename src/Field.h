@@ -10,15 +10,15 @@
 #include "FFT.h"
 #include "GridObject.h"
 
-// namespace Field_T
-// {
+namespace Field_T
+{
     const char Field_T_err[31] = "Error: Field type is undefined";
     enum Field_Type
     {
         Electric,
         Magnetic
     };
-// }
+}
 
 class Field
 {

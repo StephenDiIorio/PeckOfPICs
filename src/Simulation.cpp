@@ -199,7 +199,7 @@ void Simulation::_map_field_to_species()
 {
     for (auto &s : this->spec)
     {
-        s.map_field_to_part(this->e_field, Electric,
+        s.map_field_to_part(this->e_field, Field_T::Electric,
                             this->dx,  this->dy,
                             this->L_x, this->L_y,
                             this->Nx,  this->Ny);
