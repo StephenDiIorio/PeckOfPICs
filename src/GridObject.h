@@ -20,7 +20,7 @@ class GridObject
         /**********************************************************
         PRIVATE CLASS METHODS
         ***********************************************************/
-        void init_grid_obj(std::function<void(GridObject &, uint, uint)> init_fcn);
+        void init_grid_obj(std::function<void(GridObject &, std::size_t, std::size_t)> init_fcn);
         //-----------------------------------------
 
     public:
@@ -31,11 +31,11 @@ class GridObject
         CONSTRUCTORS/DESTRUCTORS
         ***********************************************************/
         GridObject(); // Note: need an empty constructor to allow GridObject to be a member
-        GridObject(uint Nx, uint Ny);
-        GridObject(uint Nx, uint Ny, double val);
-        GridObject(uint Nx, uint Ny,
-                   std::function<void(GridObject &, uint, uint)> init_fcn);
-        GridObject(uint Nx, uint Ny,
+        GridObject(std::size_t Nx, std::size_t Ny);
+        GridObject(std::size_t Nx, std::size_t Ny, double val);
+        GridObject(std::size_t Nx, std::size_t Ny,
+                   std::function<void(GridObject &, std::size_t, std::size_t)> init_fcn);
+        GridObject(std::size_t Nx, std::size_t Ny,
                    std::vector<double> data);   // a 'copy' constructor
         GridObject(GridObject const &copy_obj); // a copy constructor
         ~GridObject();
@@ -105,7 +105,7 @@ class GridObject
          * @param index_y y index of grid
          * @param val Number to sum with value at given indices
          */
-        inline void comp_add_to(uint index_x, uint index_y, double val)
+        inline void comp_add_to(std::size_t index_x, std::size_t index_y, double val)
         {
             index_x = MODULO(index_x, this->Nx);
             index_y = MODULO(index_y, this->Ny);
@@ -120,7 +120,7 @@ class GridObject
          * @param index_y y index of grid
          * @param val Number to multiply with value at given indices
          */
-        inline void comp_multiply_by(uint index_x, uint index_y, double val)
+        inline void comp_multiply_by(std::size_t index_x, std::size_t index_y, double val)
         {
             index_x = MODULO(index_x, this->Nx);
             index_y = MODULO(index_y, this->Ny);
@@ -135,7 +135,7 @@ class GridObject
          * @param index_y y index of grid
          * @param val Number to set in grid at given indices
          */
-        inline void set_comp(uint index_x, uint index_y, double val)
+        inline void set_comp(std::size_t index_x, std::size_t index_y, double val)
         {
             index_x = MODULO(index_x, this->Nx);
             index_y = MODULO(index_y, this->Ny);
@@ -149,7 +149,7 @@ class GridObject
          * @param index_y y index of grid
          * @return double Value stored in grid at given indices
          */
-        inline double get_comp(uint index_x, uint index_y) const
+        inline double get_comp(std::size_t index_x, std::size_t index_y) const
         {
             index_x = MODULO(index_x, this->Nx);
             index_y = MODULO(index_y, this->Ny);
@@ -200,7 +200,7 @@ class GridObject
 
 
         void print() const;
-        void print_comp(uint xi, uint yj) const;
+        void print_comp(std::size_t xi, std::size_t yj) const;
 
         bool equals(const GridObject &other_obj, const double TOL) const;
 

@@ -18,7 +18,7 @@ GridObject::GridObject()
  * @param Nx Number of x values
  * @param Ny Number of y values
  */
-GridObject::GridObject(uint Nx, uint Ny) : GridObject(Nx, Ny, 0.0)
+GridObject::GridObject(std::size_t Nx, std::size_t Ny) : GridObject(Nx, Ny, 0.0)
 {
 }
 
@@ -29,7 +29,7 @@ GridObject::GridObject(uint Nx, uint Ny) : GridObject(Nx, Ny, 0.0)
  * @param Ny Number of y values
  * @param val Value to initialize grid to
  */
-GridObject::GridObject(uint Nx, uint Ny, double val)
+GridObject::GridObject(std::size_t Nx, std::size_t Ny, double val)
 {
     this->Nx = Nx;
     this->Ny = Ny;
@@ -45,7 +45,7 @@ GridObject::GridObject(uint Nx, uint Ny, double val)
  * @param init_fcn User provided function which initializes the data in the grid
  *                 to the user's specification
  */
-GridObject::GridObject(uint Nx, uint Ny, std::function<void(GridObject &, uint, uint)> init_fcn)
+GridObject::GridObject(std::size_t Nx, std::size_t Ny, std::function<void(GridObject &, std::size_t, std::size_t)> init_fcn)
 {
     this->Nx = Nx;
     this->Ny = Ny;
@@ -60,7 +60,7 @@ GridObject::GridObject(uint Nx, uint Ny, std::function<void(GridObject &, uint, 
  * @param Ny Number of y values
  * @param data A vector object to copy the data from into the current grid
  */
-GridObject::GridObject(uint Nx, uint Ny, std::vector<double> data) // a 'copy' constructor
+GridObject::GridObject(std::size_t Nx, std::size_t Ny, std::vector<double> data) // a 'copy' constructor
 {
     if ((Nx * Ny) != data.size())
     {
@@ -114,7 +114,7 @@ void GridObject::print() const
  * @param xi X index of grid value to print
  * @param yj Y index of grid value to print
  */
-void GridObject::print_comp(uint xi, uint yj) const
+void GridObject::print_comp(std::size_t xi, std::size_t yj) const
 {
     this->gridded_data.print_comp(xi, yj);
 }
@@ -155,7 +155,7 @@ void GridObject::zero()
 /**********************************************************
 PRIVATE FUNCTIONS
 ***********************************************************/
-void GridObject::init_grid_obj(std::function<void(GridObject &, uint, uint)> init_fcn)
+void GridObject::init_grid_obj(std::function<void(GridObject &, std::size_t, std::size_t)> init_fcn)
 {
     init_fcn(*this, this->Nx, this->Ny);
 }
