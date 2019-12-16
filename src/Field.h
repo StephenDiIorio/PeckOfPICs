@@ -48,8 +48,6 @@ class Field
         /**********************************************************
         TO BE IMPLEMENTED
         ***********************************************************/
-        // solve_field_spectral may not currently work
-        int solve_field_spectral(std::vector<double> re, std::vector<double> im);
         int solve_field_fftw(const GridObject& charge_density);
         //-----------------------------------------
 
