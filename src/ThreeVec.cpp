@@ -60,7 +60,7 @@ void ThreeVec::inc(int i, double value)
 double ThreeVec::square()
 {
     double answer = 0.0;
-    for (uint i = 0; i < MAX_DIM; ++i)
+    for (std::size_t i = 0; i < MAX_DIM; ++i)
     {
         answer += coord_[i] * coord_[i];
     }
@@ -99,7 +99,7 @@ ThreeVec ThreeVec::element_multiply(const ThreeVec& vec)
  */
 void ThreeVec::print() const
 {
-    for (uint i = 0; i < MAX_DIM; ++i)
+    for (std::size_t i = 0; i < MAX_DIM; ++i)
     {
         std::cout << coord_[i] << '\t';
     }
@@ -111,7 +111,7 @@ void ThreeVec::print() const
  *
  * @param i The index of the component to print
  */
-void ThreeVec::print_comp(uint i) const
+void ThreeVec::print_comp(std::size_t i) const
 {
     std::cout << coord_[i] << std::endl;
 }

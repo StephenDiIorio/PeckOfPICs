@@ -118,7 +118,7 @@ class ThreeVec
         inline double operator*(const ThreeVec& vec) const
         {
             double ans = 0.0;
-            for (uint i = 0; i < MAX_DIM; ++i)
+            for (std::size_t i = 0; i < MAX_DIM; ++i)
             {
                 ans += coord_[i] * vec.get(i);
             }
@@ -253,7 +253,7 @@ class ThreeVec
 
         // Print Functions
         void print() const;
-        void print_comp(uint i) const;
+        void print_comp(std::size_t i) const;
         //-----------------------------------------
 };
 
