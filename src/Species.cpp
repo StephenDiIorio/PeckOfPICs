@@ -418,7 +418,7 @@ std::vector<double> Species::get_local_B(std::size_t i)
 {
     std::vector<double> to_ret = std::vector<double>(this->Npar);
 
-    for (int i = 0; i < this->Npar; ++i)
+    for (std::size_t i = 0; i < this->Npar; ++i)
     {
         to_ret[i] = (this->parts[i].get_local_b_field()).get(i);
     }
