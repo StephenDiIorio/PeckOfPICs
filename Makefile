@@ -1,14 +1,12 @@
 RM=rm -rf
 CXX=g++
-CXXFLAGS=-g -std=c++11 -Wall -pedantic -O3
-LDFLAGS=-g -O3
+CXXFLAGS=-g -std=c++11 -Wall -pedantic -O3 -fopenmp
+LDFLAGS=-g -O3 -fopenmp
 
 H5_ROOT = $(shell brew --prefix hdf5)
-SZIP_ROOT = $(shell brew --prefix szip)
 
 H5_COMPILEFLAGS = -I$(H5_ROOT)/include
-H5_LINKFLAGS    = -L$(H5_ROOT)/lib -lhdf5_cpp -lhdf5 -lz -lm \
-                  -L$(SZIP_ROOT)/lib -lsz
+H5_LINKFLAGS    = -L$(H5_ROOT)/lib -lhdf5_cpp -lhdf5 -lz -lm
 
 INCLUDE=$(H5_COMPILEFLAGS)
 LDLIBS=$(H5_LINKFLAGS)
