@@ -107,7 +107,7 @@ void init_b_field(Field &f, std::size_t N_x, std::size_t N_y)
 
 void Simulation::init_simulation()
 {
-    double Qpar = 1.0; // charge of particle
+    double Qpar = 10.0; // charge of particle
     this->add_species(Npar, Qpar, two_line_test);
 
     // Initialize fields
