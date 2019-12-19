@@ -102,22 +102,22 @@ int FileIO::write_species_to_HDF5(const std::size_t spec_name, const std::size_t
     H5std_string dens_gname("/DENSITY/");
     try
     {
-        top_group = H5::Group(file.createGroup(dens_gname));
+        top_group = H5::Group(file.openGroup(dens_gname));
     }
     catch(H5::FileIException error)
     {
-        top_group = H5::Group(file.openGroup(dens_gname));
+        top_group = H5::Group(file.createGroup(dens_gname));
     }
 
     H5::Group spec_group;
     H5std_string spec_gname(std::to_string(spec_name));
     try
     {
-        spec_group = H5::Group(top_group.createGroup(spec_gname));
+        spec_group = H5::Group(top_group.openGroup(spec_gname));
     }
     catch (H5::GroupIException error)
     {
-        spec_group = H5::Group(top_group.openGroup(spec_gname));
+        spec_group = H5::Group(top_group.createGroup(spec_gname));
     }
 
     try
@@ -135,19 +135,19 @@ int FileIO::write_species_to_HDF5(const std::size_t spec_name, const std::size_t
             }
             chunk_dims[i] = chunk_size;
         }
-        H5::DSetCreatPropList *plist = new H5::DSetCreatPropList;
-        plist->setChunk(data.get_ndims(), chunk_dims);
-        plist->setDeflate(COMPRESSION_LVL);
+        H5::DSetCreatPropList plist = H5::DSetCreatPropList();
+        plist.setChunk(data.get_ndims(), chunk_dims);
+        plist.setDeflate(COMPRESSION_LVL);
 
         H5::DataSpace spec_ds(data.get_ndims(), dim_sizes);
         H5std_string spec_dsname(std::to_string(itr_num));
-        H5::DataSet spec_dataset = spec_group.createDataSet(spec_dsname, H5::PredType::NATIVE_DOUBLE, spec_ds, *plist);
+        H5::DataSet spec_dataset = spec_group.createDataSet(spec_dsname, H5::PredType::NATIVE_DOUBLE, spec_ds, plist);
 
         spec_dataset.write(data.get_data(), H5::PredType::NATIVE_DOUBLE);
 
         spec_dataset.close();
         spec_ds.close();
-        delete plist;
+        plist.close();
     }
     catch (H5::DataSpaceIException error)
     {
@@ -193,22 +193,22 @@ int FileIO::write_e_field_to_HDF5(const std::size_t field_comp, const std::size_
     H5std_string f_gname("/E_FIELD/");
     try
     {
-        top_group = H5::Group(file.createGroup(f_gname));
+        top_group = H5::Group(file.openGroup(f_gname));
     }
     catch(H5::FileIException error)
     {
-        top_group = H5::Group(file.openGroup(f_gname));
+        top_group = H5::Group(file.createGroup(f_gname));
     }
 
     H5::Group comp_group;
     H5std_string comp_gname("x" + std::to_string(field_comp));
     try
     {
-        comp_group = H5::Group(top_group.createGroup(comp_gname));
+        comp_group = H5::Group(top_group.openGroup(comp_gname));
     }
     catch (H5::GroupIException error)
     {
-        comp_group = H5::Group(top_group.openGroup(comp_gname));
+        comp_group = H5::Group(top_group.createGroup(comp_gname));
     }
 
     try
@@ -226,19 +226,19 @@ int FileIO::write_e_field_to_HDF5(const std::size_t field_comp, const std::size_
             }
             chunk_dims[i] = chunk_size;
         }
-        H5::DSetCreatPropList *plist = new H5::DSetCreatPropList;
-        plist->setChunk(data.get_ndims(), chunk_dims);
-        plist->setDeflate(COMPRESSION_LVL);
+        H5::DSetCreatPropList plist = H5::DSetCreatPropList();
+        plist.setChunk(data.get_ndims(), chunk_dims);
+        plist.setDeflate(COMPRESSION_LVL);
 
         H5::DataSpace f_ds(data.get_ndims(), dim_sizes);
         H5std_string f_dsname(std::to_string(itr_num));
-        H5::DataSet f_dataset = comp_group.createDataSet(f_dsname, H5::PredType::NATIVE_DOUBLE, f_ds, *plist);
+        H5::DataSet f_dataset = comp_group.createDataSet(f_dsname, H5::PredType::NATIVE_DOUBLE, f_ds, plist);
 
         f_dataset.write(data.get_data(), H5::PredType::NATIVE_DOUBLE);
 
         f_dataset.close();
         f_ds.close();
-        delete plist;
+        plist.close();
     }
     catch (H5::DataSpaceIException error)
     {
@@ -285,22 +285,22 @@ int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_
     H5std_string f_gname("/B_FIELD/");
     try
     {
-        top_group = H5::Group(file.createGroup(f_gname));
+        top_group = H5::Group(file.openGroup(f_gname));
     }
     catch (H5::FileIException error)
     {
-        top_group = H5::Group(file.openGroup(f_gname));
+        top_group = H5::Group(file.createGroup(f_gname));
     }
 
     H5::Group comp_group;
     H5std_string comp_gname("x" + std::to_string(field_comp));
     try
     {
-        comp_group = H5::Group(top_group.createGroup(comp_gname));
+        comp_group = H5::Group(top_group.openGroup(comp_gname));
     }
     catch (H5::GroupIException error)
     {
-        comp_group = H5::Group(top_group.openGroup(comp_gname));
+        comp_group = H5::Group(top_group.createGroup(comp_gname));
     }
 
     try
@@ -318,19 +318,19 @@ int FileIO::write_b_field_to_HDF5(const std::size_t field_comp, const std::size_
             }
             chunk_dims[i] = chunk_size;
         }
-        H5::DSetCreatPropList *plist = new H5::DSetCreatPropList;
-        plist->setChunk(data.get_ndims(), chunk_dims);
-        plist->setDeflate(COMPRESSION_LVL);
+        H5::DSetCreatPropList plist = H5::DSetCreatPropList();
+        plist.setChunk(data.get_ndims(), chunk_dims);
+        plist.setDeflate(COMPRESSION_LVL);
 
         H5::DataSpace f_ds(data.get_ndims(), dim_sizes);
         H5std_string f_dsname(std::to_string(itr_num));
-        H5::DataSet f_dataset = comp_group.createDataSet(f_dsname, H5::PredType::NATIVE_DOUBLE, f_ds, *plist);
+        H5::DataSet f_dataset = comp_group.createDataSet(f_dsname, H5::PredType::NATIVE_DOUBLE, f_ds, plist);
 
         f_dataset.write(data.get_data(), H5::PredType::NATIVE_DOUBLE);
 
         f_dataset.close();
         f_ds.close();
-        delete plist;
+        plist.close();
     }
     catch (H5::DataSpaceIException error)
     {
@@ -378,33 +378,33 @@ int FileIO::write_phase_to_HDF5(const char phase_name[], const std::size_t spec_
     H5std_string p_gname("/PHASE/");
     try
     {
-        top_group = H5::Group(file.createGroup(p_gname));
+        top_group = H5::Group(file.openGroup(p_gname));
     }
     catch (H5::FileIException error)
     {
-        top_group = H5::Group(file.openGroup(p_gname));
+        top_group = H5::Group(file.createGroup(p_gname));
     }
 
     H5::Group ptype_group;
     H5std_string ptype_gname(phase_name);
     try
     {
-        ptype_group = H5::Group(top_group.createGroup(ptype_gname));
+        ptype_group = H5::Group(top_group.openGroup(ptype_gname));
     }
     catch (H5::GroupIException error)
     {
-        ptype_group = H5::Group(top_group.openGroup(ptype_gname));
+        ptype_group = H5::Group(top_group.createGroup(ptype_gname));
     }
 
     H5::Group spec_group;
     H5std_string spec_gname(std::to_string(spec_name));
     try
     {
-        spec_group = H5::Group(ptype_group.createGroup(spec_gname));
+        spec_group = H5::Group(ptype_group.openGroup(spec_gname));
     }
     catch (H5::GroupIException error)
     {
-        spec_group = H5::Group(ptype_group.openGroup(spec_gname));
+        spec_group = H5::Group(ptype_group.createGroup(spec_gname));
     }
 
     try
@@ -422,19 +422,19 @@ int FileIO::write_phase_to_HDF5(const char phase_name[], const std::size_t spec_
             }
             chunk_dims[i] = chunk_size;
         }
-        H5::DSetCreatPropList *plist = new H5::DSetCreatPropList;
-        plist->setChunk(data.get_ndims(), chunk_dims);
-        plist->setDeflate(COMPRESSION_LVL);
+        H5::DSetCreatPropList plist = H5::DSetCreatPropList();
+        plist.setChunk(data.get_ndims(), chunk_dims);
+        plist.setDeflate(COMPRESSION_LVL);
 
         H5::DataSpace p_ds(data.get_ndims(), dim_sizes);
         H5std_string p_dsname(std::to_string(itr_num));
-        H5::DataSet p_dataset = spec_group.createDataSet(p_dsname, H5::PredType::NATIVE_DOUBLE, p_ds, *plist);
+        H5::DataSet p_dataset = spec_group.createDataSet(p_dsname, H5::PredType::NATIVE_DOUBLE, p_ds, plist);
 
         p_dataset.write(data.get_data(), H5::PredType::NATIVE_DOUBLE);
 
         p_dataset.close();
         p_ds.close();
-        delete plist;
+        plist.close();
     }
     catch (H5::DataSpaceIException error)
     {
